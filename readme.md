@@ -1,2 +1,2 @@
-# david
-A Laravel App
+# David's Laravel App
+This app will be coded using The Laravel Framework.
