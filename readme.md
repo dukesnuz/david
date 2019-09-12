@@ -1,2 +1,2 @@
 # David's Laravel App
-This app will be coded using The Laravel Framework.
+An app built using the Laravel Framework.
