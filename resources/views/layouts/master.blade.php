@@ -20,7 +20,7 @@
 <body>
   <div class="content">
     <header>
-      <h1 class="text-primary">David's Famous Coding Links</h1>
+      <h1 class="text-primary">null</h1>
       <p>Under construction</p>
     </header>
 
