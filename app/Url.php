@@ -8,7 +8,6 @@ class Url extends Model
 {
     public function category()
     {
-        # Book belongs to Author
         # Define an inverse one-to-many relationship.
         return $this->belongsTo('David\Category');
     }
