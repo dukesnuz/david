@@ -17,6 +17,7 @@ class UrlsTableSeeder extends Seeder
       'subject' => 'Laravel',
       'link' => 'http://www.laravel.com',
       'description' => "Laravel.com",
+      'category_id' => 1,
     ]);
 
         DB::table('urls')->insert([
@@ -25,6 +26,7 @@ class UrlsTableSeeder extends Seeder
       'subject' => 'Version Control',
       'link' => 'https://en.wikipedia.org/wiki/Version_control',
       'description' => "What is version control",
+      'category_id' => 3,
     ]);
 
         DB::table('urls')->insert([
@@ -33,6 +35,7 @@ class UrlsTableSeeder extends Seeder
       'subject' => 'Pro Git Book',
       'link' => 'https://git-scm.com/book/en/v2',
       'description' => "The entire Pro Git book, written by Scott Chacon and Ben Straub ",
+      'category_id' => 3.
     ]);
     }
 }
