@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/get-list', 'UrlController@url');
+
+Route::get('/create', 'UrlController@create');
+
+Route::post('/url', 'UrlController@store');

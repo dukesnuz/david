@@ -22,7 +22,14 @@
     <header>
       <h1 class="text-primary">null</h1>
       <p>Under construction</p>
+      <a href="get-list">View</a>
+      <a href="create">Store</a>
     </header>
+    @if(session('alert'))
+    <div class='alert'>
+      {{ session('alert') }}
+    </div>
+    @endif
 
     <section id='main'>
       @yield('content')
@@ -41,16 +48,16 @@
     var sc_project=12099896;
     var sc_invisible=1;
     var sc_security="2987e810";
-  </script>
-  <script type="text/javascript"
-  src="https://www.statcounter.com/counter/counter.js"
-  async></script>
-  <noscript><div class="statcounter"><a title="Web Analytics"
-    href="https://statcounter.com/" target="_blank"><img
-    class="statcounter"
-    src="https://c.statcounter.com/12099896/0/2987e810/1/"
-    alt="Web Analytics"></a></div></noscript>
-    <!-- End of Statcounter Code -->
-  </div>
-</body>
-</html>
+    </script>
+    <script type="text/javascript"
+    src="https://www.statcounter.com/counter/counter.js"
+    async></script>
+    <noscript><div class="statcounter"><a title="Web Analytics"
+      href="https://statcounter.com/" target="_blank"><img
+      class="statcounter"
+      src="https://c.statcounter.com/12099896/0/2987e810/1/"
+      alt="Web Analytics"></a></div></noscript>
+      <!-- End of Statcounter Code -->
+    </div>
+  </body>
+  </html>

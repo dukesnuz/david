@@ -15,6 +15,11 @@
           <li class="list-group-item-action">{{ $url->subject }}</li>
           <li class="list-group-item list-group-item-action list-group-item-success"><a href="{{ $url->link }}">Read More</a></li>
           <li class="list-group-item m-5 bg-secondary text-warning">{{ $url->description }}</li>
+          <li><ul class="list-inline">Tags:
+          <?php foreach ($url->tags as $key => $tag): ?>
+          <li class="list-inline-item"><?php  echo $tag->name; ?></li>
+          <?php endforeach; ?>
+        </ul></li>
         <?php endforeach; ?>
       </ul>
 

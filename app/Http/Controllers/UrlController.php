@@ -11,14 +11,41 @@ class UrlController extends Controller
 {
     public function url()
     {
-        //$urls = Url::with('category')->get(); //->take(10)->inRandomOrder()->get();
-        //return view('links')->with('urls', $urls);
-        $urls = Url::with('tags')->get();
-        foreach ($urls as $key => $url) {
-            dump($url->subject);
-            foreach ($url->tags as $key => $tag) {
-                dump($tag->name);
-            }
+        $urls = Url::with('category')->with('tags')->take(10)->inRandomOrder()->get();
+        return view('links')->with('urls', $urls);
+    }
+
+    public function create()
+    {
+
+        // grab categories
+        $categories = Category::orderBy('categories', 'ASC')->get();
+        // add to array
+        $categories_for_drop = [];
+        foreach ($categories as $category) {
+            $categories_for_drop[$category->id] = $category->categories;
         }
+
+        return view('create')->with([
+          'categories_for_drop' => $categories_for_drop,
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+          'subject' => 'required|min:3',
+          'link' => 'required|min:3',
+          'category_id' => 'required|numeric',
+      ]);
+
+        $url = new Url();
+        $url->subject = $request->subject;
+        $url->link = $request->link;
+        $url->description = $request->description;
+        $url->category_id = $request->category_id;
+        $url->save();
+
+        return redirect('/get-list')->with('alert', 'The link '.$request->input('subject').  ' was added.');
     }
 }

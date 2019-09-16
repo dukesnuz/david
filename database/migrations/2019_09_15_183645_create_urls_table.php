@@ -18,7 +18,7 @@ class CreateUrlsTable extends Migration
             $table->timestamps();
             $table->string('subject', 150)->comment('Subject of link');
             $table->string('link', 200);
-            $table->mediumText('description')->nullable;
+            $table->mediumText('description')->nullable();
             $table->integer('category_id')->unsigned();
         });
     }
