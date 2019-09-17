@@ -23,7 +23,7 @@ Create a Link
 
             <li><label for='category_id'>* Category:</label>
               <select id='category_id' name='category_id'>
-                @foreach($categories_for_drop as $category_id => $name)
+                @foreach($categoriesForDrop as $category_id => $name)
 
                 <option value='{{ $category_id }}' {{ old('category_id') == $category_id ? 'SELECTED' : '' }}>
                   {{$name}}
@@ -34,6 +34,12 @@ Create a Link
 
               <li><label>Description:<label>
                 <input type="text" id="description" name="description" value='{{ old('description', '') }}'></li>
+
+              @foreach($tagsForCheckBoxes as $tagId => $tagName)
+                <input type='checkbox' value='{{ $tagId }}' name='tags[]'>
+                {{ $tagName }} <br>
+              @endforeach
+
                 <li><input type="submit" value="Submit"></li>
               </ul>
             </form>

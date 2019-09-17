@@ -20,14 +20,18 @@ class UrlController extends Controller
 
         // grab categories
         $categories = Category::orderBy('categories', 'ASC')->get();
+        // grab tags
+        $tagsForCheckBoxes = Tag::getTagsForCheckBoxes();
+
         // add to array
-        $categories_for_drop = [];
+        $categoriesForDrop = [];
         foreach ($categories as $category) {
-            $categories_for_drop[$category->id] = $category->categories;
+            $categoriesForDrop[$category->id] = $category->categories;
         }
 
         return view('create')->with([
-          'categories_for_drop' => $categories_for_drop,
+          'categoriesForDrop' => $categoriesForDrop,
+          'tagsForCheckBoxes' => $tagsForCheckBoxes,
         ]);
     }
 
@@ -44,6 +48,15 @@ class UrlController extends Controller
         $url->link = $request->link;
         $url->description = $request->description;
         $url->category_id = $request->category_id;
+        $url->save();
+
+        // check if tags seleceted
+        if ($request->tags) {
+            $tags = $request->tags;
+        } else {
+            $tags = [];
+        }
+        $url->tags()->sync($tags);
         $url->save();
 
         return redirect('/get-list')->with('alert', 'The link '.$request->input('subject').  ' was added.');
