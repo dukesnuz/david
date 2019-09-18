@@ -37,7 +37,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        //$this->middleware('guest'); // comment out so logged in users can add a user in register blade
+        $this->middleware('auth'); // add auth = authorized = logged in user can access regiter blade
     }
 
     /**
