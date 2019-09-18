@@ -79,5 +79,21 @@
             @yield('content')
         </main>
     </div>
+    <!-- Default Statcounter code for david.dukesnuz.com
+    http://david.dukesnuz.com/ -->
+    <script type="text/javascript">
+    var sc_project=12099896;
+    var sc_invisible=1;
+    var sc_security="2987e810";
+    </script>
+    <script type="text/javascript"
+    src="https://www.statcounter.com/counter/counter.js"
+    async></script>
+    <noscript><div class="statcounter"><a title="Web Analytics"
+      href="https://statcounter.com/" target="_blank"><img
+      class="statcounter"
+      src="https://c.statcounter.com/12099896/0/2987e810/1/"
+      alt="Web Analytics"></a></div></noscript>
+      <!-- End of Statcounter Code -->
 </body>
 </html>

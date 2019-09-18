@@ -47,7 +47,7 @@
     </footer>
 
     @stack('body')
-
+  </div>
     <!-- Default Statcounter code for david.dukesnuz.com
     http://david.dukesnuz.com/ -->
     <script type="text/javascript">
@@ -64,6 +64,5 @@
       src="https://c.statcounter.com/12099896/0/2987e810/1/"
       alt="Web Analytics"></a></div></noscript>
       <!-- End of Statcounter Code -->
-    </div>
   </body>
   </html>
