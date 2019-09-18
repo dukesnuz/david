@@ -1,30 +1,43 @@
 @extends('layouts.master')
 
 @section('title')
-  David's Coding Links
+David's Coding Links
 @endsection
 
 @section('content')
 
-<!--<h2>David's Famous Coding Links</h2>-->
-  <div class="flex-center position-ref full-height">
-    <div class="content">
-      <ul class="list-group m-5" style="margin-bottom:250px">
-        <?php foreach ($urls as $key => $url): ?>
-          <li class="list-group-item-action">CATEGORY: {{ $url->category->categories }}</li>
-          <li class="list-group-item-action">{{ $url->subject }}</li>
-          <li class="list-group-item list-group-item-action list-group-item-success"><a href="{{ $url->link }}">Read More</a></li>
-          <li class="list-group-item m-5 bg-secondary text-warning">{{ $url->description }}</li>
-          <li><ul class="list-inline">Tags:
-          <?php foreach ($url->tags as $key => $tag): ?>
-          <li class="list-inline-item"><?php  echo $tag->name; ?></li>
-          <?php endforeach; ?>
-        </ul></li>
-        <li class="list-group-item-action"><a href="/links/edit/{{ $url->id }}">Edit</a></li>
-        <?php endforeach; ?>
-      </ul>
+<h2>Favorite Links</h2>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
 
+        <?php foreach ($urls as $key => $url): ?>
+          <div class="bg-dark text-white" style="margin:25px">
+          <div class="card-header">
+            <h3>{{ $url->subject }}</h3>
+          </div>
+          <div class="card-body">
+            <p>Category: {{ $url->category->categories }}</p>
+            <p>Description: {{ $url->description }}</p>
+            <p><a href="{{ $url->link }}"class="btn btn-success">Read More</a></p>
+
+          <ul class="list-inline">
+          <li class="list-inline-item">Tags:</li>
+            <?php foreach ($url->tags as $key => $tag): ?>
+                <li class="list-inline-item"><?php  echo $tag->name; ?></li>
+            <?php endforeach; ?>
+          </ul>
+          @if(Auth::check())
+            <p><a href="/links/edit/{{ $url->id }}" class="btn btn-primary">Edit</a></p>
+          @endif
+          </div>
+        </div>
+        <?php endforeach; ?>
+
+      </div>
     </div>
   </div>
+</div>
 
-  @endsection
+@endsection

@@ -10,59 +10,62 @@
   <meta name="keywords" content="coding, website, developemnt, Laravel, html, css, php, mysql, frameworks, angular, vue.js">
   <meta name="author" content="David Petringa, Coded September 2019">
   <meta name="viewport" content="width=device-width; initial-scale=1.0">
-
-  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet'>
-  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
-
+  <!-- Fonts -->
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <!-- Styles -->
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   @stack('head')
 
 </head>
 <body>
-  <div class="content">
-    <header>
-      <h1 class="text-primary">null</h1>
-      @if(Auth::check())
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="/home">Home</a></li>
-        <li class="list-inline-item"><a href="/links/get-list">View</a></li>
-        <li class="list-inline-item"><a href="/links/create">Create</a></li>
-        <li class="list-inline-item"><a href="/links/create-categories">Categories</a></li>
-        <li class="list-inline-item"><a href="/links/create-tags">Tags</a></li>
-      </ul>
-      @endif
-    </header>
-    @if(session('alert'))
-    <div class='alert'>
-      {{ session('alert') }}
-    </div>
+  <header>
+    <h1 class="text-primary"><a href="/">David's Laravel App</a></h1>
+    @if(Auth::check())
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="/home">Home</a></li>
+      <li class="list-inline-item"><a href="/links/get-list">View</a></li>
+      <li class="list-inline-item"><a href="/links/create">Create</a></li>
+      <li class="list-inline-item"><a href="/links/create-categories">Categories</a></li>
+      <li class="list-inline-item"><a href="/links/create-tags">Tags</a></li>
+    </ul>
     @endif
-
-    <section id='main'>
-      @yield('content')
-    </section>
-
-    <footer>
-      <a href='https://github.com/dukesnuz/david'><i class='fa fa-github'></i></a>&nbsp;
-      &copy; {{ date('Y') }}
-    </footer>
-
-    @stack('body')
+  </header>
+  @if(session('alert'))
+  <div class='alert'>
+    {{ session('alert') }}
   </div>
-    <!-- Default Statcounter code for david.dukesnuz.com
-    http://david.dukesnuz.com/ -->
-    <script type="text/javascript">
-    var sc_project=12099896;
-    var sc_invisible=1;
-    var sc_security="2987e810";
-    </script>
-    <script type="text/javascript"
-    src="https://www.statcounter.com/counter/counter.js"
-    async></script>
-    <noscript><div class="statcounter"><a title="Web Analytics"
-      href="https://statcounter.com/" target="_blank"><img
-      class="statcounter"
-      src="https://c.statcounter.com/12099896/0/2987e810/1/"
-      alt="Web Analytics"></a></div></noscript>
-      <!-- End of Statcounter Code -->
+  @endif
+
+  <main class="py-4">
+    @yield('content')
+  </main>
+
+  <footer class="h-25">
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="/">Home</a></li>
+      <li><a href='https://github.com/dukesnuz/david'><i class='fa fa-github'></i>Code on GitHub</a></li>
+      <li>Coding and content by David Petringa: &copy;&nbsp;{{ date('Y') }}</li>
+    </ul>
+  </footer>
+
+  @stack('body')
+
+  <!-- Default Statcounter code for david.dukesnuz.com
+  http://david.dukesnuz.com/ -->
+  <script type="text/javascript">
+  var sc_project=12099896;
+  var sc_invisible=1;
+  var sc_security="2987e810";
+  </script>
+  <script type="text/javascript"
+  src="https://www.statcounter.com/counter/counter.js"
+  async></script>
+  <noscript><div class="statcounter"><a title="Web Analytics"
+    href="https://statcounter.com/" target="_blank"><img
+    class="statcounter"
+    src="https://c.statcounter.com/12099896/0/2987e810/1/"
+    alt="Web Analytics"></a></div></noscript>
+    <!-- End of Statcounter Code -->
   </body>
   </html>
