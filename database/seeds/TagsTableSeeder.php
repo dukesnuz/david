@@ -12,7 +12,7 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-        $data = ['laravel', 'framework', 'git', 'github', 'php', 'server'];
+        $data = ['laravel', 'framework', 'git', 'github', 'php', 'server', 'html'];
 
         foreach ($data as $tagName) {
             $tag = new Tag();
