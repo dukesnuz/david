@@ -20,6 +20,7 @@
           <li class="list-inline-item"><?php  echo $tag->name; ?></li>
           <?php endforeach; ?>
         </ul></li>
+        <li class="list-group-item-action"><a href="/edit/{{ $url->id }}">Edit</a></li>
         <?php endforeach; ?>
       </ul>
 

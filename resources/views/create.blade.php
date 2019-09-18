@@ -34,12 +34,12 @@ Create a Link
 
               <li><label>Description:<label>
                 <input type="text" id="description" name="description" value='{{ old('description', '') }}'></li>
-
+              <li><label>Tags: <label>
               @foreach($tagsForCheckBoxes as $tagId => $tagName)
                 <input type='checkbox' value='{{ $tagId }}' name='tags[]'>
-                {{ $tagName }} <br>
+                {{ $tagName }}
               @endforeach
-
+            </li>
                 <li><input type="submit" value="Submit"></li>
               </ul>
             </form>

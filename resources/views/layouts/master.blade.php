@@ -22,8 +22,10 @@
     <header>
       <h1 class="text-primary">null</h1>
       <p>Under construction</p>
-      <a href="get-list">View</a>
-      <a href="create">Store</a>
+      <a href="/get-list">View</a>
+      <a href="/create">Store</a>
+      <a href="/create-categories">Categories</a>
+      <a href="/create-tags">Tags</a>
     </header>
     @if(session('alert'))
     <div class='alert'>

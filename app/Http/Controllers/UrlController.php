@@ -17,7 +17,6 @@ class UrlController extends Controller
 
     public function create()
     {
-
         // grab categories
         $categories = Category::orderBy('categories', 'ASC')->get();
         // grab tags
@@ -60,5 +59,74 @@ class UrlController extends Controller
         $url->save();
 
         return redirect('/get-list')->with('alert', 'The link '.$request->input('subject').  ' was added.');
+    }
+
+    public function createCategories()
+    {
+        $categories = Category::orderBy('categories', 'ASC')->get();
+        return view('categories')->with('categories', $categories);
+    }
+
+    public function storeCategory(Request $request)
+    {
+        $this->validate($request, [
+          'new_category' => 'required',
+      ]);
+
+        $category = new Category();
+        $category->categories = $request->new_category;
+        $category->save();
+
+        return redirect('/create-categories')->with('alert', 'The category '.$request->input('new_category').  ' was added.');
+    }
+
+    public function createTags()
+    {
+        $tags = Tag::orderBy('name', 'ASC')->get();
+        return view('tags')->with('tags', $tags);
+    }
+
+    public function storeTag(Request $request)
+    {
+        $this->validate($request, [
+          'new_tag' => 'required',
+      ]);
+
+        $tag = new Tag();
+        $tag->name = $request->new_tag;
+        $tag->save();
+
+        return redirect('/create-tags')->with('alert', 'The tag '.$request->input('new_tag').  ' was added.');
+    }
+
+    public function editUrl($id)
+    {
+        $url = Url::with('category')->with('tags')->find($id);
+        $tags_for_checkbox = Tag::getTagsForCheckboxes();
+        $tags_for_this_link = [];
+        foreach ($url->tags as $tag) {
+            $tags_for_this_link[] = $tag->name;
+        }
+
+        return view('update-url')->with([
+            'url' => $url,
+            'tags_for_checkbox' => $tags_for_checkbox,
+            'tags_for_this_link' => $tags_for_this_link,
+          ]);
+    }
+
+    public function updateUrl(Request $request, $id)
+    {
+        //  // grab tags
+        $tagsForCheckBoxes = Tag::getTagsForCheckBoxes();
+
+        $updateUrl = Url::find($id);
+        $updateUrl ->tags()->sync($request->input('tags'));
+        $updateUrl->subject = $request->input('subject');
+        $updateUrl->link = $request->input('link');
+        $updateUrl->description = $request->input('description');
+        $updateUrl->save();
+
+        return redirect('/edit/'.$id.'')->with('alert', 'Your changes were saved.');
     }
 }
