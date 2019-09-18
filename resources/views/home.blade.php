@@ -18,7 +18,7 @@
         </div>
 
         <div class="card-footer">
-          <a href="get-list">View</a>
+          <a href="/links/get-list">View</a>
         </div>
       </div>
     </div>

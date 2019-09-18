@@ -15,28 +15,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/get-list', 'UrlController@url');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// links section
+Route::get('/links/get-list', 'UrlController@url');
 // Routes for logged in users
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/create', 'UrlController@create');
+    Route::get('/links/create', 'UrlController@create');
 
-    Route::post('url', 'UrlController@store');
+    Route::post('links/url', 'UrlController@store');
 
-    Route::get('create-categories', 'UrlController@createCategories');
+    Route::get('links/create-categories', 'UrlController@createCategories');
 
-    Route::post('category', 'UrlController@storeCategory');
+    Route::post('links/category', 'UrlController@storeCategory');
 
-    Route::get('create-tags', 'UrlController@createTags');
+    Route::get('links/create-tags', 'UrlController@createTags');
 
-    Route::post('tag', 'UrlController@storeTag');
+    Route::post('links/tag', 'UrlController@storeTag');
 
     # Show form to edit url
-    Route::get('/edit/{id}', 'UrlController@editUrl');
+    Route::get('/links/edit/{id}', 'UrlController@editUrl');
     # Process form to update url
-    Route::post('/update-url/{id}', 'UrlController@updateUrl');
+    Route::post('/links/update-url/{id}', 'UrlController@updateUrl');
 });

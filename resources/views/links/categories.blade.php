@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-David's Coding Tags
+David's Coding Categories
 @endsection
 
 @section('content')
@@ -11,22 +11,20 @@ David's Coding Tags
   <div class="content">
 
     <ul class="list-group m-5" style="margin-bottom:10px">
-      <?php foreach ($tags as $key => $tag): ?>
-        <li>{{ $tag->name }}</li>
+      <?php foreach ($categories as $key => $category): ?>
+        <li>{{ $category->categories }}</li>
       <?php endforeach; ?>
     </ul>
 
-    <form method='POST' action='tag'>
+    <form method='POST' action='/links/category'>
       {{ csrf_field() }}
       <ul>
-        <li><label>New Tag:<label>
-          <input type="text" id="new_tag" name="new_tag" value='{{ old('new_tag', '') }}'></li>
-          <div class="error">@include('modules.error-field', ['fieldName' => 'new_tag'])</div>
+        <li><label>New Category:<label>
+          <input type="text" id="new_category" name="new_category" value='{{ old('new_category', '') }}'></li>
+          <div class="error">@include('modules.error-field', ['fieldName' => 'new_category'])</div>
           <li><input type="submit" value="Submit"></li>
         </ul>
       </form>
-
-
 
     </div>
   </div>

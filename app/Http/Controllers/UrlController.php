@@ -12,7 +12,7 @@ class UrlController extends Controller
     public function url()
     {
         $urls = Url::with('category')->with('tags')->take(10)->inRandomOrder()->get();
-        return view('links')->with('urls', $urls);
+        return view('links.links')->with('urls', $urls);
     }
 
     public function create()
@@ -28,7 +28,7 @@ class UrlController extends Controller
             $categoriesForDrop[$category->id] = $category->categories;
         }
 
-        return view('create')->with([
+        return view('links.create')->with([
           'categoriesForDrop' => $categoriesForDrop,
           'tagsForCheckBoxes' => $tagsForCheckBoxes,
         ]);
@@ -58,13 +58,13 @@ class UrlController extends Controller
         $url->tags()->sync($tags);
         $url->save();
 
-        return redirect('/get-list')->with('alert', 'The link '.$request->input('subject').  ' was added.');
+        return redirect('links/get-list')->with('alert', 'The link '.$request->input('subject').  ' was added.');
     }
 
     public function createCategories()
     {
         $categories = Category::orderBy('categories', 'ASC')->get();
-        return view('categories')->with('categories', $categories);
+        return view('links.categories')->with('categories', $categories);
     }
 
     public function storeCategory(Request $request)
@@ -77,13 +77,13 @@ class UrlController extends Controller
         $category->categories = $request->new_category;
         $category->save();
 
-        return redirect('/create-categories')->with('alert', 'The category '.$request->input('new_category').  ' was added.');
+        return redirect('links/create-categories')->with('alert', 'The category '.$request->input('new_category').  ' was added.');
     }
 
     public function createTags()
     {
         $tags = Tag::orderBy('name', 'ASC')->get();
-        return view('tags')->with('tags', $tags);
+        return view('links/tags')->with('tags', $tags);
     }
 
     public function storeTag(Request $request)
@@ -96,7 +96,7 @@ class UrlController extends Controller
         $tag->name = $request->new_tag;
         $tag->save();
 
-        return redirect('/create-tags')->with('alert', 'The tag '.$request->input('new_tag').  ' was added.');
+        return redirect('links/create-tags')->with('alert', 'The tag '.$request->input('new_tag').  ' was added.');
     }
 
     public function editUrl($id)
@@ -108,7 +108,7 @@ class UrlController extends Controller
             $tags_for_this_link[] = $tag->name;
         }
 
-        return view('update-url')->with([
+        return view('links/update-url')->with([
             'url' => $url,
             'tags_for_checkbox' => $tags_for_checkbox,
             'tags_for_this_link' => $tags_for_this_link,
@@ -127,6 +127,6 @@ class UrlController extends Controller
         $updateUrl->description = $request->input('description');
         $updateUrl->save();
 
-        return redirect('/edit/'.$id.'')->with('alert', 'Your changes were saved.');
+        return redirect('links/edit/'.$id.'')->with('alert', 'Your changes were saved.');
     }
 }

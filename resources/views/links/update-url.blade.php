@@ -10,7 +10,7 @@ Edit a Link
 <div class="flex-center position-ref full-height">
   <div class="content">
 
-    <form method='POST' action='/update-url/{{$url->id}}'>
+    <form method='POST' action='/links/update-url/{{$url->id}}'>
 
       {{ csrf_field() }}
       <ul>

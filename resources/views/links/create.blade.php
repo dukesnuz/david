@@ -10,7 +10,7 @@ Create a Link
 <div class="flex-center position-ref full-height">
   <div class="content">
 
-    <form method='POST' action='url'>
+    <form method='POST' action='/links/url'>
 
       {{ csrf_field() }}
       <ul>

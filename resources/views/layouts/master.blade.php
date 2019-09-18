@@ -24,10 +24,10 @@
       @if(Auth::check())
       <ul class="list-inline">
         <li class="list-inline-item"><a href="/home">Home</a></li>
-        <li class="list-inline-item"><a href="/get-list">View</a></li>
-        <li class="list-inline-item"><a href="/create">Store</a></li>
-        <li class="list-inline-item"><a href="/create-categories">Categories</a></li>
-        <li class="list-inline-item"><a href="/create-tags">Tags</a></li>
+        <li class="list-inline-item"><a href="/links/get-list">View</a></li>
+        <li class="list-inline-item"><a href="/links/create">Create</a></li>
+        <li class="list-inline-item"><a href="/links/create-categories">Categories</a></li>
+        <li class="list-inline-item"><a href="/links/create-tags">Tags</a></li>
       </ul>
       @endif
     </header>
