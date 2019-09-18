@@ -17,22 +17,26 @@ Route::get('/', function () {
 
 Route::get('/get-list', 'UrlController@url');
 
-Route::get('/create', 'UrlController@create');
+Auth::routes();
 
-Route::post('url', 'UrlController@store');
+Route::get('/home', 'HomeController@index')->name('home');
 
+// Routes for logged in users
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/create', 'UrlController@create');
 
-Route::get('create-categories', 'UrlController@createCategories');
+    Route::post('url', 'UrlController@store');
 
-Route::post('category', 'UrlController@storeCategory');
+    Route::get('create-categories', 'UrlController@createCategories');
 
-Route::get('create-tags', 'UrlController@createTags');
+    Route::post('category', 'UrlController@storeCategory');
 
-Route::post('tag', 'UrlController@storeTag');
+    Route::get('create-tags', 'UrlController@createTags');
 
-//Route::get('update-url/{id}', 'UrlController@updateUrl');
+    Route::post('tag', 'UrlController@storeTag');
 
-# Show form to edit url
-Route::get('/edit/{id}', 'UrlController@editUrl');
-# Process form to update url
-Route::post('/update-url/{id}', 'UrlController@updateUrl');
+    # Show form to edit url
+    Route::get('/edit/{id}', 'UrlController@editUrl');
+    # Process form to update url
+    Route::post('/update-url/{id}', 'UrlController@updateUrl');
+});

@@ -21,11 +21,15 @@
   <div class="content">
     <header>
       <h1 class="text-primary">null</h1>
-      <p>Under construction</p>
-      <a href="/get-list">View</a>
-      <a href="/create">Store</a>
-      <a href="/create-categories">Categories</a>
-      <a href="/create-tags">Tags</a>
+      @if(Auth::check())
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="/home">Home</a></li>
+        <li class="list-inline-item"><a href="/get-list">View</a></li>
+        <li class="list-inline-item"><a href="/create">Store</a></li>
+        <li class="list-inline-item"><a href="/create-categories">Categories</a></li>
+        <li class="list-inline-item"><a href="/create-tags">Tags</a></li>
+      </ul>
+      @endif
     </header>
     @if(session('alert'))
     <div class='alert'>
