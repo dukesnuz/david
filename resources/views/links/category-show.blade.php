@@ -7,6 +7,7 @@ David's Coding Links
 @section('content')
 
 <h2><a href="/links/get-list">Favorite Links</a></h2>
+<h3>Category: {{$category }}</h3>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">

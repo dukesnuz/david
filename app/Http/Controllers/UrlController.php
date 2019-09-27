@@ -136,6 +136,9 @@ class UrlController extends Controller
             $query->where('categories', '=', $category);
         })->with('tags')->get();
 
-        return view('links/category-show')->with('urls', $urls);
+        return view('links/category-show')->with([
+          'urls' =>  $urls,
+          'category' => $category
+        ]);
     }
 }
