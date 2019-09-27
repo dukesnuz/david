@@ -11,7 +11,7 @@ class UrlController extends Controller
 {
     public function url()
     {
-        $urls = Url::with('category')->with('tags')->take(10)->inRandomOrder()->get();
+        $urls = Url::with('category')->with('tags')->take(50)->inRandomOrder()->get();
         return view('links.links')->with('urls', $urls);
     }
 
@@ -128,5 +128,14 @@ class UrlController extends Controller
         $updateUrl->save();
 
         return redirect('links/edit/'.$id.'')->with('alert', 'Your changes were saved.');
+    }
+
+    public function category($category)
+    {
+        $urls =  Url::whereHas('category', function ($query) use ($category) {
+            $query->where('categories', '=', $category);
+        })->with('tags')->get();
+
+        return view('links/category-show')->with('urls', $urls);
     }
 }

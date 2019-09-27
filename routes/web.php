@@ -21,6 +21,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // links section
 Route::get('/links/get-list', 'UrlController@url');
+
+// Get links by category
+Route::get('links/category/{category}', 'UrlController@category');
+
 // Routes for logged in users
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/links/create', 'UrlController@create');
