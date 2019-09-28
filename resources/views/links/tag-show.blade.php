@@ -7,7 +7,7 @@ David's Coding Links
 @section('content')
 
 <h2><a href="/links/get-list">Favorite Links</a></h2>
-<h3>Category: {{$category }}</h3>
+<h3>Tag: {{ $tag }}</h3>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
@@ -27,7 +27,6 @@ David's Coding Links
           <li class="list-inline-item">Tags:</li>
             <?php foreach ($url->tags as $key => $tag): ?>
               <li class="list-inline-item"><a href="/links/tag/<?php  echo $tag->name; ?>"><?php  echo $tag->name; ?></a></li>
-
             <?php endforeach; ?>
           </ul>
           @if(Auth::check())

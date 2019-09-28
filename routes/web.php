@@ -25,6 +25,9 @@ Route::get('/links/get-list', 'UrlController@url');
 // Get links by category
 Route::get('links/category/{category}', 'UrlController@category');
 
+// Get links by tag
+Route::get('links/tag/{tag}', 'UrlController@tag');
+
 // Routes for logged in users
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/links/create', 'UrlController@create');

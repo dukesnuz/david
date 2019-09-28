@@ -25,7 +25,7 @@ David's Coding Links
           <ul class="list-inline">
           <li class="list-inline-item">Tags:</li>
             <?php foreach ($url->tags as $key => $tag): ?>
-                <li class="list-inline-item"><?php  echo $tag->name; ?></li>
+                <li class="list-inline-item"><a href="/links/tag/<?php  echo $tag->name; ?>"><?php  echo $tag->name; ?></a></li>
             <?php endforeach; ?>
           </ul>
           @if(Auth::check())

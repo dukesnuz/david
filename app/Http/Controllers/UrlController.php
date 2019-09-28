@@ -141,4 +141,16 @@ class UrlController extends Controller
           'category' => $category
         ]);
     }
+
+    public function tag($tag)
+    {
+        $urls = Url::whereHas('tags', function ($query) use ($tag) {
+            $query->where('name', '=', $tag);
+        })->with('category')->get();
+
+        return view('links/tag-show')->with([
+          'urls' =>  $urls,
+          'tag' => $tag
+        ]);
+    }
 }
