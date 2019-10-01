@@ -11,4 +11,14 @@ class Category extends Model
         # Define a one-to-many relationship.
         return $this->hasMany('David\Url');
     }
+
+    public static function getCategoriesForDrop()
+    {
+        $categories = Category::orderBy('categories', 'ASC')->get();
+        $categoriesForDrops = [];
+        foreach ($categories as $category) {
+            $categoriesForDrops[$category['id']] = $category->categories;
+        }
+        return $categoriesForDrops;
+    }
 }

@@ -103,6 +103,7 @@ class UrlController extends Controller
     {
         $url = Url::with('category')->with('tags')->find($id);
         $tags_for_checkbox = Tag::getTagsForCheckboxes();
+        $categories_for_drop = Category::getCategoriesForDrop();
         $tags_for_this_link = [];
         foreach ($url->tags as $tag) {
             $tags_for_this_link[] = $tag->name;
@@ -112,6 +113,8 @@ class UrlController extends Controller
             'url' => $url,
             'tags_for_checkbox' => $tags_for_checkbox,
             'tags_for_this_link' => $tags_for_this_link,
+            'categories_for_drop' =>  $categories_for_drop,
+            'category_for_this_link' => $url->category->categories,
           ]);
     }
 
@@ -125,6 +128,7 @@ class UrlController extends Controller
         $updateUrl->subject = $request->input('subject');
         $updateUrl->link = $request->input('link');
         $updateUrl->description = $request->input('description');
+        $updateUrl->category_id = $request->input('category');
         $updateUrl->save();
 
         return redirect('links/edit/'.$id.'')->with('alert', 'Your changes were saved.');

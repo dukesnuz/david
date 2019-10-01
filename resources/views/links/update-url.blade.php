@@ -6,7 +6,6 @@ Edit a Link
 
 @section('content')
 
-<!--<h2>David's Famous Coding Links</h2>-->
 <div class="flex-center position-ref full-height">
   <div class="content">
 
@@ -14,10 +13,20 @@ Edit a Link
 
       {{ csrf_field() }}
       <ul>
+        <li><label>Category: <label>
+              <select name="category">
+            <?php foreach ($categories_for_drop as $category_id => $category_name): ?>
+              <option value='{{ $category_id }}' {{ $category_for_this_link == $category_name ? 'SELECTED' : '' }}>
+                {{ $category_name }}
+              </option>
+            <?php endforeach; ?>
+              </select>
+        </li>
+        <div class="error">@include('modules.error-field', ['fieldName' => 'category'])</div>
+
         <li><label>Subject:<label>
           <input type="text" id="subject" name="subject" value='{{ old('subject', $url->subject) }}'></li>
           <div class="error">@include('modules.error-field', ['fieldName' => 'subject'])</div>
-
 
           <li><label>Link:<label>
             <input type="text" id="link" name="link" value='{{ old('link', $url->link) }}'></li>
