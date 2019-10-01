@@ -33,7 +33,9 @@ Edit a Link
             <div class="error">@include('modules.error-field', ['fieldName' => 'link'])</div>
 
             <li><label>Description:<label>
-              <input type="text" id="description" name="description" value='{{ old('description', $url->description) }}'></li>
+              <textarea rows="4" cols="50" id="description" name="description" value='{{ old('description', '') }}'>
+              </textarea>
+            </li>
 
               <li><label>Tags: <label>
                 @foreach($tags_for_checkbox as $tag_id => $tag_name)

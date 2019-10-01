@@ -33,7 +33,10 @@ Create a Link
               <div class="error">@include('modules.error-field', ['fieldName' => 'category_id'])</div>
 
               <li><label>Description:<label>
-                <input type="text" id="description" name="description" value='{{ old('description', '') }}'></li>
+                <textarea rows="4" cols="50" id="description" name="description" value='{{ old('description', '') }}'>
+                </textarea>
+              </li>
+
               <li><label>Tags: <label>
               @foreach($tagsForCheckBoxes as $tagId => $tagName)
                 <input type='checkbox' value='{{ $tagId }}' name='tags[]'>
