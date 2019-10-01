@@ -157,4 +157,15 @@ class UrlController extends Controller
           'tag' => $tag
         ]);
     }
+
+    // show one link
+    public function link($subject)
+    {
+        $newSubject = str_replace('-', ' ', $subject);
+        $urls = Url::with('category')->with('tags')->where('subject', '=', $newSubject)->get();
+        return view('links.link')->with([
+          'urls' => $urls,
+          'subject' => $newSubject,
+      ]);
+    }
 }
