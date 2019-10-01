@@ -29,7 +29,7 @@ Route::get('links/category/{category}', 'UrlController@category');
 Route::get('links/tag/{tag}', 'UrlController@tag');
 
 // Get one links
-Route::get('links/{subject}', 'UrlController@link');
+Route::get('links/subject/{subject}', 'UrlController@link');
 
 // Routes for logged in users
 Route::group(['middleware' => 'auth'], function () {

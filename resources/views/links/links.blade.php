@@ -15,7 +15,7 @@ David's Coding Links
         <?php foreach ($urls as $key => $url): ?>
           <div class="bg-dark text-white" style="margin:25px">
           <div class="card-header">
-            <h3><a href="{{ str_slug($url->subject) }}">{{ $url->subject }}</a></h3>
+            <h3><a href="/links/subject/{{ str_slug($url->subject) }}">{{ $url->subject }}</a></h3>
           </div>
           <div class="card-body">
             <p>Category:<a href="/links/category/{{ $url->category->categories }}"> {{ $url->category->categories }} </a></p>
