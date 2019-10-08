@@ -11,7 +11,7 @@ class UrlController extends Controller
 {
     public function url()
     {
-        $urls = Url::with('category')->with('tags')->take(50)->inRandomOrder()->get();
+        $urls = Url::with('category')->with('tags')->take(150)->inRandomOrder()->get();
         return view('links.links')->with('urls', $urls);
     }
 
@@ -159,13 +159,11 @@ class UrlController extends Controller
     }
 
     // show one link
-    public function link($subject)
+    public function link($id)
     {
-        $newSubject = str_replace('-', ' ', $subject);
-        $urls = Url::with('category')->with('tags')->where('subject', '=', $newSubject)->get();
+        $url = Url::with('category')->with('tags')->where('id', '=', $id)->first();
         return view('links.link')->with([
-          'urls' => $urls,
-          'subject' => $newSubject,
+          'url' => $url,
       ]);
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-{{ $subject }}
+{{ $url->subject }}
 @endsection
 
 @section('content')
@@ -10,8 +10,8 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        @if(isset($urls) && count($urls) > 0)
-        <?php foreach ($urls as $key => $url): ?>
+        @if(isset($url))
+
           <div class="bg-dark text-white" style="margin:25px">
             <div class="card-header">
               <h3><a href="{{ $url->subject }}">{{ $url->subject }}</a></h3>
@@ -32,9 +32,11 @@
               @endif
             </div>
           </div>
-        <?php endforeach; ?>
+
         @else
+
         <h3 class="alert-danger">OOOpppsss! Something has gone haywire! Page Error!</h3>
+
         @endif
       </div>
     </div>
