@@ -20,13 +20,19 @@ class CategoriesTableSeeder extends Seeder
         DB::table('categories')->insert([
       'created_at' => Carbon\Carbon::now()->toDateTimeString(),
       'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-      'categories' => 'Vue.js',
+      'categories' => 'Transportation',
     ]);
 
         DB::table('categories')->insert([
       'created_at' => Carbon\Carbon::now()->toDateTimeString(),
       'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-      'categories' => 'Git',
+      'categories' => 'Music',
+    ]);
+
+        DB::table('categories')->insert([
+      'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+      'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+      'categories' => 'Web Development',
     ]);
     }
 }
