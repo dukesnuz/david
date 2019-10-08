@@ -17,8 +17,8 @@ class UrlTagTableSeeder extends Seeder
         # The *key* will be the book title, and the *value* will be an array of tags.
         $urls =[
         'Laravel' => ['framework','laravel','php'],
-        'Git' => ['git','github'],
-        'PHP' => ['server', 'php'],
+        'Shalamar - Dancing In The Sheets (Live On The Dance Show)' => ["1980's", 'dance music'],
+        'Paletton Colors' => ['css', 'styling'],
 ];
 
         # Now loop through the above array, creating a new pivot for each url to tag
