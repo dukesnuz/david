@@ -38,6 +38,9 @@
   @endif
 
   <main class="py-4">
+    <div id="app">
+     <search></search>
+    </div>
     @yield('content')
   </main>
 
@@ -50,6 +53,8 @@
   </footer>
 
   @stack('body')
+
+<script src="{{ asset('js/app.js')}}"></script>
 
   <!-- Default Statcounter code for david.dukesnuz.com
   http://david.dukesnuz.com/ -->

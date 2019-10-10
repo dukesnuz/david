@@ -3,9 +3,11 @@
 namespace David\Http\Controllers;
 
 use Illuminate\Http\Request;
+//use David\Http\Requests;
 use David\Url;
 use David\Category;
 use David\Tag;
+use David\Http\Resources\Link;
 
 class UrlController extends Controller
 {
@@ -29,18 +31,18 @@ class UrlController extends Controller
         }
 
         return view('links.create')->with([
-          'categoriesForDrop' => $categoriesForDrop,
-          'tagsForCheckBoxes' => $tagsForCheckBoxes,
-        ]);
+      'categoriesForDrop' => $categoriesForDrop,
+      'tagsForCheckBoxes' => $tagsForCheckBoxes,
+    ]);
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-          'subject' => 'required|min:3',
-          'link' => 'required|min:3',
-          'category_id' => 'required|numeric',
-      ]);
+      'subject' => 'required|min:3',
+      'link' => 'required|min:3',
+      'category_id' => 'required|numeric',
+    ]);
 
         $url = new Url();
         $url->subject = $request->subject;
@@ -70,8 +72,8 @@ class UrlController extends Controller
     public function storeCategory(Request $request)
     {
         $this->validate($request, [
-          'new_category' => 'required',
-      ]);
+      'new_category' => 'required',
+    ]);
 
         $category = new Category();
         $category->categories = $request->new_category;
@@ -89,8 +91,8 @@ class UrlController extends Controller
     public function storeTag(Request $request)
     {
         $this->validate($request, [
-          'new_tag' => 'required',
-      ]);
+      'new_tag' => 'required',
+    ]);
 
         $tag = new Tag();
         $tag->name = $request->new_tag;
@@ -110,12 +112,12 @@ class UrlController extends Controller
         }
 
         return view('links/update-url')->with([
-            'url' => $url,
-            'tags_for_checkbox' => $tags_for_checkbox,
-            'tags_for_this_link' => $tags_for_this_link,
-            'categories_for_drop' =>  $categories_for_drop,
-            'category_for_this_link' => $url->category->categories,
-          ]);
+      'url' => $url,
+      'tags_for_checkbox' => $tags_for_checkbox,
+      'tags_for_this_link' => $tags_for_this_link,
+      'categories_for_drop' =>  $categories_for_drop,
+      'category_for_this_link' => $url->category->categories,
+    ]);
     }
 
     public function updateUrl(Request $request, $id)
@@ -141,9 +143,9 @@ class UrlController extends Controller
         })->with('tags')->get();
 
         return view('links/category-show')->with([
-          'urls' =>  $urls,
-          'category' => $category
-        ]);
+      'urls' =>  $urls,
+      'category' => $category
+    ]);
     }
 
     public function tag($tag)
@@ -153,9 +155,9 @@ class UrlController extends Controller
         })->with('category')->get();
 
         return view('links/tag-show')->with([
-          'urls' =>  $urls,
-          'tag' => $tag
-        ]);
+      'urls' =>  $urls,
+      'tag' => $tag
+    ]);
     }
 
     // show one link
@@ -163,7 +165,22 @@ class UrlController extends Controller
     {
         $url = Url::with('category')->with('tags')->where('id', '=', $id)->first();
         return view('links.link')->with([
-          'url' => $url,
-      ]);
+      'url' => $url,
+    ]);
+    }
+
+    // search page
+    public function search()
+    {
+        return view('links.search');
+    }
+
+    // get search results
+    public function show($term)
+    {
+        // return links found
+        $urls = Url::with('category')->with('tags')->where('subject', '=', $term)->paginate(3);
+        //return collection of links as a resource
+        return Link::collection($urls);
     }
 }
