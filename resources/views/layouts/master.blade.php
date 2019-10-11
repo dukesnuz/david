@@ -52,7 +52,7 @@
 
   @stack('body')
 
-  <script src="{{ asset('js/app.js')}}"></script>
+@yield('appjs')
 
   <!-- Default Statcounter code for david.dukesnuz.com
   http://david.dukesnuz.com/ -->

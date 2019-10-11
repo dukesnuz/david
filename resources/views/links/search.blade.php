@@ -17,3 +17,7 @@ Search - DukesNuz
 </div>
 
 @endsection
+
+@section('appjs')
+  <script src="{{ asset('js/app.js')}}"></script>
+@endsection
