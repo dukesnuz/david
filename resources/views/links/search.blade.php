@@ -10,7 +10,7 @@ Search - DukesNuz
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div id="app">
-       <search></search>
+        <search show_edit={{Auth::check()}}></search>
       </div>
     </div>
   </div>

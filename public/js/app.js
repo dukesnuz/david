@@ -1899,6 +1899,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var _ref;
@@ -1909,6 +1912,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       term: "",
       url: ""
     }, _defineProperty(_ref, "term", "laravel"), _defineProperty(_ref, "message", ""), _defineProperty(_ref, "show_nav", false), _defineProperty(_ref, "hide", true), _ref;
+  },
+  props: {
+    show_edit: {
+      type: String,
+      "default": 0
+    }
   },
   methods: {
     search: function search(page_url) {
@@ -37375,10 +37384,6 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
                 _c("p", [
-                  _vm._v("Category: " + _vm._s(link.category.categories))
-                ]),
-                _vm._v(" "),
-                _c("p", [
                   _vm._v("\n            Category:\n            "),
                   _c(
                     "a",
@@ -37424,7 +37429,23 @@ var render = function() {
                           )
                         ]
                       )
-                    })
+                    }),
+                    _vm._v(" "),
+                    _vm.show_edit
+                      ? _c("li", [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn btn-primary",
+                              attrs: {
+                                "&#x3C;a": "",
+                                href: "/links/edit/" + link.id
+                              }
+                            },
+                            [_vm._v("Edit")]
+                          )
+                        ])
+                      : _vm._e()
                   ],
                   2
                 )

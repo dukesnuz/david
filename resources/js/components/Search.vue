@@ -46,7 +46,11 @@
             <ul class="list-inline">
               <li class="list-inline-item">Tags:</li>
               <li v-for="tag in link.tags" v-bind:key="tag.id" class="list-inline-item">
-                <a v-bind:href="'/links/tag/'+tag.name ">{{ tag.name}}</a>
+                <a v-bind:href="'/links/tag/'+tag.name">{{ tag.name}}</a>
+              </li>
+
+              <li v-if="show_edit">
+                <a &#x3C;a v-bind:href="'/links/edit/'+link.id" class="btn btn-primary">Edit</a>
               </li>
             </ul>
           </div>
@@ -68,7 +72,14 @@ export default {
       message: "",
       show_nav: false,
       hide: true
+      //show_edit: true,
     };
+  },
+  props: {
+    show_edit: {
+      type: String,
+      default: 0
+    }
   },
   methods: {
     search(page_url) {
