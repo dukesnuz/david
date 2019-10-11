@@ -1911,7 +1911,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       pagination: {},
       term: "",
       url: ""
-    }, _defineProperty(_ref, "term", "laravel"), _defineProperty(_ref, "message", ""), _defineProperty(_ref, "show_nav", false), _defineProperty(_ref, "hide", true), _ref;
+    }, _defineProperty(_ref, "term", ""), _defineProperty(_ref, "message", ""), _defineProperty(_ref, "show_nav", false), _defineProperty(_ref, "hide", true), _ref;
   },
   props: {
     show_edit: {

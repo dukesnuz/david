@@ -68,7 +68,7 @@ export default {
       pagination: {},
       term: "",
       url: "",
-      term: "laravel",
+      term: "",
       message: "",
       show_nav: false,
       hide: true
