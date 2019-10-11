@@ -16,7 +16,7 @@ class CreateSearchesTable extends Migration
         Schema::create('searches', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('term');
+            $table->string('term', 100);
             $table->integer('user_id')->unsigned()->default(0);
             $table->ipAddress('ip');
         });
