@@ -3,6 +3,7 @@
 namespace David\Http\Controllers;
 
 use Illuminate\Http\Request;
+//use Illuminate\Pagination\Paginator;
 //use David\Http\Requests;
 use David\Url;
 use David\Category;
@@ -179,7 +180,7 @@ class UrlController extends Controller
     public function show($term)
     {
         // return links found
-        $urls = Url::with('category')->with('tags')->where('subject', 'like', '%'.$term.'%')->paginate(1);
+        $urls = Url::with('category')->with('tags')->where('subject', 'like', '%'.$term.'%')->paginate(2);
         //return collection of links as a resource
         return Link::collection($urls);
     }

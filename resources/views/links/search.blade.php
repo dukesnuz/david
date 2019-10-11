@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-
+Search - DukesNuz
 @endsection
 
 @section('content')
@@ -9,7 +9,9 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-    search box
+      <div id="app">
+       <search></search>
+      </div>
     </div>
   </div>
 </div>

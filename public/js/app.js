@@ -1838,6 +1838,50 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1857,26 +1901,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {
-      links: []
-    };
-  },
-  created: function created() {
-    this.fetchLinks();
+    var _ref;
+
+    return _ref = {
+      links: [],
+      pagination: {},
+      term: "",
+      url: ""
+    }, _defineProperty(_ref, "term", "laravel"), _defineProperty(_ref, "message", ""), _defineProperty(_ref, "show_nav", false), _defineProperty(_ref, "hide", true), _ref;
   },
   methods: {
-    fetchLinks: function fetchLinks(page_url) {
+    search: function search(page_url) {
       var _this = this;
 
+      this.show_nav = false;
       var vm = this;
-      page_url = page_url || "api/search/laravel";
-      fetch(page_url).then(function (res) {
+      var url = page_url || "/api/search/" + this.term + "";
+      fetch(url).then(function (res) {
         return res.json();
       }).then(function (res) {
         _this.links = res.data;
         vm.makePagination(res.meta, res.links);
+
+        if (_this.links == "") {
+          _this.message = "No results found. Please search again.";
+        } else {
+          _this.show_nav = true;
+        }
       })["catch"](function (err) {
-        return console.log(err);
+        return _this.message;
       });
     },
     makePagination: function makePagination(meta, links) {
@@ -37187,51 +37240,202 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h2", [_vm._v("Search")]),
-      _vm._v(" "),
-      _c("p", [
-        _c(
-          "a",
-          {
-            attrs: { href: "#" },
+  return _c("div", [
+    _c("h2", [_vm._v("Search")]),
+    _vm._v(" "),
+    _c("h4", [_vm._v(_vm._s(_vm.message))]),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        staticClass: "mb-3",
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.search()
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.term,
+                expression: "term"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Search for something" },
+            domProps: { value: _vm.term },
             on: {
-              click: function($event) {
-                return _vm.fetchLinks(_vm.pagination.prev_page_url)
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.term = $event.target.value
               }
             }
-          },
-          [_vm._v("prev")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [
+          })
+        ]),
+        _vm._v(" "),
         _c(
-          "a",
-          {
-            attrs: { href: "#" },
-            on: {
-              click: function($event) {
-                return _vm.fetchLinks(_vm.pagination.next_page_url)
-              }
-            }
-          },
-          [_vm._v("next")]
+          "button",
+          { staticClass: "btn btn-dark btn-block", attrs: { type: "submit" } },
+          [_vm._v("Search Here")]
         )
-      ]),
-      _vm._v(" "),
+      ]
+    ),
+    _vm._v(" "),
+    _vm.show_nav
+      ? _c("nav", [
+          _c("ul", { staticClass: "pagination" }, [
+            _c(
+              "li",
+              {
+                staticClass: "page-item",
+                class: [{ disabled: !_vm.pagination.prev_page_url }]
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        return _vm.search(_vm.pagination.prev_page_url)
+                      }
+                    }
+                  },
+                  [_vm._v("prev")]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("li", { staticClass: "page-item disabled" }, [
+              _c(
+                "a",
+                { staticClass: "page-link text-dark", attrs: { href: "#" } },
+                [
+                  _vm._v(
+                    "\n          Page " +
+                      _vm._s(_vm.pagination.current_page) +
+                      "\n          of " +
+                      _vm._s(_vm.pagination.last_page) +
+                      "\n        "
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                staticClass: "page-item",
+                class: [{ disabled: !_vm.pagination.next_page_url }]
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        return _vm.search(_vm.pagination.next_page_url)
+                      }
+                    }
+                  },
+                  [_vm._v("next")]
+                )
+              ]
+            )
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "card" },
       _vm._l(_vm.links, function(link) {
         return _c("div", { key: link.id }, [
-          _c("p", [_vm._v(_vm._s(link.subject))]),
-          _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(link.description))])
+          _c(
+            "div",
+            {
+              staticClass: "bg-dark text-white",
+              staticStyle: { margin: "25px" }
+            },
+            [
+              _c("div", { staticClass: "card-header" }, [
+                _c("h3", [_vm._v(_vm._s(link.subject))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("p", [
+                  _vm._v("Category: " + _vm._s(link.category.categories))
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v("\n            Category:\n            "),
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "/links/category/" + link.category.categories
+                      }
+                    },
+                    [_vm._v(_vm._s(link.category.categories))]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [_vm._v("Description: " + _vm._s(link.description))]),
+                _vm._v(" "),
+                _c("p", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-success",
+                      attrs: { href: link.link, target: "blank" }
+                    },
+                    [_vm._v("Read More")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  { staticClass: "list-inline" },
+                  [
+                    _c("li", { staticClass: "list-inline-item" }, [
+                      _vm._v("Tags:")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(link.tags, function(tag) {
+                      return _c(
+                        "li",
+                        { key: tag.id, staticClass: "list-inline-item" },
+                        [
+                          _c(
+                            "a",
+                            { attrs: { href: "/links/tag/" + tag.name } },
+                            [_vm._v(_vm._s(tag.name))]
+                          )
+                        ]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ])
+            ]
+          )
         ])
-      })
-    ],
-    2
-  )
+      }),
+      0
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -49464,15 +49668,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*!********************************************!*\
   !*** ./resources/js/components/Search.vue ***!
   \********************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Search_vue_vue_type_template_id_5026ffd3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Search.vue?vue&type=template&id=5026ffd3& */ "./resources/js/components/Search.vue?vue&type=template&id=5026ffd3&");
 /* harmony import */ var _Search_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Search.vue?vue&type=script&lang=js& */ "./resources/js/components/Search.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Search_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Search_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -49502,7 +49705,7 @@ component.options.__file = "resources/js/components/Search.vue"
 /*!*********************************************************************!*\
   !*** ./resources/js/components/Search.vue?vue&type=script&lang=js& ***!
   \*********************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
