@@ -10,6 +10,7 @@
   <meta name="keywords" content="coding, website, developemnt, Laravel, html, css, php, mysql, frameworks, angular, vue.js">
   <meta name="author" content="David Petringa, Coded September 2019">
   <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
