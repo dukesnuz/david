@@ -1923,6 +1923,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     search: function search(page_url) {
       var _this = this;
 
+      this.message = "";
       this.show_nav = false;
       var vm = this;
       var url = page_url || "/api/search/" + this.term + "";
@@ -1933,9 +1934,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         vm.makePagination(res.meta, res.links);
 
         if (_this.links == "") {
-          _this.message = "No results found. Please search again.";
+          _this.message = "Please search again. No results found for: " + _this.term;
         } else {
           _this.show_nav = true;
+          _this.term = "";
         }
       })["catch"](function (err) {
         return _this.message;
@@ -37437,10 +37439,7 @@ var render = function() {
                             "a",
                             {
                               staticClass: "btn btn-primary",
-                              attrs: {
-                                "&#x3C;a": "",
-                                href: "/links/edit/" + link.id
-                              }
+                              attrs: { href: "/links/edit/" + link.id }
                             },
                             [_vm._v("Edit")]
                           )
