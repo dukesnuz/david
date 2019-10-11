@@ -50,7 +50,7 @@
               </li>
 
               <li v-if="show_edit">
-                <a &#x3C;a v-bind:href="'/links/edit/'+link.id" class="btn btn-primary">Edit</a>
+                <a v-bind:href="'/links/edit/'+link.id" class="btn btn-primary">Edit</a>
               </li>
             </ul>
           </div>
@@ -83,6 +83,7 @@ export default {
   },
   methods: {
     search(page_url) {
+      this.message = "";
       this.show_nav = false;
       let vm = this;
       let url = page_url || "/api/search/" + this.term + "";
@@ -92,9 +93,11 @@ export default {
           this.links = res.data;
           vm.makePagination(res.meta, res.links);
           if (this.links == "") {
-            this.message = "No results found. Please search again.";
+            this.message =
+              "Please search again. No results found for: " + this.term;
           } else {
             this.show_nav = true;
+            this.term = "";
           }
         })
         .catch(err => this.message);
