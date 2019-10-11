@@ -33,7 +33,6 @@
             <h3>{{ link.subject }}</h3>
           </div>
           <div class="card-body">
-            <p>Category: {{link.category.categories}}</p>
             <p>
               Category:
               <a
