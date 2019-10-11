@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use David\Url;
 use David\Category;
 use David\Tag;
+use David\Search;
 use David\Http\Resources\Link;
 
 class UrlController extends Controller
@@ -180,7 +181,6 @@ class UrlController extends Controller
     public function show($term)
     {
         $tags = Tag::where('name', 'LIKE', '%'.$term.'%')->get();
-
         // return links found
         $urls = Url::with('category')->with('tags')
     ->where('subject', 'LIKE', '%'.$term.'%')
@@ -192,7 +192,14 @@ class UrlController extends Controller
     ->orWhereHas('category', function ($query) use ($term) {
         $query->where('categories', '=', $term);
     })
-    ->paginate(2);
+    ->paginate(25);
+
+        // add search term to search table
+        $storeSearch = new Search();
+        $storeSearch->term = $term;
+        $storeSearch->ip = request()->ip();
+        $storeSearch->save();
+          
         //return collection of links as a resource
         return Link::collection($urls);
     }
