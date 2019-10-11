@@ -179,8 +179,20 @@ class UrlController extends Controller
     // get search results
     public function show($term)
     {
+        $tags = Tag::where('name', 'LIKE', '%'.$term.'%')->get();
+
         // return links found
-        $urls = Url::with('category')->with('tags')->where('subject', 'like', '%'.$term.'%')->paginate(2);
+        $urls = Url::with('category')->with('tags')
+    ->where('subject', 'LIKE', '%'.$term.'%')
+    ->orWhere('link', 'LIKE', '%'.$term.'%')
+    ->orWhere('description', 'LIKE', '%'.$term.'%')
+    ->orWhereHas('tags', function ($query) use ($term) {
+        $query->where('name', '=', $term);
+    })
+    ->orWhereHas('category', function ($query) use ($term) {
+        $query->where('categories', '=', $term);
+    })
+    ->paginate(2);
         //return collection of links as a resource
         return Link::collection($urls);
     }
