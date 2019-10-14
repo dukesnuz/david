@@ -27,13 +27,13 @@
     <ul class="list-inline">
       <li class="list-inline-item"><a href="/links/get-list/">Home</a></li>
       <li class="list-inline-item"><a href="/links/search/">Search</a></li>
-        @if(Auth::check())
+      @if(Auth::check())
       <li class="list-inline-item"><a href="/home">Login</a></li>
       <li class="list-inline-item"><a href="/links/get-list/">View</a></li>
       <li class="list-inline-item"><a href="/links/create/">Create</a></li>
       <li class="list-inline-item"><a href="/links/create-categories/">Categories</a></li>
       <li class="list-inline-item"><a href="/links/create-tags/">Tags</a></li>
-        @endif
+      @endif
     </ul>
 
   </header>
@@ -44,32 +44,16 @@
   @endif
 
   <main class="py-4">
-    add most popular searches on side bar
-    maybe add some catgories on side bar
+   <!-- add most popular searches on side bar
+    maybe add some catgories on side bar-->
     @yield('content')
   </main>
 
-  <footer class="h-25">
-    <ul class="list-unstyled">
-        <li><a href="/links/get-list/">Home</a></li>
-        <li><a href="/links/search/">Search</a></li>
-          @if(Auth::check())
-        <li><a href="/home">Login</a></li>
-        <li><a href="/links/get-list/">View</a></li>
-        <li><a href="/links/create/">Create</a></li>
-        <li><a href="/links/create-categories/">Categories</a></li>
-        <li><a href="/links/create-tags/">Tags</a></li>
-          @endif
-          <li><a href='https://github.com/dukesnuz/david'><i class='fa fa-github'></i>Code on GitHub</a></li>
-          <li><a href="http://dukesnuz.com/contact/dukesnuz/david/petringa/" target="blank">Contact</a></li>
-      </ul>
-
-    <p>Coding and content by David Petringa: &copy;&nbsp;{{ date('Y') }}</p>
-  </footer>
+  @include('includes.footer')
 
   @stack('body')
 
-@yield('appjs')
+  @yield('appjs')
 
   <!-- Default Statcounter code for david.dukesnuz.com
   http://david.dukesnuz.com/ -->

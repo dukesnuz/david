@@ -2,7 +2,7 @@
   <div>
     <h2>Search</h2>
     <h4>{{ message }}</h4>
-    <form @submit.prevent="search()" class="mb-3">
+    <form @submit.prevent="search()" v-bind:class="{'f': formStyle}">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Search for something" v-model="term" />
       </div>
@@ -71,8 +71,8 @@ export default {
       term: "",
       message: "",
       show_nav: false,
-      hide: true
-      //show_edit: true,
+      hide: true,
+      formStyle: true
     };
   },
   props: {
@@ -85,6 +85,7 @@ export default {
     search(page_url) {
       this.message = "";
       this.show_nav = false;
+      this.formStyle = true;
       let vm = this;
       let url = page_url || "/api/search/" + this.term + "";
       fetch(url)
@@ -96,6 +97,7 @@ export default {
             this.message =
               "Please search again. No results found for: " + this.term;
           } else {
+            this.formStyle = false;
             this.show_nav = true;
             this.term = "";
           }
@@ -115,5 +117,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.f {
+  margin-bottom: 500px !important;
+}
 </style>
