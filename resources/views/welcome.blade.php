@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                  David's Laravel App
+                    <a href="/links/get-list">David's Laravel App</a>
                 </div>
 
                 <div class="links">
