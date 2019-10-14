@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-<h2><a href="/links/search">Search</a></h2>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">

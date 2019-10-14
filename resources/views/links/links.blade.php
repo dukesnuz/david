@@ -1,11 +1,10 @@
 @extends('layouts.master')
 
 @section('title')
-David's Coding Links
+David's Favorite Links
 @endsection
 
 @section('content')
-<h2><a href="/links/search">Search</a></h2>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">

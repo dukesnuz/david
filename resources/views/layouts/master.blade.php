@@ -21,16 +21,21 @@
 </head>
 <body>
   <header>
-    <h1 class="text-primary"><a href="/">David's Laravel App</a></h1>
-    @if(Auth::check())
+    <h1 class="text-primary"><a href="/links/get-list/">A List of My Favorite Websites</a></h1>
+    <h4><a href="https://laravel.com/" target="_blank">Using the Laravel Framework</a></h4>
+
     <ul class="list-inline">
-      <li class="list-inline-item"><a href="/home">Home</a></li>
-      <li class="list-inline-item"><a href="/links/get-list">View</a></li>
-      <li class="list-inline-item"><a href="/links/create">Create</a></li>
-      <li class="list-inline-item"><a href="/links/create-categories">Categories</a></li>
-      <li class="list-inline-item"><a href="/links/create-tags">Tags</a></li>
+      <li class="list-inline-item"><a href="/links/get-list/">Home</a></li>
+      <li class="list-inline-item"><a href="/links/search/">Search</a></li>
+        @if(Auth::check())
+      <li class="list-inline-item"><a href="/home">Login</a></li>
+      <li class="list-inline-item"><a href="/links/get-list/">View</a></li>
+      <li class="list-inline-item"><a href="/links/create/">Create</a></li>
+      <li class="list-inline-item"><a href="/links/create-categories/">Categories</a></li>
+      <li class="list-inline-item"><a href="/links/create-tags/">Tags</a></li>
+        @endif
     </ul>
-    @endif
+
   </header>
   @if(session('alert'))
   <div class='alert'>
@@ -39,15 +44,27 @@
   @endif
 
   <main class="py-4">
+    add most popular searches on side bar
+    maybe add some catgories on side bar
     @yield('content')
   </main>
 
   <footer class="h-25">
-    <ul class="list-inline">
-      <li class="list-inline-item"><a href="/">Home</a></li>
-      <li><a href='https://github.com/dukesnuz/david'><i class='fa fa-github'></i>Code on GitHub</a></li>
-      <li>Coding and content by David Petringa: &copy;&nbsp;{{ date('Y') }}</li>
-    </ul>
+    <ul class="list-unstyled">
+        <li><a href="/links/get-list/">Home</a></li>
+        <li><a href="/links/search/">Search</a></li>
+          @if(Auth::check())
+        <li><a href="/home">Login</a></li>
+        <li><a href="/links/get-list/">View</a></li>
+        <li><a href="/links/create/">Create</a></li>
+        <li><a href="/links/create-categories/">Categories</a></li>
+        <li><a href="/links/create-tags/">Tags</a></li>
+          @endif
+          <li><a href='https://github.com/dukesnuz/david'><i class='fa fa-github'></i>Code on GitHub</a></li>
+          <li><a href="http://dukesnuz.com/contact/dukesnuz/david/petringa/" target="blank">Contact</a></li>
+      </ul>
+
+    <p>Coding and content by David Petringa: &copy;&nbsp;{{ date('Y') }}</p>
   </footer>
 
   @stack('body')
