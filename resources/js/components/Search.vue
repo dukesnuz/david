@@ -88,7 +88,6 @@ export default {
       EventBus.$emit("i-got-clicked", "extra data");
     },
     search(page_url) {
-      this.emitGlobalClickEvent();
       this.message = "";
       this.show_nav = false;
       this.formStyle = true;
@@ -107,6 +106,7 @@ export default {
             this.show_nav = true;
             this.term = "";
           }
+          this.emitGlobalClickEvent();
         })
         .catch(err => this.message);
     },
