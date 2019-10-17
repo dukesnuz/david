@@ -10,6 +10,7 @@ use David\Category;
 use David\Tag;
 use David\Search;
 use David\Http\Resources\Link;
+use David\Http\Resources\Search as SearchResource;
 
 class UrlController extends Controller
 {
@@ -199,8 +200,15 @@ class UrlController extends Controller
         $storeSearch->term = $term;
         $storeSearch->ip = request()->ip();
         $storeSearch->save();
-          
+
         //return collection of links as a resource
         return Link::collection($urls);
+    }
+
+    // get las x number of searches
+    public function showAll()
+    {
+        $searches = Search::orderBy('created_at', 'desc')->take(15)->get();
+        return SearchResource::collection($searches);
     }
 }

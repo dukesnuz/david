@@ -18,3 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('search/{term}', 'UrlController@show');
+
+// return last x number of searches
+Route::get('searches', 'UrlController@showAll');

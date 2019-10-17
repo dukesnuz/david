@@ -61,6 +61,7 @@
 </template>
 
 <script>
+import { EventBus } from "../bus.js";
 export default {
   data() {
     return {
@@ -81,8 +82,13 @@ export default {
       default: 0
     }
   },
+
   methods: {
+    emitGlobalClickEvent() {
+      EventBus.$emit("i-got-clicked", "extra data");
+    },
     search(page_url) {
+      this.emitGlobalClickEvent();
       this.message = "";
       this.show_nav = false;
       this.formStyle = true;

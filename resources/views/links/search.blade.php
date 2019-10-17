@@ -6,9 +6,12 @@ Search - DukesNuz
 
 @section('content')
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div id="app">
+  <div id="app">
+    <div class="row">
+      <div class="col-md-3" style="word-wrap:break-word;">
+        <searches></searches>
+      </div>
+      <div class="col-md-9">
         <search show_edit={{Auth::check()}}></search>
       </div>
     </div>
@@ -17,5 +20,5 @@ Search - DukesNuz
 @endsection
 
 @section('appjs')
-  <script src="{{ asset('js/app.js')}}"></script>
+<script src="{{ asset('js/app.js')}}"></script>
 @endsection
