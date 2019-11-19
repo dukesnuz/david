@@ -53,3 +53,7 @@ Route::group(['middleware' => 'auth'], function () {
     # Process form to update url
     Route::post('/links/update-url/{id}', 'UrlController@updateUrl');
 });
+
+
+//added route files to app/Providers/RouteServiceProvider.php
+Auth::routes();

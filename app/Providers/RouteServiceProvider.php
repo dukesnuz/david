@@ -39,6 +39,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapBlogWebRoutes(); //for blog routes
+
         //
     }
 
@@ -54,6 +56,18 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('routes/web.php'));
+    }
+
+    /********************************************
+    * using below method
+    * https://medium.com/@thesourav/organize-your-laravel-routes-for-better-and-maintainable-code-4ad9b76aed0f
+    *********BEGIN new code*************************/
+    protected function mapBlogWebRoutes()
+    {
+        Route::middleware('web')
+      ->namespace($this->namespace)
+    //  ->prefix('admin')
+      ->group(base_path('routes/blog.php'));
     }
 
     /**
