@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blogpost extends Model
 {
-    public function category()
+    public function Blogcategory()
     {
-        return $this->belongsTo('David\Category');
+        return $this->belongsTo('David\Blogcategory');
     }
 
     public function blogtags()

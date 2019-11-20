@@ -21,3 +21,7 @@ Route::get('search/{term}', 'UrlController@show');
 
 // return last x number of searches
 Route::get('searches', 'UrlController@showAll');
+
+
+// return last post
+Route::get('get-last-blog-post', 'BlogController@getLastBlogPost');

@@ -3,6 +3,9 @@
 namespace David\Http\Controllers;
 
 use Illuminate\Http\Request;
+use David\Blogpost;
+use David\Blogcategory;
+use David\Blogtag;
 
 class BlogController extends Controller
 {
@@ -13,7 +16,14 @@ class BlogController extends Controller
      */
     public function index()
     {
-        dd('index');
+        return view("blog.index");
+    }
+
+    //get last blog post
+    public function getLastBlogPost()
+    {
+        $lastBlogPost = Blogpost::orderBy('created_at', 'desc')->with('Blogcategory')->with('blogtags')->first();
+        return $lastBlogPost;
     }
 
     /**
