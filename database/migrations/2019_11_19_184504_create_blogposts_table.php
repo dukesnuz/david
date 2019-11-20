@@ -17,6 +17,7 @@ class CreateBlogpostsTable extends Migration
             //$table->bigIncrements('id');
             $table->increments('id');
             $table->timestamps();
+            $table->string('subject', 200);
             $table->text('body');
             $table->ipAddress('ip');
             $table->softDeletes();
