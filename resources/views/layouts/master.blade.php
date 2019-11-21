@@ -15,6 +15,7 @@
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   <!-- Styles -->
+  <link rel='stylesheet' href='http://www.dukesnuz.com/css_libs/dukes_normalize.css'>
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   @stack('head')
 
@@ -27,6 +28,7 @@
     <ul class="list-inline">
       <li class="list-inline-item"><a href="/links/get-list/">Home</a></li>
       <li class="list-inline-item"><a href="/links/search/">Search</a></li>
+      <li class="list-inline-item"><a href="/links/about/">About</a></li>
       @if(Auth::check())
       <li class="list-inline-item"><a href="/home">Login</a></li>
       <li class="list-inline-item"><a href="/links/get-list/">View</a></li>

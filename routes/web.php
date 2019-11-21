@@ -34,6 +34,12 @@ Route::get('links/subject/{id}/{subject}', 'UrlController@link');
 // Get search blade
 Route::get('links/search', 'UrlController@search');
 
+// Get search blade
+Route::get('links/about', function () {
+    return view('links.about');
+});
+
+
 // Routes for logged in users
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/links/create', 'UrlController@create');
