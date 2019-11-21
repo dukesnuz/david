@@ -32,4 +32,6 @@ Route::post('/blog-post-create', 'BlogController@blogPostCreate');
 // return all blog categories
 Route::get('/get-all-blog-categories', 'BlogController@getAllBlogCategories');
 // return all tag categories
-Route::get('/get-all-blog-tags', 'BlogController@getAllBlogTags'); 
+Route::get('/get-all-blog-tags', 'BlogController@getAllBlogTags');
+// return last x number blog posts
+Route::get('/show-all-blog-posts', 'BlogController@showAllBlogPosts');

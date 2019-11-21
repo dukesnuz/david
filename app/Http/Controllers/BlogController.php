@@ -39,7 +39,7 @@ class BlogController extends Controller
             'subject' => 'required',
             'body' => 'required',
         ]);
-        //get category id  to store in Blogpost 
+        //get category id  to store in Blogpost
         $cat_id = Blogcategory::where('categories', '=', $request->input('category'))->first();
 
         // Store post in db
@@ -90,9 +90,10 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showAllBlogPosts()
     {
-        //
+        $posts = Blogpost::orderBy('created_at', 'DESC')->with('Blogcategory')->with('Blogtags')->get();
+        return $posts;
     }
 
     /**

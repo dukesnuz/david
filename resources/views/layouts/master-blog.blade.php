@@ -26,6 +26,7 @@
 
     <ul class="list-inline">
       <li class="list-inline-item"><a href="/blog/home/">Home</a></li>
+      <li class="list-inline-item"><a href="/blog/show-blog-posts/">Blog Posts</a></li>
       <li class="list-inline-item"><a href="/blog/create/">Post</a></li>
       @if(Auth::check())
       <li class="list-inline-item"><a href="/home">Login</a></li>
@@ -41,7 +42,7 @@
   @endif
 
   <main class="py-4">
-   <!-- add most popular searches on side bar
+    <!-- add most popular searches on side bar
     maybe add some catgories on side bar-->
     @yield('content')
   </main>

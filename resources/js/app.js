@@ -11,7 +11,7 @@ window.Vue = require('vue');
 /*****add axios ******/
 import axios from 'axios'
 import VueAxios from 'vue-axios'
- 
+
 Vue.use(VueAxios, axios)
 
 /**
@@ -30,6 +30,7 @@ Vue.component('search', require('./components/Search.vue').default);
 Vue.component('searches', require('./components/Searches.vue').default);
 Vue.component('blog-home', require('./components/blog/Home.vue').default);
 Vue.component('create-blog-post', require('./components/blog/CreateBlogPost.vue').default);
+Vue.component('show-blog-posts', require('./components/blog/ShowBlogPosts.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
