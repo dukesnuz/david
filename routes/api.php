@@ -22,6 +22,14 @@ Route::get('search/{term}', 'UrlController@show');
 // return last x number of searches
 Route::get('searches', 'UrlController@showAll');
 
-
+/*****
+ * below are api routes for blog
+ */
 // return last post
 Route::get('get-last-blog-post', 'BlogController@getLastBlogPost');
+//create a new post
+Route::post('/blog-post-create', 'BlogController@blogPostCreate');
+// return all blog categories
+Route::get('/get-all-blog-categories', 'BlogController@getAllBlogCategories');
+// return all tag categories
+Route::get('/get-all-blog-tags', 'BlogController@getAllBlogTags'); 

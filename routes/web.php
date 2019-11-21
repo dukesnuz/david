@@ -62,4 +62,5 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 //added route files to app/Providers/RouteServiceProvider.php
+// blog routes added here
 Auth::routes();

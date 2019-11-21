@@ -11,7 +11,7 @@ class Blogcategory extends Model
         return $this->hasMany('David\Blogpost');
     }
 
-
+/*
     public static function getBlogCategoriesForDrop()
     {
         $blogCategories = Blogcategory::orderBy('categories', 'ASC')->get();
@@ -21,4 +21,5 @@ class Blogcategory extends Model
         }
         return $blogCategoriesForDrops;
     }
+    */
 }

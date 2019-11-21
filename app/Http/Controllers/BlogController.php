@@ -31,9 +31,46 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function blogPostCreate(Request $request)
     {
-        //
+        // validate data
+        $this->validate($request, [
+            'category' => 'required',
+            'subject' => 'required',
+            'body' => 'required',
+        ]);
+        //get category id  to store in Blogpost 
+        $cat_id = Blogcategory::where('categories', '=', $request->input('category'))->first();
+
+        // Store post in db
+        $post = new Blogpost();
+        $post->subject = $request->input('subject');
+        $post->body = $request->input('body');
+        $post->ip = request()->ip();
+        $post->category_id = $cat_id->id;
+        $post->save();
+
+        $newPost = Blogpost::where('id', '=', $post->id)->first();
+        // loop through each tag and get tag id and insert into blogtags table
+        foreach ($request->input('checkedTags') as $value) {
+            $tag = Blogtag::where('name', '=', $value)->first();
+            $newPost->blogtags()->save($tag);
+        }
+        return response()->JSON(array('messageReturned' => 'ok', 'postId' => $post->id));
+    }
+
+    // get all blog categories
+    public function getAllBlogCategories()
+    {
+        $categories = Blogcategory::orderBy('categories', 'ASC')->get();
+        return $categories;
+    }
+
+    // get all blog tags
+    public function getAllBlogTags()
+    {
+        $tags = Blogtag::orderBy('name', 'ASC')->get();
+        return $tags;
     }
 
     /**
