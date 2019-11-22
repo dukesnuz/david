@@ -2645,18 +2645,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       message: "",
-      posts: {}
+      posts: {},
+      categorys: {}
     };
   },
   mounted: function mounted() {
+    this.getAllBlogPosts();
     this.getCategories();
   },
   methods: {
-    getCategories: function getCategories() {
+    getAllBlogPosts: function getAllBlogPosts() {
       var _this = this;
 
       var url = "/api/show-all-blog-posts"; //fetch(url)
@@ -2671,6 +2687,23 @@ __webpack_require__.r(__webpack_exports__);
         }
       })["catch"](function (err) {
         return _this.message;
+      });
+    },
+    getCategories: function getCategories() {
+      var _this2 = this;
+
+      var url = "/api/get-all-blog-categories"; //fetch(url)
+
+      this.axios.get(url) // .then(res => res.json())
+      .then(function (res) {
+        _this2.categorys = res.data;
+        console.log(_this2.categorys[0]["categories"]);
+
+        if (_this2.categorys == "") {
+          _this2.message = "Please search again. No results found for: ";
+        }
+      })["catch"](function (err) {
+        return _this2.message;
       });
     }
   }
@@ -7211,7 +7244,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.inner-content[data-v-8e2235dc] {\r\n  margin-bottom: 500px;\n}\nul[data-v-8e2235dc]{\r\n    list-style: none;\n}\n.category[data-v-8e2235dc] {\n}\n.subject[data-v-8e2235dc] {\n}\n.body[data-v-8e2235dc] {\n}\n.tags[data-v-8e2235dc] {\n}\r\n", ""]);
+exports.push([module.i, "\n.inner-content[data-v-8e2235dc] {\r\n  margin-bottom: 500px;\n}\nul[data-v-8e2235dc] {\r\n  list-style: none;\n}\nul.posts[data-v-8e2235dc] {\r\n  background-color: #fff;\r\n  padding: 10px;\r\n  margin-bottom: 25px;\r\n  border-radius: 10px;\r\n  width: 100%;\r\n  padding-left: 0px;\n}\nul.categories[data-v-8e2235dc] {\r\n  padding: 0;\n}\n.tags-wrapper[data-v-8e2235dc] {\n}\n.tag-wrapper ul[data-v-8e2235dc] {\n}\n.tags[data-v-8e2235dc] {\n}\n.tags ul[data-v-8e2235dc] {\n}\n.tags li[data-v-8e2235dc] {\n}\n.category[data-v-8e2235dc] {\r\n  padding-left: 5px;\n}\n.subject[data-v-8e2235dc] {\r\n  font-weight: bold;\r\n  font-size: 1.25em;\r\n  padding-left: 5px;\n}\n.body[data-v-8e2235dc] {\r\n  padding-left: 5px;\n}\n@media only screen and (min-width: 320px) {\n.inner-content[data-v-8e2235dc] {\r\n    background-color: cadetblue;\n}\n.flex-container[data-v-8e2235dc] {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -39397,31 +39430,59 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "inner-content" },
-    [
-      _c("h3", [_vm._v("Recent Blog Posts")]),
+  return _c("div", { staticClass: "inner-content flex-container" }, [
+    _c(
+      "div",
+      [
+        _c("h3", [_vm._v("Recent Blog Posts")]),
+        _vm._v(" "),
+        _vm._l(_vm.posts, function(post) {
+          return _c("ul", { key: post.id, staticClass: "posts" }, [
+            _c("li", { staticClass: "category" }, [
+              _vm._v(_vm._s(post.category))
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "subject" }, [
+              _vm._v(_vm._s(post.subject))
+            ]),
+            _vm._v(" "),
+            _c("li", {
+              staticClass: "body",
+              domProps: { innerHTML: _vm._s(post.body) }
+            }),
+            _vm._v(" "),
+            _c("li", { staticClass: "tags-wrapper" }, [
+              _vm._v("\n        Tags:\n        "),
+              _c(
+                "ul",
+                { staticClass: "tags" },
+                _vm._l(post.blogtags, function(tag) {
+                  return _c("li", { key: tag.id }, [_vm._v(_vm._s(tag.name))])
+                }),
+                0
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c("div", [
+      _c("h4", [_vm._v("Categories")]),
       _vm._v(" "),
-      _vm._l(_vm.posts, function(post) {
-        return _c("ul", { key: post.id }, [
-          _c("li", { staticClass: "category" }, [
-            _vm._v(_vm._s(post.category))
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "subject" }, [_vm._v(_vm._s(post.subject))]),
-          _vm._v(" "),
-          _c("li", {
-            staticClass: "body",
-            domProps: { innerHTML: _vm._s(post.body) }
-          }),
-          _vm._v(" "),
-          _c("li", { staticClass: "tags" }, [_vm._v(_vm._s(post.tags))])
-        ])
-      })
-    ],
-    2
-  )
+      _c(
+        "ul",
+        { staticClass: "categories" },
+        _vm._l(_vm.categorys, function(category) {
+          return _c("li", { key: category.id }, [
+            _vm._v(_vm._s(category.categories))
+          ])
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
