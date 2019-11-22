@@ -16,7 +16,7 @@ class BlogpostsTableSeeder extends Seeder
       'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
       'subject' => "Subject One",
       'body' => 'Post one',
-      'category_id' => 3,
+      'category_id' => 1,
       'ip' => '111.45.789',
     ]);
 
@@ -34,7 +34,7 @@ class BlogpostsTableSeeder extends Seeder
       'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
       'subject' => "Subject Three",
       'body' => 'Post three',
-      'category_id' => 1,
+      'category_id' => 3,
       'ip' => '333.45.789',
     ]);
     }

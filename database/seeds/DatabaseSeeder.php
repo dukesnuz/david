@@ -5,10 +5,10 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
+    * Seed the application's database.
+    *
+    * @return void
+    */
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
         $this->call(UrlTagTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(SearchesTableSeeder::class);
-        $this->call(BlogpostsTableSeeder::class);
-        $this->call(BlogcommentsTableSeeder::class);
-        $this->call(BlogcategoriesTableSeeder::class);
         $this->call(BlogtagsTableSeeder::class);
+        $this->call(BlogcategoriesTableSeeder::class);
+        $this->call(BlogpostsTableSeeder::class);
         $this->call(BlogpostBlogtagTableSeeder::class);
+        $this->call(BlogcommentsTableSeeder::class);
     }
 }
