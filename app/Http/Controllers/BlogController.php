@@ -81,7 +81,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$id = substr(mt_rand(1000000, 9999999), 2, 7);
     }
 
     /**
@@ -92,8 +92,33 @@ class BlogController extends Controller
      */
     public function showAllBlogPosts()
     {
-        $posts = Blogpost::orderBy('created_at', 'DESC')->with('Blogcategory')->with('Blogtags')->get();
+        $posts = Blogpost::orderBy('created_at', 'DESC')->get();
         return $posts;
+    }
+
+    /**
+    * get a single blog post using the unique.
+    * method returns blade
+    *
+    * @param int $id
+    */
+    public function blogPost($id, $slug = '')
+    {
+        $post = Blogpost::findOrFail($id);
+
+        if ($slug !== $post->slug) {
+            return redirect()->to($post->url);
+        }
+        return view('blog.show-a-post')->withPost($post)->with([
+          'pid' => $post->id,
+        ]);
+    }
+
+    // show specific post with category and tags
+    public function showPost($id)
+    {
+        $post = Blogpost::where('id', '=', $id)->with('Blogcategorys')->with('Blogtags')->first();
+        return $post;
     }
 
     /**

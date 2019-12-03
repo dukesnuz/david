@@ -1,16 +1,14 @@
 <template>
   <div class="inner-content flex-container">
-    <div>
+    <div class="post">
       <h3>Recent Blog Posts</h3>
       <ul v-for="post in posts" v-bind:key="post.id" class="posts">
-        <li class="category">{{ post.category }}</li>
         <li class="subject">{{ post.subject }}</li>
-        <li v-html="post.body" class="body"></li>
-        <li class="tags-wrapper">
-          Tags:
-          <ul class="tags">
-            <li v-for="tag in post.blogtags" v-bind:key="tag.id">{{ tag.name }}</li>
-          </ul>
+        <li v-html="post.body.substring(0,10)" class="post-body"></li>
+        <li>
+          <a :href="`${post.id}/slug`">
+            <button type="button" class="btn btn-info">Read More</button>
+          </a>
         </li>
       </ul>
     </div>
@@ -46,8 +44,6 @@ export default {
         // .then(res => res.json())
         .then(res => {
           this.posts = res.data;
-          console.log(this.posts);
-
           if (this.posts == "") {
             this.message = "OOPpps system error.";
           }
@@ -62,7 +58,7 @@ export default {
         // .then(res => res.json())
         .then(res => {
           this.categorys = res.data;
-          console.log(this.categorys[0]["categories"]);
+          //console.log(this.categorys[0]["categories"]);
 
           if (this.categorys == "") {
             this.message = "Please search again. No results found for: ";
@@ -81,7 +77,6 @@ export default {
 ul {
   list-style: none;
 }
-
 ul.posts {
   background-color: #fff;
   padding: 10px;
@@ -93,30 +88,31 @@ ul.posts {
 ul.categories {
   padding: 0;
 }
-.tags-wrapper {
-}
-.tag-wrapper ul {
-}
-.tags {
-}
-.tags ul {
-}
-.tags li {
-}
 .category {
   padding-left: 5px;
+}
+.post {
+  width: 100%;
+  font-size: 1.5em;
 }
 .subject {
   font-weight: bold;
   font-size: 1.25em;
   padding-left: 5px;
 }
-.body {
+.post-body {
+  margin: 5px 0;
   padding-left: 5px;
+}
+.btn.btn-info {
+  margin: 5px;
+  color: #fff;
 }
 @media only screen and (min-width: 320px) {
   .inner-content {
-    background-color: cadetblue;
+  }
+  .post {
+    width: 80%;
   }
   .flex-container {
     display: flex;

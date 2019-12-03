@@ -17,6 +17,7 @@
   <!-- Styles -->
   <link rel='stylesheet' href='http://www.dukesnuz.com/css_libs/dukes_normalize.css'>
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
   @stack('head')
 
 </head>

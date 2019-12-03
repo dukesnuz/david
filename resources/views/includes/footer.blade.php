@@ -13,14 +13,18 @@
         <!-- Content -->
 
         <ul class="list-unstyled">
-          <li><a href="/links/get-list/">Home</a></li>
-          <li><a href="/links/search/">Search</a></li>
+          <li><a href="/links/get-list/">Favorite Links</a></li>
+          <li><a href="/links/search/">Search Links</a></li>
+          <li><a href="/blog/home/">Blog</a></li>
+          <li><a href="/blog/show-blog-posts">Blog Posts</a></li>
           @if(Auth::check())
+          <li><a href="/links/get-list/">View Links</a></li>
+          <li><a href="/links/create/">Create a Link</a></li>
+          <li><a href="/links/create-categories/">Link Categories</a></li>
+          <li><a href="/links/create-tags/">Link Tags</a></li>
+          <li><a href="/blog/create/">Create a Blog Post</a></li>
+          @else
           <li><a href="/home">Login</a></li>
-          <li><a href="/links/get-list/">View</a></li>
-          <li><a href="/links/create/">Create</a></li>
-          <li><a href="/links/create-categories/">Categories</a></li>
-          <li><a href="/links/create-tags/">Tags</a></li>
           @endif
         </ul>
       </div>

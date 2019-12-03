@@ -6,20 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blogcategory extends Model
 {
-    public function Blogposts()
+    public function Blogpost()
     {
         return $this->hasMany('David\Blogpost');
     }
 
-/*
-    public static function getBlogCategoriesForDrop()
-    {
-        $blogCategories = Blogcategory::orderBy('categories', 'ASC')->get();
-        $blogCategoriesForDrops = [];
-        foreach ($blogCategories as $category) {
-            $blogCategoriesForDrops[$category['id']] = $blogCategory->categories;
+    /*
+        public static function getBlogCategoriesForDrop()
+        {
+            $blogCategories = Blogcategory::orderBy('categories', 'ASC')->get();
+            $blogCategoriesForDrops = [];
+            foreach ($blogCategories as $category) {
+                $blogCategoriesForDrops[$category['id']] = $blogCategory->categories;
+            }
+            return $blogCategoriesForDrops;
         }
-        return $blogCategoriesForDrops;
-    }
-    */
+        */
 }

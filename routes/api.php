@@ -35,3 +35,5 @@ Route::get('/get-all-blog-categories', 'BlogController@getAllBlogCategories');
 Route::get('/get-all-blog-tags', 'BlogController@getAllBlogTags');
 // return last x number blog posts
 Route::get('/show-all-blog-posts', 'BlogController@showAllBlogPosts');
+// return specific post with category and tags
+Route::get('/show-post/{id}', 'BlogController@showPost');

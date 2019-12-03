@@ -12,3 +12,5 @@ Route::get('/blog/create', function () {
 Route::get('/blog/show-blog-posts', function () {
     return view('blog.show-posts');
 });
+
+Route::get('/blog/{id}/{slug?}', 'BlogController@blogPost');

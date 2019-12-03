@@ -17,23 +17,24 @@
   <!-- Styles -->
   <link rel='stylesheet' href='http://www.dukesnuz.com/css_libs/dukes_normalize.css'>
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
   @stack('head')
 
 </head>
 <body>
   <header>
-    <h1 class="text-primary"><a href="/blog/home/">A</a></h1>
+    <h1 class="text-primary"><a href="/blog/home/">DukesNuz Blog</a></h1>
 
     <ul class="list-inline">
       <li class="list-inline-item"><a href="/blog/home/">Home</a></li>
       <li class="list-inline-item"><a href="/blog/show-blog-posts/">Blog Posts</a></li>
       <li class="list-inline-item"><a href="/blog/create/">Post</a></li>
       @if(Auth::check())
+    <li class="list-inline-item"><a href="/blog/create/">Create Post</a></li>
+      @else
       <li class="list-inline-item"><a href="/home">Login</a></li>
-
       @endif
     </ul>
-
   </header>
   @if(session('alert'))
   <div class='alert'>

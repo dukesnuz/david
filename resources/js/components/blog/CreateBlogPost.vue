@@ -47,11 +47,17 @@
             <div class="clear"></div>
           </li>
           <li>
-            <!--<button type="submit">Submit</button>-->
             <input type="submit" value="Submit" />
           </li>
         </ul>
       </form>
+    </div>
+    <div v-show="showLink">
+      <p>
+        <a :href="`${newId}/slug`">
+          <button type="button" class="btn btn-info">View New Post</button>
+        </a>
+      </p>
     </div>
   </div>
 </template>
@@ -66,6 +72,7 @@ export default {
   data() {
     return {
       showForm: true,
+      showLink: false,
       message: "",
       categories: [],
       tags: [],
@@ -74,7 +81,8 @@ export default {
         subject: "",
         body: "",
         checkedTags: []
-      }
+      },
+      newId: ""
     };
   },
   mounted() {
@@ -84,16 +92,12 @@ export default {
   methods: {
     getCategories() {
       let url = "/api/get-all-blog-categories";
-      //fetch(url)
       this.axios
         .get(url)
-        // .then(res => res.json())
         .then(res => {
           this.categories = res.data;
-          //console.log(this.categories);
-
           if (this.categories == "") {
-            this.message = "Please search again. No results found for: ";
+            this.message = "Error. No results found for: ";
           }
         })
         .catch(err => this.message);
@@ -131,14 +135,10 @@ export default {
           }
         })
         .then(response => {
-          console.log(response.data.messageReturned);
-          console.log(response.data.postId);
           if (response.data.messageReturned === "ok") {
             this.showForm = false;
-            this.message =
-              "Success Blog Saved <a href=" +
-              response.data.postId +
-              ">view post</a>";
+            this.showLink = true;
+            this.newId = response.data.postId;
           } else {
             this.message = "OOppss. System error. 2";
           }

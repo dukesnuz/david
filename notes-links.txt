@@ -7,3 +7,6 @@ https://www.youtube.com/watch?v=DJ6PD_jBtU0&t=1027s
 
 Laravel 5.5 API using resources
 https://github.com/bradtraversy/larticles_api
+
+Non-breaking, SEO friendly urls in Laravel
+https://sebastiandedeyne.com/non-breaking-seo-friendly-urls-in-laravel/
