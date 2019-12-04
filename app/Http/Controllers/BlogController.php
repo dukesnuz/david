@@ -133,7 +133,7 @@ class BlogController extends Controller
           'pid' => $id,
         ]);
     }
-
+    /************************working here******************************/
     /**
      * Update the specified resource in storage.
      *
@@ -143,7 +143,27 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //dd($request->toArray());
+        //$newBook ->tags()->sync($request->input('tags'));
+
+        // validate data
+        $this->validate($request, [
+            'category' => 'required',
+            'subject' => 'required',
+            'body' => 'required',
+        ]);
+        //get category id  to store in Blogpost
+        $cat_id = Blogcategory::where('id', '=', $request->input('category_id'))->first();
+
+        // Edit post in db
+        $post = Blogpost::find($id);
+        $post->subject = $request->input('subject');
+        $post->body = $request->input('body');
+        $post->ip = request()->ip();
+        $post->category_id = $cat_id->id;
+        $post->blogtags()->sync($request->input('blogtags'));
+        $post->save();
+        return response()->JSON(array('messageReturned' => 'ok'));
     }
 
     /**

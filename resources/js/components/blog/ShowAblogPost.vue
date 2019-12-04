@@ -40,7 +40,6 @@ export default {
         .then(response => {
           if (response.status == 200) {
             this.post = response.data;
-            console.log(this.post);
           } else {
             this.status = "OOppss! System error 1. We apologize.";
             this.data = null;
