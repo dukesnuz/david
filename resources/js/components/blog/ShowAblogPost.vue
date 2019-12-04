@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="subject">{{ post.subject}}</div>
-    <div class="body">{{ post.body }}</div>
+    <div class="body" v-html="post.body"></div>
     <ul class="tags">
       <li>Tags:</li>
       <li v-bind:key="tag.id" v-for="tag in post.blogtags">{{ tag.name }}</li>

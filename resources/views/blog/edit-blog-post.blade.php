@@ -1,16 +1,13 @@
 @extends('layouts.master-blog')
 
 @section('title')
-View A Blog Post
+Edit a Blog Post
 @endsection
 
 @section('content')
 <div class="container">
-
-  <p><a href="/blog-post/{{$pid}}/edit">edit Post</a></p>
-
   <div id="app">
-    <show-a-blog-post pid={{$pid}}></show-a-blog-post>
+        <edit-blog-post pid={{$pid}}></edit-blog-post>
   </div>
 </div>
 @endsection

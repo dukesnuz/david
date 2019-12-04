@@ -14,3 +14,5 @@ Route::get('/blog/show-blog-posts', function () {
 });
 
 Route::get('/blog/{id}/{slug?}', 'BlogController@blogPost');
+
+Route::get('/blog-post/{id}/edit', 'BlogController@edit');

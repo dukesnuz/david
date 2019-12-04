@@ -4,7 +4,7 @@
       <h3>Recent Blog Posts</h3>
       <ul v-for="post in posts" v-bind:key="post.id" class="posts">
         <li class="subject">{{ post.subject }}</li>
-        <li v-html="post.body.substring(0,10)" class="post-body"></li>
+        <li v-html="post.body.substring(0,20)" class="post-body"></li>
         <li>
           <a :href="`${post.id}/slug`">
             <button type="button" class="btn btn-info">Read More</button>

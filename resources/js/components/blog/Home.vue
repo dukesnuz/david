@@ -9,7 +9,10 @@
     <div class="blog-post">
       <h4>Most Recent Blog Post</h4>
       <h5>{{ post.subject }}</h5>
-      <p>{{ post.body }}</p>
+      <p v-html="post.body"></p>
+      <p><a :href="`${post.id}/slug`">
+            <button type="button" class="btn btn-info">Read More</button>
+          </a></p>
     </div>
   </div>
 </template>
@@ -33,6 +36,7 @@ export default {
         .then(res => res.json())
         .then(res => {
           this.post = res;
+          console.log(this.post);
           if (this.post == "") {
             this.message = "OOppss Error 1";
           } else {
@@ -58,6 +62,7 @@ export default {
   color: #fff;
   width: 500px;
   padding: 5px;
+  border: 2px solid #fff;
 }
 @media only screen and (min-width: 320px) {
   .blog-post, .banner {

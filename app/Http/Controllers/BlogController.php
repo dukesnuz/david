@@ -22,7 +22,7 @@ class BlogController extends Controller
     //get last blog post
     public function getLastBlogPost()
     {
-        $lastBlogPost = Blogpost::orderBy('created_at', 'desc')->with('Blogcategory')->with('blogtags')->first();
+        $lastBlogPost = Blogpost::orderBy('created_at', 'desc')->first();
         return $lastBlogPost;
     }
 
@@ -129,7 +129,9 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('blog.edit-blog-post')->with([
+          'pid' => $id,
+        ]);
     }
 
     /**

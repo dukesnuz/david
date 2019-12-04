@@ -37,3 +37,5 @@ Route::get('/get-all-blog-tags', 'BlogController@getAllBlogTags');
 Route::get('/show-all-blog-posts', 'BlogController@showAllBlogPosts');
 // return specific post with category and tags
 Route::get('/show-post/{id}', 'BlogController@showPost');
+// edit a blog post
+Route::get('/edit-post/{id}', 'BlogController@update');
