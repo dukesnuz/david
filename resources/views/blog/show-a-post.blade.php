@@ -7,7 +7,9 @@ View A Blog Post
 @section('content')
 <div class="container">
 
-  <p><a href="/blog-post/{{$pid}}/edit">edit Post</a></p>
+  @if(Auth::check())
+  <p><a href="/blog/blog-post/{{$pid}}/edit">edit Post</a></p>
+  @endif
 
   <div id="app">
     <show-a-blog-post pid={{$pid}}></show-a-blog-post>
