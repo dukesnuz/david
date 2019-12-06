@@ -1,6 +1,7 @@
 <template>
   <div>
     {{ message }}
+    {{ status }}
     <editor
       api-key="8fvbyqp6y3crcp6loaupiilair2atyyfei80ao20yezogbuv"
       cloud-channel="5"
@@ -37,14 +38,6 @@
           <input type="hidden" name="body" v-model="post.body" />
         </li>
         <li>
-          <label class="tag-label">Tags</label>
-          <div v-bind:key="tag.id" v-for="tag in tags" class="tags">
-            <input type="checkbox" :value="tag.name" :id="tag.name" v-model="post.checkedTags" />
-            {{tag.name}}
-          </div>
-          <div class="clear"></div>
-        </li>
-        <li>
           <input type="submit" value="Submit" />
         </li>
       </ul>
@@ -61,14 +54,15 @@ export default {
   },
   data() {
     return {
+      response: {},
       message: "",
+      status: "",
       categories: [],
       tags: [],
       post: {
         category: "",
         subject: "",
-        body: "",
-        checkedTags: []
+        body: ""
       }
     };
   },
@@ -135,6 +129,7 @@ export default {
         })
         .catch(error => {
           this.message = "OOpps. Error 3."; //error.response;
+          console.log(response);
         });
     },
     editPost() {
@@ -149,7 +144,7 @@ export default {
 
       let uri = "/api/edit-post/" + this.pid + "";
       this.axios
-        .post(uri, this.post, this.post.category, this.post.checkedTags, {
+        .post(uri, this.post, this.post.category, {
           headers: {
             "Content-Type": "application/json"
           }
@@ -158,7 +153,7 @@ export default {
           if (response.data.messageReturned === "ok") {
             this.message = "Post was updated";
           } else {
-            this.message = "OOppss. System error. 2";
+            this.message = "OOppss. System error 2. Did you enter a category?";
           }
         })
         .catch(error => {
@@ -170,4 +165,34 @@ export default {
 </script>
 
 <style scoped>
+ul {
+  list-style: none;
+  padding: 0;
+}
+.inner-content {
+  padding-bottom: 500px;
+}
+.tags {
+  display: inline-flex;
+  margin-top: 15px;
+  margin-left: 5px;
+  float: left;
+}
+form {
+  margin-top: 15px;
+}
+#subject {
+  width: 700px;
+}
+input[type="text"],
+select {
+  display: block;
+}
+.tag-label {
+  float: left;
+  margin-top: 15px;
+}
+.clear {
+  clear: both;
+}
 </style>

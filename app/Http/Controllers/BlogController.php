@@ -10,10 +10,10 @@ use David\Blogtag;
 class BlogController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function index()
     {
         return view("blog.index");
@@ -27,18 +27,18 @@ class BlogController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for creating a new resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function blogPostCreate(Request $request)
     {
         // validate data
         $this->validate($request, [
-            'category' => 'required',
-            'subject' => 'required',
-            'body' => 'required',
-        ]);
+      'category' => 'required',
+      'subject' => 'required',
+      'body' => 'required',
+    ]);
         //get category id  to store in Blogpost
         $cat_id = Blogcategory::where('categories', '=', $request->input('category'))->first();
 
@@ -74,22 +74,22 @@ class BlogController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
     public function store(Request $request)
     {
         //$id = substr(mt_rand(1000000, 9999999), 2, 7);
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function showAllBlogPosts()
     {
         $posts = Blogpost::orderBy('created_at', 'DESC')->get();
@@ -110,8 +110,8 @@ class BlogController extends Controller
             return redirect()->to($post->url);
         }
         return view('blog.show-a-post')->withPost($post)->with([
-          'pid' => $post->id,
-        ]);
+      'pid' => $post->id,
+    ]);
     }
 
     // show specific post with category and tags
@@ -122,36 +122,36 @@ class BlogController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for editing the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function edit($id)
     {
         return view('blog.edit-blog-post')->with([
-          'pid' => $id,
-        ]);
+      'pid' => $id,
+    ]);
     }
     /************************working here******************************/
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function update(Request $request, $id)
     {
-        //dd($request->toArray());
-        //$newBook ->tags()->sync($request->input('tags'));
+        $validator = \Validator::make(request()->all(), [
+      'category' => 'required',
+      'subject' => 'required',
+      'body' => 'required',
+    ]);
+        if ($validator->fails()) {
+            return response()->json(['status' => false, 'data' => $validator->errors()]);
+        }
 
-        // validate data
-        $this->validate($request, [
-            'category' => 'required',
-            'subject' => 'required',
-            'body' => 'required',
-        ]);
         //get category id  to store in Blogpost
         $cat_id = Blogcategory::where('id', '=', $request->input('category_id'))->first();
 
@@ -163,15 +163,18 @@ class BlogController extends Controller
         $post->category_id = $cat_id->id;
         $post->blogtags()->sync($request->input('blogtags'));
         $post->save();
+
+        $newPost = Blogpost::where('id', '=', $post->id)->first();
+
         return response()->JSON(array('messageReturned' => 'ok'));
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function destroy($id)
     {
         //
