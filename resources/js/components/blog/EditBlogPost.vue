@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="blog-inner-content">
+    <h3>Edit This Blog Post</h3>
     {{ message }}
     {{ status }}
     <editor
@@ -20,8 +21,8 @@
     <form v-on:submit.prevent="editPost()">
       <ul>
         <li>
-          <label for="category">Category</label>
-          <select v-model="post.category" name="category" id="category">
+          <label for="blog-category">Category</label>
+          <select v-model="post.category" name="category" id="blog-category">
             <option></option>
             <option
               v-bind:key="category.id"
@@ -31,8 +32,8 @@
         </li>
 
         <li>
-          <label for="subject">Subject</label>
-          <input type="text" name="subject" id="subject" v-model="post.subject" />
+          <label for="blog-subject">Subject</label>
+          <input type="text" name="subject" id="blog-subject" v-model="post.subject" />
         </li>
         <li>
           <input type="hidden" name="body" v-model="post.body" />
@@ -169,28 +170,15 @@ ul {
   list-style: none;
   padding: 0;
 }
-.inner-content {
-  padding-bottom: 500px;
-}
-.tags {
-  display: inline-flex;
-  margin-top: 15px;
-  margin-left: 5px;
-  float: left;
-}
 form {
   margin-top: 15px;
 }
-#subject {
+#blog-subject {
   width: 700px;
 }
 input[type="text"],
 select {
   display: block;
-}
-.tag-label {
-  float: left;
-  margin-top: 15px;
 }
 .clear {
   clear: both;

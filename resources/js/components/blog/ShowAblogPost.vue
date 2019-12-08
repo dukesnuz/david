@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <div class="subject">{{ post.subject}}</div>
-    <div class="body" v-html="post.body"></div>
-    <ul class="tags">
+  <div class="blog-inner-content">
+    <div class="blog-subject">{{ post.subject}}</div>
+    <div class="blog-body" v-html="post.body"></div>
+    <ul class="blog-tags">
       <li>Tags:</li>
       <li v-bind:key="tag.id" v-for="tag in post.blogtags">{{ tag.name }}</li>
     </ul>
     <div class="clearFix"></div>
-    <p class="date">Date posted: {{ new Date(post.created_at) }}</p>
+    <p class="blog-date">Date posted: {{ new Date(post.created_at) }}</p>
   </div>
 </template>
 
@@ -57,30 +57,18 @@ export default {
 </script>
 
 <style scoped>
-.subject {
-  background-color: burlywood;
-  text-align: center;
-  font-size: 2.25em;
-  padding: 10%;
-  font-weight: bold;
-  color: #fff;
-}
-.body {
-  background-color: #fff;
-  padding: 25px;
-}
-.tags {
+.blog-tags {
   margin-top: 20px;
   padding: 0;
 }
-.tags li {
+.blog-tags li {
   float: left;
   margin-right: 5px;
   display: inline-block;
   margin-top: 10px;
   padding-left: 25px;
 }
-.date {
+.blog-date {
   margin-top: 20px;
   padding-left: 25px;
 }

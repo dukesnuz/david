@@ -1,10 +1,10 @@
 <template>
   <div class="inner-content flex-container">
-    <div class="post">
+    <div class="blog-post">
       <h3>Recent Blog Posts</h3>
       <ul v-for="post in posts" v-bind:key="post.id" class="posts">
-        <li class="subject">{{ post.subject }}</li>
-        <li v-html="post.body.substring(0,20)" class="post-body"></li>
+        <li class="blog-subject">{{ post.subject }}</li>
+        <li v-html="post.body.substring(0,20)" class="blog-post-body"></li>
         <li>
           <a :href="`${post.id}/slug`">
             <button type="button" class="btn btn-info">Read More</button>
@@ -15,7 +15,7 @@
     <div>
       <h4>Categories</h4>
 
-      <ul class="categories">
+      <ul class="blog-categories">
         <li v-for="category in categorys" v-bind:key="category.id">{{ category.categories }}</li>
       </ul>
     </div>
@@ -71,9 +71,6 @@ export default {
 </script>
 
 <style scoped>
-.inner-content {
-  margin-bottom: 500px;
-}
 ul {
   list-style: none;
 }
@@ -83,24 +80,23 @@ ul.posts {
   margin-bottom: 25px;
   border-radius: 10px;
   width: 100%;
-  padding-left: 0px;
 }
-ul.categories {
+ul.blog-categories {
   padding: 0;
 }
-.category {
+.blog-category {
   padding-left: 5px;
 }
-.post {
+.blog-post {
   width: 100%;
   font-size: 1.5em;
 }
-.subject {
+.blog-subject {
   font-weight: bold;
   font-size: 1.25em;
   padding-left: 5px;
 }
-.post-body {
+.blog-post-body {
   margin: 5px 0;
   padding-left: 5px;
 }
@@ -111,7 +107,7 @@ ul.categories {
 @media only screen and (min-width: 320px) {
   .inner-content {
   }
-  .post {
+  .blog-post {
     width: 80%;
   }
   .flex-container {

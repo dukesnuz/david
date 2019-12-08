@@ -1,5 +1,5 @@
 <template>
-  <div class="inner-content">
+  <div class="blog-inner-content">
     <h3>Create a Blog Post</h3>
     {{ message }}
     <div v-show="showForm">
@@ -32,15 +32,15 @@
           </li>
 
           <li>
-            <label for="subject">Subject</label>
-            <input type="text" name="subject" id="subject" v-model="post.subject" />
+            <label for="blog-subject">Subject</label>
+            <input type="text" name="subject" id="blog-subject" v-model="post.subject" />
           </li>
           <li>
             <input type="hidden" name="body" v-model="post.body" />
           </li>
           <li>
-            <label class="tag-label">Tags</label>
-            <div v-bind:key="tag.id" v-for="tag in tags" class="tags">
+            <label class="blog-tag-label">Tags</label>
+            <div v-bind:key="tag.id" v-for="tag in tags" class="blog-tags">
               <input type="checkbox" :value="tag.name" :id="tag.name" v-model="post.checkedTags" />
               {{tag.name}}
             </div>
@@ -159,7 +159,7 @@ ul {
 .inner-content {
   padding-bottom: 500px;
 }
-.tags {
+.blog-tags {
   display: inline-flex;
   margin-top: 15px;
   margin-left: 5px;
@@ -168,14 +168,14 @@ ul {
 form {
   margin-top: 15px;
 }
-#subject {
+#blog-subject {
   width: 700px;
 }
 input[type="text"],
 select {
   display: block;
 }
-.tag-label {
+.blog-tag-label {
   float: left;
   margin-top: 15px;
 }

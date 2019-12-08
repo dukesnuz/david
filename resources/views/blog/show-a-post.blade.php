@@ -8,7 +8,7 @@ View A Blog Post
 <div class="container">
 
   @if(Auth::check())
-  <p><a href="/blog/blog-post/{{$pid}}/edit">edit Post</a></p>
+  <p><a href="/blog/blog-post/{{$pid}}/edit">Edit Post</a></p>
   @endif
 
   <div id="app">

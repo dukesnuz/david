@@ -19,8 +19,8 @@
 
         <div class="card-footer">
           <ul>
-          <li><a href="/links/get-list">View David's favorite website links</a></li>
-          <li><a href="/blog/home">View David's favorite website links</a></li>
+          <li><a href="/links/get-list">David's favorite websites</a></li>
+          <li><a href="/blog/home">David's Blog</a></li>
         </div>
       </div>
     </div>

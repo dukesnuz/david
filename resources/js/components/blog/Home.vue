@@ -1,7 +1,7 @@
 <template>
   <div class="inner-content" :style="{ backgroundImage:'url('+b_image+')'}">
     {{ message }}
-    <p class="banner">
+    <p class="blog-banner">
       Greetings! </br>Welcome to my blog. I post topics I enjoy and
       hope others will also. Most of my posts will be about transportation and web development.
        If you enjoy this blog feel free to share on social media
@@ -65,16 +65,11 @@ export default {
   border: 2px solid #fff;
 }
 @media only screen and (min-width: 320px) {
-  .blog-post, .banner {
+  .blog-post, .blog-banner {
     margin-left: 25px;
   }
-.banner{
+.blog-banner{
     margin-right: 50%;
   }
-}
-</style>
-<style>
-body {
-  background-color: antiquewhite !important;
 }
 </style>
