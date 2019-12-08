@@ -81,11 +81,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <a href="/links/get-list">David's Laravel App</a>
+                    David's Laravel App
                 </div>
 
                 <div class="links">
-                    <a href="/links/get-list">David's Favorite Website Links</a>
+                    <a href="/links/get-list">David's Favorite Websites</a>
+                    <a href="/blog/home">David's Blog</a>
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
