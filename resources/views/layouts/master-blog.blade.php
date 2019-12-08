@@ -26,7 +26,7 @@
     <h1 class="text-primary"><a href="/blog/home/">Blog For DukesNuz</a></h1>
 
     <ul class="list-inline">
-      <li class="list-inline-item"><a href="/home/">Home</a></li>
+      <li class="list-inline-item"><a href="/">Home</a></li>
       <li class="list-inline-item"><a href="/blog/home/">Blog</a></li>
       <li class="list-inline-item"><a href="/blog/show-blog-posts/">Blog Posts</a></li>
       <li class="list-inline-item"><a href="/links/about/">About</a></li>

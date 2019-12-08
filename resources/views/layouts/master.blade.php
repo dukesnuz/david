@@ -27,7 +27,7 @@
     <h4><a href="https://laravel.com/" target="_blank">Using the Laravel Framework</a></h4>
 
     <ul class="list-inline">
-      <li class="list-inline-item"><a href="/home/">Home</a></li>
+      <li class="list-inline-item"><a href="/">Home</a></li>
       <li class="list-inline-item"><a href="/links/get-list/">Links</a></li>
       <li class="list-inline-item"><a href="/links/search/">Search</a></li>
       <li class="list-inline-item"><a href="/links/about/">About</a></li>
