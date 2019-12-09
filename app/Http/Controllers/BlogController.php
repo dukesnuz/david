@@ -85,6 +85,36 @@ class BlogController extends Controller
     }
 
     /**
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
+    public function storeCategory(Request $request)
+    {
+        // Store new category in db
+        $store = new Blogcategory();
+        $store->categories = $request->input('name');
+        $store->save();
+        return response()->JSON(array('messageReturned' => 'ok'));
+    }
+
+    /**
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
+    public function storeTag(Request $request)
+    {
+        // Store new category in db
+        $store = new Blogtag();
+        $store->name = $request->input('name');
+        $store->save();
+        return response()->JSON(array('messageReturned' => 'ok'));
+    }
+
+    /**
     * Display the specified resource.
     *
     * @param  int  $id
@@ -133,7 +163,7 @@ class BlogController extends Controller
       'pid' => $id,
     ]);
     }
-    /************************working here******************************/
+
     /**
     * Update the specified resource in storage.
     *

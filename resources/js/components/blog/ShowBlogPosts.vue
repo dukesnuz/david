@@ -105,8 +105,7 @@ ul.blog-categories {
   color: #fff;
 }
 @media only screen and (min-width: 320px) {
-  .inner-content {
-  }
+
   .blog-post {
     width: 80%;
   }

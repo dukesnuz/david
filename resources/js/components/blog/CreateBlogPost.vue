@@ -1,63 +1,96 @@
 <template>
-  <div class="blog-inner-content">
-    <h3>Create a Blog Post</h3>
-    {{ message }}
-    <div v-show="showForm">
-      <editor
-        api-key="8fvbyqp6y3crcp6loaupiilair2atyyfei80ao20yezogbuv"
-        cloud-channel="5"
-        :disabled="false"
-        id="uuid"
-        :init="{  }"
-        initial-value
-        model-events
-        plugins
-        tag-name="div"
-        toolbar
-        value
-        v-model="post.body"
-      ></editor>
+  <div class="blog-inner-content flex-container">
+    <div class="blog-post">
+      <h3>Create a Blog Post</h3>
+      {{ message }}
+      <div v-show="showForm">
+        <editor
+          api-key="8fvbyqp6y3crcp6loaupiilair2atyyfei80ao20yezogbuv"
+          cloud-channel="5"
+          :disabled="false"
+          id="uuid"
+          :init="{  }"
+          initial-value
+          model-events
+          plugins
+          tag-name="div"
+          toolbar
+          value
+          v-model="post.body"
+        ></editor>
 
-      <form v-on:submit.prevent="create()">
-        <ul>
-          <li>
-            <label for="category">Category</label>
-            <select v-model="post.category" name="category" id="category">
-              <option></option>
-              <option
-                v-bind:key="category.id"
-                v-for="category in categories"
-              >{{ category.categories }}</option>
-            </select>
-          </li>
+        <form v-on:submit.prevent="create()">
+          <ul>
+            <li>
+              <label for="category">Category</label>
+              <select v-model="post.category" name="category" id="category">
+                <option></option>
+                <option
+                  v-bind:key="category.id"
+                  v-for="category in categories"
+                >{{ category.categories }}</option>
+              </select>
+            </li>
 
-          <li>
-            <label for="blog-subject">Subject</label>
-            <input type="text" name="subject" id="blog-subject" v-model="post.subject" />
-          </li>
-          <li>
-            <input type="hidden" name="body" v-model="post.body" />
-          </li>
-          <li>
-            <label class="blog-tag-label">Tags</label>
-            <div v-bind:key="tag.id" v-for="tag in tags" class="blog-tags">
-              <input type="checkbox" :value="tag.name" :id="tag.name" v-model="post.checkedTags" />
-              {{tag.name}}
-            </div>
-            <div class="clear"></div>
-          </li>
-          <li>
-            <input type="submit" value="Submit" />
-          </li>
-        </ul>
-      </form>
+            <li>
+              <label for="blog-subject">Subject</label>
+              <input type="text" name="subject" id="blog-subject" v-model="post.subject" />
+            </li>
+            <li>
+              <input type="hidden" name="body" v-model="post.body" />
+            </li>
+            <li>
+              <label class="blog-tag-label">Tags</label>
+              <div v-bind:key="tag.id" v-for="tag in tags" class="blog-tags">
+                <input type="checkbox" :value="tag.name" :id="tag.name" v-model="post.checkedTags" />
+                {{tag.name}}
+              </div>
+              <div class="clear"></div>
+            </li>
+            <li>
+              <input type="submit" value="Submit" />
+            </li>
+          </ul>
+        </form>
+      </div>
+      <div v-show="showLink">
+        <p>
+          <a :href="`${newId}/slug`">
+            <button type="button" class="btn btn-info">View New Post</button>
+          </a>
+        </p>
+      </div>
     </div>
-    <div v-show="showLink">
-      <p>
-        <a :href="`${newId}/slug`">
-          <button type="button" class="btn btn-info">View New Post</button>
-        </a>
-      </p>
+    <div>
+      <h4>Add A Category</h4>
+
+      <ul class="blog-categories">
+        <form v-on:submit.prevent="createCategory()">
+          <ul>
+            <li>
+              <label for="new-category">New Category</label>
+              <input type="text" name="new-category" id="new-category" v-model="newCategory.name" />
+            </li>
+            <li>
+              <input type="submit" value="Submit" />
+            </li>
+          </ul>
+        </form>
+      </ul>
+
+      <ul class="blog-categories">
+        <form v-on:submit.prevent="createTag()">
+          <ul>
+            <li>
+              <label for="new-tag">New Tag</label>
+              <input type="text" name="new-tag" id="new-tag" v-model="newTag.name" />
+            </li>
+            <li>
+              <input type="submit" value="Submit" />
+            </li>
+          </ul>
+        </form>
+      </ul>
     </div>
   </div>
 </template>
@@ -82,7 +115,13 @@ export default {
         body: "",
         checkedTags: []
       },
-      newId: ""
+      newId: "",
+      newCategory: {
+        name: "NewCategory"
+      },
+      newTag: {
+        name: "NewTag"
+      }
     };
   },
   mounted() {
@@ -146,11 +185,62 @@ export default {
         .catch(error => {
           this.message = "OOppss. System error 3. " + error + "";
         });
+    },
+    createCategory() {
+      console.log(this.newCategory);
+      if (this.newCategory == "") {
+        this.message = "Please enter category";
+        return;
+      }
+
+      let uri = `/api/blog-category-create`;
+      this.axios
+        .post(uri, this.newCategory, {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        .then(response => {
+          if (response.data.messageReturned === "ok") {
+            this.message = "New category created";
+            this.getCategories();
+          } else {
+            this.message = "OOppss. System error. 2";
+          }
+        })
+        .catch(error => {
+          this.message = "OOppss. System error 3. " + error + "";
+        });
+    },
+    createTag() {
+      console.log(this.newTag);
+      if (this.newCategory == "") {
+        this.message = "Please enter tag";
+        return;
+      }
+
+      let uri = `/api/blog-tag-create`;
+      this.axios
+        .post(uri, this.newTag, {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        .then(response => {
+          if (response.data.messageReturned === "ok") {
+            this.message = "New tag created";
+            this.getTags();
+          } else {
+            this.message = "OOppss. System error. 2";
+          }
+        })
+        .catch(error => {
+          this.message = "OOppss. System error 3. " + error + "";
+        });
     }
   }
 };
 </script>
-
 <style scoped>
 ul {
   list-style: none;
@@ -181,5 +271,15 @@ select {
 }
 .clear {
   clear: both;
+}
+@media only screen and (min-width: 320px) {
+  .blog-post {
+    width: 80%;
+  }
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 </style>

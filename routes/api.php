@@ -39,3 +39,7 @@ Route::get('/show-all-blog-posts', 'BlogController@showAllBlogPosts');
 Route::get('/show-post/{id}', 'BlogController@showPost');
 // edit a blog post
 Route::post('/edit-post/{id}', 'BlogController@update');
+// add a new category
+Route::post('/blog-category-create', 'BlogController@storeCategory');
+// add a new tag
+Route::post('/blog-tag-create', 'BlogController@storeTag');

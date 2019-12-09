@@ -2482,6 +2482,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app",
@@ -2501,7 +2534,13 @@ __webpack_require__.r(__webpack_exports__);
         body: "",
         checkedTags: []
       },
-      newId: ""
+      newId: "",
+      newCategory: {
+        name: "NewCategory"
+      },
+      newTag: {
+        name: "NewTag"
+      }
     };
   },
   mounted: function mounted() {
@@ -2563,6 +2602,60 @@ __webpack_require__.r(__webpack_exports__);
         }
       })["catch"](function (error) {
         _this3.message = "OOppss. System error 3. " + error + "";
+      });
+    },
+    createCategory: function createCategory() {
+      var _this4 = this;
+
+      console.log(this.newCategory);
+
+      if (this.newCategory == "") {
+        this.message = "Please enter category";
+        return;
+      }
+
+      var uri = "/api/blog-category-create";
+      this.axios.post(uri, this.newCategory, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(function (response) {
+        if (response.data.messageReturned === "ok") {
+          _this4.message = "New category created";
+
+          _this4.getCategories();
+        } else {
+          _this4.message = "OOppss. System error. 2";
+        }
+      })["catch"](function (error) {
+        _this4.message = "OOppss. System error 3. " + error + "";
+      });
+    },
+    createTag: function createTag() {
+      var _this5 = this;
+
+      console.log(this.newTag);
+
+      if (this.newCategory == "") {
+        this.message = "Please enter tag";
+        return;
+      }
+
+      var uri = "/api/blog-tag-create";
+      this.axios.post(uri, this.newTag, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(function (response) {
+        if (response.data.messageReturned === "ok") {
+          _this5.message = "New tag created";
+
+          _this5.getTags();
+        } else {
+          _this5.message = "OOppss. System error. 2";
+        }
+      })["catch"](function (error) {
+        _this5.message = "OOppss. System error 3. " + error + "";
       });
     }
   }
@@ -7435,7 +7528,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nul[data-v-cbde79a0] {\r\n  list-style: none;\r\n  padding: 0;\n}\n.inner-content[data-v-cbde79a0] {\r\n  padding-bottom: 500px;\n}\n.blog-tags[data-v-cbde79a0] {\r\n  display: inline-flex;\r\n  margin-top: 15px;\r\n  margin-left: 5px;\r\n  float: left;\n}\nform[data-v-cbde79a0] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-cbde79a0] {\r\n  width: 700px;\n}\ninput[type=\"text\"][data-v-cbde79a0],\r\nselect[data-v-cbde79a0] {\r\n  display: block;\n}\n.blog-tag-label[data-v-cbde79a0] {\r\n  float: left;\r\n  margin-top: 15px;\n}\n.clear[data-v-cbde79a0] {\r\n  clear: both;\n}\r\n", ""]);
+exports.push([module.i, "\nul[data-v-cbde79a0] {\r\n  list-style: none;\r\n  padding: 0;\n}\n.inner-content[data-v-cbde79a0] {\r\n  padding-bottom: 500px;\n}\n.blog-tags[data-v-cbde79a0] {\r\n  display: inline-flex;\r\n  margin-top: 15px;\r\n  margin-left: 5px;\r\n  float: left;\n}\nform[data-v-cbde79a0] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-cbde79a0] {\r\n  width: 700px;\n}\ninput[type=\"text\"][data-v-cbde79a0],\r\nselect[data-v-cbde79a0] {\r\n  display: block;\n}\n.blog-tag-label[data-v-cbde79a0] {\r\n  float: left;\r\n  margin-top: 15px;\n}\n.clear[data-v-cbde79a0] {\r\n  clear: both;\n}\n@media only screen and (min-width: 320px) {\n.blog-post[data-v-cbde79a0] {\r\n    width: 80%;\n}\n.flex-container[data-v-cbde79a0] {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -7511,7 +7604,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nul[data-v-8e2235dc] {\r\n  list-style: none;\n}\nul.posts[data-v-8e2235dc] {\r\n  background-color: #fff;\r\n  padding: 10px;\r\n  margin-bottom: 25px;\r\n  border-radius: 10px;\r\n  width: 100%;\n}\nul.blog-categories[data-v-8e2235dc] {\r\n  padding: 0;\n}\n.blog-category[data-v-8e2235dc] {\r\n  padding-left: 5px;\n}\n.blog-post[data-v-8e2235dc] {\r\n  width: 100%;\r\n  font-size: 1.5em;\n}\n.blog-subject[data-v-8e2235dc] {\r\n  font-weight: bold;\r\n  font-size: 1.25em;\r\n  padding-left: 5px;\n}\n.blog-post-body[data-v-8e2235dc] {\r\n  margin: 5px 0;\r\n  padding-left: 5px;\n}\n.btn.btn-info[data-v-8e2235dc] {\r\n  margin: 5px;\r\n  color: #fff;\n}\n@media only screen and (min-width: 320px) {\n.inner-content[data-v-8e2235dc] {\n}\n.blog-post[data-v-8e2235dc] {\r\n    width: 80%;\n}\n.flex-container[data-v-8e2235dc] {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\n}\n}\r\n", ""]);
+exports.push([module.i, "\nul[data-v-8e2235dc] {\r\n  list-style: none;\n}\nul.posts[data-v-8e2235dc] {\r\n  background-color: #fff;\r\n  padding: 10px;\r\n  margin-bottom: 25px;\r\n  border-radius: 10px;\r\n  width: 100%;\n}\nul.blog-categories[data-v-8e2235dc] {\r\n  padding: 0;\n}\n.blog-category[data-v-8e2235dc] {\r\n  padding-left: 5px;\n}\n.blog-post[data-v-8e2235dc] {\r\n  width: 100%;\r\n  font-size: 1.5em;\n}\n.blog-subject[data-v-8e2235dc] {\r\n  font-weight: bold;\r\n  font-size: 1.25em;\r\n  padding-left: 5px;\n}\n.blog-post-body[data-v-8e2235dc] {\r\n  margin: 5px 0;\r\n  padding-left: 5px;\n}\n.btn.btn-info[data-v-8e2235dc] {\r\n  margin: 5px;\r\n  color: #fff;\n}\n@media only screen and (min-width: 320px) {\n.blog-post[data-v-8e2235dc] {\r\n    width: 80%;\n}\n.flex-container[data-v-8e2235dc] {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -39420,263 +39513,385 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "blog-inner-content" }, [
-    _c("h3", [_vm._v("Create a Blog Post")]),
-    _vm._v("\n  " + _vm._s(_vm.message) + "\n  "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.showForm,
-            expression: "showForm"
-          }
-        ]
-      },
-      [
-        _c("editor", {
-          attrs: {
-            "api-key": "8fvbyqp6y3crcp6loaupiilair2atyyfei80ao20yezogbuv",
-            "cloud-channel": "5",
-            disabled: false,
-            id: "uuid",
-            init: {},
-            "initial-value": "",
-            "model-events": "",
-            plugins: "",
-            "tag-name": "div",
-            toolbar: "",
-            value: ""
-          },
-          model: {
-            value: _vm.post.body,
-            callback: function($$v) {
-              _vm.$set(_vm.post, "body", $$v)
+  return _c("div", { staticClass: "blog-inner-content flex-container" }, [
+    _c("div", { staticClass: "blog-post" }, [
+      _c("h3", [_vm._v("Create a Blog Post")]),
+      _vm._v("\n    " + _vm._s(_vm.message) + "\n    "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showForm,
+              expression: "showForm"
+            }
+          ]
+        },
+        [
+          _c("editor", {
+            attrs: {
+              "api-key": "8fvbyqp6y3crcp6loaupiilair2atyyfei80ao20yezogbuv",
+              "cloud-channel": "5",
+              disabled: false,
+              id: "uuid",
+              init: {},
+              "initial-value": "",
+              "model-events": "",
+              plugins: "",
+              "tag-name": "div",
+              toolbar: "",
+              value: ""
             },
-            expression: "post.body"
-          }
-        }),
-        _vm._v(" "),
+            model: {
+              value: _vm.post.body,
+              callback: function($$v) {
+                _vm.$set(_vm.post, "body", $$v)
+              },
+              expression: "post.body"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.create()
+                }
+              }
+            },
+            [
+              _c("ul", [
+                _c("li", [
+                  _c("label", { attrs: { for: "category" } }, [
+                    _vm._v("Category")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.post.category,
+                          expression: "post.category"
+                        }
+                      ],
+                      attrs: { name: "category", id: "category" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.post,
+                            "category",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option"),
+                      _vm._v(" "),
+                      _vm._l(_vm.categories, function(category) {
+                        return _c("option", { key: category.id }, [
+                          _vm._v(_vm._s(category.categories))
+                        ])
+                      })
+                    ],
+                    2
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("label", { attrs: { for: "blog-subject" } }, [
+                    _vm._v("Subject")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.post.subject,
+                        expression: "post.subject"
+                      }
+                    ],
+                    attrs: {
+                      type: "text",
+                      name: "subject",
+                      id: "blog-subject"
+                    },
+                    domProps: { value: _vm.post.subject },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.post, "subject", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.post.body,
+                        expression: "post.body"
+                      }
+                    ],
+                    attrs: { type: "hidden", name: "body" },
+                    domProps: { value: _vm.post.body },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.post, "body", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  [
+                    _c("label", { staticClass: "blog-tag-label" }, [
+                      _vm._v("Tags")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.tags, function(tag) {
+                      return _c(
+                        "div",
+                        { key: tag.id, staticClass: "blog-tags" },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.post.checkedTags,
+                                expression: "post.checkedTags"
+                              }
+                            ],
+                            attrs: { type: "checkbox", id: tag.name },
+                            domProps: {
+                              value: tag.name,
+                              checked: Array.isArray(_vm.post.checkedTags)
+                                ? _vm._i(_vm.post.checkedTags, tag.name) > -1
+                                : _vm.post.checkedTags
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = _vm.post.checkedTags,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = tag.name,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        _vm.post,
+                                        "checkedTags",
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        _vm.post,
+                                        "checkedTags",
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(_vm.post, "checkedTags", $$c)
+                                }
+                              }
+                            }
+                          }),
+                          _vm._v(
+                            "\n              " +
+                              _vm._s(tag.name) +
+                              "\n            "
+                          )
+                        ]
+                      )
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "clear" })
+                  ],
+                  2
+                ),
+                _vm._v(" "),
+                _vm._m(0)
+              ])
+            ]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showLink,
+              expression: "showLink"
+            }
+          ]
+        },
+        [
+          _c("p", [
+            _c("a", { attrs: { href: _vm.newId + "/slug" } }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-info", attrs: { type: "button" } },
+                [_vm._v("View New Post")]
+              )
+            ])
+          ])
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c("h4", [_vm._v("Add A Category")]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "blog-categories" }, [
         _c(
           "form",
           {
             on: {
               submit: function($event) {
                 $event.preventDefault()
-                return _vm.create()
+                return _vm.createCategory()
               }
             }
           },
           [
             _c("ul", [
               _c("li", [
-                _c("label", { attrs: { for: "category" } }, [
-                  _vm._v("Category")
+                _c("label", { attrs: { for: "new-category" } }, [
+                  _vm._v("New Category")
                 ]),
                 _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.post.category,
-                        expression: "post.category"
-                      }
-                    ],
-                    attrs: { name: "category", id: "category" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.post,
-                          "category",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newCategory.name,
+                      expression: "newCategory.name"
                     }
+                  ],
+                  attrs: {
+                    type: "text",
+                    name: "new-category",
+                    id: "new-category"
                   },
-                  [
-                    _c("option"),
-                    _vm._v(" "),
-                    _vm._l(_vm.categories, function(category) {
-                      return _c("option", { key: category.id }, [
-                        _vm._v(_vm._s(category.categories))
-                      ])
-                    })
-                  ],
-                  2
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("label", { attrs: { for: "blog-subject" } }, [
-                  _vm._v("Subject")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.post.subject,
-                      expression: "post.subject"
-                    }
-                  ],
-                  attrs: { type: "text", name: "subject", id: "blog-subject" },
-                  domProps: { value: _vm.post.subject },
+                  domProps: { value: _vm.newCategory.name },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.post, "subject", $event.target.value)
+                      _vm.$set(_vm.newCategory, "name", $event.target.value)
                     }
                   }
                 })
               ]),
               _vm._v(" "),
-              _c("li", [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.post.body,
-                      expression: "post.body"
-                    }
-                  ],
-                  attrs: { type: "hidden", name: "body" },
-                  domProps: { value: _vm.post.body },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.post, "body", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c(
-                "li",
-                [
-                  _c("label", { staticClass: "blog-tag-label" }, [
-                    _vm._v("Tags")
-                  ]),
-                  _vm._v(" "),
-                  _vm._l(_vm.tags, function(tag) {
-                    return _c(
-                      "div",
-                      { key: tag.id, staticClass: "blog-tags" },
-                      [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.post.checkedTags,
-                              expression: "post.checkedTags"
-                            }
-                          ],
-                          attrs: { type: "checkbox", id: tag.name },
-                          domProps: {
-                            value: tag.name,
-                            checked: Array.isArray(_vm.post.checkedTags)
-                              ? _vm._i(_vm.post.checkedTags, tag.name) > -1
-                              : _vm.post.checkedTags
-                          },
-                          on: {
-                            change: function($event) {
-                              var $$a = _vm.post.checkedTags,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? true : false
-                              if (Array.isArray($$a)) {
-                                var $$v = tag.name,
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    _vm.$set(
-                                      _vm.post,
-                                      "checkedTags",
-                                      $$a.concat([$$v])
-                                    )
-                                } else {
-                                  $$i > -1 &&
-                                    _vm.$set(
-                                      _vm.post,
-                                      "checkedTags",
-                                      $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1))
-                                    )
-                                }
-                              } else {
-                                _vm.$set(_vm.post, "checkedTags", $$c)
-                              }
-                            }
-                          }
-                        }),
-                        _vm._v(
-                          "\n            " + _vm._s(tag.name) + "\n          "
-                        )
-                      ]
-                    )
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "clear" })
-                ],
-                2
-              ),
-              _vm._v(" "),
-              _vm._m(0)
+              _vm._m(1)
             ])
           ]
         )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "blog-categories" }, [
+        _c(
+          "form",
           {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.showLink,
-            expression: "showLink"
-          }
-        ]
-      },
-      [
-        _c("p", [
-          _c("a", { attrs: { href: _vm.newId + "/slug" } }, [
-            _c(
-              "button",
-              { staticClass: "btn btn-info", attrs: { type: "button" } },
-              [_vm._v("View New Post")]
-            )
-          ])
-        ])
-      ]
-    )
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.createTag()
+              }
+            }
+          },
+          [
+            _c("ul", [
+              _c("li", [
+                _c("label", { attrs: { for: "new-tag" } }, [_vm._v("New Tag")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newTag.name,
+                      expression: "newTag.name"
+                    }
+                  ],
+                  attrs: { type: "text", name: "new-tag", id: "new-tag" },
+                  domProps: { value: _vm.newTag.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.newTag, "name", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _vm._m(2)
+            ])
+          ]
+        )
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("input", { attrs: { type: "submit", value: "Submit" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("input", { attrs: { type: "submit", value: "Submit" } })
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -52483,14 +52698,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************************!*\
   !*** ./resources/js/components/blog/CreateBlogPost.vue ***!
   \*********************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CreateBlogPost_vue_vue_type_template_id_cbde79a0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateBlogPost.vue?vue&type=template&id=cbde79a0&scoped=true& */ "./resources/js/components/blog/CreateBlogPost.vue?vue&type=template&id=cbde79a0&scoped=true&");
 /* harmony import */ var _CreateBlogPost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateBlogPost.vue?vue&type=script&lang=js& */ "./resources/js/components/blog/CreateBlogPost.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _CreateBlogPost_vue_vue_type_style_index_0_id_cbde79a0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CreateBlogPost.vue?vue&type=style&index=0&id=cbde79a0&scoped=true&lang=css& */ "./resources/js/components/blog/CreateBlogPost.vue?vue&type=style&index=0&id=cbde79a0&scoped=true&lang=css&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _CreateBlogPost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _CreateBlogPost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _CreateBlogPost_vue_vue_type_style_index_0_id_cbde79a0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CreateBlogPost.vue?vue&type=style&index=0&id=cbde79a0&scoped=true&lang=css& */ "./resources/js/components/blog/CreateBlogPost.vue?vue&type=style&index=0&id=cbde79a0&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -52522,7 +52738,7 @@ component.options.__file = "resources/js/components/blog/CreateBlogPost.vue"
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/blog/CreateBlogPost.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
