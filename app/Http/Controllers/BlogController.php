@@ -94,7 +94,7 @@ class BlogController extends Controller
     {
         // Store new category in db
         $store = new Blogcategory();
-        $store->categories = $request->input('name');
+        $store->categories = ucfirst(strtolower($request->input('name')));
         $store->save();
         return response()->JSON(array('messageReturned' => 'ok'));
     }
@@ -109,7 +109,7 @@ class BlogController extends Controller
     {
         // Store new category in db
         $store = new Blogtag();
-        $store->name = $request->input('name');
+        $store->name = ucfirst(strtolower($request->input('name')));
         $store->save();
         return response()->JSON(array('messageReturned' => 'ok'));
     }

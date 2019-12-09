@@ -61,8 +61,8 @@
         </p>
       </div>
     </div>
-    <div>
-      <h4>Add A Category</h4>
+    <div class="add-c-t">
+      <h4>Create</h4>
 
       <ul class="blog-categories">
         <form v-on:submit.prevent="createCategory()">
@@ -117,10 +117,10 @@ export default {
       },
       newId: "",
       newCategory: {
-        name: "NewCategory"
+        name: ""
       },
       newTag: {
-        name: "NewTag"
+        name: ""
       }
     };
   },
@@ -187,7 +187,6 @@ export default {
         });
     },
     createCategory() {
-      console.log(this.newCategory);
       if (this.newCategory == "") {
         this.message = "Please enter category";
         return;
@@ -202,6 +201,7 @@ export default {
         })
         .then(response => {
           if (response.data.messageReturned === "ok") {
+            this.newCategory.name = "";
             this.message = "New category created";
             this.getCategories();
           } else {
@@ -213,7 +213,6 @@ export default {
         });
     },
     createTag() {
-      console.log(this.newTag);
       if (this.newCategory == "") {
         this.message = "Please enter tag";
         return;
@@ -228,6 +227,7 @@ export default {
         })
         .then(response => {
           if (response.data.messageReturned === "ok") {
+            this.newTag.name = "";
             this.message = "New tag created";
             this.getTags();
           } else {
@@ -274,12 +274,19 @@ select {
 }
 @media only screen and (min-width: 320px) {
   .blog-post {
+    border: 1px solid #000;
+    padding: 0 5px;
     width: 80%;
   }
   .flex-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+  .add-c-t {
+    margin-left: 10px;
+    border: 1px solid #000;
+    padding: 0 5px;
   }
 }
 </style>

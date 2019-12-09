@@ -2536,10 +2536,10 @@ __webpack_require__.r(__webpack_exports__);
       },
       newId: "",
       newCategory: {
-        name: "NewCategory"
+        name: ""
       },
       newTag: {
-        name: "NewTag"
+        name: ""
       }
     };
   },
@@ -2607,8 +2607,6 @@ __webpack_require__.r(__webpack_exports__);
     createCategory: function createCategory() {
       var _this4 = this;
 
-      console.log(this.newCategory);
-
       if (this.newCategory == "") {
         this.message = "Please enter category";
         return;
@@ -2621,6 +2619,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         if (response.data.messageReturned === "ok") {
+          _this4.newCategory.name = "";
           _this4.message = "New category created";
 
           _this4.getCategories();
@@ -2634,8 +2633,6 @@ __webpack_require__.r(__webpack_exports__);
     createTag: function createTag() {
       var _this5 = this;
 
-      console.log(this.newTag);
-
       if (this.newCategory == "") {
         this.message = "Please enter tag";
         return;
@@ -2648,6 +2645,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         if (response.data.messageReturned === "ok") {
+          _this5.newTag.name = "";
           _this5.message = "New tag created";
 
           _this5.getTags();
@@ -7528,7 +7526,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nul[data-v-cbde79a0] {\r\n  list-style: none;\r\n  padding: 0;\n}\n.inner-content[data-v-cbde79a0] {\r\n  padding-bottom: 500px;\n}\n.blog-tags[data-v-cbde79a0] {\r\n  display: inline-flex;\r\n  margin-top: 15px;\r\n  margin-left: 5px;\r\n  float: left;\n}\nform[data-v-cbde79a0] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-cbde79a0] {\r\n  width: 700px;\n}\ninput[type=\"text\"][data-v-cbde79a0],\r\nselect[data-v-cbde79a0] {\r\n  display: block;\n}\n.blog-tag-label[data-v-cbde79a0] {\r\n  float: left;\r\n  margin-top: 15px;\n}\n.clear[data-v-cbde79a0] {\r\n  clear: both;\n}\n@media only screen and (min-width: 320px) {\n.blog-post[data-v-cbde79a0] {\r\n    width: 80%;\n}\n.flex-container[data-v-cbde79a0] {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\n}\n}\r\n", ""]);
+exports.push([module.i, "\nul[data-v-cbde79a0] {\r\n  list-style: none;\r\n  padding: 0;\n}\n.inner-content[data-v-cbde79a0] {\r\n  padding-bottom: 500px;\n}\n.blog-tags[data-v-cbde79a0] {\r\n  display: inline-flex;\r\n  margin-top: 15px;\r\n  margin-left: 5px;\r\n  float: left;\n}\nform[data-v-cbde79a0] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-cbde79a0] {\r\n  width: 700px;\n}\ninput[type=\"text\"][data-v-cbde79a0],\r\nselect[data-v-cbde79a0] {\r\n  display: block;\n}\n.blog-tag-label[data-v-cbde79a0] {\r\n  float: left;\r\n  margin-top: 15px;\n}\n.clear[data-v-cbde79a0] {\r\n  clear: both;\n}\n@media only screen and (min-width: 320px) {\n.blog-post[data-v-cbde79a0] {\r\n    border: 1px solid #000;\r\n    padding: 0 5px;\r\n    width: 80%;\n}\n.flex-container[data-v-cbde79a0] {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\n}\n.add-c-t[data-v-cbde79a0] {\r\n    margin-left: 10px;\r\n    border: 1px solid #000;\r\n    padding: 0 5px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -39776,8 +39774,8 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("div", [
-      _c("h4", [_vm._v("Add A Category")]),
+    _c("div", { staticClass: "add-c-t" }, [
+      _c("h4", [_vm._v("Create")]),
       _vm._v(" "),
       _c("ul", { staticClass: "blog-categories" }, [
         _c(
