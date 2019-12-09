@@ -31,9 +31,7 @@
       <li class="list-inline-item"><a href="/blog/show-blog-posts/">Blog Posts</a></li>
       <li class="list-inline-item"><a href="/links/about/">About</a></li>
       @if(Auth::check())
-    <li class="list-inline-item"><a href="/blog/create/">Create Post</a></li>
-      @else
-      <li class="list-inline-item"><a href="/home">Login</a></li>
+      <li class="list-inline-item"><a href="/blog/create/">Create Post</a></li>
       @endif
     </ul>
   </header>
