@@ -30,4 +30,9 @@ class Blogpost extends Model
     {
         return action('BlogController@blogPost', [$this->id, $this->slug]);
     }
+
+    public function blogcomments()
+    {
+        return $this->hasMany('David\Blogcomments');
+    }
 }
