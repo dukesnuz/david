@@ -16,20 +16,20 @@ class BlogpostBlogtagTableSeeder extends Seeder
     {
         $urls =[
       'Post one' => ['framework','laravel','php'],
-      'Post two' => ["vuejs", 'framework'],
+      'Post two' => ["1980's", 'dance music'],
       'Post three' => ['css', 'styling'],
     ];
 
+
         # Now loop through the above array, creating a new pivot for each url to tag
-        foreach ($urls as $subject => $tags) {
+        foreach ($urls as $body => $tags) {
 
       # First get the url
-            $url = Blogpost::where('body', 'like', $subject)->first();
+            $url = Blogpost::where('body', 'like', $body)->first();
 
             # Now loop through each tag for this url, adding the pivot
             foreach ($tags as $tagName) {
                 $tag = Blogtag::where('name', 'LIKE', $tagName)->first();
-
                 # Connect this tag to this url
                 $url->blogtags()->save($tag);
             }

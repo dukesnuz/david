@@ -23,7 +23,7 @@ class UrlsTableSeeder extends Seeder
         DB::table('urls')->insert([
       'created_at' => Carbon\Carbon::now()->toDateTimeString(),
       'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-      'subject' => 'Vue.js',
+      'subject' => 'Shalamar - Dancing In The Sheets (Live On The Dance Show)',
       'link' => 'https://vuejs.org/',
       'description' => "Vue.js frontend framework.",
       'category_id' => 2,
