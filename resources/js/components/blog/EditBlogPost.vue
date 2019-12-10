@@ -1,48 +1,66 @@
 <template>
   <div class="blog-inner-content">
-    <h3>Edit This Blog Post</h3>
-    {{ message }}
-    {{ status }}
-    <editor
-      api-key="8fvbyqp6y3crcp6loaupiilair2atyyfei80ao20yezogbuv"
-      cloud-channel="5"
-      :disabled="false"
-      id="uuid"
-      :init="{  }"
-      initial-value
-      model-events
-      plugins
-      tag-name="div"
-      toolbar
-      value
-      v-model="post.body"
-    ></editor>
+    <div class="edit-post">
+      <h3>Edit This Blog Post</h3>
+      {{ message }}
+      {{ status }}
+      <editor
+        api-key="8fvbyqp6y3crcp6loaupiilair2atyyfei80ao20yezogbuv"
+        cloud-channel="5"
+        :disabled="false"
+        id="uuid"
+        :init="{  }"
+        initial-value
+        model-events
+        plugins
+        tag-name="div"
+        toolbar
+        value
+        v-model="post.body"
+      ></editor>
 
-    <form v-on:submit.prevent="editPost()">
-      <ul>
-        <li>
-          <label for="blog-category">Category</label>
-          <select v-model="post.category" name="category" id="blog-category">
-            <option></option>
-            <option
-              v-bind:key="category.id"
-              v-for="category in categories"
-            >{{ category.categories }}</option>
-          </select>
-        </li>
+      <form v-on:submit.prevent="editPost()">
+        <ul>
+          <li>
+            <label for="blog-category">Category</label>
+            <select v-model="post.category" name="category" id="blog-category">
+              <option></option>
+              <option
+                v-bind:key="category.id"
+                v-for="category in categories"
+              >{{ category.categories }}</option>
+            </select>
+          </li>
 
-        <li>
-          <label for="blog-subject">Subject</label>
-          <input type="text" name="subject" id="blog-subject" v-model="post.subject" />
-        </li>
-        <li>
-          <input type="hidden" name="body" v-model="post.body" />
-        </li>
-        <li>
-          <input type="submit" value="Submit" />
+          <li>
+            <label for="blog-subject">Subject</label>
+            <input type="text" name="subject" id="blog-subject" v-model="post.subject" />
+          </li>
+          <li>
+            <input type="hidden" name="body" v-model="post.body" />
+          </li>
+          <li>
+            <input type="submit" value="Submit" />
+          </li>
+        </ul>
+      </form>
+    </div>
+
+    <div class="comments">
+      <h3>Approve Comments</h3>
+      <p>{{ messageComments }}</p>
+      <ul v-for="comment in comments" v-bind:key="comment.id">
+        <li v-if="comment.is_live">Live</li>
+        <li v-else>Not Live</li>
+        <li>{{ comment.comment }}</li>
+        <li>{{ comment.email.name }}</li>
+        <li>{{ comment.email.email }}</li>
+        <li>{{ comment.created_at }}</li>
+        <li v-on:click="editComment(comment.id, comment.is_live)">
+          <button>Change</button>
         </li>
       </ul>
-    </form>
+    </div>
   </div>
 </template>
 
@@ -57,6 +75,7 @@ export default {
     return {
       response: {},
       message: "",
+      messageComments: "",
       status: "",
       categories: [],
       tags: [],
@@ -64,7 +83,8 @@ export default {
         category: "",
         subject: "",
         body: ""
-      }
+      },
+      comments: {}
     };
   },
   props: {
@@ -75,6 +95,7 @@ export default {
   },
   created() {
     this.fetchPost();
+    this.fetchComments();
   },
   mounted() {
     this.getCategories();
@@ -119,7 +140,6 @@ export default {
         .then(response => {
           if (response.status == 200) {
             this.post = response.data;
-            console.log(this.post);
           } else {
             this.message = "OOppss! System error 1. We apologize.";
             this.data = null;
@@ -130,7 +150,6 @@ export default {
         })
         .catch(error => {
           this.message = "OOpps. Error 3."; //error.response;
-          console.log(response);
         });
     },
     editPost() {
@@ -160,6 +179,54 @@ export default {
         .catch(error => {
           this.message = "OOppss. System error 3. " + error + "";
         });
+    },
+    fetchComments() {
+      let uri = "/api/get-comments/" + this.pid + "";
+      this.axios
+        .get(uri, {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        .then(response => {
+          if (response.status == 200) {
+            this.comments = response.data;
+            if (this.comments == "") {
+              this.messageComments = "No comments";
+            }
+          } else {
+            this.status = "OOppss! System error 1. We apologize.";
+            this.data = null;
+          }
+          if (response.data.messageReturned == "error") {
+            this.status = "OOppss! System error 2. We apologize.";
+          }
+        })
+        .catch(error => {
+          this.status = "OOpps. Error 3."; //error.response;
+        });
+    },
+    editComment(id, status) {
+      this.messageComments = "";
+      let uri = "/api/edit-comment-status/" + id + "/" + status + "";
+      this.axios
+        .post(uri, this.comments, {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        .then(response => {
+          if (response.data.messageReturned === "ok") {
+            this.messageComments = "Comment was updated.";
+            this.fetchComments();
+          } else {
+            this.messageComments =
+              "OOppss. System error 2. Did you change a comment status?";
+          }
+        })
+        .catch(error => {
+          this.messageComments = "OOppss. System error 3. " + error + "";
+        });
     }
   }
 };
@@ -182,5 +249,12 @@ select {
 }
 .clear {
   clear: both;
+}
+
+.edit-post {
+  background-color: coral;
+}
+.comments {
+  background-color: darkturquoise;
 }
 </style>

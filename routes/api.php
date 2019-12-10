@@ -45,5 +45,9 @@ Route::post('/blog-category-create', 'BlogController@storeCategory');
 Route::post('/blog-tag-create', 'BlogController@storeTag');
 // post a comment
 Route::post('/blog-comment-create', 'BlogController@storeComment');
+// return specific live comments
+Route::get('/get-live-comments/{id}', 'BlogController@getLiveComments');
 // return specific comments
 Route::get('/get-comments/{id}', 'BlogController@getComments');
+// change comment status live or not live
+Route::post('edit-comment-status/{id}/{status}', 'BlogController@editCommentStatus');

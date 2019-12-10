@@ -8,6 +8,7 @@ use David\Blogcategory;
 use David\Blogcomment;
 use David\Blogtag;
 use David\Email;
+use Mail;
 
 class BlogController extends Controller
 {
@@ -213,7 +214,7 @@ class BlogController extends Controller
         if ($email_id === null) {
             $storeEmail = new Email();
             $storeEmail->email = $request->input('email');
-            $storeEmail->name = $request->input('name');
+            $storeEmail->name = ucfirst(strtolower($request->input('name')));
             $storeEmail->ip = request()->ip();
             $storeEmail->save();
             $emailId =  $storeEmail->id;
@@ -225,20 +226,84 @@ class BlogController extends Controller
         $store = new Blogcomment();
         $store->comment = $request->input('comment');
         $store->blogpost_id = $request->input('pid');
-        $store->email_id = 1;
         $store->email_id = $emailId;
         $store->ip = request()->ip();
         $store->save();
+
+        // email me a comment was posted
+        $body = "A comment was just posted on David's blog\r";
+        $body .= "Click the link to view and approve the comment.\r";
+        $body .= "http://".config('constants.base_url')."/blog/blog-post/".$request->input('pid')."/edit";
+        $body .= "\rEMAIL END\r";
+        $pdf = "";
+        $data = array(
+                    'email' => config('constants.email_david_petringa'),
+                    'emailFrom' => config('constants.email_dukesnuz'),
+                    'subject' => "Comment Just Posted on David's Blog",
+                    'body' => $body,
+                  );
+
+        Mail::raw($data['body'], function ($message) use ($pdf, $data) {
+            $message->to($data['email']);
+            $message->from($data['emailFrom']);
+            $message->subject($data['subject']);
+            //$message->attachData($pdf->output(), $data['output']);
+        });
+
+        // email comment poster
+        $body = ucfirst(strtolower($request->input('name')))."\r";
+        $body .= "Thank you for leaving a comment on Dukesnuz blog.\r";
+        $body .= "As soon as your comment is approved, then your comment will be live.\r";
+        $body .= "You may view the blog post using the link below\r\r";
+        $body .= "http://".config('constants.base_url')."/blog/".$request->input('pid')."/blog";
+        $body .= "\r\rThank you\r";
+        $body .= "Duke\r";
+        $body .= "EMAIL END\r";
+
+        $pdf = "";
+        $data = array(
+                    'email' => $request->input('email'),
+                    'emailFrom' => config('constants.email_dukesnuz'),
+                    'subject' => "Hey, Your Comment Was Received on Dukesnuz Blog",
+                    'body' => $body,
+                  );
+
+        Mail::raw($data['body'], function ($message) use ($pdf, $data) {
+            $message->to($data['email']);
+            $message->from($data['emailFrom']);
+            $message->subject($data['subject']);
+            //$message->attachData($pdf->output(), $data['output']);
+        });
+
         return response()->JSON(array('messageReturned' => 'ok'));
     }
 
-    //get comments for spcific blog post
-    public function getComments($id)
+    //get live comments for spcific blog post
+    public function getLiveComments($id)
     {
-        $comments = Blogcomment::where('blogpost_id', '=', $id)->with('email')->orderBy('created_at', 'DESC')->get();
+        $comments = Blogcomment::where('blogpost_id', '=', $id)
+    ->where('is_live', '=', 1)
+    ->with('email')->orderBy('created_at', 'DESC')->get();
         return $comments;
     }
 
+    //get all comments for spcific blog post
+    public function getComments($id)
+    {
+        $comments = Blogcomment::where('blogpost_id', '=', $id)
+    ->with('email')->orderBy('created_at', 'DESC')->get();
+        return $comments;
+    }
+
+    // edit comment status, live or not live
+    public function editCommentStatus($id, $status)
+    {
+        $editComment = Blogcomment::find($id);
+        $editComment->is_live = ($status == 0)? 1 : 0;
+        $editComment->save();
+
+        return response()->JSON(array('messageReturned' => 'ok'));
+    }
     /**
     * Remove the specified resource from storage.
     *

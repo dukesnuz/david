@@ -18,6 +18,7 @@ class CreateBlogcommentsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('comment', 255);
+            $table->tinyInteger('is_live')->default(0);
             $table->ipAddress('ip');
             $table->softDeletes();
         });

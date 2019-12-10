@@ -2719,6 +2719,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app",
@@ -2729,6 +2747,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       response: {},
       message: "",
+      messageComments: "",
       status: "",
       categories: [],
       tags: [],
@@ -2736,7 +2755,8 @@ __webpack_require__.r(__webpack_exports__);
         category: "",
         subject: "",
         body: ""
-      }
+      },
+      comments: {}
     };
   },
   props: {
@@ -2747,6 +2767,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.fetchPost();
+    this.fetchComments();
   },
   mounted: function mounted() {
     this.getCategories();
@@ -2795,7 +2816,6 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         if (response.status == 200) {
           _this3.post = response.data;
-          console.log(_this3.post);
         } else {
           _this3.message = "OOppss! System error 1. We apologize.";
           _this3.data = null;
@@ -2806,8 +2826,6 @@ __webpack_require__.r(__webpack_exports__);
         }
       })["catch"](function (error) {
         _this3.message = "OOpps. Error 3."; //error.response;
-
-        console.log(response);
       });
     },
     editPost: function editPost() {
@@ -2831,6 +2849,54 @@ __webpack_require__.r(__webpack_exports__);
         }
       })["catch"](function (error) {
         _this4.message = "OOppss. System error 3. " + error + "";
+      });
+    },
+    fetchComments: function fetchComments() {
+      var _this5 = this;
+
+      var uri = "/api/get-comments/" + this.pid + "";
+      this.axios.get(uri, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(function (response) {
+        if (response.status == 200) {
+          _this5.comments = response.data;
+
+          if (_this5.comments == "") {
+            _this5.messageComments = "No comments";
+          }
+        } else {
+          _this5.status = "OOppss! System error 1. We apologize.";
+          _this5.data = null;
+        }
+
+        if (response.data.messageReturned == "error") {
+          _this5.status = "OOppss! System error 2. We apologize.";
+        }
+      })["catch"](function (error) {
+        _this5.status = "OOpps. Error 3."; //error.response;
+      });
+    },
+    editComment: function editComment(id, status) {
+      var _this6 = this;
+
+      this.messageComments = "";
+      var uri = "/api/edit-comment-status/" + id + "/" + status + "";
+      this.axios.post(uri, this.comments, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(function (response) {
+        if (response.data.messageReturned === "ok") {
+          _this6.messageComments = "Comment was updated.";
+
+          _this6.fetchComments();
+        } else {
+          _this6.messageComments = "OOppss. System error 2. Did you change a comment status?";
+        }
+      })["catch"](function (error) {
+        _this6.messageComments = "OOppss. System error 3. " + error + "";
       });
     }
   }
@@ -2955,6 +3021,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3020,11 +3096,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         if (response.data.messageReturned === "ok") {
-          //  this.newComment = "";
+          _this2.newComment = "";
           _this2.showForm = false;
-          _this2.messageComments = "Thank you for your comment";
-
-          _this2.fetchComments();
+          _this2.messageComments = "Thank you for your comment. Your comment will go live as soon as Duke has approved your comment."; // this.fetchComments();
         } else {
           _this2.message = "OOppss. System error. 2";
         }
@@ -3035,7 +3109,7 @@ __webpack_require__.r(__webpack_exports__);
     fetchComments: function fetchComments() {
       var _this3 = this;
 
-      var uri = "/api/get-comments/" + this.pid + "";
+      var uri = "/api/get-live-comments/" + this.pid + "";
       this.axios.get(uri, {
         headers: {
           "Content-Type": "application/json"
@@ -7642,7 +7716,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nul[data-v-423969be] {\r\n  list-style: none;\r\n  padding: 0;\n}\nform[data-v-423969be] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-423969be] {\r\n  width: 700px;\n}\ninput[type=\"text\"][data-v-423969be],\r\nselect[data-v-423969be] {\r\n  display: block;\n}\n.clear[data-v-423969be] {\r\n  clear: both;\n}\r\n", ""]);
+exports.push([module.i, "\nul[data-v-423969be] {\r\n  list-style: none;\r\n  padding: 0;\n}\nform[data-v-423969be] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-423969be] {\r\n  width: 700px;\n}\ninput[type=\"text\"][data-v-423969be],\r\nselect[data-v-423969be] {\r\n  display: block;\n}\n.clear[data-v-423969be] {\r\n  clear: both;\n}\n.edit-post[data-v-423969be] {\r\n  background-color: coral;\n}\n.comments[data-v-423969be] {\r\n  background-color: darkturquoise;\n}\r\n", ""]);
 
 // exports
 
@@ -40017,156 +40091,201 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "blog-inner-content" },
-    [
-      _c("h3", [_vm._v("Edit This Blog Post")]),
-      _vm._v(
-        "\n  " + _vm._s(_vm.message) + "\n  " + _vm._s(_vm.status) + "\n  "
-      ),
-      _c("editor", {
-        attrs: {
-          "api-key": "8fvbyqp6y3crcp6loaupiilair2atyyfei80ao20yezogbuv",
-          "cloud-channel": "5",
-          disabled: false,
-          id: "uuid",
-          init: {},
-          "initial-value": "",
-          "model-events": "",
-          plugins: "",
-          "tag-name": "div",
-          toolbar: "",
-          value: ""
-        },
-        model: {
-          value: _vm.post.body,
-          callback: function($$v) {
-            _vm.$set(_vm.post, "body", $$v)
+  return _c("div", { staticClass: "blog-inner-content" }, [
+    _c(
+      "div",
+      { staticClass: "edit-post" },
+      [
+        _c("h3", [_vm._v("Edit This Blog Post")]),
+        _vm._v(
+          "\n    " +
+            _vm._s(_vm.message) +
+            "\n    " +
+            _vm._s(_vm.status) +
+            "\n    "
+        ),
+        _c("editor", {
+          attrs: {
+            "api-key": "8fvbyqp6y3crcp6loaupiilair2atyyfei80ao20yezogbuv",
+            "cloud-channel": "5",
+            disabled: false,
+            id: "uuid",
+            init: {},
+            "initial-value": "",
+            "model-events": "",
+            plugins: "",
+            "tag-name": "div",
+            toolbar: "",
+            value: ""
           },
-          expression: "post.body"
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "form",
-        {
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.editPost()
-            }
+          model: {
+            value: _vm.post.body,
+            callback: function($$v) {
+              _vm.$set(_vm.post, "body", $$v)
+            },
+            expression: "post.body"
           }
-        },
-        [
-          _c("ul", [
-            _c("li", [
-              _c("label", { attrs: { for: "blog-category" } }, [
-                _vm._v("Category")
+        }),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.editPost()
+              }
+            }
+          },
+          [
+            _c("ul", [
+              _c("li", [
+                _c("label", { attrs: { for: "blog-category" } }, [
+                  _vm._v("Category")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.post.category,
+                        expression: "post.category"
+                      }
+                    ],
+                    attrs: { name: "category", id: "blog-category" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.post,
+                          "category",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option"),
+                    _vm._v(" "),
+                    _vm._l(_vm.categories, function(category) {
+                      return _c("option", { key: category.id }, [
+                        _vm._v(_vm._s(category.categories))
+                      ])
+                    })
+                  ],
+                  2
+                )
               ]),
               _vm._v(" "),
-              _c(
-                "select",
-                {
+              _c("li", [
+                _c("label", { attrs: { for: "blog-subject" } }, [
+                  _vm._v("Subject")
+                ]),
+                _vm._v(" "),
+                _c("input", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.post.category,
-                      expression: "post.category"
+                      value: _vm.post.subject,
+                      expression: "post.subject"
                     }
                   ],
-                  attrs: { name: "category", id: "blog-category" },
+                  attrs: { type: "text", name: "subject", id: "blog-subject" },
+                  domProps: { value: _vm.post.subject },
                   on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.post,
-                        "category",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.post, "subject", $event.target.value)
                     }
                   }
-                },
-                [
-                  _c("option"),
-                  _vm._v(" "),
-                  _vm._l(_vm.categories, function(category) {
-                    return _c("option", { key: category.id }, [
-                      _vm._v(_vm._s(category.categories))
-                    ])
-                  })
-                ],
-                2
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("label", { attrs: { for: "blog-subject" } }, [
-                _vm._v("Subject")
+                })
               ]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.post.subject,
-                    expression: "post.subject"
-                  }
-                ],
-                attrs: { type: "text", name: "subject", id: "blog-subject" },
-                domProps: { value: _vm.post.subject },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+              _c("li", [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.post.body,
+                      expression: "post.body"
                     }
-                    _vm.$set(_vm.post, "subject", $event.target.value)
+                  ],
+                  attrs: { type: "hidden", name: "body" },
+                  domProps: { value: _vm.post.body },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.post, "body", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _vm._m(0)
+            ])
+          ]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "comments" },
+      [
+        _c("h3", [_vm._v("Approve Comments")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.messageComments))]),
+        _vm._v(" "),
+        _vm._l(_vm.comments, function(comment) {
+          return _c("ul", { key: comment.id }, [
+            comment.is_live
+              ? _c("li", [_vm._v("Live")])
+              : _c("li", [_vm._v("Not Live")]),
+            _vm._v(" "),
+            _c("li", [_vm._v(_vm._s(comment.comment))]),
+            _vm._v(" "),
+            _c("li", [_vm._v(_vm._s(comment.email.name))]),
+            _vm._v(" "),
+            _c("li", [_vm._v(_vm._s(comment.email.email))]),
+            _vm._v(" "),
+            _c("li", [_vm._v(_vm._s(comment.created_at))]),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                on: {
+                  click: function($event) {
+                    return _vm.editComment(comment.id, comment.is_live)
                   }
                 }
-              })
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.post.body,
-                    expression: "post.body"
-                  }
-                ],
-                attrs: { type: "hidden", name: "body" },
-                domProps: { value: _vm.post.body },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.post, "body", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _vm._m(0)
+              },
+              [_c("button", [_vm._v("Change")])]
+            )
           ])
-        ]
-      )
-    ],
-    1
-  )
+        })
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = [
   function() {

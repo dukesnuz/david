@@ -23,8 +23,9 @@
 </head>
 <body>
   <header>
+    <!--
     <h1 class="text-primary"><a href="/blog/home/">Blog For DukesNuz</a></h1>
-
+  -->
     <ul class="list-inline">
       <li class="list-inline-item"><a href="/">Home</a></li>
       <li class="list-inline-item"><a href="/blog/home/">Blog</a></li>

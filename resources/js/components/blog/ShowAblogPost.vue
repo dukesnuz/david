@@ -13,13 +13,23 @@
       <ul>
         <form v-on:submit.prevent="createComment()">
           <ul>
-             <li>
+            <li>
               <label for="new-comment-name">Name</label>
-              <input type="text" name="new-comment-name" id="new-comment-name" v-model="newComment.name" />
+              <input
+                type="text"
+                name="new-comment-name"
+                id="new-comment-name"
+                v-model="newComment.name"
+              />
             </li>
-             <li>
+            <li>
               <label for="new-comment-email">Email</label>
-              <input type="text" name="new-comment-email" id="new-comment-email" v-model="newComment.email" />
+              <input
+                type="text"
+                name="new-comment-email"
+                id="new-comment-email"
+                v-model="newComment.email"
+              />
             </li>
             <li>
               <label for="new-comment">Comment</label>
@@ -37,8 +47,8 @@
       <p>{{ messageComments }}</p>
       <ul v-for="comment in comments" v-bind:key="comment.id">
         <li>{{ comment.comment }}</li>
-         <li>{{ comment.email.name }}</li>
-          <li>{{ comment.created_at }}</li>
+        <li>{{ comment.email.name }}</li>
+        <li>{{ comment.created_at }}</li>
       </ul>
     </div>
   </div>
@@ -96,7 +106,11 @@ export default {
         });
     },
     createComment() {
-      if (this.newComment.name == "" || this.newComment.email == "" || this.newComment.comment == "") {
+      if (
+        this.newComment.name == "" ||
+        this.newComment.email == "" ||
+        this.newComment.comment == ""
+      ) {
         this.messageComments = "Please enter your name, email and a comment";
         return;
       }
@@ -110,10 +124,11 @@ export default {
         })
         .then(response => {
           if (response.data.messageReturned === "ok") {
-            //  this.newComment = "";
+            this.newComment = "";
             this.showForm = false;
-            this.messageComments = "Thank you for your comment";
-            this.fetchComments();
+            this.messageComments =
+              "Thank you for your comment. Your comment will go live as soon as Duke has approved your comment.";
+            // this.fetchComments();
           } else {
             this.message = "OOppss. System error. 2";
           }
@@ -123,7 +138,7 @@ export default {
         });
     },
     fetchComments() {
-      let uri = "/api/get-comments/" + this.pid + "";
+      let uri = "/api/get-live-comments/" + this.pid + "";
       this.axios
         .get(uri, {
           headers: {
@@ -133,7 +148,7 @@ export default {
         .then(response => {
           if (response.status == 200) {
             this.comments = response.data;
-            if(this.comments == "") {
+            if (this.comments == "") {
               this.messageComments = "Be the first to leave a comment";
             }
           } else {
