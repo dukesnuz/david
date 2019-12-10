@@ -5,7 +5,9 @@ namespace David\Http\Controllers;
 use Illuminate\Http\Request;
 use David\Blogpost;
 use David\Blogcategory;
+use David\Blogcomment;
 use David\Blogtag;
+use David\Email;
 
 class BlogController extends Controller
 {
@@ -198,6 +200,49 @@ class BlogController extends Controller
 
         return response()->JSON(array('messageReturned' => 'ok'));
     }
+
+    /***************************************************************************
+    ** comments  following is blog post comments, create, delete
+    ***************************************************************************/
+
+    /********************working here***************************/
+    public function storeComment(Request $request)
+    {
+        // first check if email in db
+        $email_id = Email::where('email', '=', $request->input('Emails'))->first();
+        //if not in db then add
+        //  dd($email_id);
+        if ($email_id === null) {
+            $storeEmail = new Email();
+            $storeEmail->email = $request->input('email');
+            $storeEmail->name = $request->input('name');
+            $storeEmail->ip = request()->ip();
+            $storeEmail->save();
+            $emailId =  $storeEmail->id;
+        } else {
+            $emailId = $email_id->id;
+        }
+
+        // add comment with email id
+        $store = new Blogcomment();
+        $store->comment = $request->input('comment');
+        $store->blogpost_id = $request->input('pid');
+        $store->email_id = 1;
+        $store->email_id = $emailId;
+        $store->ip = request()->ip();
+        $store->save();
+        return response()->JSON(array('messageReturned' => 'ok'));
+    }
+
+    //get comments for spcific blog post
+    public function getComments($id)
+    {
+        $comments = Blogcomment::where('blogpost_id', '=', $id)->with('email')->get();
+        dd($comments);
+        return $comments;
+    }
+
+
 
     /**
     * Remove the specified resource from storage.

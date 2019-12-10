@@ -2922,11 +2922,53 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       status: "",
-      post: {}
+      messageComments: "",
+      showForm: true,
+      post: {},
+      comments: {},
+      newComment: {
+        name: "name",
+        email: "1@1.com",
+        comment: "comment",
+        pid: this.pid
+      }
     };
   },
   props: {
@@ -2937,6 +2979,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.fetchPost();
+    this.fetchComments();
   },
   methods: {
     fetchPost: function fetchPost() {
@@ -2960,6 +3003,61 @@ __webpack_require__.r(__webpack_exports__);
         }
       })["catch"](function (error) {
         _this.status = "OOpps. Error 3."; //error.response;
+      });
+    },
+    createComment: function createComment() {
+      var _this2 = this;
+
+      if (this.newComment.name == "" || this.newComment.email == "" || this.newComment.comment == "") {
+        this.messageComments = "Please enter your name, email and a comment";
+        return;
+      }
+
+      var uri = "/api/blog-comment-create";
+      this.axios.post(uri, this.newComment, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(function (response) {
+        if (response.data.messageReturned === "ok") {
+          //  this.newComment = "";
+          _this2.showForm = false;
+          _this2.messageComments = "Thank you for your comment";
+
+          _this2.fetchComments();
+        } else {
+          _this2.message = "OOppss. System error. 2";
+        }
+      })["catch"](function (error) {
+        _this2.message = "OOppss. System error 3. " + error + "";
+      });
+    },
+    fetchComments: function fetchComments() {
+      var _this3 = this;
+
+      var uri = "/api/get-comments/" + this.pid + "";
+      this.axios.get(uri, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(function (response) {
+        if (response.status == 200) {
+          _this3.comments = response.data;
+          console.log(_this3.comments);
+
+          if (_this3.comments == "") {
+            _this3.messageComments = "Be the first to leave a comment";
+          }
+        } else {
+          _this3.status = "OOppss! System error 1. We apologize.";
+          _this3.data = null;
+        }
+
+        if (response.data.messageReturned == "error") {
+          _this3.status = "OOppss! System error 2. We apologize.";
+        }
+      })["catch"](function (error) {
+        _this3.status = "OOpps. Error 3."; //error.response;
       });
     }
   }
@@ -40194,10 +40292,166 @@ var render = function() {
     _vm._v(" "),
     _c("p", { staticClass: "blog-date" }, [
       _vm._v("Date posted: " + _vm._s(new Date(_vm.post.created_at)))
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.showForm,
+            expression: "showForm"
+          }
+        ],
+        staticClass: "comment"
+      },
+      [
+        _c("ul", [
+          _c(
+            "form",
+            {
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.createComment()
+                }
+              }
+            },
+            [
+              _c("ul", [
+                _c("li", [
+                  _c("label", { attrs: { for: "new-comment-name" } }, [
+                    _vm._v("Name")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.newComment.name,
+                        expression: "newComment.name"
+                      }
+                    ],
+                    attrs: {
+                      type: "text",
+                      name: "new-comment-name",
+                      id: "new-comment-name"
+                    },
+                    domProps: { value: _vm.newComment.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.newComment, "name", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("label", { attrs: { for: "new-comment-email" } }, [
+                    _vm._v("Email")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.newComment.email,
+                        expression: "newComment.email"
+                      }
+                    ],
+                    attrs: {
+                      type: "text",
+                      name: "new-comment-email",
+                      id: "new-comment-email"
+                    },
+                    domProps: { value: _vm.newComment.email },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.newComment, "email", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("label", { attrs: { for: "new-comment" } }, [
+                    _vm._v("Comment")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.newComment.comment,
+                        expression: "newComment.comment"
+                      }
+                    ],
+                    attrs: {
+                      type: "text",
+                      name: "new-comment",
+                      id: "new-comment"
+                    },
+                    domProps: { value: _vm.newComment.comment },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.newComment, "comment", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _vm._m(0)
+              ])
+            ]
+          )
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "comments" },
+      [
+        _c("p", [_vm._v(_vm._s(_vm.messageComments))]),
+        _vm._v(" "),
+        _vm._l(_vm.comments, function(comment) {
+          return _c("ul", { key: comment.id }, [
+            _c("li", [_vm._v(_vm._s(comment.comment))]),
+            _vm._v(" "),
+            _c("li", [_vm._v(_vm._s(comment.name))]),
+            _vm._v(" "),
+            _c("li", [_vm._v(_vm._s(comment.created_at))])
+          ])
+        })
+      ],
+      2
+    )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("input", { attrs: { type: "submit", value: "Submit" } })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -52696,15 +52950,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************************!*\
   !*** ./resources/js/components/blog/CreateBlogPost.vue ***!
   \*********************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CreateBlogPost_vue_vue_type_template_id_cbde79a0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateBlogPost.vue?vue&type=template&id=cbde79a0&scoped=true& */ "./resources/js/components/blog/CreateBlogPost.vue?vue&type=template&id=cbde79a0&scoped=true&");
 /* harmony import */ var _CreateBlogPost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateBlogPost.vue?vue&type=script&lang=js& */ "./resources/js/components/blog/CreateBlogPost.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _CreateBlogPost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _CreateBlogPost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _CreateBlogPost_vue_vue_type_style_index_0_id_cbde79a0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CreateBlogPost.vue?vue&type=style&index=0&id=cbde79a0&scoped=true&lang=css& */ "./resources/js/components/blog/CreateBlogPost.vue?vue&type=style&index=0&id=cbde79a0&scoped=true&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _CreateBlogPost_vue_vue_type_style_index_0_id_cbde79a0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CreateBlogPost.vue?vue&type=style&index=0&id=cbde79a0&scoped=true&lang=css& */ "./resources/js/components/blog/CreateBlogPost.vue?vue&type=style&index=0&id=cbde79a0&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -52736,7 +52989,7 @@ component.options.__file = "resources/js/components/blog/CreateBlogPost.vue"
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/blog/CreateBlogPost.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

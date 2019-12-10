@@ -43,3 +43,7 @@ Route::post('/edit-post/{id}', 'BlogController@update');
 Route::post('/blog-category-create', 'BlogController@storeCategory');
 // add a new tag
 Route::post('/blog-tag-create', 'BlogController@storeTag');
+// post a comment
+Route::post('/blog-comment-create', 'BlogController@storeComment');
+// return specific comments
+Route::get('/get-comments/{id}', 'BlogController@getComments');

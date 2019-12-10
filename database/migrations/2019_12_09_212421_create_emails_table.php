@@ -19,6 +19,7 @@ class CreateEmailsTable extends Migration
             $table->string('email', 50)->unique();
             $table->string('name', 25);
             $table->tinyInteger('is_valid')->default(1);
+            $table->ipAddress('ip');
         });
     }
 
