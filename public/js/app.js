@@ -3047,9 +3047,9 @@ __webpack_require__.r(__webpack_exports__);
       post: {},
       comments: {},
       newComment: {
-        name: "name",
-        email: "1@1.com",
-        comment: "comment",
+        name: "",
+        email: "",
+        comment: "",
         pid: this.pid
       }
     };
