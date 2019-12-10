@@ -3037,7 +3037,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -7761,7 +7760,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nul[data-v-49bab584] {\r\n  list-style: none;\r\n  padding: 0;\n}\n.blog-tags[data-v-49bab584] {\r\n  margin-top: 20px;\r\n  padding: 0;\n}\n.blog-tags li[data-v-49bab584] {\r\n  float: left;\r\n  margin-right: 5px;\r\n  display: inline-block;\r\n  margin-top: 10px;\r\n  padding-left: 25px;\n}\n.blog-date[data-v-49bab584] {\r\n  margin-top: 20px;\r\n  padding-left: 25px;\n}\ninput[type=\"text\"][data-v-49bab584] {\r\n  background-color: #fff;\r\n  display: block;\r\n  width: 325px;\n}\ninput[type=\"submit\"][data-v-49bab584] {\r\n  background-color: rgb(9, 148, 228);\r\n  color: #fff;\r\n  font-weight: bold;\r\n  margin-top: 10px;\n}\n#new-comment[data-v-49bab584] {\r\n  background-color: #fff;\r\n  height: 100px;\r\n  width: 325px;\r\n  margin-top: 10px;\r\n  display: block;\n}\nlabel[data-v-49bab584] {\r\n  margin-top: 25px;\r\n  display: block;\r\n  font-weight: bold;\n}\n.comment[data-v-49bab584] {\r\n  margin-top: 50px;\n}\n.comments[data-v-49bab584] {\r\n  margin-top: 25px;\n}\n.comments ul[data-v-49bab584] {\r\n  background-color: #fff;\r\n  padding: 10px 0;\r\n  padding-left: 5px;\n}\r\n", ""]);
+exports.push([module.i, "\nul[data-v-49bab584] {\r\n  list-style: none;\r\n  padding: 0;\n}\n.blog-tags[data-v-49bab584] {\r\n  margin-top: 20px;\r\n  padding: 0;\n}\n.blog-tags li[data-v-49bab584] {\r\n  float: left;\r\n  margin-right: 5px;\r\n  display: inline-block;\r\n  margin-top: 10px;\r\n  padding-left: 25px;\n}\n.blog-date[data-v-49bab584] {\r\n  margin-top: 20px;\r\n  padding-left: 25px;\n}\ninput[type=\"text\"][data-v-49bab584] {\r\n  background-color: #fff;\r\n  display: block;\r\n  width: 325px;\n}\ninput[type=\"submit\"][data-v-49bab584] {\r\n  background-color: rgb(9, 148, 228);\r\n  color: #fff;\r\n  font-weight: bold;\r\n  margin-top: 10px;\n}\n#new-comment[data-v-49bab584] {\r\n  background-color: #fff;\r\n  height: 100px;\r\n  width: 325px;\r\n  margin-top: 10px;\r\n  display: block;\n}\nlabel[data-v-49bab584] {\r\n  margin-top: 25px;\r\n  display: block;\r\n  font-weight: bold;\n}\n.comment[data-v-49bab584] {\r\n  margin-top: 50px;\n}\n.comments[data-v-49bab584] {\r\n  width: 600px;\r\n  margin: auto;\r\n  margin-top: 25px;\n}\n.comments ul[data-v-49bab584] {\r\n  background-color: #fff;\r\n  padding: 10px 0;\r\n  padding-left: 5px;\n}\n.commentor-name[data-v-49bab584] {\r\n font-weight: bold;\r\ncolor: rgb(190, 17, 17);\n}\n.comment-date[data-v-49bab584] {\r\n  color: #aca7a7;\n}\r\n", ""]);
 
 // exports
 
@@ -40559,11 +40558,17 @@ var render = function() {
         _vm._v(" "),
         _vm._l(_vm.comments, function(comment) {
           return _c("ul", { key: comment.id }, [
-            _c("li", [_vm._v(_vm._s(comment.comment))]),
+            _c("li", [
+              _c("span", { staticClass: "commentor-name" }, [
+                _vm._v(_vm._s(comment.email.name))
+              ]),
+              _vm._v(" * "),
+              _c("span", { staticClass: "comment-date" }, [
+                _vm._v(_vm._s(comment.created_at))
+              ])
+            ]),
             _vm._v(" "),
-            _c("li", [_vm._v(_vm._s(comment.email.name))]),
-            _vm._v(" "),
-            _c("li", [_vm._v(_vm._s(comment.created_at))])
+            _c("li", [_vm._v(_vm._s(comment.comment))])
           ])
         })
       ],

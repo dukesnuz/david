@@ -53,9 +53,8 @@
       <h3>Comments</h3>
       <p>{{ messageComments }}</p>
       <ul v-for="comment in comments" v-bind:key="comment.id">
+        <li><span class="commentor-name">{{ comment.email.name }}</span> * <span class="comment-date">{{ comment.created_at }}</span></li>
         <li>{{ comment.comment }}</li>
-        <li>{{ comment.email.name }}</li>
-        <li>{{ comment.created_at }}</li>
       </ul>
     </div>
   </div>
@@ -221,11 +220,22 @@ label {
   margin-top: 50px;
 }
 .comments {
+  width: 600px;
+  margin: auto;
   margin-top: 25px;
 }
 .comments ul {
   background-color: #fff;
   padding: 10px 0;
   padding-left: 5px;
+}
+
+.commentor-name {
+ font-weight: bold;
+color: rgb(190, 17, 17);
+}
+.comment-date {
+  color: #aca7a7;
+
 }
 </style>
