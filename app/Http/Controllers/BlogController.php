@@ -205,13 +205,11 @@ class BlogController extends Controller
     ** comments  following is blog post comments, create, delete
     ***************************************************************************/
 
-    /********************working here***************************/
     public function storeComment(Request $request)
     {
         // first check if email in db
-        $email_id = Email::where('email', '=', $request->input('Emails'))->first();
+        $email_id = Email::where('email', '=', $request->input('email'))->first();
         //if not in db then add
-        //  dd($email_id);
         if ($email_id === null) {
             $storeEmail = new Email();
             $storeEmail->email = $request->input('email');
@@ -237,12 +235,9 @@ class BlogController extends Controller
     //get comments for spcific blog post
     public function getComments($id)
     {
-        $comments = Blogcomment::where('blogpost_id', '=', $id)->with('email')->get();
-        dd($comments);
+        $comments = Blogcomment::where('blogpost_id', '=', $id)->with('email')->orderBy('created_at', 'DESC')->get();
         return $comments;
     }
-
-
 
     /**
     * Remove the specified resource from storage.

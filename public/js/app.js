@@ -3043,7 +3043,6 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         if (response.status == 200) {
           _this3.comments = response.data;
-          console.log(_this3.comments);
 
           if (_this3.comments == "") {
             _this3.messageComments = "Be the first to leave a comment";
@@ -40432,7 +40431,7 @@ var render = function() {
           return _c("ul", { key: comment.id }, [
             _c("li", [_vm._v(_vm._s(comment.comment))]),
             _vm._v(" "),
-            _c("li", [_vm._v(_vm._s(comment.name))]),
+            _c("li", [_vm._v(_vm._s(comment.email.name))]),
             _vm._v(" "),
             _c("li", [_vm._v(_vm._s(comment.created_at))])
           ])

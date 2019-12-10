@@ -37,7 +37,7 @@
       <p>{{ messageComments }}</p>
       <ul v-for="comment in comments" v-bind:key="comment.id">
         <li>{{ comment.comment }}</li>
-         <li>{{ comment.name }}</li>
+         <li>{{ comment.email.name }}</li>
           <li>{{ comment.created_at }}</li>
       </ul>
     </div>
@@ -133,7 +133,6 @@ export default {
         .then(response => {
           if (response.status == 200) {
             this.comments = response.data;
-            console.log(this.comments);
             if(this.comments == "") {
               this.messageComments = "Be the first to leave a comment";
             }
