@@ -233,7 +233,7 @@ class BlogController extends Controller
         // email me a comment was posted
         $body = "A comment was just posted on David's blog\r";
         $body .= "Click the link to view and approve the comment.\r";
-        $body .= "http://".config('constants.base_url')."/blog/blog-post/".$request->input('pid')."/edit";
+        $body .= "http://".config('app.url')."/blog/blog-post/".$request->input('pid')."/edit";
         $body .= "\rEMAIL END\r";
         $pdf = "";
         $data = array(
@@ -255,7 +255,7 @@ class BlogController extends Controller
         $body .= "Thank you for leaving a comment on Dukesnuz blog.\r";
         $body .= "As soon as your comment is approved, then your comment will be live.\r";
         $body .= "You may view the blog post using the link below\r\r";
-        $body .= "http://".config('constants.base_url')."/blog/".$request->input('pid')."/blog";
+        $body .= "http://".config('app.url')."/blog/".$request->input('pid')."/blog";
         $body .= "\r\rThank you\r";
         $body .= "Duke\r";
         $body .= "EMAIL END\r";
