@@ -3031,6 +3031,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -7716,7 +7723,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nul[data-v-423969be] {\r\n  list-style: none;\r\n  padding: 0;\n}\nform[data-v-423969be] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-423969be] {\r\n  width: 700px;\n}\ninput[type=\"text\"][data-v-423969be],\r\nselect[data-v-423969be] {\r\n  display: block;\n}\n.clear[data-v-423969be] {\r\n  clear: both;\n}\n.edit-post[data-v-423969be] {\r\n  background-color: coral;\n}\n.comments[data-v-423969be] {\r\n  background-color: darkturquoise;\n}\r\n", ""]);
+exports.push([module.i, "\nul[data-v-423969be] {\r\n  list-style: none;\r\n  padding: 0;\n}\nform[data-v-423969be] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-423969be] {\r\n  width: 700px;\n}\ninput[type=\"text\"][data-v-423969be],\r\nselect[data-v-423969be] {\r\n  display: block;\n}\n.clear[data-v-423969be] {\r\n  clear: both;\n}\n.comments ul[data-v-423969be] {\r\n  background-color: #fff;\r\n  padding: 10px;\n}\r\n", ""]);
 
 // exports
 
@@ -7754,7 +7761,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.blog-tags[data-v-49bab584] {\r\n  margin-top: 20px;\r\n  padding: 0;\n}\n.blog-tags li[data-v-49bab584] {\r\n  float: left;\r\n  margin-right: 5px;\r\n  display: inline-block;\r\n  margin-top: 10px;\r\n  padding-left: 25px;\n}\n.blog-date[data-v-49bab584] {\r\n  margin-top: 20px;\r\n  padding-left: 25px;\n}\r\n", ""]);
+exports.push([module.i, "\nul[data-v-49bab584] {\r\n  list-style: none;\r\n  padding: 0;\n}\n.blog-tags[data-v-49bab584] {\r\n  margin-top: 20px;\r\n  padding: 0;\n}\n.blog-tags li[data-v-49bab584] {\r\n  float: left;\r\n  margin-right: 5px;\r\n  display: inline-block;\r\n  margin-top: 10px;\r\n  padding-left: 25px;\n}\n.blog-date[data-v-49bab584] {\r\n  margin-top: 20px;\r\n  padding-left: 25px;\n}\ninput[type=\"text\"][data-v-49bab584] {\r\n  background-color: #fff;\r\n  display: block;\r\n  width: 325px;\n}\ninput[type=\"submit\"][data-v-49bab584] {\r\n  background-color: rgb(9, 148, 228);\r\n  color: #fff;\r\n  font-weight: bold;\r\n  margin-top: 10px;\n}\n#new-comment[data-v-49bab584] {\r\n  background-color: #fff;\r\n  height: 100px;\r\n  width: 325px;\r\n  margin-top: 10px;\r\n  display: block;\n}\nlabel[data-v-49bab584] {\r\n  margin-top: 25px;\r\n  display: block;\r\n  font-weight: bold;\n}\n.comment[data-v-49bab584] {\r\n  margin-top: 50px;\n}\n.comments[data-v-49bab584] {\r\n  margin-top: 25px;\n}\n.comments ul[data-v-49bab584] {\r\n  background-color: #fff;\r\n  padding: 10px 0;\r\n  padding-left: 5px;\n}\r\n", ""]);
 
 // exports
 
@@ -40426,6 +40433,8 @@ var render = function() {
         staticClass: "comment"
       },
       [
+        _c("h3", [_vm._v("Leave a Comment")]),
+        _vm._v(" "),
         _c("ul", [
           _c(
             "form",
@@ -40506,7 +40515,7 @@ var render = function() {
                     _vm._v("Comment")
                   ]),
                   _vm._v(" "),
-                  _c("input", {
+                  _c("textarea", {
                     directives: [
                       {
                         name: "model",
@@ -40544,6 +40553,8 @@ var render = function() {
       "div",
       { staticClass: "comments" },
       [
+        _c("h3", [_vm._v("Comments")]),
+        _vm._v(" "),
         _c("p", [_vm._v(_vm._s(_vm.messageComments))]),
         _vm._v(" "),
         _vm._l(_vm.comments, function(comment) {

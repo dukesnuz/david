@@ -10,6 +10,7 @@
     <p class="blog-date">Date posted: {{ new Date(post.created_at) }}</p>
 
     <div class="comment" v-show="showForm">
+      <h3>Leave a Comment</h3>
       <ul>
         <form v-on:submit.prevent="createComment()">
           <ul>
@@ -33,7 +34,12 @@
             </li>
             <li>
               <label for="new-comment">Comment</label>
-              <input type="text" name="new-comment" id="new-comment" v-model="newComment.comment" />
+              <textarea
+                type="text"
+                name="new-comment"
+                id="new-comment"
+                v-model="newComment.comment"
+              ></textarea>
             </li>
             <li>
               <input type="submit" value="Submit" />
@@ -44,6 +50,7 @@
     </div>
 
     <div class="comments">
+      <h3>Comments</h3>
       <p>{{ messageComments }}</p>
       <ul v-for="comment in comments" v-bind:key="comment.id">
         <li>{{ comment.comment }}</li>
@@ -168,6 +175,10 @@ export default {
 </script>
 
 <style scoped>
+ul {
+  list-style: none;
+  padding: 0;
+}
 .blog-tags {
   margin-top: 20px;
   padding: 0;
@@ -182,5 +193,39 @@ export default {
 .blog-date {
   margin-top: 20px;
   padding-left: 25px;
+}
+input[type="text"] {
+  background-color: #fff;
+  display: block;
+  width: 325px;
+}
+input[type="submit"] {
+  background-color: rgb(9, 148, 228);
+  color: #fff;
+  font-weight: bold;
+  margin-top: 10px;
+}
+#new-comment {
+  background-color: #fff;
+  height: 100px;
+  width: 325px;
+  margin-top: 10px;
+  display: block;
+}
+label {
+  margin-top: 25px;
+  display: block;
+  font-weight: bold;
+}
+.comment {
+  margin-top: 50px;
+}
+.comments {
+  margin-top: 25px;
+}
+.comments ul {
+  background-color: #fff;
+  padding: 10px 0;
+  padding-left: 5px;
 }
 </style>

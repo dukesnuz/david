@@ -250,11 +250,8 @@ select {
 .clear {
   clear: both;
 }
-
-.edit-post {
-  background-color: coral;
-}
-.comments {
-  background-color: darkturquoise;
+.comments ul {
+  background-color: #fff;
+  padding: 10px;
 }
 </style>
