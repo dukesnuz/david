@@ -5,6 +5,8 @@
       <ul v-for="post in posts" v-bind:key="post.id" class="posts">
         <li class="blog-subject">{{ post.subject }}</li>
         <li v-html="post.body.substring(0,20)" class="blog-post-body"></li>
+        <li v-if="post.is_live">Live</li>
+        <li v-else>Not Live</li>
         <li>
           <a :href="`${post.id}/slug`">
             <button type="button" class="btn btn-info">Read More</button>
@@ -14,7 +16,6 @@
     </div>
     <div>
       <h4>Categories</h4>
-
       <ul class="blog-categories">
         <li v-for="category in categorys" v-bind:key="category.id">{{ category.categories }}</li>
       </ul>
@@ -37,7 +38,7 @@ export default {
   },
   methods: {
     getAllBlogPosts() {
-      let url = "/api/show-live-blog-posts";
+      let url = "/api/show-all-blog-posts";
       //fetch(url)
       this.axios
         .get(url)
@@ -105,7 +106,6 @@ ul.blog-categories {
   color: #fff;
 }
 @media only screen and (min-width: 320px) {
-
   .blog-post {
     width: 80%;
   }

@@ -11,11 +11,15 @@ Route::get('/blog/show-blog-posts', function () {
 });
 
 // Routes for logged in users
-
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/blog/show-all-blog-posts', function () {
+        return view('blog.show-posts');
+    });
+
     Route::get('/blog/create', function () {
         return view('blog.create-post');
     });
+
     Route::get('/blog/blog-post/{id}/edit', 'BlogController@edit');
 });
 

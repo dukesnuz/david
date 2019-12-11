@@ -130,6 +130,12 @@ class BlogController extends Controller
         return $posts;
     }
 
+    public function showAllBlogPosts()
+    {
+        $posts = Blogpost::orderBy('created_at', 'DESC')->get();
+        return $posts;
+    }
+
     /**
     * get a single blog post using the unique.
     * method returns blade
@@ -249,11 +255,11 @@ class BlogController extends Controller
         $body .= "\rEMAIL END\r";
         $pdf = "";
         $data = array(
-                    'email' => config('constants.email_david_petringa'),
-                    'emailFrom' => config('constants.email_dukesnuz'),
-                    'subject' => "Comment Just Posted on David's Blog",
-                    'body' => $body,
-                  );
+      'email' => config('constants.email_david_petringa'),
+      'emailFrom' => config('constants.email_dukesnuz'),
+      'subject' => "Comment Just Posted on David's Blog",
+      'body' => $body,
+    );
 
         Mail::raw($data['body'], function ($message) use ($pdf, $data) {
             $message->to($data['email']);
@@ -274,11 +280,11 @@ class BlogController extends Controller
 
         $pdf = "";
         $data = array(
-                    'email' => $request->input('email'),
-                    'emailFrom' => config('constants.email_dukesnuz'),
-                    'subject' => "Hey, Your Comment Was Received on Dukesnuz Blog",
-                    'body' => $body,
-                  );
+      'email' => $request->input('email'),
+      'emailFrom' => config('constants.email_dukesnuz'),
+      'subject' => "Hey, Your Comment Was Received on Dukesnuz Blog",
+      'body' => $body,
+    );
 
         Mail::raw($data['body'], function ($message) use ($pdf, $data) {
             $message->to($data['email']);
