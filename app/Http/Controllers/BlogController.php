@@ -118,14 +118,15 @@ class BlogController extends Controller
     }
 
     /**
+    * get only live blog posts
     * Display the specified resource.
     *
     * @param  int  $id
     * @return \Illuminate\Http\Response
     */
-    public function showAllBlogPosts()
+    public function showLiveBlogPosts()
     {
-        $posts = Blogpost::orderBy('created_at', 'DESC')->get();
+        $posts = Blogpost::where('is_live', '=', 1)->orderBy('created_at', 'DESC')->get();
         return $posts;
     }
 
@@ -165,6 +166,17 @@ class BlogController extends Controller
         return view('blog.edit-blog-post')->with([
       'pid' => $id,
     ]);
+    }
+
+    // edit post status live or not
+    // edit comment status, live or not live
+    public function editPostStatus($id, $status)
+    {
+        $editPost = Blogpost::find($id);
+        $editPost->is_live = ($status == 0)? 1 : 0;
+        $editPost->save();
+
+        return response()->JSON(array('messageReturned' => 'ok'));
     }
 
     /**
@@ -242,7 +254,7 @@ class BlogController extends Controller
                     'subject' => "Comment Just Posted on David's Blog",
                     'body' => $body,
                   );
-        
+
         Mail::raw($data['body'], function ($message) use ($pdf, $data) {
             $message->to($data['email']);
             $message->from($data['emailFrom']);

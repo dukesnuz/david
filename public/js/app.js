@@ -2737,6 +2737,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app",
@@ -2897,6 +2906,27 @@ __webpack_require__.r(__webpack_exports__);
         }
       })["catch"](function (error) {
         _this6.messageComments = "OOppss. System error 3. " + error + "";
+      });
+    },
+    makeLive: function makeLive(id, status) {
+      var _this7 = this;
+
+      this.message = "";
+      var uri = "/api/edit-post-status/" + id + "/" + status + "";
+      this.axios.post(uri, this.post, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(function (response) {
+        if (response.data.messageReturned === "ok") {
+          _this7.message = "Post status was updated.";
+
+          _this7.fetchPost();
+        } else {
+          _this7.message = "OOppss. System error 2. Did you change a post status?";
+        }
+      })["catch"](function (error) {
+        _this7.message = "OOppss. System error 3. " + error + "";
       });
     }
   }
@@ -40248,6 +40278,24 @@ var render = function() {
               _vm._m(0)
             ])
           ]
+        ),
+        _vm._v(" "),
+        _c("ul", [
+          _vm.post.is_live
+            ? _c("li", [_vm._v("Post Live")])
+            : _c("li", [_vm._v("Post Not Live")])
+        ]),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            on: {
+              click: function($event) {
+                return _vm.makeLive(_vm.post.id, _vm.post.is_live)
+              }
+            }
+          },
+          [_c("button", [_vm._v("Make Live")])]
         )
       ],
       1
@@ -40284,7 +40332,7 @@ var render = function() {
                   }
                 }
               },
-              [_c("button", [_vm._v("Change")])]
+              [_c("button", [_vm._v("Approve")])]
             )
           ])
         })

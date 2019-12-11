@@ -44,6 +44,15 @@
           </li>
         </ul>
       </form>
+
+      <ul>
+        <li v-if="post.is_live ">Post Live</li>
+        <li v-else>Post Not Live</li>
+      </ul>
+
+      <p v-on:click="makeLive(post.id, post.is_live)">
+        <button>Make Live</button>
+      </p>
     </div>
 
     <div class="comments">
@@ -57,7 +66,7 @@
         <li>{{ comment.email.email }}</li>
         <li>{{ comment.created_at }}</li>
         <li v-on:click="editComment(comment.id, comment.is_live)">
-          <button>Change</button>
+          <button>Approve</button>
         </li>
       </ul>
     </div>
@@ -226,6 +235,28 @@ export default {
         })
         .catch(error => {
           this.messageComments = "OOppss. System error 3. " + error + "";
+        });
+    },
+    makeLive(id, status) {
+      this.message = "";
+      let uri = "/api/edit-post-status/" + id + "/" + status + "";
+      this.axios
+        .post(uri, this.post, {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        .then(response => {
+          if (response.data.messageReturned === "ok") {
+            this.message = "Post status was updated.";
+            this.fetchPost();
+          } else {
+            this.message =
+              "OOppss. System error 2. Did you change a post status?";
+          }
+        })
+        .catch(error => {
+          this.message = "OOppss. System error 3. " + error + "";
         });
     }
   }

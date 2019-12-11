@@ -19,6 +19,7 @@ class CreateBlogpostsTable extends Migration
             $table->timestamps();
             $table->string('subject', 200);
             $table->text('body');
+            $table->tinyInteger('is_live')->default(0);
             $table->ipAddress('ip');
             $table->softDeletes();
         });

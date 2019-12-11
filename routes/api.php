@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -34,7 +33,7 @@ Route::get('/get-all-blog-categories', 'BlogController@getAllBlogCategories');
 // return all tag categories
 Route::get('/get-all-blog-tags', 'BlogController@getAllBlogTags');
 // return last x number blog posts
-Route::get('/show-all-blog-posts', 'BlogController@showAllBlogPosts');
+Route::get('/show-all-blog-posts', 'BlogController@showLiveBlogPosts');
 // return specific post with category and tags
 Route::get('/show-post/{id}', 'BlogController@showPost');
 // edit a blog post
@@ -51,3 +50,5 @@ Route::get('/get-live-comments/{id}', 'BlogController@getLiveComments');
 Route::get('/get-comments/{id}', 'BlogController@getComments');
 // change comment status live or not live
 Route::post('edit-comment-status/{id}/{status}', 'BlogController@editCommentStatus');
+// change post status live or not live
+Route::post('edit-post-status/{id}/{status}', 'BlogController@editPostStatus');
