@@ -36,7 +36,6 @@ export default {
         .then(res => res.json())
         .then(res => {
           this.post = res;
-          console.log(this.post);
           if (this.post == "") {
             this.message = "OOppss Error 1";
           } else {
