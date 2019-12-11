@@ -25,7 +25,7 @@ class BlogController extends Controller
     //get last blog post
     public function getLastBlogPost()
     {
-        $lastBlogPost = Blogpost::orderBy('created_at', 'desc')->first();
+        $lastBlogPost = Blogpost::where('is_live', '=', 1)->orderBy('created_at', 'desc')->first();
         return $lastBlogPost;
     }
 
