@@ -12,6 +12,34 @@ use Mail;
 
 class BlogController extends Controller
 {
+
+  //email subscribe
+    public function emailSubscribe(Request $request)
+    {
+        $this->validate($request, [
+      'name' => 'required',
+      'email' => 'email',
+    ]);
+
+        // first check if email already in db
+        $email = Email::where('email', '=', $request->input('email'))->first();
+
+        if ($email !== null) {
+            return back()->withInput()->with("alert", "You are already subscribed. Thank you");
+        } else {
+            $subscribe = new Email();
+            $subscribe->name = $request->input('name');
+            $subscribe->email = $request->input('email');
+            $subscribe->ip = request()->ip();
+            $subscribe->save();
+            if ($subscribe->id > 1) {
+                return back()->withInput()->with("alert", "Thank you for subscribing!");
+            } else {
+                return back()->withInput()->with("alert", "OOppss System Error.");
+            }
+        }
+    }
+
     /**
     * Display a listing of the resource.
     *

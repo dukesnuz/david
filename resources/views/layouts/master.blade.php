@@ -24,7 +24,6 @@
 <body>
   <header>
     <h1 class="text-primary"><a href="/links/get-list/">A List of My Favorite Websites</a></h1>
-    <h4><a href="https://laravel.com/" target="_blank">Using the Laravel Framework</a></h4>
 
     <ul class="list-inline">
       <li class="list-inline-item"><a href="/">Home</a></li>

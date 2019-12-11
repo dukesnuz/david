@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// add email subscribe
+Route::post('/email-subscribe', 'BlogController@emailSubscribe');
+
 // links section
 Route::get('/links/get-list', 'UrlController@url');
 
@@ -38,6 +41,7 @@ Route::get('links/search', 'UrlController@search');
 Route::get('links/about', function () {
     return view('links.about');
 });
+
 
 
 // Routes for logged in users

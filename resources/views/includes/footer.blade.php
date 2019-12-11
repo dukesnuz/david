@@ -37,54 +37,64 @@
 
         <!-- Links -->
         <!--    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>-->
+        <div class="email-subscribe">
+          <h5>Subscribe to Duke's News Letter</h>
+            <form action='/email-subscribe' method='POST'>
+              <!--{{method_field('put')}}-->
+              {{ csrf_field() }}
+              <p><input type="text" name="name" placeholder="Enter your name" /></p>
+                @include('modules.error-field', ['fieldName' => 'name'])
+              <p><input type="email" name="email" placeholder="Enter your email" /></p>
+                @include('modules.error-field', ['fieldName' => 'email'])
+              <p><button type='submit'>Submit</button></p>
+            </form>
+          </div>
+        </div>
+        <!-- Grid column -->
 
+        <hr class="clearfix w-100 d-md-none">
+
+        <!-- Grid column -->
+        <div class="col-md-2 mx-auto">
+
+          <!-- Links -->
+          <!--  <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>-->
+
+          <ul class="list-unstyled">
+            <li><a href="http://www.dukesnuz.com/" target="blank">DukesNuz</a></li>
+            <li><a href='https://github.com/dukesnuz/david'><i class='fa fa-github' target="blank"></i>Code on GitHub</a></li>
+            <li><a href="http://dukesnuz.com/contact/dukesnuz/david/petringa/" target="blank">Contact</a></li>
+          </ul>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none">
 
       </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-2 mx-auto">
-
-        <!-- Links -->
-        <!--  <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>-->
-
-        <ul class="list-unstyled">
-          <li><a href="http://www.dukesnuz.com/" target="blank">DukesNuz</a></li>
-          <li><a href='https://github.com/dukesnuz/david'><i class='fa fa-github' target="blank"></i>Code on GitHub</a></li>
-          <li><a href="http://dukesnuz.com/contact/dukesnuz/david/petringa/" target="blank">Contact</a></li>
-        </ul>
-
-      </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none">
+      <!-- Grid row -->
 
     </div>
-    <!-- Grid row -->
-
-  </div>
-  <!-- Footer Links -->
+    <!-- Footer Links -->
 
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">&copy;&nbsp;{{ date('Y') }}:
-    <a href="http://www.dukesnuz.com/"> David Petringa</a>
-  </div>
-  <!-- Copyright -->
-  <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/561278e100d3af75029e428b/default';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
-  <!--End of Tawk.to Script-->
-</footer>
-<!-- Footer -->
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">&copy;&nbsp;{{ date('Y') }}:
+      <a href="http://www.dukesnuz.com/"> David Petringa</a>
+    </div>
+    <!-- Copyright -->
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/561278e100d3af75029e428b/default';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+  </footer>
+  <!-- Footer -->
