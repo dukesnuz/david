@@ -1,4 +1,4 @@
-@extends('layouts.master-blog')
+@extends('layouts.master')
 
 @section('title')
 David's Blog
@@ -6,6 +6,7 @@ David's Blog
 
 @section('content')
 <div class="container">
+  <h4>Blog</h4>
   <div id="app">
         <blog-home></blog-home>
   </div>

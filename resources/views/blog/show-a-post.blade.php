@@ -1,4 +1,4 @@
-@extends('layouts.master-blog')
+@extends('layouts.master')
 
 @section('title')
 View A Blog Post
@@ -6,7 +6,7 @@ View A Blog Post
 
 @section('content')
 <div class="container">
-
+  <h4>A Blog Post</h4>
   @if(Auth::check())
   <p><a href="/blog/blog-post/{{$pid}}/edit">Edit Post</a></p>
   @endif

@@ -23,12 +23,14 @@
 </head>
 <body>
   <header>
-    <h1 class="text-primary"><a href="/links/get-list/">A List of My Favorite Websites</a></h1>
+    <h1 class="text-primary"><a href="/">Dukesnuz</a></h1>
 
     <ul class="list-inline">
       <li class="list-inline-item"><a href="/">Home</a></li>
       <li class="list-inline-item"><a href="/links/get-list/">Links</a></li>
       <li class="list-inline-item"><a href="/links/search/">Search</a></li>
+      <li class="list-inline-item"><a href="/blog/home/">Blog</a></li>
+      <li class="list-inline-item"><a href="/blog/show-blog-posts/">Blog Posts</a></li>
       <li class="list-inline-item"><a href="/about/">About</a></li>
       @if(Auth::check())
       <li class="list-inline-item"><a href="/home">Login</a></li>
@@ -36,6 +38,7 @@
       <li class="list-inline-item"><a href="/links/create/">Create</a></li>
       <li class="list-inline-item"><a href="/links/create-categories/">Categories</a></li>
       <li class="list-inline-item"><a href="/links/create-tags/">Tags</a></li>
+      <li class="list-inline-item"><a href="/blog/create/">Create Post</a></li>
       @endif
     </ul>
 
@@ -47,7 +50,7 @@
   @endif
 
   <main class="py-4">
-   <!-- add most popular searches on side bar
+    <!-- add most popular searches on side bar
     maybe add some catgories on side bar-->
     @yield('content')
   </main>

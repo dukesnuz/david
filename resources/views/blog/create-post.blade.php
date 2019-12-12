@@ -1,4 +1,4 @@
-@extends('layouts.master-blog')
+@extends('layouts.master')
 
 @section('title')
 Create a Blog Post
