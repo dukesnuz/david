@@ -17,6 +17,7 @@
           <li><a href="/links/search/">Search Links</a></li>
           <li><a href="/blog/home/">Blog</a></li>
           <li><a href="/blog/show-blog-posts">Blog Posts</a></li>
+          <li><a href="/about/">About</a></li>
           <li><a href="http://www.dukesnuz.com/" target="blank">DukesNuz</a></li>
           <li><a href='https://github.com/dukesnuz/david'><i class='fa fa-github' target="blank"></i>Code on GitHub</a></li>
           <li><a href="http://dukesnuz.com/contact/dukesnuz/david/petringa/" target="blank">Contact</a></li>

@@ -29,7 +29,7 @@
       <li class="list-inline-item"><a href="/">Home</a></li>
       <li class="list-inline-item"><a href="/links/get-list/">Links</a></li>
       <li class="list-inline-item"><a href="/links/search/">Search</a></li>
-      <li class="list-inline-item"><a href="/links/about/">About</a></li>
+      <li class="list-inline-item"><a href="/about/">About</a></li>
       @if(Auth::check())
       <li class="list-inline-item"><a href="/home">Login</a></li>
       <li class="list-inline-item"><a href="/links/get-list/">View</a></li>

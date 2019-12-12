@@ -38,8 +38,8 @@ Route::get('links/subject/{id}/{subject}', 'UrlController@link');
 Route::get('links/search', 'UrlController@search');
 
 // Get search blade
-Route::get('links/about', function () {
-    return view('links.about');
+Route::get('about', function () {
+    return view('utilities.about');
 });
 
 
