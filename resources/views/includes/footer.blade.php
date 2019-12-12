@@ -17,6 +17,9 @@
           <li><a href="/links/search/">Search Links</a></li>
           <li><a href="/blog/home/">Blog</a></li>
           <li><a href="/blog/show-blog-posts">Blog Posts</a></li>
+          <li><a href="http://www.dukesnuz.com/" target="blank">DukesNuz</a></li>
+          <li><a href='https://github.com/dukesnuz/david'><i class='fa fa-github' target="blank"></i>Code on GitHub</a></li>
+          <li><a href="http://dukesnuz.com/contact/dukesnuz/david/petringa/" target="blank">Contact</a></li>
           @if(Auth::check())
           <li><a href="/links/get-list/">View Links</a></li>
           <li><a href="/links/create/">Create a Link</a></li>
@@ -43,9 +46,9 @@
               <!--{{method_field('put')}}-->
               {{ csrf_field() }}
               <p><input type="text" name="name" placeholder="Enter your name" /></p>
-                @include('modules.error-field', ['fieldName' => 'name'])
+              @include('modules.error-field', ['fieldName' => 'name'])
               <p><input type="email" name="email" placeholder="Enter your email" /></p>
-                @include('modules.error-field', ['fieldName' => 'email'])
+              @include('modules.error-field', ['fieldName' => 'email'])
               <p><button type='submit'>Submit</button></p>
             </form>
           </div>
@@ -60,11 +63,17 @@
           <!-- Links -->
           <!--  <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>-->
 
-          <ul class="list-unstyled">
-            <li><a href="http://www.dukesnuz.com/" target="blank">DukesNuz</a></li>
-            <li><a href='https://github.com/dukesnuz/david'><i class='fa fa-github' target="blank"></i>Code on GitHub</a></li>
-            <li><a href="http://dukesnuz.com/contact/dukesnuz/david/petringa/" target="blank">Contact</a></li>
-          </ul>
+          <div class="soap">
+            <p>
+              I recently discovered Duke Cannon
+            </p>
+            <p>
+              <a href="https://dukecannon.com/?rfsn=3315585.912b22" target="blank">Check it out!</a>
+            </p>
+            <p>
+              I like the Big Ass Beer Soap
+            </p>
+          </div>
 
         </div>
         <!-- Grid column -->
@@ -79,8 +88,8 @@
 
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">&copy;&nbsp;{{ date('Y') }}:
-      <a href="http://www.dukesnuz.com/"> David Petringa</a>
+    <div class="footer-copyright text-center py-3">&copy;&nbsp;{{ date('Y') }}
+      <a href="http://www.davidpetringa.com/"> David Petringa</a>
     </div>
     <!-- Copyright -->
     <!--Start of Tawk.to Script-->
