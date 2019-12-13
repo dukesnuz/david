@@ -179,6 +179,7 @@ class BlogController extends Controller
         }
         return view('blog.show-a-post')->withPost($post)->with([
       'pid' => $post->id,
+      'subject' => $post->subject,
     ]);
     }
 

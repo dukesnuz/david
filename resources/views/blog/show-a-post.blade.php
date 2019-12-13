@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-View A Blog Post
+{{ $subject }} - Dukesnuz
 @endsection
 
 @section('content')
