@@ -9,7 +9,7 @@
         cloud-channel="5"
         :disabled="false"
         id="uuid"
-        :init="{  }"
+        :init="{plugins: 'link, wordcount, image', default_link_target: '_blank'}"
         initial-value
         model-events
         plugins

@@ -2982,7 +2982,6 @@ __webpack_require__.r(__webpack_exports__);
         return res.json();
       }).then(function (res) {
         _this.post = res;
-        console.log(_this.post);
 
         if (_this.post == "") {
           _this.message = "OOppss Error 1";
@@ -39854,7 +39853,7 @@ var render = function() {
   return _c("div", { staticClass: "blog-inner-content flex-container" }, [
     _c("div", { staticClass: "blog-post" }, [
       _c("h3", [_vm._v("Create a Blog Post")]),
-      _vm._v("\n    " + _vm._s(_vm.message) + "\n    "),
+      _vm._v("\n      " + _vm._s(_vm.message) + "\n      "),
       _c(
         "div",
         {
@@ -39874,7 +39873,10 @@ var render = function() {
               "cloud-channel": "5",
               disabled: false,
               id: "uuid",
-              init: {},
+              init: {
+                plugins: "link, wordcount, image",
+                default_link_target: "_blank"
+              },
               "initial-value": "",
               "model-events": "",
               plugins: "",
@@ -39890,7 +39892,7 @@ var render = function() {
               expression: "post.body"
             }
           }),
-          _vm._v(" "),
+          _vm._v("\n, menubar: 'insert', toolbar: 'link'\n        "),
           _c(
             "form",
             {
@@ -40067,9 +40069,9 @@ var render = function() {
                             }
                           }),
                           _vm._v(
-                            "\n              " +
+                            "\n                " +
                               _vm._s(tag.name) +
-                              "\n            "
+                              "\n              "
                           )
                         ]
                       )
@@ -40279,7 +40281,10 @@ var render = function() {
             "cloud-channel": "5",
             disabled: false,
             id: "uuid",
-            init: {},
+            init: {
+              plugins: "link, wordcount, image",
+              default_link_target: "_blank"
+            },
             "initial-value": "",
             "model-events": "",
             plugins: "",
