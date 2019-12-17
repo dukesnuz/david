@@ -14,6 +14,10 @@ import VueAxios from 'vue-axios'
 
 Vue.use(VueAxios, axios)
 
+/******add for social media sharing*****/
+var SocialSharing = require('vue-social-sharing');
+Vue.use(SocialSharing);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

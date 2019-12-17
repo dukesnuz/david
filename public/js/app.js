@@ -3066,6 +3066,69 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3079,7 +3142,8 @@ __webpack_require__.r(__webpack_exports__);
         email: "",
         comment: "",
         pid: this.pid
-      }
+      },
+      tagsstring: ""
     };
   },
   props: {
@@ -3091,8 +3155,13 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.fetchPost();
     this.fetchComments();
+    this.getUrl();
   },
   methods: {
+    getUrl: function getUrl() {
+      var url = window.location.href;
+      return url;
+    },
     fetchPost: function fetchPost() {
       var _this = this;
 
@@ -3104,6 +3173,13 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         if (response.status == 200) {
           _this.post = response.data;
+          var string = "";
+
+          _this.post.blogtags.forEach(function (item, index) {
+            string = string + item["name"] + ",";
+          });
+
+          _this.tagsstring = string;
         } else {
           _this.status = "OOppss! System error 1. We apologize.";
           _this.data = null;
@@ -7873,7 +7949,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nul[data-v-49bab584] {\r\n  list-style: none;\r\n  padding: 0;\n}\n.blog-tags[data-v-49bab584] {\r\n  margin-top: 20px;\r\n  padding: 0;\n}\n.blog-tags li[data-v-49bab584] {\r\n  float: left;\r\n  margin-right: 5px;\r\n  display: inline-block;\r\n  margin-top: 10px;\r\n  padding-left: 25px;\n}\n.blog-date[data-v-49bab584] {\r\n  margin-top: 20px;\r\n  padding-left: 25px;\n}\ninput[type=\"text\"][data-v-49bab584] {\r\n  background-color: #fff;\r\n  display: block;\r\n  width: 325px;\n}\ninput[type=\"submit\"][data-v-49bab584] {\r\n  background-color: rgb(9, 148, 228);\r\n  color: #fff;\r\n  font-weight: bold;\r\n  margin-top: 10px;\n}\n#new-comment[data-v-49bab584] {\r\n  background-color: #fff;\r\n  height: 100px;\r\n  width: 325px;\r\n  margin-top: 10px;\r\n  display: block;\n}\nlabel[data-v-49bab584] {\r\n  margin-top: 25px;\r\n  display: block;\r\n  font-weight: bold;\n}\n.comment[data-v-49bab584] {\r\n  margin-top: 50px;\n}\n.comments[data-v-49bab584] {\r\n  width: 600px;\r\n  margin: auto;\r\n  margin-top: 25px;\n}\n.comments ul[data-v-49bab584] {\r\n  background-color: #fff;\r\n  padding: 10px 0;\r\n  padding-left: 5px;\n}\n.commentor-name[data-v-49bab584] {\r\n font-weight: bold;\r\ncolor: rgb(190, 17, 17);\n}\n.comment-date[data-v-49bab584] {\r\n  color: #aca7a7;\n}\r\n", ""]);
+exports.push([module.i, "\nul[data-v-49bab584] {\r\n  list-style: none;\r\n  padding: 0;\n}\n.blog-tags[data-v-49bab584] {\r\n  margin-top: 20px;\r\n  padding: 0;\n}\n.blog-tags li[data-v-49bab584] {\r\n  float: left;\r\n  margin-right: 5px;\r\n  display: inline-block;\r\n  margin-top: 10px;\r\n  padding-left: 25px;\n}\n.blog-date[data-v-49bab584] {\r\n  margin-top: 20px;\r\n  padding-left: 25px;\n}\ninput[type=\"text\"][data-v-49bab584] {\r\n  background-color: #fff;\r\n  display: block;\r\n  width: 325px;\n}\ninput[type=\"submit\"][data-v-49bab584] {\r\n  background-color: rgb(9, 148, 228);\r\n  color: #fff;\r\n  font-weight: bold;\r\n  margin-top: 10px;\n}\n#new-comment[data-v-49bab584] {\r\n  background-color: #fff;\r\n  height: 100px;\r\n  width: 325px;\r\n  margin-top: 10px;\r\n  display: block;\n}\nlabel[data-v-49bab584] {\r\n  margin-top: 25px;\r\n  display: block;\r\n  font-weight: bold;\n}\n.comment[data-v-49bab584] {\r\n  margin-top: 50px;\n}\n.comments[data-v-49bab584] {\r\n  width: 600px;\r\n  margin: auto;\r\n  margin-top: 25px;\n}\n.comments ul[data-v-49bab584] {\r\n  background-color: #fff;\r\n  padding: 10px 0;\r\n  padding-left: 5px;\n}\n.commentor-name[data-v-49bab584] {\r\n  font-weight: bold;\r\n  color: rgb(190, 17, 17);\n}\n.comment-date[data-v-49bab584] {\r\n  color: #aca7a7;\n}\n.social[data-v-49bab584] {\r\n  cursor: -webkit-grab;\r\n  cursor: grab;\n}\n.social-media[data-v-49bab584] {\r\n  border: 1px solid#000;\r\n  padding: 2px;\r\n  background: #fff;\n}\r\n", ""]);
 
 // exports
 
@@ -40606,6 +40682,113 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
+      { staticClass: "social-media" },
+      [
+        _c("social-sharing", {
+          attrs: {
+            url: _vm.getUrl(),
+            title: _vm.post.subject,
+            description: _vm.post.subject,
+            quote: _vm.post.subject,
+            hashtags: _vm.tagsstring + "blog",
+            "twitter-user": "Dukesnuz"
+          },
+          inlineTemplate: {
+            render: function() {
+              var _vm = this
+              var _h = _vm.$createElement
+              var _c = _vm._self._c || _h
+              return _c(
+                "div",
+                { staticClass: "social" },
+                [
+                  _c("network", { attrs: { network: "email" } }, [
+                    _c("i", { staticClass: "fa fa-envelope" }),
+                    _vm._v(" Email\n        ")
+                  ]),
+                  _vm._v(" "),
+                  _c("network", { attrs: { network: "facebook" } }, [
+                    _c("i", { staticClass: "fa fa-facebook" }),
+                    _vm._v(" Facebook\n        ")
+                  ]),
+                  _vm._v(" "),
+                  _c("network", { attrs: { network: "googleplus" } }, [
+                    _c("i", { staticClass: "fa fa-google-plus" }),
+                    _vm._v(" Google +\n        ")
+                  ]),
+                  _vm._v(" "),
+                  _c("network", { attrs: { network: "line" } }, [
+                    _c("i", { staticClass: "fa fa-line" }),
+                    _vm._v(" Line\n        ")
+                  ]),
+                  _vm._v(" "),
+                  _c("network", { attrs: { network: "linkedin" } }, [
+                    _c("i", { staticClass: "fa fa-linkedin" }),
+                    _vm._v(" LinkedIn\n        ")
+                  ]),
+                  _vm._v(" "),
+                  _c("network", { attrs: { network: "odnoklassniki" } }, [
+                    _c("i", { staticClass: "fa fa-odnoklassniki" }),
+                    _vm._v(" Odnoklassniki\n        ")
+                  ]),
+                  _vm._v(" "),
+                  _c("network", { attrs: { network: "pinterest" } }, [
+                    _c("i", { staticClass: "fa fa-pinterest" }),
+                    _vm._v(" Pinterest\n        ")
+                  ]),
+                  _vm._v(" "),
+                  _c("network", { attrs: { network: "reddit" } }, [
+                    _c("i", { staticClass: "fa fa-reddit" }),
+                    _vm._v(" Reddit\n        ")
+                  ]),
+                  _vm._v(" "),
+                  _c("network", { attrs: { network: "skype" } }, [
+                    _c("i", { staticClass: "fa fa-skype" }),
+                    _vm._v(" Skype\n        ")
+                  ]),
+                  _vm._v(" "),
+                  _c("network", { attrs: { network: "sms" } }, [
+                    _c("i", { staticClass: "fa fa-commenting-o" }),
+                    _vm._v(" SMS\n        ")
+                  ]),
+                  _vm._v(" "),
+                  _c("network", { attrs: { network: "telegram" } }, [
+                    _c("i", { staticClass: "fa fa-telegram" }),
+                    _vm._v(" Telegram\n        ")
+                  ]),
+                  _vm._v(" "),
+                  _c("network", { attrs: { network: "twitter" } }, [
+                    _c("i", { staticClass: "fa fa-twitter" }),
+                    _vm._v(" Twitter\n        ")
+                  ]),
+                  _vm._v(" "),
+                  _c("network", { attrs: { network: "vk" } }, [
+                    _c("i", { staticClass: "fa fa-vk" }),
+                    _vm._v(" VKontakte\n        ")
+                  ]),
+                  _vm._v(" "),
+                  _c("network", { attrs: { network: "weibo" } }, [
+                    _c("i", { staticClass: "fa fa-weibo" }),
+                    _vm._v(" Weibo\n        ")
+                  ]),
+                  _vm._v(" "),
+                  _c("network", { attrs: { network: "whatsapp" } }, [
+                    _c("i", { staticClass: "fa fa-whatsapp" }),
+                    _vm._v(" Whatsapp\n        ")
+                  ])
+                ],
+                1
+              )
+            },
+            staticRenderFns: []
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
       {
         directives: [
           {
@@ -40748,7 +40931,7 @@ var render = function() {
               _c("span", { staticClass: "commentor-name" }, [
                 _vm._v(_vm._s(comment.email.name))
               ]),
-              _vm._v(" * "),
+              _vm._v(" *\n        "),
               _c("span", { staticClass: "comment-date" }, [
                 _vm._v(_vm._s(comment.created_at))
               ])
@@ -41028,6 +41211,419 @@ function normalizeComponent (
   }
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/vue-social-sharing/dist/vue-social-sharing.common.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/vue-social-sharing/dist/vue-social-sharing.common.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*!
+ * vue-social-sharing v2.4.7 
+ * (c) 2019 nicolasbeauvais
+ * Released under the MIT License.
+ */
+
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var Vue = _interopDefault(__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"));
+
+var SocialSharingNetwork = {
+  functional: true,
+
+  props: {
+    network: {
+      type: String,
+      default: ''
+    }
+  },
+
+  render: function (createElement, context) {
+    var network = context.parent._data.baseNetworks[context.props.network];
+
+    if (!network) {
+      return console.warn(("Network " + (context.props.network) + " does not exist"));
+    }
+
+    return createElement(context.parent.networkTag, {
+      staticClass: context.data.staticClass || null,
+      staticStyle: context.data.staticStyle || null,
+      class: context.data.class || null,
+      style: context.data.style || null,
+      attrs: {
+        id: context.data.attrs.id || null,
+        tabindex: context.data.attrs.tabindex || 0,
+        'data-link': network.type === 'popup'
+          ? '#share-' + context.props.network
+          : context.parent.createSharingUrl(context.props.network),
+        'data-action': network.type === 'popup' ? null : network.action
+      },
+      on: {
+        click: network.type === 'popup' ? function () {
+          context.parent.share(context.props.network);
+        } : function () {
+          context.parent.touch(context.props.network);
+        }
+      }
+    }, context.children);
+  }
+};
+
+var email = {"sharer":"mailto:?subject=@title&body=@url%0D%0A%0D%0A@description","type":"direct"};
+var facebook = {"sharer":"https://www.facebook.com/sharer/sharer.php?u=@url&title=@title&description=@description&quote=@quote&hashtag=@hashtags","type":"popup"};
+var googleplus = {"sharer":"https://plus.google.com/share?url=@url","type":"popup"};
+var line = {"sharer":"http://line.me/R/msg/text/?@description%0D%0A@url","type":"popup"};
+var linkedin = {"sharer":"https://www.linkedin.com/shareArticle?mini=true&url=@url&title=@title&summary=@description","type":"popup"};
+var odnoklassniki = {"sharer":"https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&st.shareUrl=@url&st.comments=@description","type":"popup"};
+var pinterest = {"sharer":"https://pinterest.com/pin/create/button/?url=@url&media=@media&description=@title","type":"popup"};
+var reddit = {"sharer":"https://www.reddit.com/submit?url=@url&title=@title","type":"popup"};
+var skype = {"sharer":"https://web.skype.com/share?url=@description%0D%0A@url","type":"popup"};
+var telegram = {"sharer":"https://t.me/share/url?url=@url&text=@description","type":"popup"};
+var twitter = {"sharer":"https://twitter.com/intent/tweet?text=@title&url=@url&hashtags=@hashtags@twitteruser","type":"popup"};
+var viber = {"sharer":"viber://forward?text=@url @description","type":"direct"};
+var vk = {"sharer":"https://vk.com/share.php?url=@url&title=@title&description=@description&image=@media&noparse=true","type":"popup"};
+var weibo = {"sharer":"http://service.weibo.com/share/share.php?url=@url&title=@title","type":"popup"};
+var whatsapp = {"sharer":"https://api.whatsapp.com/send?text=@description%0D%0A@url","type":"popup","action":"share/whatsapp/share"};
+var sms = {"sharer":"sms:?body=@url%20@description","type":"direct"};
+var sms_ios = {"sharer":"sms:;body=@url%20@description","type":"direct"};
+var BaseNetworks = {
+	email: email,
+	facebook: facebook,
+	googleplus: googleplus,
+	line: line,
+	linkedin: linkedin,
+	odnoklassniki: odnoklassniki,
+	pinterest: pinterest,
+	reddit: reddit,
+	skype: skype,
+	telegram: telegram,
+	twitter: twitter,
+	viber: viber,
+	vk: vk,
+	weibo: weibo,
+	whatsapp: whatsapp,
+	sms: sms,
+	sms_ios: sms_ios
+};
+
+var inBrowser = typeof window !== 'undefined';
+var $window = inBrowser ? window : null;
+
+var SocialSharing = {
+  props: {
+    /**
+     * URL to share.
+     * @var string
+     */
+    url: {
+      type: String,
+      default: inBrowser ? window.location.href : ''
+    },
+
+    /**
+     * Sharing title, if available by network.
+     * @var string
+     */
+    title: {
+      type: String,
+      default: ''
+    },
+
+    /**
+     * Sharing description, if available by network.
+     * @var string
+     */
+    description: {
+      type: String,
+      default: ''
+    },
+
+    /**
+     * Facebook quote
+     * @var string
+     */
+    quote: {
+      type: String,
+      default: ''
+    },
+
+    /**
+     * Twitter hashtags
+     * @var string
+     */
+    hashtags: {
+      type: String,
+      default: ''
+    },
+
+    /**
+     * Twitter user.
+     * @var string
+     */
+    twitterUser: {
+      type: String,
+      default: ''
+    },
+
+    /**
+     * Flag that indicates if counts should be retrieved.
+     * - NOT WORKING IN CURRENT VERSION
+     * @var mixed
+     */
+    withCounts: {
+      type: [String, Boolean],
+      default: false
+    },
+
+    /**
+     * Google plus key.
+     * @var string
+     */
+    googleKey: {
+      type: String,
+      default: undefined
+    },
+
+    /**
+     * Pinterest Media URL.
+     * Specifies the image/media to be used.
+     */
+    media: {
+      type: String,
+      default: ''
+    },
+
+    /**
+     * Network sub component tag.
+     * Default to span tag
+     */
+    networkTag: {
+      type: String,
+      default: 'span'
+    },
+
+    /**
+     * Additional or overridden networks.
+     * Default to BaseNetworks
+     */
+    networks: {
+      type: Object,
+      default: function () {
+        return {};
+      }
+    }
+  },
+
+  data: function data () {
+    return {
+      /**
+       * Available sharing networks.
+       * @param object
+       */
+      baseNetworks: BaseNetworks,
+
+      /**
+       * Popup settings.
+       * @param object
+       */
+      popup: {
+        status: false,
+        resizable: true,
+        toolbar: false,
+        menubar: false,
+        scrollbars: false,
+        location: false,
+        directories: false,
+        width: 626,
+        height: 436,
+        top: 0,
+        left: 0,
+        window: undefined,
+        interval: null
+      }
+    };
+  },
+
+  methods: {
+    /**
+     * Returns generated sharer url.
+     *
+     * @param network Social network key.
+     */
+    createSharingUrl: function createSharingUrl (network) {
+      var ua = navigator.userAgent.toLowerCase();
+
+      /**
+       * On IOS, SMS sharing link need a special formating
+       * Source: https://weblog.west-wind.com/posts/2013/Oct/09/Prefilling-an-SMS-on-Mobile-Devices-with-the-sms-Uri-Scheme#Body-only
+        */
+      if (network === 'sms' && (ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1)) {
+        network += '_ios';
+      }
+
+      var url = this.baseNetworks[network].sharer;
+
+      /**
+       * On IOS, Twitter sharing shouldn't include a hashtag parameter if the hashtag value is empty
+       * Source: https://github.com/nicolasbeauvais/vue-social-sharing/issues/143
+        */
+      if (network === 'twitter' && this.hashtags.length === 0) {
+        url = url.replace('&hashtags=@hashtags', '');
+      }
+
+      return url
+        .replace(/@url/g, encodeURIComponent(this.url))
+        .replace(/@title/g, encodeURIComponent(this.title))
+        .replace(/@description/g, encodeURIComponent(this.description))
+        .replace(/@quote/g, encodeURIComponent(this.quote))
+        .replace(/@hashtags/g, this.generateHashtags(network, this.hashtags))
+        .replace(/@media/g, this.media)
+        .replace(/@twitteruser/g, this.twitterUser ? '&via=' + this.twitterUser : '');
+    },
+    /**
+     * Encode hashtags for the specified social network.
+     *
+     * @param  network Social network key
+     * @param  hashtags All hashtags specified
+     */
+    generateHashtags: function generateHashtags (network, hashtags) {
+      if (network === 'facebook' && hashtags.length > 0) {
+        return '%23' + hashtags.split(',')[0];
+      }
+
+      return hashtags;
+    },
+    /**
+     * Shares URL in specified network.
+     *
+     * @param network Social network key.
+     */
+    share: function share (network) {
+      this.openSharer(network, this.createSharingUrl(network));
+
+      this.$root.$emit('social_shares_open', network, this.url);
+      this.$emit('open', network, this.url);
+    },
+
+    /**
+     * Touches network and emits click event.
+     *
+     * @param network Social network key.
+     */
+    touch: function touch (network) {
+      window.open(this.createSharingUrl(network), '_self');
+
+      this.$root.$emit('social_shares_open', network, this.url);
+      this.$emit('open', network, this.url);
+    },
+
+    /**
+     * Opens sharer popup.
+     *
+     * @param network Social network key
+     * @param url Url to share.
+     */
+    openSharer: function openSharer (network, url) {
+      var this$1 = this;
+
+      // If a popup window already exist it will be replaced, trigger a close event.
+      var popupWindow = null;
+      if (popupWindow && this.popup.interval) {
+        clearInterval(this.popup.interval);
+
+        popupWindow.close();// Force close (for Facebook)
+
+        this.$root.$emit('social_shares_change', network, this.url);
+        this.$emit('change', network, this.url);
+      }
+
+      popupWindow = window.open(
+        url,
+        'sharer',
+        'status=' + (this.popup.status ? 'yes' : 'no') +
+        ',height=' + this.popup.height +
+        ',width=' + this.popup.width +
+        ',resizable=' + (this.popup.resizable ? 'yes' : 'no') +
+        ',left=' + this.popup.left +
+        ',top=' + this.popup.top +
+        ',screenX=' + this.popup.left +
+        ',screenY=' + this.popup.top +
+        ',toolbar=' + (this.popup.toolbar ? 'yes' : 'no') +
+        ',menubar=' + (this.popup.menubar ? 'yes' : 'no') +
+        ',scrollbars=' + (this.popup.scrollbars ? 'yes' : 'no') +
+        ',location=' + (this.popup.location ? 'yes' : 'no') +
+        ',directories=' + (this.popup.directories ? 'yes' : 'no')
+      );
+
+      popupWindow.focus();
+
+      // Create an interval to detect popup closing event
+      this.popup.interval = setInterval(function () {
+        if (!popupWindow || popupWindow.closed) {
+          clearInterval(this$1.popup.interval);
+
+          popupWindow = undefined;
+
+          this$1.$root.$emit('social_shares_close', network, this$1.url);
+          this$1.$emit('close', network, this$1.url);
+        }
+      }, 500);
+    }
+  },
+
+  /**
+   * Merge base networks list with user's list
+   */
+  beforeMount: function beforeMount () {
+    this.baseNetworks = Vue.util.extend(this.baseNetworks, this.networks);
+  },
+
+  /**
+   * Sets popup default dimensions.
+   */
+  mounted: function mounted () {
+    if (!inBrowser) {
+      return;
+    }
+
+    /**
+     * Center the popup on dual screens
+     * http://stackoverflow.com/questions/4068373/center-a-popup-window-on-screen/32261263
+     */
+    var dualScreenLeft = $window.screenLeft !== undefined ? $window.screenLeft : screen.left;
+    var dualScreenTop = $window.screenTop !== undefined ? $window.screenTop : screen.top;
+
+    var width = $window.innerWidth ? $window.innerWidth : (document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width);
+    var height = $window.innerHeight ? $window.innerHeight : (document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height);
+
+    this.popup.left = ((width / 2) - (this.popup.width / 2)) + dualScreenLeft;
+    this.popup.top = ((height / 2) - (this.popup.height / 2)) + dualScreenTop;
+  },
+
+  /**
+   * Set component aliases for buttons and links.
+   */
+  components: {
+    'network': SocialSharingNetwork
+  }
+};
+
+SocialSharing.version = '2.4.7';
+
+SocialSharing.install = function (Vue) {
+  Vue.component('social-sharing', SocialSharing);
+};
+
+if (typeof window !== 'undefined') {
+  window.SocialSharing = SocialSharing;
+}
+
+module.exports = SocialSharing;
 
 /***/ }),
 
@@ -53086,6 +53682,11 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 Vue.use(vue_axios__WEBPACK_IMPORTED_MODULE_1___default.a, axios__WEBPACK_IMPORTED_MODULE_0___default.a);
+/******add for social media sharing*****/
+
+var SocialSharing = __webpack_require__(/*! vue-social-sharing */ "./node_modules/vue-social-sharing/dist/vue-social-sharing.common.js");
+
+Vue.use(SocialSharing);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

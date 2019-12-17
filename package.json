@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@tinymce/tinymce-vue": "^3.0.1",
-        "vue-axios": "^2.1.5"
+        "vue-axios": "^2.1.5",
+        "vue-social-sharing": "^2.4.7"
     }
 }
