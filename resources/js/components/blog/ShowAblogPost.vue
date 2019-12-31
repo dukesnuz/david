@@ -15,7 +15,7 @@
         :title="post.subject"
         :description="post.subject"
         :quote="post.subject"
-        :hashtags="tagsstring +'blog'"
+        :hashtags="tagsstring +'blogpost'"
         twitter-user="Dukesnuz"
         inline-template
       >

@@ -40690,7 +40690,7 @@ var render = function() {
             title: _vm.post.subject,
             description: _vm.post.subject,
             quote: _vm.post.subject,
-            hashtags: _vm.tagsstring + "blog",
+            hashtags: _vm.tagsstring + "blogpost",
             "twitter-user": "Dukesnuz"
           },
           inlineTemplate: {
