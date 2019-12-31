@@ -10,3 +10,6 @@ https://github.com/bradtraversy/larticles_api
 
 Non-breaking, SEO friendly urls in Laravel
 https://sebastiandedeyne.com/non-breaking-seo-friendly-urls-in-laravel/
+
+Social media buttons when using vuejs
+https://github.com/nicolasbeauvais/vue-social-sharing/blob/master/README.md
