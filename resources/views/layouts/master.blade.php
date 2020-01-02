@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>
-    @yield('title', 'David.Dukesnuz')
+    @yield('title', 'Technology & Website Development Blog | Dukesnuz')
   </title>
 
   <meta charset='utf-8'>
-  <meta name="description" content="This is a sub section of Dukesnuz. A website created by David Petringa. This is David's playground on the web.">
-  <meta name="keywords" content="blog, coding, website, developemnt, Laravel, html, css, php, mysql, frameworks, angular, vue.js, david, petringa">
+  <meta name="description" content="Technology and website development blog posts and favorite websites for dukesnuz.">
+  <meta name="keywords" content="blog, coding, technology, website, developemnt, Laravel, html, css, php, mysql, frameworks, angular, vue.js, david, petringa">
   <meta name="author" content="David Petringa, Coded December 2019">
   <meta name="viewport" content="width=device-width; initial-scale=1.0">
   <meta name="csrf-token" content="{{ csrf_token() }}">
