@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
-@section('title')
-Dukesnuz - Blog Posts
-@endsection
+@include('includes.meta')
 
 @section('content')
 <div class="container">

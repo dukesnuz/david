@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
-@section('title')
-David's Favorite Websites
-@endsection
+@include('includes.meta')
 
 @section('content')
 <div class="container">
@@ -15,7 +13,7 @@ David's Favorite Websites
         The other section is a <a href="/blog/home">blog</a>.
         As a result
         for my passion to write code for both front end and backend web development, there are many links
-        blog posts relating to website development.</p>
+        and blog posts relating to website development.</p>
         <h4>Enjoy !</h4>
           </div>
         </div>

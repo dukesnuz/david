@@ -39,7 +39,12 @@ Route::get('links/search', 'UrlController@search');
 
 // Get search blade
 Route::get('about', function () {
-    return view('utilities.about');
+    return view('utilities.about')->with([
+    'title' => 'About | Dukesnuz',
+     'description' => "A blog about website development and technology.
+    Also, Duke's favorite website links with an emphayis on website development and technology.",
+     'keywords' => 'website development, computer technology',
+   ]);
 });
 
 

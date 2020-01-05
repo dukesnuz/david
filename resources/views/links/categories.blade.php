@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
-@section('title')
-David's Coding Categories
-@endsection
+@include('includes.meta')
 
 @section('content')
 

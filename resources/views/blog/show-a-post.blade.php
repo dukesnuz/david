@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
-@section('title')
-{{ $subject }} - Dukesnuz
-@endsection
+@include('includes.meta')
 
 @section('content')
 <div class="container">

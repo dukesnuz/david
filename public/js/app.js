@@ -40999,7 +40999,7 @@ var render = function() {
               : _c("li", [_vm._v("Not Live")]),
             _vm._v(" "),
             _c("li", [
-              _c("a", { attrs: { href: post.id + "/slug" } }, [
+              _c("a", { attrs: { href: post.id + "/cat/slug" } }, [
                 _c(
                   "button",
                   { staticClass: "btn btn-info", attrs: { type: "button" } },
@@ -41070,7 +41070,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("li", [
-              _c("a", { attrs: { href: post.id + "/slug" } }, [
+              _c("a", { attrs: { href: post.id + "/cat/slug" } }, [
                 _c(
                   "button",
                   { staticClass: "btn btn-info", attrs: { type: "button" } },

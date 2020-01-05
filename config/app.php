@@ -174,6 +174,7 @@ return [
         // David\Providers\BroadcastServiceProvider::class,
         David\Providers\EventServiceProvider::class,
         David\Providers\RouteServiceProvider::class,
+        David\Providers\ViewServiceProvider::class, // david added
 
     ],
 

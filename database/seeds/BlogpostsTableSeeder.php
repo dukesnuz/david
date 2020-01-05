@@ -16,6 +16,8 @@ class BlogpostsTableSeeder extends Seeder
       'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
       'subject' => "Subject One",
       'body' => 'Post one',
+      'meta_description' => "post one meta description",
+      'url_friendly' => 'post one url',
       'category_id' => 1,
       'ip' => '111.45.789',
     ]);
@@ -25,6 +27,8 @@ class BlogpostsTableSeeder extends Seeder
       'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
       'subject' => "Subject Two",
       'body' => 'Post two',
+      'meta_description' => "post two meta description",
+      'url_friendly' => 'post two url',
       'category_id' => 2,
       'ip' => '222.45.789',
     ]);
@@ -34,6 +38,8 @@ class BlogpostsTableSeeder extends Seeder
       'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
       'subject' => "Subject Three",
       'body' => 'Post three',
+      'meta_description' => "post two meta description",
+      'url_friendly' => 'post two url',
       'category_id' => 3,
       'ip' => '333.45.789',
     ]);

@@ -19,20 +19,22 @@ class Blogpost extends Model
         return $this->belongsToMany('David\Blogtag')->withTimeStamps();
     }
 
+    public function blogcomments()
+    {
+        return $this->hasMany('David\Blogcomments');
+    }
+
     // get slug
     public function getSlugAttribute(): string
     {
-        return str_slug($this->subject);
+        return str_slug($this->url_friendly, "-");
     }
 
     // create a computed url
     public function getUrlAttribute(): string
     {
-        return action('BlogController@blogPost', [$this->id, $this->slug]);
-    }
-
-    public function blogcomments()
-    {
-        return $this->hasMany('David\Blogcomments');
+        $category = Blogcategory::findOrFail($this->category_id);
+        $cat = $category->categories;
+        return action('BlogController@blogPost', [$this->id, $cat, $this->slug]);
     }
 }

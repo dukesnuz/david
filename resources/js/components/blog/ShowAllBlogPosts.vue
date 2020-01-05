@@ -8,7 +8,7 @@
         <li v-if="post.is_live">Live</li>
         <li v-else>Not Live</li>
         <li>
-          <a :href="`${post.id}/slug`">
+          <a :href="`${post.id}/cat/slug`">
             <button type="button" class="btn btn-info">Read More</button>
           </a>
         </li>

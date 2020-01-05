@@ -17,7 +17,12 @@ class UrlController extends Controller
     public function url()
     {
         $urls = Url::with('category')->with('tags')->take(150)->inRandomOrder()->get();
-        return view('links.links')->with('urls', $urls);
+        return view('links.links')->with([
+            'urls' => $urls,
+            'title' => 'Favorite Websites Dukesnuz',
+            'description' => 'A collection of favorite websites on Dukesnuz.',
+            'keywords' => 'websites',
+         ]);
     }
 
     public function create()
@@ -69,7 +74,13 @@ class UrlController extends Controller
     public function createCategories()
     {
         $categories = Category::orderBy('categories', 'ASC')->get();
-        return view('links.categories')->with('categories', $categories);
+        return view('links.categories')
+        ->with([
+            'categories' => $categories,
+            'title' => 'Categories | Favorite Websites',
+            'description' => 'A collection of favorite websites on Dukesnuz.',
+            'keywords' => 'websites',
+         ]);
     }
 
     public function storeCategory(Request $request)
@@ -88,7 +99,13 @@ class UrlController extends Controller
     public function createTags()
     {
         $tags = Tag::orderBy('name', 'ASC')->get();
-        return view('links/tags')->with('tags', $tags);
+        return view('links.tags')
+        ->with([
+            'tags' => $tags,
+            'title' => 'Tags | Favorite Websites',
+            'description' => 'A collection of favorite websites on Dukesnuz.',
+            'keywords' => 'websites',
+         ]);
     }
 
     public function storeTag(Request $request)
@@ -138,19 +155,20 @@ class UrlController extends Controller
 
         return redirect('links/edit/'.$id.'')->with('alert', 'Your changes were saved.');
     }
+    /*******is this being used ?
+        public function category($category)
+        {
+            $urls =  Url::whereHas('category', function ($query) use ($category) {
+                $query->where('categories', '=', $category);
+            })->with('tags')->get();
 
-    public function category($category)
-    {
-        $urls =  Url::whereHas('category', function ($query) use ($category) {
-            $query->where('categories', '=', $category);
-        })->with('tags')->get();
-
-        return view('links/category-show')->with([
-      'urls' =>  $urls,
-      'category' => $category
-    ]);
-    }
-
+            return view('links/category-show')->with([
+          'urls' =>  $urls,
+          'category' => $category
+        ]);
+        }
+    */
+    /*****is this being used ?
     public function tag($tag)
     {
         $urls = Url::whereHas('tags', function ($query) use ($tag) {
@@ -162,20 +180,26 @@ class UrlController extends Controller
       'tag' => $tag
     ]);
     }
-
-    // show one link
-    public function link($id)
-    {
-        $url = Url::with('category')->with('tags')->where('id', '=', $id)->first();
-        return view('links.link')->with([
-      'url' => $url,
-    ]);
-    }
-
+*/
+    /*** is this being used
+        // show one link
+        public function link($id)
+        {
+            $url = Url::with('category')->with('tags')->where('id', '=', $id)->first();
+            return view('links.link')->with([
+          'url' => $url,
+        ]);
+        }
+    */
     // search page
     public function search()
     {
-        return view('links.search');
+        return view('links.search')->with([
+              'title' => 'Search | Favorite Websites',
+              'description' => 'A collection of favorite websites on Dukesnuz.',
+              'keywords' => 'websites',
+           ]);
+        ;
     }
 
     // get search results

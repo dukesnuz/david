@@ -6,7 +6,7 @@
         <li class="blog-subject">{{ post.subject }}</li>
         <li v-html="post.body.substring(0,20)" class="blog-post-body"></li>
         <li>
-          <a :href="`${post.id}/slug`">
+          <a :href="`${post.id}/cat/slug`">
             <button type="button" class="btn btn-info">Read More</button>
           </a>
         </li>

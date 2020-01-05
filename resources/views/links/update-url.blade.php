@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
-@section('title')
-Edit a Link
-@endsection
+@include('includes.meta')
 
 @section('content')
 

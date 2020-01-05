@@ -47,7 +47,13 @@ class BlogController extends Controller
     */
     public function index()
     {
-        return view("blog.index");
+        return view("blog.index")->with([
+              'title' => 'Website Development & Technology Blog | Dukesnuz',
+              'description' => 'A blog about website development and technology at Dukesnuz.
+               Coding tutorials and technolgy topics are the main subjects',
+              'keywords' => 'website development, computer technology',
+           ]);
+        ;
     }
 
     //get last blog post
@@ -170,9 +176,17 @@ class BlogController extends Controller
     *
     * @param int $id
     */
-    public function blogPost($id, $slug = '')
+    public function blogPost($id, $cat = "", $slug = '')
     {
-        $post = Blogpost::findOrFail($id);
+        $post = Blogpost::where('id', '=', $id)
+
+        ->with('Blogcategorys')
+        ->with('Blogtags')
+        ->get()->first();
+
+        $keywords = $post->blogtags->implode('name', ', ');
+        $description = $post->meta_description;
+        $title = $post->subject;
 
         if ($slug !== $post->slug) {
             return redirect()->to($post->url);
@@ -180,6 +194,9 @@ class BlogController extends Controller
         return view('blog.show-a-post')->withPost($post)->with([
       'pid' => $post->id,
       'subject' => $post->subject,
+      'title' => $title,
+      'description' => $description,
+      'keywords' => $keywords,
     ]);
     }
 

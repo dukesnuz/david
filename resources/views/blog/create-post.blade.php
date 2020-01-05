@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
-@section('title')
-Create a Blog Post
-@endsection
+@include('includes.meta')
 
 @section('content')
 <div class="container">
