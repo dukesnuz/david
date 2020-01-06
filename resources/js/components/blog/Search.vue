@@ -60,7 +60,7 @@ export default {
       pagination: {},
       term: "",
       url: "",
-      term: "two",
+      term: "",
       message: "",
       show_nav: false,
       hide: true,
