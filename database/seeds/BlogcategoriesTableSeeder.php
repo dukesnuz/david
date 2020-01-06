@@ -14,25 +14,25 @@ class BlogcategoriesTableSeeder extends Seeder
         DB::table('blogcategories')->insert([
        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-       'categories' => 'Laravel',
+       'categorys' => 'Laravel',
      ]);
 
         DB::table('blogcategories')->insert([
        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-       'categories' => 'Transportation',
+       'categorys' => 'Transportation',
      ]);
 
         DB::table('blogcategories')->insert([
        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-       'categories' => 'Music',
+       'categorys' => 'Music',
      ]);
 
-        DB::table('categories')->insert([
+        DB::table('blogcategories')->insert([
        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-       'categories' => 'Web Development',
+       'categorys' => 'Web Development',
      ]);
     }
 }

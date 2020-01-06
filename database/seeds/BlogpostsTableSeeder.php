@@ -18,7 +18,8 @@ class BlogpostsTableSeeder extends Seeder
       'body' => 'Post one',
       'meta_description' => "post one meta description",
       'url_friendly' => 'post one url',
-      'category_id' => 1,
+      'blogcategory_id' => 1,
+      'is_live' => 1,
       'ip' => '111.45.789',
     ]);
 
@@ -29,7 +30,7 @@ class BlogpostsTableSeeder extends Seeder
       'body' => 'Post two',
       'meta_description' => "post two meta description",
       'url_friendly' => 'post two url',
-      'category_id' => 2,
+      'blogcategory_id' => 2,
       'ip' => '222.45.789',
     ]);
 
@@ -40,7 +41,7 @@ class BlogpostsTableSeeder extends Seeder
       'body' => 'Post three',
       'meta_description' => "post two meta description",
       'url_friendly' => 'post two url',
-      'category_id' => 3,
+      'blogcategory_id' => 3,
       'ip' => '333.45.789',
     ]);
     }

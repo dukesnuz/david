@@ -39,9 +39,10 @@
     <ul class="list-inline">
       <li class="list-inline-item"><a href="/">Home</a></li>
       <li class="list-inline-item"><a href="/links/get-list/">Links</a></li>
-      <li class="list-inline-item"><a href="/links/search/">Search</a></li>
+      <li class="list-inline-item"><a href="/links/search/">Websites Search</a></li>
       <li class="list-inline-item"><a href="/blog/home/">Blog</a></li>
       <li class="list-inline-item"><a href="/blog/show-blog-posts/">Blog Posts</a></li>
+      <li class="list-inline-item"><a href="/blog/search/">Blog Search</a></li>
       <li class="list-inline-item"><a href="/about/">About</a></li>
       @if(Auth::check())
       <li class="list-inline-item"><a href="/home">Login</a></li>

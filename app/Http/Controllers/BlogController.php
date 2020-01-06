@@ -8,6 +8,10 @@ use David\Blogcategory;
 use David\Blogcomment;
 use David\Blogtag;
 use David\Email;
+use David\BlogSearch;
+use David\Http\Resources\Post;
+use David\Http\Resources\BlogSearch as BlogSearchResource;
+
 use Mail;
 
 class BlogController extends Controller
@@ -77,7 +81,7 @@ class BlogController extends Controller
       'body' => 'required',
     ]);
         //get category id  to store in Blogpost
-        $cat_id = Blogcategory::where('categories', '=', $request->input('category'))->first();
+        $cat_id = Blogcategory::where('categorys', '=', $request->input('category'))->first();
 
         // Store post in db
         $post = new Blogpost();
@@ -96,11 +100,11 @@ class BlogController extends Controller
         return response()->JSON(array('messageReturned' => 'ok', 'postId' => $post->id));
     }
 
-    // get all blog categories
+    // get all blog categorys
     public function getAllBlogCategories()
     {
-        $categories = Blogcategory::orderBy('categories', 'ASC')->get();
-        return $categories;
+        $categorys = Blogcategory::orderBy('categorys', 'ASC')->get();
+        return $categorys;
     }
 
     // get all blog tags
@@ -131,7 +135,7 @@ class BlogController extends Controller
     {
         // Store new category in db
         $store = new Blogcategory();
-        $store->categories = ucfirst(strtolower($request->input('name')));
+        $store->categorys = ucfirst(strtolower($request->input('name')));
         $store->save();
         return response()->JSON(array('messageReturned' => 'ok'));
     }
@@ -178,9 +182,9 @@ class BlogController extends Controller
     */
     public function blogPost($id, $cat = "", $slug = '')
     {
+        //dd(99);
         $post = Blogpost::where('id', '=', $id)
-
-        ->with('Blogcategorys')
+        ->with('Blogcategory')
         ->with('Blogtags')
         ->get()->first();
 
@@ -191,6 +195,7 @@ class BlogController extends Controller
         if ($slug !== $post->slug) {
             return redirect()->to($post->url);
         }
+
         return view('blog.show-a-post')->withPost($post)->with([
       'pid' => $post->id,
       'subject' => $post->subject,
@@ -203,7 +208,7 @@ class BlogController extends Controller
     // show specific post with category and tags
     public function showPost($id)
     {
-        $post = Blogpost::where('id', '=', $id)->with('Blogcategorys')->with('Blogtags')->first();
+        $post = Blogpost::where('id', '=', $id)->with('Blogcategory')->with('Blogtags')->first();
         return $post;
     }
 
@@ -367,6 +372,40 @@ class BlogController extends Controller
         $editComment->save();
 
         return response()->JSON(array('messageReturned' => 'ok'));
+    }
+
+    // get search results
+    public function show($term)
+    {
+        $tags = BlogTag::where('name', 'LIKE', '%'.$term.'%')->get();
+        // return links found
+        $urls = Blogpost::with('blogcategory')->with('blogtags')
+        ->where('subject', 'LIKE', '%'.$term.'%')
+        ->orWhere('body', 'LIKE', '%'.$term.'%')
+        ->orWhereHas('blogtags', function ($query) use ($term) {
+            $query->where('name', '=', $term);
+        })
+        ->orWhereHas('blogcategory', function ($query) use ($term) {
+            $query->where('categorys', '=', $term);
+        })
+        ->paginate(25);
+
+        //add search term to search table
+        $storeSearch = new BlogSearch();
+        $storeSearch->term = $term;
+        $storeSearch->ip = request()->ip();
+        $storeSearch->save();
+
+        //return collection of links as a resource
+        return Post::collection($urls);
+    }
+
+    // get las x number of searches
+    public function showAll()
+    {
+        $searches = BlogSearch::orderBy('created_at', 'desc')->take(15)->get();
+        //  $searches = BlogSearch::take(15)->get();
+        return BlogSearchResource::collection($searches);
     }
     /**
     * Remove the specified resource from storage.

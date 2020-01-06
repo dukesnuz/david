@@ -14,9 +14,9 @@ class ConnectBlogcategoriesAndBlogposts extends Migration
     public function up()
     {
         Schema::table('blogposts', function (Blueprint $table) {
-            $table->integer('category_id')->unsigned();
+            $table->integer('blogcategory_id')->unsigned();
 
-            $table->foreign('category_id')->references('id')->on('blogcategories');
+            $table->foreign('blogcategory_id')->references('id')->on('blogcategories');
         });
     }
 

@@ -10,7 +10,7 @@
       <h4>Most Recent Blog Post</h4>
       <h5>{{ post.subject }}</h5>
       <p v-html="post.body"></p>
-      <p><a :href="`${post.id}/slug`">
+      <p><a :href="`${post.id}/cat/slug`">
             <button type="button" class="btn btn-info">Read More</button>
           </a></p>
     </div>

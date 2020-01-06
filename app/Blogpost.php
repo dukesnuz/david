@@ -9,7 +9,7 @@ class Blogpost extends Model
 {
     use SoftDeletes;
 
-    public function Blogcategorys()
+    public function Blogcategory()
     {
         return $this->belongsTo('David\Blogcategory');
     }
@@ -33,8 +33,8 @@ class Blogpost extends Model
     // create a computed url
     public function getUrlAttribute(): string
     {
-        $category = Blogcategory::findOrFail($this->category_id);
-        $cat = $category->categories;
+        $category = Blogcategory::findOrFail($this->blogcategory_id);
+        $cat = $category->categorys;
         return action('BlogController@blogPost', [$this->id, $cat, $this->slug]);
     }
 }

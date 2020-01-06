@@ -10,16 +10,4 @@ class Blogcategory extends Model
     {
         return $this->hasMany('David\Blogpost');
     }
-
-    /*
-        public static function getBlogCategoriesForDrop()
-        {
-            $blogCategories = Blogcategory::orderBy('categories', 'ASC')->get();
-            $blogCategoriesForDrops = [];
-            foreach ($blogCategories as $category) {
-                $blogCategoriesForDrops[$category['id']] = $blogCategory->categories;
-            }
-            return $blogCategoriesForDrops;
-        }
-        */
 }

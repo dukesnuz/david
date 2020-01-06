@@ -2,12 +2,22 @@
 /*********************************
 * these routes are for blog
 **********************************/
+
 Auth::routes();
 
 Route::get('blog/home', 'BlogController@index');
 
 Route::get('/blog/show-blog-posts', function () {
     return view('blog.show-posts')->with([
+   'title' => 'Website Development & Technology Blog | Dukesnuz',
+   'description' => 'A blog about website development and technology at Dukesnuz.
+    Coding tutorials and technolgy topics are the main subjects',
+   'keywords' => 'website development, computer technology',
+ ]);
+});
+
+Route::get('/blog/search', function () {
+    return view('blog.search')->with([
    'title' => 'Website Development & Technology Blog | Dukesnuz',
    'description' => 'A blog about website development and technology at Dukesnuz.
     Coding tutorials and technolgy topics are the main subjects',
@@ -37,5 +47,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/blog/blog-post/{id}/edit', 'BlogController@edit');
 });
 
-// keep thos route at bottom, throws error when other routes after it.
-Route::get('/blog/{id}/{cat?}/{slug?}', 'BlogController@blogPost');
+// keep this route at bottom, throws error when other routes after it.
+Route::get('/blog/{id}/{cat?}/{slug?}/', 'BlogController@blogPost');

@@ -38,6 +38,8 @@ Vue.component('show-blog-posts', require('./components/blog/ShowBlogPosts.vue').
 Vue.component('show-all-blog-posts', require('./components/blog/ShowAllBlogPosts.vue').default);
 Vue.component('show-a-blog-post', require('./components/blog/ShowAblogPost.vue').default);
 Vue.component('edit-blog-post', require('./components/blog/EditBlogPost.vue').default);
+Vue.component('search-blog', require('./components/blog/Search.vue').default);
+Vue.component('searches-blog', require('./components/blog/Searches.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
