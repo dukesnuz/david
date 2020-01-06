@@ -40253,7 +40253,7 @@ var render = function() {
                       _vm._v(" "),
                       _vm._l(_vm.categories, function(category) {
                         return _c("option", { key: category.id }, [
-                          _vm._v(_vm._s(category.categories))
+                          _vm._v(_vm._s(category.categorys))
                         ])
                       })
                     ],

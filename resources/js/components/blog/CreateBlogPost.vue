@@ -28,7 +28,7 @@
                 <option
                   v-bind:key="category.id"
                   v-for="category in categories"
-                >{{ category.categories }}</option>
+                >{{ category.categorys }}</option>
               </select>
             </li>
 
