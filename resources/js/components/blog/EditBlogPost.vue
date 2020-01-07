@@ -36,10 +36,32 @@
             <label for="blog-subject">Subject</label>
             <input type="text" name="subject" id="blog-subject" v-model="post.subject" />
           </li>
+
+          <li>
+            <label class="blog-tag-label">Tags</label>
+            <div v-bind:key="tag.id" v-for="tag in tags" class="blog-tags">
+              <input type="checkbox" :value="tag.id" :id="tag.id" v-model="checkedTags" />
+              {{tag.name}}
+            </div>
+            <!--<p>new Checked names: {{ checkedTags }}</p>-->
+
+            <div class="clear"></div>
+          </li>
+
+          <li>
+            <label class="blog-tag-label">Current Checked Tags</label>
+            <div v-bind:key="tag.id" v-for="tag in post.blogtags" class="blog-tags">
+              <input type="checkbox" :value="tag.name" :id="tag.name" v-model="tag.name" />
+              {{tag.name}}
+            </div>
+            <div class="clear"></div>
+          </li>
+
           <li>
             <input type="hidden" name="body" v-model="post.body" />
           </li>
           <li>
+            <label class="meta-description">Meta Description</label>
             <textarea
               type="text"
               name="meta_description"
@@ -101,10 +123,12 @@ export default {
       status: "",
       categories: [],
       tags: [],
+      checkedTags: [],
       post: {
         subject: "",
         body: "",
-        blogcategory: ""
+        blogcategory: "",
+        blogtags: []
       },
       comments: {}
     };
@@ -175,6 +199,7 @@ export default {
         });
     },
     editPost() {
+      this.post["new_tags"] = this.checkedTags;
       if (
         this.post.subject == "" ||
         this.post.body == "" ||
@@ -283,15 +308,30 @@ ul {
   list-style: none;
   padding: 0;
 }
+.blog-tags {
+  display: inline-flex;
+  margin-top: 15px;
+  margin-left: 5px;
+  float: left;
+}
 form {
   margin-top: 15px;
 }
-#blog-subject, #meta-description, #url-friendly{
+#blog-subject,
+#meta-description,
+#url-friendly {
   width: 700px;
+}
+.meta-description {
+    display: block;
 }
 input[type="text"],
 select {
   display: block;
+}
+.blog-tag-label {
+  float: left;
+  margin-top: 15px;
 }
 .clear {
   clear: both;

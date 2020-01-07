@@ -2524,6 +2524,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app",
@@ -2770,6 +2778,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app",
@@ -2784,10 +2814,12 @@ __webpack_require__.r(__webpack_exports__);
       status: "",
       categories: [],
       tags: [],
+      checkedTags: [],
       post: {
         subject: "",
         body: "",
-        blogcategory: ""
+        blogcategory: "",
+        blogtags: []
       },
       comments: {}
     };
@@ -2863,6 +2895,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     editPost: function editPost() {
       var _this4 = this;
+
+      this.post["new_tags"] = this.checkedTags;
 
       if (this.post.subject == "" || this.post.body == "" || this.id == "" || this.post.meta_description == "" || this.post.url_friendly == "") {
         this.message = "Please enter a subject, body, category, meta description and url friendly.";
@@ -8102,7 +8136,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nul[data-v-cbde79a0] {\r\n  list-style: none;\r\n  padding: 0;\n}\n.inner-content[data-v-cbde79a0] {\r\n  padding-bottom: 500px;\n}\n.blog-tags[data-v-cbde79a0] {\r\n  display: inline-flex;\r\n  margin-top: 15px;\r\n  margin-left: 5px;\r\n  float: left;\n}\nform[data-v-cbde79a0] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-cbde79a0], #meta-description[data-v-cbde79a0], #url-friendly[data-v-cbde79a0] {\r\n  width: 700px;\n}\ninput[type=\"text\"][data-v-cbde79a0],\r\nselect[data-v-cbde79a0] {\r\n  display: block;\n}\n.blog-tag-label[data-v-cbde79a0] {\r\n  float: left;\r\n  margin-top: 15px;\n}\n.clear[data-v-cbde79a0] {\r\n  clear: both;\n}\n@media only screen and (min-width: 320px) {\n.blog-post[data-v-cbde79a0] {\r\n    border: 1px solid #000;\r\n    padding: 0 5px;\r\n    width: 80%;\n}\n.flex-container[data-v-cbde79a0] {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\n}\n.add-c-t[data-v-cbde79a0] {\r\n    margin-left: 10px;\r\n    border: 1px solid #000;\r\n    padding: 0 5px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\nul[data-v-cbde79a0] {\r\n  list-style: none;\r\n  padding: 0;\n}\n.inner-content[data-v-cbde79a0] {\r\n  padding-bottom: 500px;\n}\n.blog-tags[data-v-cbde79a0] {\r\n  display: inline-flex;\r\n  margin-top: 15px;\r\n  margin-left: 5px;\r\n  float: left;\n}\nform[data-v-cbde79a0] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-cbde79a0],\r\n#meta-description[data-v-cbde79a0],\r\n#url-friendly[data-v-cbde79a0] {\r\n  width: 700px;\n}\n.meta-description[data-v-cbde79a0] {\r\n  display: block;\n}\ninput[type=\"text\"][data-v-cbde79a0],\r\nselect[data-v-cbde79a0] {\r\n  display: block;\n}\n.blog-tag-label[data-v-cbde79a0] {\r\n  float: left;\r\n  margin-top: 15px;\n}\n.clear[data-v-cbde79a0] {\r\n  clear: both;\n}\n@media only screen and (min-width: 320px) {\n.blog-post[data-v-cbde79a0] {\r\n    border: 1px solid #000;\r\n    padding: 0 5px;\r\n    width: 80%;\n}\n.flex-container[data-v-cbde79a0] {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\n}\n.add-c-t[data-v-cbde79a0] {\r\n    margin-left: 10px;\r\n    border: 1px solid #000;\r\n    padding: 0 5px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -8121,7 +8155,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nul[data-v-423969be] {\r\n  list-style: none;\r\n  padding: 0;\n}\nform[data-v-423969be] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-423969be], #meta-description[data-v-423969be], #url-friendly[data-v-423969be]{\r\n  width: 700px;\n}\ninput[type=\"text\"][data-v-423969be],\r\nselect[data-v-423969be] {\r\n  display: block;\n}\n.clear[data-v-423969be] {\r\n  clear: both;\n}\n.comments ul[data-v-423969be] {\r\n  background-color: #fff;\r\n  padding: 10px;\n}\r\n", ""]);
+exports.push([module.i, "\nul[data-v-423969be] {\r\n  list-style: none;\r\n  padding: 0;\n}\n.blog-tags[data-v-423969be] {\r\n  display: inline-flex;\r\n  margin-top: 15px;\r\n  margin-left: 5px;\r\n  float: left;\n}\nform[data-v-423969be] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-423969be],\r\n#meta-description[data-v-423969be],\r\n#url-friendly[data-v-423969be] {\r\n  width: 700px;\n}\n.meta-description[data-v-423969be] {\r\n    display: block;\n}\ninput[type=\"text\"][data-v-423969be],\r\nselect[data-v-423969be] {\r\n  display: block;\n}\n.blog-tag-label[data-v-423969be] {\r\n  float: left;\r\n  margin-top: 15px;\n}\n.clear[data-v-423969be] {\r\n  clear: both;\n}\n.comments ul[data-v-423969be] {\r\n  background-color: #fff;\r\n  padding: 10px;\n}\r\n", ""]);
 
 // exports
 
@@ -40188,7 +40222,7 @@ var render = function() {
   return _c("div", { staticClass: "blog-inner-content flex-container" }, [
     _c("div", { staticClass: "blog-post" }, [
       _c("h3", [_vm._v("Create a Blog Post")]),
-      _vm._v("\n      " + _vm._s(_vm.message) + "\n      "),
+      _vm._v("\n    " + _vm._s(_vm.message) + "\n    "),
       _c(
         "div",
         {
@@ -40227,7 +40261,7 @@ var render = function() {
               expression: "post.body"
             }
           }),
-          _vm._v("\n, menubar: 'insert', toolbar: 'link'\n        "),
+          _vm._v(", menubar: 'insert', toolbar: 'link'\n      "),
           _c(
             "form",
             {
@@ -40404,9 +40438,9 @@ var render = function() {
                             }
                           }),
                           _vm._v(
-                            "\n                " +
+                            "\n              " +
                               _vm._s(tag.name) +
-                              "\n              "
+                              "\n            "
                           )
                         ]
                       )
@@ -40418,6 +40452,10 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("li", [
+                  _c("label", { attrs: { for: "meta-description" } }, [
+                    _vm._v("Meta Description")
+                  ]),
+                  _vm._v(" "),
                   _c("textarea", {
                     directives: [
                       {
@@ -40787,6 +40825,136 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
+              _c(
+                "li",
+                [
+                  _c("label", { staticClass: "blog-tag-label" }, [
+                    _vm._v("Tags")
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.tags, function(tag) {
+                    return _c(
+                      "div",
+                      { key: tag.id, staticClass: "blog-tags" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.checkedTags,
+                              expression: "checkedTags"
+                            }
+                          ],
+                          attrs: { type: "checkbox", id: tag.id },
+                          domProps: {
+                            value: tag.id,
+                            checked: Array.isArray(_vm.checkedTags)
+                              ? _vm._i(_vm.checkedTags, tag.id) > -1
+                              : _vm.checkedTags
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.checkedTags,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = tag.id,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.checkedTags = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.checkedTags = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.checkedTags = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(
+                          "\n            " + _vm._s(tag.name) + "\n          "
+                        )
+                      ]
+                    )
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "clear" })
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                [
+                  _c("label", { staticClass: "blog-tag-label" }, [
+                    _vm._v("Current Checked Tags")
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.post.blogtags, function(tag) {
+                    return _c(
+                      "div",
+                      { key: tag.id, staticClass: "blog-tags" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: tag.name,
+                              expression: "tag.name"
+                            }
+                          ],
+                          attrs: { type: "checkbox", id: tag.name },
+                          domProps: {
+                            value: tag.name,
+                            checked: Array.isArray(tag.name)
+                              ? _vm._i(tag.name, tag.name) > -1
+                              : tag.name
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = tag.name,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = tag.name,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(tag, "name", $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      tag,
+                                      "name",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(tag, "name", $$c)
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(
+                          "\n            " + _vm._s(tag.name) + "\n          "
+                        )
+                      ]
+                    )
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "clear" })
+                ],
+                2
+              ),
+              _vm._v(" "),
               _c("li", [
                 _c("input", {
                   directives: [
@@ -40811,6 +40979,10 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("li", [
+                _c("label", { staticClass: "meta-description" }, [
+                  _vm._v("Meta Description")
+                ]),
+                _vm._v(" "),
                 _c("textarea", {
                   directives: [
                     {

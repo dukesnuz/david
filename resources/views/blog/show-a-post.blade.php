@@ -5,7 +5,8 @@
 @section('content')
 <div class="container">
   @if(Auth::check())
-  <p><a href="/blog/blog-post/{{$pid}}/edit">Edit Post</a></p>
+
+  <p><a href="/blog/blog-post/{{$pid}}/edit" class="soap">Edit Post</a></p>
   <p>Meta Description: {{ $metaDescription }}</p>
   <p>Url Friendly: {{ $urlFriendly }}</p>
   @endif

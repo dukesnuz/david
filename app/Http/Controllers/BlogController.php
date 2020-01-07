@@ -271,7 +271,7 @@ class BlogController extends Controller
         $post->meta_description = $request->input('meta_description');
         $post->ip = request()->ip();
         $post->blogcategory_id = $cat->id;
-        //$post->blogtags()->sync($request->input('blogtags'));
+        $post ->blogtags()->sync($request->input('new_tags'));
         $post->save();
 
         $newPost = Blogpost::where('id', '=', $post->id)->first();

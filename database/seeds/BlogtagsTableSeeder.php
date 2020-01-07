@@ -12,7 +12,7 @@ class BlogtagsTableSeeder extends Seeder
      */
     public function run()
     {
-        $data = ['laravel', 'framework', 'Vue.Js', 'git', 'github', 'php', 'server', 'html', 'css', 'styling', "1980's", 'dance music'];
+        $data = ['laravel', 'framework', 'VueJs', 'git', 'github', 'php', 'server', 'html', 'css', 'styling', "1980", 'dance music'];
 
         foreach ($data as $tagName) {
             $tag = new Blogtag();

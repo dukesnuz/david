@@ -17,8 +17,7 @@
           toolbar
           value
           v-model="post.body"
-        ></editor>
-, menubar: 'insert', toolbar: 'link'
+        ></editor>, menubar: 'insert', toolbar: 'link'
         <form v-on:submit.prevent="create()">
           <ul>
             <li>
@@ -47,19 +46,28 @@
               </div>
               <div class="clear"></div>
             </li>
-             <li>
+            <li>
+              <label for="meta-description">Meta Description</label>
               <textarea
-              type="text" name="meta-description" id="meta-description" v-model="post.metaDescription"
+                type="text"
+                name="meta-description"
+                id="meta-description"
+                v-model="post.metaDescription"
               ></textarea>
             </li>
-             <li>
+            <li>
               <label for="url-friendly">Url Friendly</label>
-              <input type="text" name="blog-url-friendly" id="url-friendly" v-model="post.urlFriendly" />
+              <input
+                type="text"
+                name="blog-url-friendly"
+                id="url-friendly"
+                v-model="post.urlFriendly"
+              />
             </li>
             <li>
               <input type="submit" value="Submit" />
             </li>
-          </ul>           
+          </ul>
         </form>
       </div>
       <div v-show="showLink">
@@ -124,7 +132,7 @@ export default {
         body: "",
         checkedTags: [],
         metaDescription: "",
-        urlFriendly: "",
+        urlFriendly: ""
       },
       newId: "",
       newCategory: {
@@ -175,7 +183,8 @@ export default {
         this.post.metaDescription == "" ||
         this.post.urlFriendly == ""
       ) {
-        this.message = "Please enter a subject, body, category, meta description and a url friendly.";
+        this.message =
+          "Please enter a subject, body, category, meta description and a url friendly.";
         return;
       }
 
@@ -271,8 +280,13 @@ ul {
 form {
   margin-top: 15px;
 }
-#blog-subject, #meta-description, #url-friendly {
+#blog-subject,
+#meta-description,
+#url-friendly {
   width: 700px;
+}
+.meta-description {
+  display: block;
 }
 input[type="text"],
 select {
