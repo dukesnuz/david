@@ -8,7 +8,7 @@ use David\Blogcategory;
 use David\Blogcomment;
 use David\Blogtag;
 use David\Email;
-use David\BlogSearch;
+use David\Blogsearch;
 use David\Http\Resources\Post;
 use David\Http\Resources\BlogSearch as BlogSearchResource;
 
@@ -399,7 +399,7 @@ class BlogController extends Controller
         ->paginate(25);
 
         //add search term to search table
-        $storeSearch = new BlogSearch();
+        $storeSearch = new Blogsearch();
         $storeSearch->term = $term;
         $storeSearch->ip = request()->ip();
         $storeSearch->save();
@@ -411,7 +411,7 @@ class BlogController extends Controller
     // get las x number of searches
     public function showAll()
     {
-        $searches = BlogSearch::orderBy('created_at', 'desc')->take(15)->get();
+        $searches = Blogsearch::orderBy('created_at', 'desc')->take(15)->get();
         //  $searches = BlogSearch::take(15)->get();
         return BlogSearchResource::collection($searches);
     }
