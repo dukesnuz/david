@@ -23,7 +23,7 @@
         <ul>
           <li>
             <label for="blog-category">Category</label>
-            <select v-model="post.id" name="category" id="blog-category">
+            <select v-model="post.blogcategory.categorys" name="category" id="blog-category">
               <option></option>
               <option
                 v-bind:key="category.id"
@@ -40,22 +40,17 @@
             <input type="hidden" name="body" v-model="post.body" />
           </li>
           <li>
-            <label for="blog-meta-description">Meta Description</label>
-            <input
+            <textarea
               type="text"
-              name="blog-meta-description"
-              id="blog-meta-description"
+              name="meta_description"
+              id="meta-description"
               v-model="post.meta_description"
-            />
+              placeholder="Meta Description"
+            ></textarea>
           </li>
           <li>
-            <label for="blog-url-friendly">Meta Description</label>
-            <input
-              type="text"
-              name="blog-url-friendly"
-              id="blog-url-friendly"
-              v-model="post.url_friendly"
-            />
+            <label for="url-friendly">Url Friendly</label>
+            <input type="text" name="url_friendly" id="url-friendly" v-model="post.url_friendly" />
           </li>
           <li>
             <input type="submit" value="Submit" />
@@ -107,12 +102,9 @@ export default {
       categories: [],
       tags: [],
       post: {
-        category: "",
         subject: "",
         body: "",
-        id:'',
-        //meta_description: "",
-        //url_friendly: "",
+        blogcategory: ""
       },
       comments: {}
     };
@@ -184,17 +176,16 @@ export default {
     },
     editPost() {
       if (
-        (this.post.subject == "" ||
-          this.post.body == "" ||
-          this.id == "" ||
-          this.post.metaDescription == "" ||
-          this.post.urlFriendly)
+        this.post.subject == "" ||
+        this.post.body == "" ||
+        this.id == "" ||
+        this.post.meta_description == "" ||
+        this.post.url_friendly == ""
       ) {
         this.message =
           "Please enter a subject, body, category, meta description and url friendly.";
         return;
       }
-      console.log(this.id);
       let uri = "/api/edit-post/" + this.pid + "";
       this.axios
         .post(uri, this.post, {
@@ -295,7 +286,7 @@ ul {
 form {
   margin-top: 15px;
 }
-#blog-subject {
+#blog-subject, #meta-description, #url-friendly{
   width: 700px;
 }
 input[type="text"],

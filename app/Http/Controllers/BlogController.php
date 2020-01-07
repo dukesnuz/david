@@ -252,7 +252,7 @@ class BlogController extends Controller
     public function update(Request $request, $id)
     {
         $validator = \Validator::make(request()->all(), [
-      'category' => 'required',
+      'blogcategory' => 'required',
       'subject' => 'required',
       'body' => 'required',
       'url_friendly' => 'required',
@@ -261,18 +261,16 @@ class BlogController extends Controller
         if ($validator->fails()) {
             return response()->json(['status' => false, 'data' => $validator->errors()]);
         }
-        dd($request->input('category_id'));
         //get category id  to store in Blogpost
-        $cat_id = Blogcategory::where('id', '=', $request->input('category_id'))->first();
-        dd($cat_id);
+        $cat = Blogcategory::where('categorys', '=', $request->input('blogcategory')['categorys'])->first();
         // Edit post in db
         $post = Blogpost::find($id);
         $post->subject = $request->input('subject');
         $post->body = $request->input('body');
-        $post->url_friendly = $request->input('blog_url_friendly');
-        $post->meta_description = $request->input('blog_meta_description');
+        $post->url_friendly = $request->input('url_friendly');
+        $post->meta_description = $request->input('meta_description');
         $post->ip = request()->ip();
-        $post->blogcategory_id = $cat_id->id;
+        $post->blogcategory_id = $cat->id;
         //$post->blogtags()->sync($request->input('blogtags'));
         $post->save();
 

@@ -2523,6 +2523,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app",
@@ -2769,11 +2770,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app",
@@ -2787,14 +2783,11 @@ __webpack_require__.r(__webpack_exports__);
       messageComments: "",
       status: "",
       categories: [],
-      category_id: "",
       tags: [],
       post: {
-        category: "",
         subject: "",
-        body: "" //meta_description: "",
-        //url_friendly: "",
-
+        body: "",
+        blogcategory: ""
       },
       comments: {}
     };
@@ -2871,14 +2864,13 @@ __webpack_require__.r(__webpack_exports__);
     editPost: function editPost() {
       var _this4 = this;
 
-      if (this.post.subject == "" || this.post.body == "" || this.post.category == "" || this.post.metaDescription == "" || this.post.urlFriendly) {
+      if (this.post.subject == "" || this.post.body == "" || this.id == "" || this.post.meta_description == "" || this.post.url_friendly == "") {
         this.message = "Please enter a subject, body, category, meta description and url friendly.";
         return;
       }
 
-      console.log(this.post.category_id);
       var uri = "/api/edit-post/" + this.pid + "";
-      this.axios.post(uri, this.post, this.post.category, {
+      this.axios.post(uri, this.post, {
         headers: {
           "Content-Type": "application/json"
         }
@@ -8105,7 +8097,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nul[data-v-cbde79a0] {\r\n  list-style: none;\r\n  padding: 0;\n}\n.inner-content[data-v-cbde79a0] {\r\n  padding-bottom: 500px;\n}\n.blog-tags[data-v-cbde79a0] {\r\n  display: inline-flex;\r\n  margin-top: 15px;\r\n  margin-left: 5px;\r\n  float: left;\n}\nform[data-v-cbde79a0] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-cbde79a0] {\r\n  width: 700px;\n}\ninput[type=\"text\"][data-v-cbde79a0],\r\nselect[data-v-cbde79a0] {\r\n  display: block;\n}\n.blog-tag-label[data-v-cbde79a0] {\r\n  float: left;\r\n  margin-top: 15px;\n}\n.clear[data-v-cbde79a0] {\r\n  clear: both;\n}\n@media only screen and (min-width: 320px) {\n.blog-post[data-v-cbde79a0] {\r\n    border: 1px solid #000;\r\n    padding: 0 5px;\r\n    width: 80%;\n}\n.flex-container[data-v-cbde79a0] {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\n}\n.add-c-t[data-v-cbde79a0] {\r\n    margin-left: 10px;\r\n    border: 1px solid #000;\r\n    padding: 0 5px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\nul[data-v-cbde79a0] {\r\n  list-style: none;\r\n  padding: 0;\n}\n.inner-content[data-v-cbde79a0] {\r\n  padding-bottom: 500px;\n}\n.blog-tags[data-v-cbde79a0] {\r\n  display: inline-flex;\r\n  margin-top: 15px;\r\n  margin-left: 5px;\r\n  float: left;\n}\nform[data-v-cbde79a0] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-cbde79a0], #meta-description[data-v-cbde79a0], #url-friendly[data-v-cbde79a0] {\r\n  width: 700px;\n}\ninput[type=\"text\"][data-v-cbde79a0],\r\nselect[data-v-cbde79a0] {\r\n  display: block;\n}\n.blog-tag-label[data-v-cbde79a0] {\r\n  float: left;\r\n  margin-top: 15px;\n}\n.clear[data-v-cbde79a0] {\r\n  clear: both;\n}\n@media only screen and (min-width: 320px) {\n.blog-post[data-v-cbde79a0] {\r\n    border: 1px solid #000;\r\n    padding: 0 5px;\r\n    width: 80%;\n}\n.flex-container[data-v-cbde79a0] {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\n}\n.add-c-t[data-v-cbde79a0] {\r\n    margin-left: 10px;\r\n    border: 1px solid #000;\r\n    padding: 0 5px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -8124,7 +8116,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nul[data-v-423969be] {\r\n  list-style: none;\r\n  padding: 0;\n}\nform[data-v-423969be] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-423969be] {\r\n  width: 700px;\n}\ninput[type=\"text\"][data-v-423969be],\r\nselect[data-v-423969be] {\r\n  display: block;\n}\n.clear[data-v-423969be] {\r\n  clear: both;\n}\n.comments ul[data-v-423969be] {\r\n  background-color: #fff;\r\n  padding: 10px;\n}\r\n", ""]);
+exports.push([module.i, "\nul[data-v-423969be] {\r\n  list-style: none;\r\n  padding: 0;\n}\nform[data-v-423969be] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-423969be], #meta-description[data-v-423969be], #url-friendly[data-v-423969be]{\r\n  width: 700px;\n}\ninput[type=\"text\"][data-v-423969be],\r\nselect[data-v-423969be] {\r\n  display: block;\n}\n.clear[data-v-423969be] {\r\n  clear: both;\n}\n.comments ul[data-v-423969be] {\r\n  background-color: #fff;\r\n  padding: 10px;\n}\r\n", ""]);
 
 // exports
 
@@ -40421,11 +40413,7 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("li", [
-                  _c("label", { attrs: { for: "blog-meta-description" } }, [
-                    _vm._v("Meta Description")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
+                  _c("textarea", {
                     directives: [
                       {
                         name: "model",
@@ -40436,8 +40424,8 @@ var render = function() {
                     ],
                     attrs: {
                       type: "text",
-                      name: "blog-meta-description",
-                      id: "blog-meta-description"
+                      name: "meta-description",
+                      id: "meta-description"
                     },
                     domProps: { value: _vm.post.metaDescription },
                     on: {
@@ -40456,8 +40444,8 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("li", [
-                  _c("label", { attrs: { for: "blog-url-friendly" } }, [
-                    _vm._v("Meta Description")
+                  _c("label", { attrs: { for: "url-friendly" } }, [
+                    _vm._v("Url Friendly")
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -40472,7 +40460,7 @@ var render = function() {
                     attrs: {
                       type: "text",
                       name: "blog-url-friendly",
-                      id: "blog-url-friendly"
+                      id: "url-friendly"
                     },
                     domProps: { value: _vm.post.urlFriendly },
                     on: {
@@ -40729,8 +40717,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.post.category.id,
-                        expression: "post.category.id"
+                        value: _vm.post.blogcategory.categorys,
+                        expression: "post.blogcategory.categorys"
                       }
                     ],
                     attrs: { name: "category", id: "blog-category" },
@@ -40745,8 +40733,8 @@ var render = function() {
                             return val
                           })
                         _vm.$set(
-                          _vm.post.category,
-                          "id",
+                          _vm.post.blogcategory,
+                          "categorys",
                           $event.target.multiple
                             ? $$selectedVal
                             : $$selectedVal[0]
@@ -40818,11 +40806,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("li", [
-                _c("label", { attrs: { for: "blog-meta-description" } }, [
-                  _vm._v("Meta Description")
-                ]),
-                _vm._v(" "),
-                _c("input", {
+                _c("textarea", {
                   directives: [
                     {
                       name: "model",
@@ -40833,8 +40817,9 @@ var render = function() {
                   ],
                   attrs: {
                     type: "text",
-                    name: "blog-meta-description",
-                    id: "blog-meta-description"
+                    name: "meta_description",
+                    id: "meta-description",
+                    placeholder: "Meta Description"
                   },
                   domProps: { value: _vm.post.meta_description },
                   on: {
@@ -40853,8 +40838,8 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("li", [
-                _c("label", { attrs: { for: "blog-url-friendly" } }, [
-                  _vm._v("Meta Description")
+                _c("label", { attrs: { for: "url-friendly" } }, [
+                  _vm._v("Url Friendly")
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -40868,8 +40853,8 @@ var render = function() {
                   ],
                   attrs: {
                     type: "text",
-                    name: "blog-url-friendly",
-                    id: "blog-url-friendly"
+                    name: "url_friendly",
+                    id: "url-friendly"
                   },
                   domProps: { value: _vm.post.url_friendly },
                   on: {

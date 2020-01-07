@@ -48,17 +48,18 @@
               <div class="clear"></div>
             </li>
              <li>
-              <label for="blog-meta-description">Meta Description</label>
-              <input type="text" name="blog-meta-description" id="blog-meta-description" v-model="post.metaDescription" />
+              <textarea
+              type="text" name="meta-description" id="meta-description" v-model="post.metaDescription"
+              ></textarea>
             </li>
              <li>
-              <label for="blog-url-friendly">Meta Description</label>
-              <input type="text" name="blog-url-friendly" id="blog-url-friendly" v-model="post.urlFriendly" />
+              <label for="url-friendly">Url Friendly</label>
+              <input type="text" name="blog-url-friendly" id="url-friendly" v-model="post.urlFriendly" />
             </li>
             <li>
               <input type="submit" value="Submit" />
             </li>
-          </ul>
+          </ul>           
         </form>
       </div>
       <div v-show="showLink">
@@ -270,7 +271,7 @@ ul {
 form {
   margin-top: 15px;
 }
-#blog-subject {
+#blog-subject, #meta-description, #url-friendly {
   width: 700px;
 }
 input[type="text"],
