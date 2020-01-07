@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset='utf-8'>
+        <meta name="description" content="Website development and technology blog. Also with a collection of
+        favorite web sites at Dukesnuz. There is a large concentration on website development.">
+        <meta name="keywords" content="website development, computer technology">
+        <meta name="author" content="David Petringa, Coded November 2019">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0">
 
-        <title>Laravel</title>
+        <title>Dukesnuz Blog and Favorite Websites</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -81,10 +85,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    David's Web App
-                </div>
-                <div class="title m-b-md">
-                    Coded using Laravel and Vue.js
+                    Dukesnuz
                 </div>
                 <div class="links">
                     <a href="/links/get-list">David's Favorite Websites</a>
