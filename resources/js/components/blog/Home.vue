@@ -1,11 +1,13 @@
 <template>
-  <div class="inner-content" :style="{ backgroundImage:'url('+b_image+')'}">
+<div>
+    <h1>A Blog About Website Developement and Technology</h1>
     {{ message }}
     <p class="blog-banner">
       Greetings! </br>Welcome to my blog. I post topics I enjoy and
       hope others will also. Most of my posts will be about transportation and web development.
        If you enjoy this blog feel free to share on social media
     </p>
+  <div class="inner-content" :style="{ backgroundImage:'url('+b_image+')'}">
     <div class="blog-post">
       <h4>Most Recent Blog Post</h4>
       <h5>{{ post.subject }}</h5>
@@ -14,6 +16,7 @@
             <button type="button" class="btn btn-info">Read More</button>
           </a></p>
     </div>
+  </div>
   </div>
 </template>
 
@@ -51,10 +54,11 @@ export default {
 .inner-content {
   padding-bottom: 500px;
 }
-.banner {
+.blog-banner {
   margin-left: 5px;
   margin-right: 5px;
-  color: #fff;
+  margin-bottom: 5px;
+  color: #000;
   font-size: 1.5em;
 }
 .blog-post {
@@ -68,7 +72,9 @@ export default {
     margin-left: 25px;
   }
 .blog-banner{
-    margin-right: 50%;
-  }
+    margin: 0;
+    text-align: left;
+    font-size: 1.2em;
+}
 }
 </style>

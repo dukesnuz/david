@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Search Blog</h2>
+    <h1>Blog Search About Website Development and Technology</h1>
     <h4>{{ message }}</h4>
     <form @submit.prevent="search()" v-bind:class="{'f': formStyle}">
       <div class="form-group">

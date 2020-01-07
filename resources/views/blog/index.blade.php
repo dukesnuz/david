@@ -4,7 +4,6 @@
 
 @section('content')
 <div class="container">
-  <h4>Blog</h4>
   <div id="app">
         <blog-home></blog-home>
   </div>

@@ -4,7 +4,6 @@
 
 @section('content')
 <div class="container">
-  <h4>A Blog Post</h4>
   @if(Auth::check())
   <p><a href="/blog/blog-post/{{$pid}}/edit">Edit Post</a></p>
   <p>Meta Description: {{ $metaDescription }}</p>

@@ -1,7 +1,7 @@
 <template>
   <div class="inner-content flex-container">
     <div class="blog-post">
-      <h3>Recent Blog Posts</h3>
+      <h1>Blog Posts About Website Development and Technology</h1>
       <ul v-for="post in posts" v-bind:key="post.id" class="posts">
         <li class="blog-subject">{{ post.subject }}</li>
         <li v-html="post.body.substring(0,20)" class="blog-post-body"></li>
@@ -17,7 +17,7 @@
     <div>
       <h4>Categories</h4>
       <ul class="blog-categories">
-        <li v-for="category in categorys" v-bind:key="category.id">{{ category.categories }}</li>
+        <li v-for="category in categorys" v-bind:key="category.id">{{ category.categorys }}</li>
       </ul>
     </div>
   </div>
@@ -59,7 +59,6 @@ export default {
         // .then(res => res.json())
         .then(res => {
           this.categorys = res.data;
-          //console.log(this.categorys[0]["categories"]);
 
           if (this.categorys == "") {
             this.message = "Please search again. No results found for: ";

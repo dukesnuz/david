@@ -2986,6 +2986,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3334,13 +3337,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       status: "",
       messageComments: "",
       showForm: true,
-      post: {},
+      post: {
+        blogcategory: {}
+      },
       comments: {},
       newComment: {
         name: "",
@@ -3524,7 +3530,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.axios.get(url) // .then(res => res.json())
       .then(function (res) {
-        _this2.categorys = res.data; //console.log(this.categorys[0]["categories"]);
+        _this2.categorys = res.data;
 
         if (_this2.categorys == "") {
           _this2.message = "Please search again. No results found for: ";
@@ -3607,7 +3613,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.axios.get(url) // .then(res => res.json())
       .then(function (res) {
-        _this2.categorys = res.data; //console.log(this.categorys[0]["categories"]);
+        _this2.categorys = res.data;
 
         if (_this2.categorys == "") {
           _this2.message = "Please search again. No results found for: ";
@@ -8135,7 +8141,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.inner-content[data-v-f94818de] {\r\n  padding-bottom: 500px;\n}\n.banner[data-v-f94818de] {\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  color: #fff;\r\n  font-size: 1.5em;\n}\n.blog-post[data-v-f94818de] {\r\n  color: #fff;\r\n  width: 500px;\r\n  padding: 5px;\r\n  border: 2px solid #fff;\n}\n@media only screen and (min-width: 320px) {\n.blog-post[data-v-f94818de], .blog-banner[data-v-f94818de] {\r\n    margin-left: 25px;\n}\n.blog-banner[data-v-f94818de]{\r\n    margin-right: 50%;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.inner-content[data-v-f94818de] {\r\n  padding-bottom: 500px;\n}\n.blog-banner[data-v-f94818de] {\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  margin-bottom: 5px;\r\n  color: #000;\r\n  font-size: 1.5em;\n}\n.blog-post[data-v-f94818de] {\r\n  color: #fff;\r\n  width: 500px;\r\n  padding: 5px;\r\n  border: 2px solid #fff;\n}\n@media only screen and (min-width: 320px) {\n.blog-post[data-v-f94818de], .blog-banner[data-v-f94818de] {\r\n    margin-left: 25px;\n}\n.blog-banner[data-v-f94818de]{\r\n    margin: 0;\r\n    text-align: left;\r\n    font-size: 1.2em;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -40965,35 +40971,38 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "inner-content",
-      style: { backgroundImage: "url(" + _vm.b_image + ")" }
-    },
-    [
-      _vm._v("\n  " + _vm._s(_vm.message) + "\n  "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "blog-post" }, [
-        _c("h4", [_vm._v("Most Recent Blog Post")]),
-        _vm._v(" "),
-        _c("h5", [_vm._v(_vm._s(_vm.post.subject))]),
-        _vm._v(" "),
-        _c("p", { domProps: { innerHTML: _vm._s(_vm.post.body) } }),
-        _vm._v(" "),
-        _c("p", [
-          _c("a", { attrs: { href: _vm.post.id + "/cat/slug" } }, [
-            _c(
-              "button",
-              { staticClass: "btn btn-info", attrs: { type: "button" } },
-              [_vm._v("Read More")]
-            )
+  return _c("div", [
+    _c("h1", [_vm._v("A Blog About Website Developement and Technology")]),
+    _vm._v("\r\n    " + _vm._s(_vm.message) + "\r\n    "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "inner-content",
+        style: { backgroundImage: "url(" + _vm.b_image + ")" }
+      },
+      [
+        _c("div", { staticClass: "blog-post" }, [
+          _c("h4", [_vm._v("Most Recent Blog Post")]),
+          _vm._v(" "),
+          _c("h5", [_vm._v(_vm._s(_vm.post.subject))]),
+          _vm._v(" "),
+          _c("p", { domProps: { innerHTML: _vm._s(_vm.post.body) } }),
+          _vm._v(" "),
+          _c("p", [
+            _c("a", { attrs: { href: _vm.post.id + "/cat/slug" } }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-info", attrs: { type: "button" } },
+                [_vm._v("Read More")]
+              )
+            ])
           ])
         ])
-      ])
-    ]
-  )
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -41001,10 +41010,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "blog-banner" }, [
-      _vm._v("\n    Greetings! "),
+      _vm._v("\r\n      Greetings! "),
       _c("br"),
       _vm._v(
-        "Welcome to my blog. I post topics I enjoy and\n    hope others will also. Most of my posts will be about transportation and web development.\n     If you enjoy this blog feel free to share on social media\n  "
+        "Welcome to my blog. I post topics I enjoy and\r\n      hope others will also. Most of my posts will be about transportation and web development.\r\n       If you enjoy this blog feel free to share on social media\r\n    "
       )
     ])
   }
@@ -41031,7 +41040,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h2", [_vm._v("Search Blog")]),
+    _c("h1", [_vm._v("Blog Search About Website Development and Technology")]),
     _vm._v(" "),
     _c("h4", [_vm._v(_vm._s(_vm.message))]),
     _vm._v(" "),
@@ -41276,6 +41285,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "blog-inner-content" }, [
+    _c("h1", [
+      _vm._v("The Category is: " + _vm._s(_vm.post.blogcategory.categorys))
+    ]),
+    _vm._v(" "),
     _c("div", { staticClass: "blog-subject" }, [
       _vm._v(_vm._s(_vm.post.subject))
     ]),
@@ -41605,7 +41618,9 @@ var render = function() {
       "div",
       { staticClass: "blog-post" },
       [
-        _c("h3", [_vm._v("Recent Blog Posts")]),
+        _c("h1", [
+          _vm._v("Blog Posts About Website Development and Technology")
+        ]),
         _vm._v(" "),
         _vm._l(_vm.posts, function(post) {
           return _c("ul", { key: post.id, staticClass: "posts" }, [
@@ -41645,7 +41660,7 @@ var render = function() {
         { staticClass: "blog-categories" },
         _vm._l(_vm.categorys, function(category) {
           return _c("li", { key: category.id }, [
-            _vm._v(_vm._s(category.categories))
+            _vm._v(_vm._s(category.categorys))
           ])
         }),
         0
@@ -41680,7 +41695,9 @@ var render = function() {
       "div",
       { staticClass: "blog-post" },
       [
-        _c("h3", [_vm._v("Recent Blog Posts")]),
+        _c("h1", [
+          _vm._v("Blog Posts About Website Development and Technology")
+        ]),
         _vm._v(" "),
         _vm._l(_vm.posts, function(post) {
           return _c("ul", { key: post.id, staticClass: "posts" }, [
@@ -41716,7 +41733,7 @@ var render = function() {
         { staticClass: "blog-categories" },
         _vm._l(_vm.categorys, function(category) {
           return _c("li", { key: category.id }, [
-            _vm._v(_vm._s(category.categories))
+            _vm._v(_vm._s(category.categorys))
           ])
         }),
         0

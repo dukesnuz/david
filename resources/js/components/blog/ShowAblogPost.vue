@@ -1,5 +1,6 @@
 <template>
   <div class="blog-inner-content">
+    <h1>The Category is: {{ post.blogcategory.categorys }}</h1>
     <div class="blog-subject">{{ post.subject }}</div>
     <div class="blog-body" v-html="post.body"></div>
     <ul class="blog-tags">
@@ -8,7 +9,7 @@
     </ul>
     <div class="clearFix"></div>
     <p class="blog-date">Date posted: {{ new Date(post.created_at) }}</p>
-  
+
     <div class="social-media">
       <social-sharing
         :url="getUrl()"
@@ -130,7 +131,9 @@ export default {
       status: "",
       messageComments: "",
       showForm: true,
-      post: {},
+      post: {
+        blogcategory: {}
+      },
       comments: {},
       newComment: {
         name: "",
