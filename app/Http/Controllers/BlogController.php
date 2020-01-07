@@ -79,6 +79,8 @@ class BlogController extends Controller
       'category' => 'required',
       'subject' => 'required',
       'body' => 'required',
+      'metaDescription' => 'required',
+      'urlFriendly' => 'required',
     ]);
         //get category id  to store in Blogpost
         $cat_id = Blogcategory::where('categorys', '=', $request->input('category'))->first();
@@ -88,7 +90,9 @@ class BlogController extends Controller
         $post->subject = $request->input('subject');
         $post->body = $request->input('body');
         $post->ip = request()->ip();
-        $post->category_id = $cat_id->id;
+        $post->blogcategory_id = $cat_id->id;
+        $post->meta_description = $request->input('metaDescription');
+        $post->url_friendly = $request->input('urlFriendly');
         $post->save();
 
         $newPost = Blogpost::where('id', '=', $post->id)->first();
@@ -202,6 +206,8 @@ class BlogController extends Controller
       'title' => $title,
       'description' => $description,
       'keywords' => $keywords,
+      'urlFriendly' => $post->url_friendly,
+      'metaDescription' => $post->meta_description,
     ]);
     }
 
@@ -249,20 +255,24 @@ class BlogController extends Controller
       'category' => 'required',
       'subject' => 'required',
       'body' => 'required',
+      'url_friendly' => 'required',
+      'meta_description' => 'required',
     ]);
         if ($validator->fails()) {
             return response()->json(['status' => false, 'data' => $validator->errors()]);
         }
-
+        dd($request->input('category_id'));
         //get category id  to store in Blogpost
         $cat_id = Blogcategory::where('id', '=', $request->input('category_id'))->first();
-
+        dd($cat_id);
         // Edit post in db
         $post = Blogpost::find($id);
         $post->subject = $request->input('subject');
         $post->body = $request->input('body');
+        $post->url_friendly = $request->input('blog_url_friendly');
+        $post->meta_description = $request->input('blog_meta_description');
         $post->ip = request()->ip();
-        $post->category_id = $cat_id->id;
+        $post->blogcategory_id = $cat_id->id;
         //$post->blogtags()->sync($request->input('blogtags'));
         $post->save();
 

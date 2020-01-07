@@ -23,12 +23,12 @@
         <ul>
           <li>
             <label for="blog-category">Category</label>
-            <select v-model="post.category" name="category" id="blog-category">
+            <select v-model="post.id" name="category" id="blog-category">
               <option></option>
               <option
                 v-bind:key="category.id"
                 v-for="category in categories"
-              >{{ category.categories }}</option>
+              >{{ category.categorys }}</option>
             </select>
           </li>
 
@@ -38,6 +38,24 @@
           </li>
           <li>
             <input type="hidden" name="body" v-model="post.body" />
+          </li>
+          <li>
+            <label for="blog-meta-description">Meta Description</label>
+            <input
+              type="text"
+              name="blog-meta-description"
+              id="blog-meta-description"
+              v-model="post.meta_description"
+            />
+          </li>
+          <li>
+            <label for="blog-url-friendly">Meta Description</label>
+            <input
+              type="text"
+              name="blog-url-friendly"
+              id="blog-url-friendly"
+              v-model="post.url_friendly"
+            />
           </li>
           <li>
             <input type="submit" value="Submit" />
@@ -91,7 +109,10 @@ export default {
       post: {
         category: "",
         subject: "",
-        body: ""
+        body: "",
+        id:'',
+        //meta_description: "",
+        //url_friendly: "",
       },
       comments: {}
     };
@@ -118,7 +139,7 @@ export default {
         .then(res => {
           this.categories = res.data;
           if (this.categories == "") {
-            this.message = "Error. No results found for: ";
+            this.message = "Error. No results found for categories.";
           }
         })
         .catch(err => this.message);
@@ -163,17 +184,20 @@ export default {
     },
     editPost() {
       if (
-        this.post.subject == "" ||
-        this.post.body == "" ||
-        this.post.category == ""
+        (this.post.subject == "" ||
+          this.post.body == "" ||
+          this.id == "" ||
+          this.post.metaDescription == "" ||
+          this.post.urlFriendly)
       ) {
-        this.message = "Please enter a subject, body and category";
+        this.message =
+          "Please enter a subject, body, category, meta description and url friendly.";
         return;
       }
-
+      console.log(this.id);
       let uri = "/api/edit-post/" + this.pid + "";
       this.axios
-        .post(uri, this.post, this.post.category, {
+        .post(uri, this.post, {
           headers: {
             "Content-Type": "application/json"
           }

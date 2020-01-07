@@ -47,6 +47,14 @@
               </div>
               <div class="clear"></div>
             </li>
+             <li>
+              <label for="blog-meta-description">Meta Description</label>
+              <input type="text" name="blog-meta-description" id="blog-meta-description" v-model="post.metaDescription" />
+            </li>
+             <li>
+              <label for="blog-url-friendly">Meta Description</label>
+              <input type="text" name="blog-url-friendly" id="blog-url-friendly" v-model="post.urlFriendly" />
+            </li>
             <li>
               <input type="submit" value="Submit" />
             </li>
@@ -113,7 +121,9 @@ export default {
         category: "",
         subject: "",
         body: "",
-        checkedTags: []
+        checkedTags: [],
+        metaDescription: "",
+        urlFriendly: "",
       },
       newId: "",
       newCategory: {
@@ -160,9 +170,11 @@ export default {
       if (
         this.post.subject == "" ||
         this.post.body == "" ||
-        this.post.category == ""
+        this.post.category == "" ||
+        this.post.metaDescription == "" ||
+        this.post.urlFriendly == ""
       ) {
-        this.message = "Please enter a subject, body and category";
+        this.message = "Please enter a subject, body, category, meta description and a url friendly.";
         return;
       }
 

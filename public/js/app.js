@@ -2515,6 +2515,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app",
@@ -2532,7 +2540,9 @@ __webpack_require__.r(__webpack_exports__);
         category: "",
         subject: "",
         body: "",
-        checkedTags: []
+        checkedTags: [],
+        metaDescription: "",
+        urlFriendly: ""
       },
       newId: "",
       newCategory: {
@@ -2582,8 +2592,8 @@ __webpack_require__.r(__webpack_exports__);
     create: function create() {
       var _this3 = this;
 
-      if (this.post.subject == "" || this.post.body == "" || this.post.category == "") {
-        this.message = "Please enter a subject, body and category";
+      if (this.post.subject == "" || this.post.body == "" || this.post.category == "" || this.post.metaDescription == "" || this.post.urlFriendly == "") {
+        this.message = "Please enter a subject, body, category, meta description and a url friendly.";
         return;
       }
 
@@ -2746,6 +2756,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app",
@@ -2759,11 +2787,14 @@ __webpack_require__.r(__webpack_exports__);
       messageComments: "",
       status: "",
       categories: [],
+      category_id: "",
       tags: [],
       post: {
         category: "",
         subject: "",
-        body: ""
+        body: "" //meta_description: "",
+        //url_friendly: "",
+
       },
       comments: {}
     };
@@ -2791,7 +2822,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.categories = res.data;
 
         if (_this.categories == "") {
-          _this.message = "Error. No results found for: ";
+          _this.message = "Error. No results found for categories.";
         }
       })["catch"](function (err) {
         return _this.message;
@@ -2840,11 +2871,12 @@ __webpack_require__.r(__webpack_exports__);
     editPost: function editPost() {
       var _this4 = this;
 
-      if (this.post.subject == "" || this.post.body == "" || this.post.category == "") {
-        this.message = "Please enter a subject, body and category";
+      if (this.post.subject == "" || this.post.body == "" || this.post.category == "" || this.post.metaDescription == "" || this.post.urlFriendly) {
+        this.message = "Please enter a subject, body, category, meta description and url friendly.";
         return;
       }
 
+      console.log(this.post.category_id);
       var uri = "/api/edit-post/" + this.pid + "";
       this.axios.post(uri, this.post, this.post.category, {
         headers: {
@@ -40388,6 +40420,72 @@ var render = function() {
                   2
                 ),
                 _vm._v(" "),
+                _c("li", [
+                  _c("label", { attrs: { for: "blog-meta-description" } }, [
+                    _vm._v("Meta Description")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.post.metaDescription,
+                        expression: "post.metaDescription"
+                      }
+                    ],
+                    attrs: {
+                      type: "text",
+                      name: "blog-meta-description",
+                      id: "blog-meta-description"
+                    },
+                    domProps: { value: _vm.post.metaDescription },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.post,
+                          "metaDescription",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("label", { attrs: { for: "blog-url-friendly" } }, [
+                    _vm._v("Meta Description")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.post.urlFriendly,
+                        expression: "post.urlFriendly"
+                      }
+                    ],
+                    attrs: {
+                      type: "text",
+                      name: "blog-url-friendly",
+                      id: "blog-url-friendly"
+                    },
+                    domProps: { value: _vm.post.urlFriendly },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.post, "urlFriendly", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
                 _vm._m(0)
               ])
             ]
@@ -40631,8 +40729,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.post.category,
-                        expression: "post.category"
+                        value: _vm.post.category.id,
+                        expression: "post.category.id"
                       }
                     ],
                     attrs: { name: "category", id: "blog-category" },
@@ -40647,8 +40745,8 @@ var render = function() {
                             return val
                           })
                         _vm.$set(
-                          _vm.post,
-                          "category",
+                          _vm.post.category,
+                          "id",
                           $event.target.multiple
                             ? $$selectedVal
                             : $$selectedVal[0]
@@ -40661,7 +40759,7 @@ var render = function() {
                     _vm._v(" "),
                     _vm._l(_vm.categories, function(category) {
                       return _c("option", { key: category.id }, [
-                        _vm._v(_vm._s(category.categories))
+                        _vm._v(_vm._s(category.categorys))
                       ])
                     })
                   ],
@@ -40714,6 +40812,72 @@ var render = function() {
                         return
                       }
                       _vm.$set(_vm.post, "body", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("label", { attrs: { for: "blog-meta-description" } }, [
+                  _vm._v("Meta Description")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.post.meta_description,
+                      expression: "post.meta_description"
+                    }
+                  ],
+                  attrs: {
+                    type: "text",
+                    name: "blog-meta-description",
+                    id: "blog-meta-description"
+                  },
+                  domProps: { value: _vm.post.meta_description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.post,
+                        "meta_description",
+                        $event.target.value
+                      )
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("label", { attrs: { for: "blog-url-friendly" } }, [
+                  _vm._v("Meta Description")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.post.url_friendly,
+                      expression: "post.url_friendly"
+                    }
+                  ],
+                  attrs: {
+                    type: "text",
+                    name: "blog-url-friendly",
+                    id: "blog-url-friendly"
+                  },
+                  domProps: { value: _vm.post.url_friendly },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.post, "url_friendly", $event.target.value)
                     }
                   }
                 })
