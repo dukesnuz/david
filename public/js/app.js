@@ -3121,7 +3121,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return res.json();
       }).then(function (res) {
         _this.posts = res.data;
-        console.log(_this.posts);
         vm.makePagination(res.meta, res.links);
 
         if (_this.posts == "") {
@@ -41173,25 +41172,27 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      href: "/blog/" + post.id + "/cat/slug/",
-                      target: "blank"
-                    }
-                  },
-                  [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-info",
-                        attrs: { type: "button" }
-                      },
-                      [_vm._v("Read more")]
-                    )
-                  ]
-                ),
+                _c("p", [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "/blog/" + post.id + "/cat/slug/",
+                        target: "blank"
+                      }
+                    },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-info",
+                          attrs: { type: "button" }
+                        },
+                        [_vm._v("Read more")]
+                      )
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
                 _c("ul", { staticClass: "list-inline" }, [
                   _vm.show_edit

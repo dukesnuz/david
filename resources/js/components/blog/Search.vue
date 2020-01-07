@@ -33,9 +33,9 @@
             <h3>{{ post.subject }}</h3>
           </div>
           <div class="card-body">
-            <a :href="`/blog/${post.id}/cat/slug/`" target="blank">
+            <p><a :href="`/blog/${post.id}/cat/slug/`" target="blank">
               <button type="button" class="btn btn-info">Read more</button>
-            </a>
+            </a></p>
 
             <ul class="list-inline">
               <li v-if="show_edit">
@@ -88,7 +88,6 @@ export default {
         .then(res => res.json())
         .then(res => {
           this.posts = res.data;
-          console.log(this.posts);
           vm.makePagination(res.meta, res.links);
           if (this.posts == "") {
             this.message =
