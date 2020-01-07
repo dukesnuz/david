@@ -60,11 +60,21 @@
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+              }
+              .nav a {
+                background: #000;
+                color: #fff;
+                padding: 5px;
+                font-size: 1.15em;
+                font-weight: bold;
+                border-radius: 5%;
+                text-decoration: none;
             }
 
             .m-b-md {
                 margin-bottom: 30px;
             }
+
         </style>
     </head>
     <body>
@@ -87,9 +97,9 @@
                 <div class="title m-b-md">
                     Dukesnuz
                 </div>
-                <div class="links">
-                    <a href="/links/get-list">David's Favorite Websites</a>
-                    <a href="/blog/home">David's Blog</a>
+                <div class="links nav">
+                    <p><a href="/links/get-list">David's Favorite Websites</a></p>
+                    <p><a href="/blog/home">David's Blog</a></p>
                 </div>
                 <!--
                     <a href="https://laravel.com/docs">Docs</a>
