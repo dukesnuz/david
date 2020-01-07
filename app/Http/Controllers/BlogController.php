@@ -399,10 +399,10 @@ class BlogController extends Controller
         ->paginate(25);
 
         //add search term to search table
-        $storeSearch = new BlogSearch();
-        $storeSearch->term = $term;
-        $storeSearch->ip = request()->ip();
-        $storeSearch->save();
+        ///$storeSearch = new BlogSearch();
+        //$storeSearch->term = $term;
+        //  $storeSearch->ip = request()->ip();
+        //  $storeSearch->save();
 
         //return collection of links as a resource
         return Post::collection($urls);
