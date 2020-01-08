@@ -3023,6 +3023,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -8174,7 +8176,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.inner-content[data-v-f94818de] {\r\n  padding-bottom: 500px;\n}\n.blog-banner[data-v-f94818de] {\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  margin-bottom: 5px;\r\n  color: #000;\r\n  font-size: 1.5em;\n}\n.blog-post[data-v-f94818de] {\r\n  color: #fff;\r\n  width: 500px;\r\n  padding: 5px;\r\n  border: 2px solid #fff;\n}\n@media only screen and (min-width: 320px) {\n.blog-post[data-v-f94818de], .blog-banner[data-v-f94818de] {\r\n    margin-left: 25px;\n}\n.blog-banner[data-v-f94818de]{\r\n    margin: 0;\r\n    text-align: left;\r\n    font-size: 1.2em;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.inner-content[data-v-f94818de] {\r\n  padding-bottom: 500px;\n}\n.blog-banner[data-v-f94818de] {\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  margin-bottom: 5px;\r\n  color: #000;\r\n  font-size: 1.5em;\n}\n.blog-post[data-v-f94818de] {\r\n  color: #fff;\r\n  padding: 5px;\n}\n@media only screen and (min-width: 320px) {\n.blog-banner[data-v-f94818de] {\r\n    margin: 0;\r\n    text-align: left;\r\n    font-size: 1.2em;\n}\n}\n@media only screen and (min-width: 500px) {\n.blog-post[data-v-f94818de],\r\n  .blog-banner[data-v-f94818de] {\r\n    margin-left: 25px;\n}\n.blog-post[data-v-f94818de] {\r\n    width: 500px;\r\n    border: 2px solid #fff;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -41144,7 +41146,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("h1", [_vm._v("A Blog About Website Developement and Technology")]),
-    _vm._v("\r\n    " + _vm._s(_vm.message) + "\r\n    "),
+    _vm._v("\n  " + _vm._s(_vm.message) + "\n  "),
     _vm._m(0),
     _vm._v(" "),
     _c(
@@ -41181,10 +41183,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "blog-banner" }, [
-      _vm._v("\r\n      Greetings! "),
+      _vm._v("\n    Greetings! "),
       _c("br"),
       _vm._v(
-        "Welcome to my blog. I post topics I enjoy and\r\n      hope others will also. Most of my posts will be about transportation and web development.\r\n       If you enjoy this blog feel free to share on social media\r\n    "
+        "Welcome to my blog. I post topics I enjoy and\n    hope others will also. Most of my posts will be about transportation and web development.\n    If you enjoy this blog feel free to share on social media\n  "
       )
     ])
   }

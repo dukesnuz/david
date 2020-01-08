@@ -1,22 +1,24 @@
 <template>
-<div>
+  <div>
     <h1>A Blog About Website Developement and Technology</h1>
     {{ message }}
     <p class="blog-banner">
       Greetings! </br>Welcome to my blog. I post topics I enjoy and
       hope others will also. Most of my posts will be about transportation and web development.
-       If you enjoy this blog feel free to share on social media
+      If you enjoy this blog feel free to share on social media
     </p>
-  <div class="inner-content" :style="{ backgroundImage:'url('+b_image+')'}">
-    <div class="blog-post">
-      <h4>Most Recent Blog Post</h4>
-      <h5>{{ post.subject }}</h5>
-      <p v-html="post.body"></p>
-      <p><a :href="`${post.id}/cat/slug`">
+    <div class="inner-content" :style="{ backgroundImage:'url('+b_image+')'}">
+      <div class="blog-post">
+        <h4>Most Recent Blog Post</h4>
+        <h5>{{ post.subject }}</h5>
+        <p v-html="post.body"></p>
+        <p>
+          <a :href="`${post.id}/cat/slug`">
             <button type="button" class="btn btn-info">Read More</button>
-          </a></p>
+          </a>
+        </p>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -26,7 +28,7 @@ export default {
     return {
       post: {},
       message: "",
-      b_image: "../images/black-iphone-7-on-brown-table-699122.jpg",
+      b_image: "../images/black-iphone-7-on-brown-table-699122.jpg"
     };
   },
   mounted: function() {
@@ -63,18 +65,23 @@ export default {
 }
 .blog-post {
   color: #fff;
-  width: 500px;
   padding: 5px;
-  border: 2px solid #fff;
 }
 @media only screen and (min-width: 320px) {
-  .blog-post, .blog-banner {
-    margin-left: 25px;
-  }
-.blog-banner{
+  .blog-banner {
     margin: 0;
     text-align: left;
     font-size: 1.2em;
+  }
 }
+@media only screen and (min-width: 500px) {
+  .blog-post,
+  .blog-banner {
+    margin-left: 25px;
+  }
+  .blog-post {
+    width: 500px;
+    border: 2px solid #fff;
+  }
 }
 </style>
