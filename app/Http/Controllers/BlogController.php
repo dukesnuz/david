@@ -11,6 +11,7 @@ use David\Email;
 use David\Blogsearch;
 use David\Http\Resources\Post;
 use David\Http\Resources\BlogSearch as BlogSearchResource;
+use Illuminate\Support\Facades\Auth;
 
 use Mail;
 
@@ -192,6 +193,10 @@ class BlogController extends Controller
         ->with('Blogtags')
         ->get()->first();
 
+        //check if user logged in and post is live
+        if (empty($post->is_live) || $post->is_live == 0 && !Auth::check()) {
+            abort(404);
+        }
         $keywords = $post->blogtags->implode('name', ', ');
         $description = $post->meta_description;
         $title = $post->subject;
@@ -385,6 +390,7 @@ class BlogController extends Controller
     // get search results
     public function show($term)
     {
+        //  dd(999);
         $tags = BlogTag::where('name', 'LIKE', '%'.$term.'%')->get();
         // return links found
         $urls = Blogpost::with('blogcategory')->with('blogtags')
