@@ -43,20 +43,25 @@
                 font-size: 36px;
                 padding: 20px;
             }
+            .body {
+              font-size: 24px;
+              padding:5px;
+            }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title">
-                    @yield('message')
+                  <p>Ooopps! So Sorry for this.</p>
                 </div>
                 <div class="body">
-                  <a href="{{ url('/blog/home') }}">
+                  @yield('message')
+                  <p><a href="{{ url('/blog/home') }}">
                       <button class="bg-transparent text-grey-darkest font-bold uppercase tracking-wide py-3 px-6 border-2 border-grey-light hover:border-grey rounded-lg">
                           {{ __('Blog Home') }}
                       </button>
-                  </a>
+                  </a></p>
                 </div>
             </div>
         </div>
