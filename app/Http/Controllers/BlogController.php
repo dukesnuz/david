@@ -187,14 +187,13 @@ class BlogController extends Controller
     */
     public function blogPost($id, $cat = "", $slug = '')
     {
-        //dd(99);
         $post = Blogpost::where('id', '=', $id)
         ->with('Blogcategory')
         ->with('Blogtags')
         ->get()->first();
 
         //check if user logged in and post is live
-        if (empty($post->is_live) || $post->is_live == 0 && !Auth::check()) {
+        if ($post == null || ($post->is_live == 0 && !Auth::check())) {
             abort(404);
         }
         $keywords = $post->blogtags->implode('name', ', ');
