@@ -308,6 +308,9 @@ ul {
   list-style: none;
   padding: 0;
 }
+li {
+  margin-top: 20px;
+}
 .blog-tags {
   display: inline-flex;
   margin-top: 15px;
@@ -322,8 +325,8 @@ form {
 #url-friendly {
   width: 700px;
 }
-.meta-description {
-    display: block;
+label {
+  display: block;
 }
 input[type="text"],
 select {

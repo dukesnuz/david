@@ -268,6 +268,9 @@ ul {
   list-style: none;
   padding: 0;
 }
+li {
+  margin-top: 20px;
+}
 .inner-content {
   padding-bottom: 500px;
 }
@@ -285,7 +288,7 @@ form {
 #url-friendly {
   width: 700px;
 }
-.meta-description {
+label {
   display: block;
 }
 input[type="text"],
