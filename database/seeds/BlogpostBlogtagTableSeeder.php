@@ -16,7 +16,7 @@ class BlogpostBlogtagTableSeeder extends Seeder
     {
         $urls =[
       'Post one' => ['framework','laravel','php'],
-      'Post two' => ["1980", 'dance music'],
+      'Post two' => ["networking", 'internet'],
       'Post three' => ['css', 'styling'],
     ];
 
