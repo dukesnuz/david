@@ -390,17 +390,17 @@ class BlogController extends Controller
     // get search results
     public function show($term)
     {
-        //  dd(999);
         $tags = BlogTag::where('name', 'LIKE', '%'.$term.'%')->get();
         // return links found
         $urls = Blogpost::with('blogcategory')->with('blogtags')
-        ->where('subject', 'LIKE', '%'.$term.'%')
-        ->orWhere('body', 'LIKE', '%'.$term.'%')
+        ->where([['subject', 'LIKE', '%'.$term.'%'], ['is_live', '=', '1']])
+        ->orWhere([['body', 'LIKE', '%'.$term.'%'], ['is_live', '=', '1']])
+        ->orWhere([['url_friendly', 'LIKE', '%'.$term.'%'], ['is_live', '=', '1']])
         ->orWhereHas('blogtags', function ($query) use ($term) {
-            $query->where('name', '=', $term);
+            $query->where([['name', '=', $term], ['is_live', '=', '1']]);
         })
         ->orWhereHas('blogcategory', function ($query) use ($term) {
-            $query->where('categorys', '=', $term);
+            $query->where([['categorys', '=', $term], ['is_live', '=', '1']]);
         })
         ->paginate(25);
 
