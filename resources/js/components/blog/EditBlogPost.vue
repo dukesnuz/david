@@ -81,12 +81,12 @@
       </form>
 
       <ul>
-        <li v-if="post.is_live ">Post Live</li>
-        <li v-else>Post Not Live</li>
+        <li v-if="post.is_live " class="live">Post Live</li>
+        <li v-else class="not-live">Post Not Live</li>
       </ul>
 
       <p v-on:click="makeLive(post.id, post.is_live)">
-        <button>Make Live</button>
+        <button>Make Live or Not Live</button>
       </p>
     </div>
 
@@ -94,8 +94,8 @@
       <h3>Approve Comments</h3>
       <p>{{ messageComments }}</p>
       <ul v-for="comment in comments" v-bind:key="comment.id">
-        <li v-if="comment.is_live">Live</li>
-        <li v-else>Not Live</li>
+        <li v-if="comment.is_live" class="live">Live</li>
+        <li v-else class="not-live">Not Live</li>
         <li>{{ comment.comment }}</li>
         <li>{{ comment.email.name }}</li>
         <li>{{ comment.email.email }}</li>
@@ -342,5 +342,20 @@ select {
 .comments ul {
   background-color: #fff;
   padding: 10px;
+}
+.live,
+.not-live {
+  background-color: #fff;
+  width: 100px;
+  padding: 5px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.not-live {
+  color: rgb(255, 0, 0);
+}
+.live {
+  color: rgb(4, 114, 4);
 }
 </style>

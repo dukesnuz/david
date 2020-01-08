@@ -8157,7 +8157,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nul[data-v-423969be] {\r\n  list-style: none;\r\n  padding: 0;\n}\nli[data-v-423969be] {\r\n  margin-top: 20px;\n}\n.blog-tags[data-v-423969be] {\r\n  display: inline-flex;\r\n  margin-top: 15px;\r\n  margin-left: 5px;\r\n  float: left;\n}\nform[data-v-423969be] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-423969be],\r\n#meta-description[data-v-423969be],\r\n#url-friendly[data-v-423969be] {\r\n  width: 700px;\n}\nlabel[data-v-423969be] {\r\n  display: block;\n}\ninput[type=\"text\"][data-v-423969be],\r\nselect[data-v-423969be] {\r\n  display: block;\n}\n.blog-tag-label[data-v-423969be] {\r\n  float: left;\r\n  margin-top: 15px;\n}\n.clear[data-v-423969be] {\r\n  clear: both;\n}\n.comments ul[data-v-423969be] {\r\n  background-color: #fff;\r\n  padding: 10px;\n}\r\n", ""]);
+exports.push([module.i, "\nul[data-v-423969be] {\r\n  list-style: none;\r\n  padding: 0;\n}\nli[data-v-423969be] {\r\n  margin-top: 20px;\n}\n.blog-tags[data-v-423969be] {\r\n  display: inline-flex;\r\n  margin-top: 15px;\r\n  margin-left: 5px;\r\n  float: left;\n}\nform[data-v-423969be] {\r\n  margin-top: 15px;\n}\n#blog-subject[data-v-423969be],\r\n#meta-description[data-v-423969be],\r\n#url-friendly[data-v-423969be] {\r\n  width: 700px;\n}\nlabel[data-v-423969be] {\r\n  display: block;\n}\ninput[type=\"text\"][data-v-423969be],\r\nselect[data-v-423969be] {\r\n  display: block;\n}\n.blog-tag-label[data-v-423969be] {\r\n  float: left;\r\n  margin-top: 15px;\n}\n.clear[data-v-423969be] {\r\n  clear: both;\n}\n.comments ul[data-v-423969be] {\r\n  background-color: #fff;\r\n  padding: 10px;\n}\n.live[data-v-423969be],\r\n.not-live[data-v-423969be] {\r\n  background-color: #fff;\r\n  width: 100px;\r\n  padding: 5px;\r\n  text-align: center;\r\n  font-weight: bold;\r\n  margin-bottom: 15px;\n}\n.not-live[data-v-423969be] {\r\n  color: rgb(255, 0, 0);\n}\n.live[data-v-423969be] {\r\n  color: rgb(4, 114, 4);\n}\r\n", ""]);
 
 // exports
 
@@ -41054,8 +41054,8 @@ var render = function() {
         _vm._v(" "),
         _c("ul", [
           _vm.post.is_live
-            ? _c("li", [_vm._v("Post Live")])
-            : _c("li", [_vm._v("Post Not Live")])
+            ? _c("li", { staticClass: "live" }, [_vm._v("Post Live")])
+            : _c("li", { staticClass: "not-live" }, [_vm._v("Post Not Live")])
         ]),
         _vm._v(" "),
         _c(
@@ -41067,7 +41067,7 @@ var render = function() {
               }
             }
           },
-          [_c("button", [_vm._v("Make Live")])]
+          [_c("button", [_vm._v("Make Live or Not Live")])]
         )
       ],
       1
@@ -41084,8 +41084,8 @@ var render = function() {
         _vm._l(_vm.comments, function(comment) {
           return _c("ul", { key: comment.id }, [
             comment.is_live
-              ? _c("li", [_vm._v("Live")])
-              : _c("li", [_vm._v("Not Live")]),
+              ? _c("li", { staticClass: "live" }, [_vm._v("Live")])
+              : _c("li", { staticClass: "not-live" }, [_vm._v("Not Live")]),
             _vm._v(" "),
             _c("li", [_vm._v(_vm._s(comment.comment))]),
             _vm._v(" "),
