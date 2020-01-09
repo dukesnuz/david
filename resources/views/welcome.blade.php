@@ -100,6 +100,7 @@
                 <div class="links nav">
                     <p><a href="/links/get-list">David's Favorite Websites</a></p>
                     <p><a href="/blog/home">David's Blog</a></p>
+                    <p><a href="/about">About</a></p>
                 </div>
                 <!--
                     <a href="https://laravel.com/docs">Docs</a>
