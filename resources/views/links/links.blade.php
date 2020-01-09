@@ -10,7 +10,7 @@
       <div class="card">
 
         <?php foreach ($urls as $key => $url): ?>
-          <div class="bg-dark text-white" style="margin:25px">
+          <div class="card-body text-white" style="margin:25px">
             <div class="card-header">
               <h3><a href="/links/subject/{{$url->id }}/{{ str_slug($url->subject) }}">{{ $url->subject }}</a></h3>
             </div>
