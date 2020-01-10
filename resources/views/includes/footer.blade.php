@@ -8,7 +8,7 @@
     <div class="row">
 
       <!-- Grid column -->
-      <div class="col-md-4 mx-auto">
+      <div class="col-md-2 mx-auto">
 
         <!-- Content -->
 
@@ -36,6 +36,23 @@
 
       <hr class="clearfix w-100 d-md-none">
 
+
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- blog-footer -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-5281604601696923"
+           data-ad-slot="2976891596"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+</div>
+
+  <hr class="clearfix w-100 d-md-none">
       <!-- Grid column -->
       <div class="col-md-2 mx-auto">
 
@@ -61,8 +78,6 @@
         <!-- Grid column -->
         <div class="col-md-2 mx-auto">
 
-          <!-- Links -->
-          <!--  <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>-->
 
           <div class="soap">
             <p>
