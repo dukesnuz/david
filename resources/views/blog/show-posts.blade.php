@@ -3,7 +3,6 @@
 @include('includes.meta')
 
 @section('content')
-<div class="container">
   <div id="app">
     @if(Auth::check())
     <show-all-blog-posts/>
@@ -11,7 +10,6 @@
     <show-blog-posts/>
     @endif
   </div>
-</div>
 @endsection
 
 @section('appjs')

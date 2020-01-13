@@ -3,7 +3,6 @@
 @include('includes.meta')
 
 @section('content')
-<div class="container">
   @if(Auth::check())
 
   <p><a href="/blog/blog-post/{{$pid}}/edit" class="soap">Edit Post</a></p>
@@ -14,7 +13,6 @@
   <div id="app">
     <show-a-blog-post pid={{$pid}}></show-a-blog-post>
   </div>
-</div>
 @endsection
 
 @section('appjs')

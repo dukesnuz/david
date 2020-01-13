@@ -7,7 +7,6 @@
 <h2><a href="/links/get-list">Favorite Links</a></h2>
 <h2><a href="/links/search">Search</a></h2>
 <h3>Tag: {{ $tag }}</h3>
-<div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
@@ -38,6 +37,5 @@
       </div>
     </div>
   </div>
-</div>
 
 @endsection

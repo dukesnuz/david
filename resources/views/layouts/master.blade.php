@@ -62,9 +62,11 @@
   @endif
 
   <main class="py-4">
+    <div class="container">
     <!-- add most popular searches on side bar
     maybe add some catgories on side bar-->
     @yield('content')
+  </div>
   </main>
 
   @include('includes.footer')

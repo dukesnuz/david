@@ -3,11 +3,9 @@
 @include('includes.meta')
 
 @section('content')
-<div class="container">
   <div id="app">
         <blog-home></blog-home>
   </div>
-</div>
 @endsection
 
 @section('appjs')

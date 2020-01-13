@@ -3,7 +3,6 @@
 @include('includes.meta')
 
 @section('content')
-<div class="container">
   <div id="app">
     <div class="row">
       <div class="col-md-3" style="word-wrap:break-word;">
@@ -14,7 +13,6 @@
       </div>
     </div>
   </div>
-</div>
 @endsection
 
 @section('appjs')
