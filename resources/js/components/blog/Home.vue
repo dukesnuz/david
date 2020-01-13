@@ -86,7 +86,7 @@ export default {
   }
 }
 .aside-container {
-  margin-left: 0;
+  margin: auto;
   margin-top: 25px;
 }
 @media only screen and (min-width: 500px) {
@@ -105,7 +105,6 @@ export default {
 }
 .aside-container {
   margin-top: 0px;
-  margin: auto;
 }
 }
 </style>
