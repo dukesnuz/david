@@ -43,8 +43,9 @@
 
 <style scoped>
 .aside-container {
+  margin: auto;
+  margin-top: 25px;
   width: 300px;
-  margin-left: 50px;
 }
 
 .box-1,
@@ -53,5 +54,12 @@
   margin-bottom: 10px;
   height: 250px;
   width: 300px;
+}
+
+@media only screen and (min-width: 500px) {
+  .aside-container {
+    margin-top: 0px;
+    margin-left: 50px;
+  }
 }
 </style>

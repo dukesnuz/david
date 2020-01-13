@@ -331,7 +331,7 @@ label {
   padding: 2px;
   background: #fff;
 }
-@media only screen and (min-width: 320px) {
+@media only screen and (min-width: 376px) {
   .blog-post {
     width: 80%;
   }

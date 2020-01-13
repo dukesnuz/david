@@ -94,8 +94,10 @@ ul.blog-categories {
   padding-left: 5px;
 }
 .blog-post {
-  width: 100%;
+  width: 98%;
   font-size: 1.5em;
+  margin-left: 1%;
+  margin-right: 1%;
 }
 .blog-subject {
   font-weight: bold;
@@ -110,9 +112,14 @@ ul.blog-categories {
   margin: 5px;
   color: #fff;
 }
-@media only screen and (min-width: 320px) {
+  .blog-categories {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+@media only screen and (min-width: 376px) {
   .blog-post {
     width: 80%;
+    margin: 0;
   }
   .flex-container {
     display: flex;
@@ -120,6 +127,7 @@ ul.blog-categories {
     justify-content: space-between;
   }
   .blog-categories {
+    margin:0;
     margin-right: 25px;
   }
 }
