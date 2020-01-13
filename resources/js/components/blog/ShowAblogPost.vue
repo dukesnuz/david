@@ -1,131 +1,140 @@
 <template>
-  <div class="blog-inner-content">
-    <h1>The Category is: {{ post.blogcategory.categorys }}</h1>
-    <div class="blog-subject">{{ post.subject }}</div>
-    <div class="blog-body" v-html="post.body"></div>
-    <ul class="blog-tags">
-      <li>Tags:</li>
-      <li v-bind:key="tag.id" v-for="tag in post.blogtags">{{ tag.name }}</li>
-    </ul>
-    <div class="clearFix"></div>
-    <p class="blog-date">Date posted: {{ new Date(post.created_at) }}</p>
-
-    <div class="social-media">
-      <social-sharing
-        :url="getUrl()"
-        :title="post.subject"
-        :description="post.subject"
-        :quote="post.subject"
-        :hashtags="tagsstring +'blogpost'"
-        twitter-user="Dukesnuz"
-        inline-template
-      >
-        <div class="social">
-          <network network="email">
-            <i class="fa fa-envelope"></i> Email
-          </network>
-          <network network="facebook">
-            <i class="fa fa-facebook"></i> Facebook
-          </network>
-          <network network="googleplus">
-            <i class="fa fa-google-plus"></i> Google +
-          </network>
-          <network network="line">
-            <i class="fa fa-line"></i> Line
-          </network>
-          <network network="linkedin">
-            <i class="fa fa-linkedin"></i> LinkedIn
-          </network>
-          <network network="odnoklassniki">
-            <i class="fa fa-odnoklassniki"></i> Odnoklassniki
-          </network>
-          <network network="pinterest">
-            <i class="fa fa-pinterest"></i> Pinterest
-          </network>
-          <network network="reddit">
-            <i class="fa fa-reddit"></i> Reddit
-          </network>
-          <network network="skype">
-            <i class="fa fa-skype"></i> Skype
-          </network>
-          <network network="sms">
-            <i class="fa fa-commenting-o"></i> SMS
-          </network>
-          <network network="telegram">
-            <i class="fa fa-telegram"></i> Telegram
-          </network>
-          <network network="twitter">
-            <i class="fa fa-twitter"></i> Twitter
-          </network>
-          <network network="vk">
-            <i class="fa fa-vk"></i> VKontakte
-          </network>
-          <network network="weibo">
-            <i class="fa fa-weibo"></i> Weibo
-          </network>
-          <network network="whatsapp">
-            <i class="fa fa-whatsapp"></i> Whatsapp
-          </network>
-        </div>
-      </social-sharing>
-    </div>
-
-    <div class="comment" v-show="showForm">
-      <h3>Leave a Comment</h3>
-      <ul>
-        <form v-on:submit.prevent="createComment()">
-          <ul>
-            <li>
-              <label for="new-comment-name">Name</label>
-              <input
-                type="text"
-                name="new-comment-name"
-                id="new-comment-name"
-                v-model="newComment.name"
-              />
-            </li>
-            <li>
-              <label for="new-comment-email">Email</label>
-              <input
-                type="text"
-                name="new-comment-email"
-                id="new-comment-email"
-                v-model="newComment.email"
-              />
-            </li>
-            <li>
-              <label for="new-comment">Comment</label>
-              <textarea
-                type="text"
-                name="new-comment"
-                id="new-comment"
-                v-model="newComment.comment"
-              ></textarea>
-            </li>
-            <li>
-              <input type="submit" value="Submit" />
-            </li>
-          </ul>
-        </form>
+  <div class="blog-inner-content flex-container">
+    <div class="blog-post">
+      <h1>The Category is: {{ post.blogcategory.categorys }}</h1>
+      <div class="blog-subject">{{ post.subject }}</div>
+      <div class="blog-body" v-html="post.body"></div>
+      <ul class="blog-tags">
+        <li>Tags:</li>
+        <li v-bind:key="tag.id" v-for="tag in post.blogtags">{{ tag.name }}</li>
       </ul>
-    </div>
+      <div class="clearFix"></div>
+      <p class="blog-date">Date posted: {{ new Date(post.created_at) }}</p>
 
-    <div class="comments">
-      <h3>Comments</h3>
-      <p>{{ messageComments }}</p>
-      <ul v-for="comment in comments" v-bind:key="comment.id">
-        <li>
-          <span class="commentor-name">{{ comment.email.name }}</span> *
-          <span class="comment-date">{{ comment.created_at }}</span>
-        </li>
-        <li>{{ comment.comment }}</li>
-      </ul>
+      <div class="social-media">
+        <social-sharing
+          :url="getUrl()"
+          :title="post.subject"
+          :description="post.subject"
+          :quote="post.subject"
+          :hashtags="tagsstring +'blogpost'"
+          twitter-user="Dukesnuz"
+          inline-template
+        >
+          <div class="social">
+            <network network="email">
+              <i class="fa fa-envelope"></i> Email
+            </network>
+            <network network="facebook">
+              <i class="fa fa-facebook"></i> Facebook
+            </network>
+            <network network="googleplus">
+              <i class="fa fa-google-plus"></i> Google +
+            </network>
+            <network network="line">
+              <i class="fa fa-line"></i> Line
+            </network>
+            <network network="linkedin">
+              <i class="fa fa-linkedin"></i> LinkedIn
+            </network>
+            <network network="odnoklassniki">
+              <i class="fa fa-odnoklassniki"></i> Odnoklassniki
+            </network>
+            <network network="pinterest">
+              <i class="fa fa-pinterest"></i> Pinterest
+            </network>
+            <network network="reddit">
+              <i class="fa fa-reddit"></i> Reddit
+            </network>
+            <network network="skype">
+              <i class="fa fa-skype"></i> Skype
+            </network>
+            <network network="sms">
+              <i class="fa fa-commenting-o"></i> SMS
+            </network>
+            <network network="telegram">
+              <i class="fa fa-telegram"></i> Telegram
+            </network>
+            <network network="twitter">
+              <i class="fa fa-twitter"></i> Twitter
+            </network>
+            <network network="vk">
+              <i class="fa fa-vk"></i> VKontakte
+            </network>
+            <network network="weibo">
+              <i class="fa fa-weibo"></i> Weibo
+            </network>
+            <network network="whatsapp">
+              <i class="fa fa-whatsapp"></i> Whatsapp
+            </network>
+          </div>
+        </social-sharing>
+      </div>
+
+      <div class="comment" v-show="showForm">
+        <h3>Leave a Comment</h3>
+        <ul>
+          <form v-on:submit.prevent="createComment()">
+            <ul>
+              <li>
+                <label for="new-comment-name">Name</label>
+                <input
+                  type="text"
+                  name="new-comment-name"
+                  id="new-comment-name"
+                  v-model="newComment.name"
+                />
+              </li>
+              <li>
+                <label for="new-comment-email">Email</label>
+                <input
+                  type="text"
+                  name="new-comment-email"
+                  id="new-comment-email"
+                  v-model="newComment.email"
+                />
+              </li>
+              <li>
+                <label for="new-comment">Comment</label>
+                <textarea
+                  type="text"
+                  name="new-comment"
+                  id="new-comment"
+                  v-model="newComment.comment"
+                ></textarea>
+              </li>
+              <li>
+                <input type="submit" value="Submit" />
+              </li>
+            </ul>
+          </form>
+        </ul>
+      </div>
+
+      <div class="comments">
+        <h3>Comments</h3>
+        <p>{{ messageComments }}</p>
+        <ul v-for="comment in comments" v-bind:key="comment.id">
+          <li>
+            <span class="commentor-name">{{ comment.email.name }}</span> *
+            <span class="comment-date">{{ comment.created_at }}</span>
+          </li>
+          <li>{{ comment.comment }}</li>
+        </ul>
+      </div>
     </div>
+    <LeftSideBar />
   </div>
 </template>
 
 <script>
+import LeftSideBar from "../aside/LeftSideBar.vue";
+
 export default {
+  components: {
+    LeftSideBar
+  },
+
   data() {
     return {
       status: "",
@@ -321,5 +330,15 @@ label {
   border: 1px solid#000;
   padding: 2px;
   background: #fff;
+}
+@media only screen and (min-width: 320px) {
+  .blog-post {
+    width: 80%;
+  }
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 </style>

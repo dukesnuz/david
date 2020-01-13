@@ -11,12 +11,18 @@ body {
     background-color: #ccc;
 }
 
+.container {
+    padding-left: 0;
+    margin-left: 2%;
+    margin-top: 25px;
+}
+
 .clearFix {
     clear: both;
 }
 
 header {
-    padding-left: 5px
+    padding-left: 2%;
 }
 
 .alert {

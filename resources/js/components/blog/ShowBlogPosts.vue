@@ -1,5 +1,12 @@
 <template>
   <div class="inner-content flex-container">
+    <div class="blog-categories">
+      <h4>Categories</h4>
+      <ul>
+        <li v-for="category in categorys" v-bind:key="category.id">{{ category.categorys }}</li>
+      </ul>
+    </div>
+
     <div class="blog-post">
       <h1>Blog Posts About Website Development and Technology</h1>
       <ul v-for="post in posts" v-bind:key="post.id" class="posts">
@@ -12,18 +19,18 @@
         </li>
       </ul>
     </div>
-    <div>
-      <h4>Categories</h4>
-
-      <ul class="blog-categories">
-        <li v-for="category in categorys" v-bind:key="category.id">{{ category.categorys }}</li>
-      </ul>
-    </div>
+    <LeftSideBar />
   </div>
 </template>
 
 <script>
+import LeftSideBar from "../aside/LeftSideBar.vue";
+
 export default {
+  components: {
+    LeftSideBar
+  },
+
   data() {
     return {
       message: "",
@@ -111,6 +118,9 @@ ul.blog-categories {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+  .blog-categories {
+    margin-right: 25px;
   }
 }
 </style>

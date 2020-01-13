@@ -1,12 +1,16 @@
 <template>
   <div>
-    <h1>A Blog About Website Developement and Technology</h1>
-    {{ message }}
+      <h1>A Blog About Website Developement and Technology</h1>
+
+       {{ message }}
     <p class="blog-banner">
       Greetings! </br>Welcome to my blog. I post topics I enjoy and
       hope others will also. Most of my posts will be about transportation and web development.
       If you enjoy this blog feel free to share on social media
     </p>
+
+      <div class="flex-container">
+    <LeftSideBar/>
     <div class="inner-content" :style="{ backgroundImage:'url('+b_image+')'}">
       <div class="blog-post">
         <h4>Most Recent Blog Post</h4>
@@ -20,10 +24,17 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
+import LeftSideBar from "../aside/LeftSideBar.vue";
+
 export default {
+  components: {
+    LeftSideBar
+  },
+
   data() {
     return {
       post: {},
@@ -74,14 +85,24 @@ export default {
     font-size: 1.2em;
   }
 }
+.aside-container {
+  margin-left: 0;
+}
 @media only screen and (min-width: 500px) {
   .blog-post,
   .blog-banner {
-    margin-left: 25px;
+   margin-bottom: 20px;
   }
   .blog-post {
-    width: 500px;
     border: 2px solid #fff;
   }
+
+   .flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+
 }
 </style>
