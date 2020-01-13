@@ -88,21 +88,24 @@ export default {
 .aside-container {
   margin-left: 0;
 }
+ .flex-container {
+    display: flex;
+    flex-direction: column;
+     flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
 @media only screen and (min-width: 500px) {
   .blog-post,
   .blog-banner {
    margin-bottom: 20px;
   }
-  .blog-post {
-    border: 2px solid #fff;
-  }
-
    .flex-container {
-    display: flex;
     flex-direction: row;
-    justify-content: space-between;
   }
-
+.blog-post{
+    padding: 5px;
+}
 
 }
 </style>
