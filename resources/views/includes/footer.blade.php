@@ -38,18 +38,18 @@
 
 
       <!-- Grid column -->
-      <div class="col-md-2 mx-auto">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <!-- blog-footer -->
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-5281604601696923"
-           data-ad-slot="2976891596"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+      <div class="google-h-200 col-md-2 mx-auto">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- blog-footer-vertical -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-5281604601696923"
+         data-ad-slot="4314023999"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 </div>
 
   <hr class="clearfix w-100 d-md-none">
