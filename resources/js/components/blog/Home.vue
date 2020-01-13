@@ -105,6 +105,7 @@ export default {
 }
 .aside-container {
   margin-top: 0px;
+  margin: auto;
 }
 }
 </style>
