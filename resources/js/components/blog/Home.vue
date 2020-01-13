@@ -87,6 +87,7 @@ export default {
 }
 .aside-container {
   margin-left: 0;
+  margin-top: 25px;
 }
 @media only screen and (min-width: 500px) {
   .blog-post,
@@ -102,6 +103,8 @@ export default {
 .blog-post{
     padding: 5px;
 }
-
+.aside-container {
+  margin-top: 0px;
+}
 }
 </style>
