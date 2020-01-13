@@ -38,7 +38,8 @@
 
 
       <!-- Grid column -->
-      <div class="google-h-200 col-md-2 mx-auto">
+      <div class="col-md-2 mx-auto">
+        <div class="google-h-200">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- blog-footer-vertical -->
     <ins class="adsbygoogle"
@@ -50,6 +51,7 @@
     <script>
          (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
+  </div>
 </div>
 
   <hr class="clearfix w-100 d-md-none">
