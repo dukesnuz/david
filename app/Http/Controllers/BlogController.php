@@ -312,7 +312,7 @@ class BlogController extends Controller
         $store->save();
 
         // email me a comment was posted
-        $body = "A comment was just posted on David's blog\r";
+        $body = "A comment was just posted on Dukesnuz blog\r";
         $body .= "Click the link to view and approve the comment.\r";
         $body .= config('app.url')."/blog/blog-post/".$request->input('pid')."/edit";
         $body .= "\rEMAIL END\r";
@@ -320,7 +320,7 @@ class BlogController extends Controller
         $data = array(
       'email' => config('constants.email_david_petringa'),
       'emailFrom' => config('constants.email_dukesnuz'),
-      'subject' => "Comment Just Posted on David's Blog",
+      'subject' => "Comment Just Posted on Dukesnuz Blog",
       'body' => $body,
     );
 
