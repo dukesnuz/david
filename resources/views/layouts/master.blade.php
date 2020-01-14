@@ -2,24 +2,15 @@
 <html>
 <head>
   <title>
-    @yield('title', 'Technology & Website Development Blog | Dukesnuz')
+    @yield('title')
   </title>
 
   <meta charset='utf-8'>
-  <!--
-  <meta name="description" content="Technology and website development blog posts and favorite websites for dukesnuz.">
--->
-    <meta name="description" content="@yield('description')">
-<!--
-    <meta name="keywords" content="blog, coding, technology, website, developemnt, Laravel, html, css, php, mysql, frameworks, angular, vue.js, david, petringa">
-  -->
-<meta name="keywords" content="@yield('keywords')">
-<!--
-  <meta name="author" content="David Petringa, Coded December 2019">
--->
-<meta name="author" content="@yield('author')">
+  <meta name="description" content="@yield('description')">
+  <meta name="keywords" content="@yield('keywords')">
+  <meta name="author" content="@yield('author')">
 
-<meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -63,10 +54,10 @@
 
   <main class="py-4">
     <div class="container">
-    <!-- add most popular searches on side bar
-    maybe add some catgories on side bar-->
-    @yield('content')
-  </div>
+      <!-- add most popular searches on side bar
+      maybe add some catgories on side bar-->
+      @yield('content')
+    </div>
   </main>
 
   @include('includes.footer')
