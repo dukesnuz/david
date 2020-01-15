@@ -121,6 +121,40 @@ class UrlController extends Controller
         return redirect('links/create-tags')->with('alert', 'The tag '.$request->input('new_tag').  ' was added.');
     }
 
+    public function category($category)
+    {
+        $urls =  Url::whereHas('category', function ($query) use ($category) {
+            $query->where('categories', '=', $category);
+        })->with('tags')->get();
+        return view('links/category-show')->with([
+          'urls' =>  $urls,
+          'category' => $category
+        ]);
+    }
+
+    public function tag($tag)
+    {
+        $urls =  Url::whereHas('tags', function ($query) use ($tag) {
+            $query->where('name', '=', $tag);
+        })->with('tags')->get();
+        return view('links/tag-show')->with([
+          'urls' =>  $urls,
+          'tag' => $tag
+        ]);
+    }
+
+
+
+    // show one link
+    public function link($id)
+    {
+        $url = Url::with('category')->with('tags')->where('id', '=', $id)->first();
+        return view('links.link')->with([
+  'url' => $url,
+]);
+    }
+
+
     public function editUrl($id)
     {
         $url = Url::with('category')->with('tags')->find($id);
