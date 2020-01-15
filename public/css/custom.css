@@ -42,9 +42,14 @@ a:hover {
     text-decoration: none;
 }
 
+.card-header a {
+    color: #fff;
+}
+
 .card-body {
     background-color: #d9d9d9;
     font-size: 1.1em;
+    color: #000;
 }
 
 .blog-inner-content {
