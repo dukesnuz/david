@@ -25,8 +25,14 @@
 </head>
 <body>
   <header>
+    <div class="flex-container">
     <h1 class="text-primary"><a href="/">Dukesnuz</a></h1>
 
+  <div class="header-right">
+<a href="https://m.do.co/c/3ec7cdf44173" target="_blank"><img src="http://dukesnuz.com/images/DO_Logo_Horizontal_Blue.png" alt="Digial Ocean Cloud Based Website Hosting">
+</div>
+</div>
+  <nav>
     <ul class="list-inline">
       <li class="list-inline-item"><a href="/">Home</a></li>
       <li class="list-inline-item"><a href="/links/get-list/">Links</a></li>
@@ -44,7 +50,7 @@
       <li class="list-inline-item"><a href="/blog/create/">Create Post</a></li>
       @endif
     </ul>
-
+</nav>
   </header>
   @if(session('alert'))
   <div class='alert'>
