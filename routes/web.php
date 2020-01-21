@@ -50,7 +50,7 @@ Route::get('about', function () {
 // Get use blade
 Route::get('uses', function () {
     return view('utilities.use')->with([
-    'title' => 'Uses | Dukesnuz',
+    'title' => '/uses | Dukesnuz',
      'description' => "Tools I use to develop and build webpages and websites.",
      'keywords' => 'website development, builder',
    ]);
