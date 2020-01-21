@@ -150,7 +150,7 @@ a:hover {
 
     .email-subscribe {
         width: 325px;
-        margin-left: -100px;
+        margin: auto;
     }
 
     .soap {
