@@ -37,7 +37,7 @@ Route::get('links/subject/{id}/{subject}', 'UrlController@link');
 // Get search blade
 Route::get('links/search', 'UrlController@search');
 
-// Get search blade
+// Get about blade
 Route::get('about', function () {
     return view('utilities.about')->with([
     'title' => 'About | Dukesnuz',
@@ -47,7 +47,14 @@ Route::get('about', function () {
    ]);
 });
 
-
+// Get use blade
+Route::get('uses', function () {
+    return view('utilities.use')->with([
+    'title' => 'Uses | Dukesnuz',
+     'description' => "Tools I use to develop and build webpages and websites.",
+     'keywords' => 'website development, builder',
+   ]);
+});
 
 // Routes for logged in users
 Route::group(['middleware' => 'auth'], function () {
