@@ -118,7 +118,7 @@ a:hover {
     color: #92FF33;
 }
 
-@media only screen and (max-width: 325px) {
+@media only screen and (max-width: 415px) {
     header {
         padding-left: 25px;
     }
