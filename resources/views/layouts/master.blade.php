@@ -26,32 +26,36 @@
 <body>
   <header>
     <div class="flex-container">
-    <h1 class="text-primary"><a href="/">Dukesnuz</a></h1>
-
-  <div class="header-right">
-<a href="https://m.do.co/c/3ec7cdf44173" target="_blank"><img src="http://dukesnuz.com/images/DO_Logo_Horizontal_Blue.png" alt="Digial Ocean Cloud Based Website Hosting">
-</div>
-</div>
-  <nav>
-    <ul class="list-inline">
-      <li class="list-inline-item"><a href="/">Home</a></li>
-      <li class="list-inline-item"><a href="/links/get-list/">Links</a></li>
-      <li class="list-inline-item"><a href="/links/search/">Websites Search</a></li>
-      <li class="list-inline-item"><a href="/blog/home/">Blog</a></li>
-      <li class="list-inline-item"><a href="/blog/show-blog-posts/">Blog Posts</a></li>
-      <li class="list-inline-item"><a href="/blog/search/">Blog Search</a></li>
-      <li class="list-inline-item"><a href="/about/">About</a></li>
-      <li class="list-inline-item"><a href="/uses/">Uses</a></li>
-      @if(Auth::check())
-      <li class="list-inline-item"><a href="/home">Login</a></li>
-      <li class="list-inline-item"><a href="/links/get-list/">View</a></li>
-      <li class="list-inline-item"><a href="/links/create/">Create</a></li>
-      <li class="list-inline-item"><a href="/links/create-categories/">Categories</a></li>
-      <li class="list-inline-item"><a href="/links/create-tags/">Tags</a></li>
-      <li class="list-inline-item"><a href="/blog/create/">Create Post</a></li>
-      @endif
-    </ul>
-</nav>
+      <h1 class="text-primary"><a href="/">Dukesnuz</a></h1>
+      <div class="header-right">
+        <div class="digital-ocean-large">
+          <a href="https://m.do.co/c/3ec7cdf44173" target="_blank"><img src="http://dukesnuz.com/images/DO_Logo_Horizontal_Blue.png" alt="Digial Ocean Cloud Based Website Hosting"></a>
+        </div>
+        <div class="digital-ocean-small">
+          <a href="https://m.do.co/c/3ec7cdf44173" target="_blank"><span class="alert">Digital Ocean</span></a>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="/">Home</a></li>
+        <li class="list-inline-item"><a href="/links/get-list/">Links</a></li>
+        <li class="list-inline-item"><a href="/links/search/">Websites Search</a></li>
+        <li class="list-inline-item"><a href="/blog/home/">Blog</a></li>
+        <li class="list-inline-item"><a href="/blog/show-blog-posts/">Blog Posts</a></li>
+        <li class="list-inline-item"><a href="/blog/search/">Blog Search</a></li>
+        <li class="list-inline-item"><a href="/about/">About</a></li>
+        <li class="list-inline-item"><a href="/uses/">Uses</a></li>
+        @if(Auth::check())
+        <li class="list-inline-item"><a href="/home">Login</a></li>
+        <li class="list-inline-item"><a href="/links/get-list/">View</a></li>
+        <li class="list-inline-item"><a href="/links/create/">Create</a></li>
+        <li class="list-inline-item"><a href="/links/create-categories/">Categories</a></li>
+        <li class="list-inline-item"><a href="/links/create-tags/">Tags</a></li>
+        <li class="list-inline-item"><a href="/blog/create/">Create Post</a></li>
+        @endif
+      </ul>
+    </nav>
   </header>
   @if(session('alert'))
   <div class='alert'>

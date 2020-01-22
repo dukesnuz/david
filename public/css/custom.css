@@ -36,6 +36,8 @@ header h1 {
 
 .header-right {
     margin-left: 25%;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 nav {
@@ -118,9 +120,18 @@ a:hover {
     color: #92FF33;
 }
 
+.digital-ocean-small {
+    display: none;
+    color: blue;
+}
+
 @media only screen and (max-width: 415px) {
     header {
         padding-left: 25px;
+    }
+
+    .header-right {
+        margin: 0;
     }
 
     header h1 {
@@ -129,10 +140,6 @@ a:hover {
 
     .flex-container {
         flex-direction: column;
-    }
-
-    .header-right {
-        display: none;
     }
 
     .blog-subject, .blog-body {
@@ -155,6 +162,15 @@ a:hover {
 
     .soap {
         width: auto;
+    }
+
+    .digital-ocean-large {
+        display: none;
+    }
+
+    .digital-ocean-small, .digital-ocean-small a {
+        display: inline-block;
+        color: #008bcf;
     }
 
     .google-h-200 {
