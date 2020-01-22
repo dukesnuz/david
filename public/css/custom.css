@@ -171,6 +171,7 @@ a:hover {
     .digital-ocean-small, .digital-ocean-small a {
         display: inline-block;
         color: #008bcf;
+        font-size: .70em
     }
 
     .google-h-200 {
