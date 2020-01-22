@@ -2800,6 +2800,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app",
@@ -40882,13 +40885,11 @@ var render = function() {
       { staticClass: "edit-post" },
       [
         _c("h3", [_vm._v("Edit This Blog Post")]),
-        _vm._v(
-          "\n    " +
-            _vm._s(_vm.message) +
-            "\n    " +
-            _vm._s(_vm.status) +
-            "\n    "
-        ),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.message))]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.status))]),
+        _vm._v(" "),
         _c("editor", {
           attrs: {
             "api-key": "8fvbyqp6y3crcp6loaupiilair2atyyfei80ao20yezogbuv",
@@ -41228,6 +41229,10 @@ var render = function() {
             ])
           ]
         ),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.message))]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.status))]),
         _vm._v(" "),
         _c("ul", [
           _vm.post.is_live

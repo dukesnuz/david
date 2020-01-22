@@ -2,8 +2,8 @@
   <div class="blog-inner-content">
     <div class="edit-post">
       <h3>Edit This Blog Post</h3>
-      {{ message }}
-      {{ status }}
+      <p>{{ message }}</p>
+      <p>{{ status }}</p>
       <editor
         api-key="8fvbyqp6y3crcp6loaupiilair2atyyfei80ao20yezogbuv"
         cloud-channel="5"
@@ -79,6 +79,9 @@
           </li>
         </ul>
       </form>
+
+      <p>{{ message }}</p>
+      <p>{{ status }}</p>
 
       <ul>
         <li v-if="post.is_live " class="live">Post Live</li>
