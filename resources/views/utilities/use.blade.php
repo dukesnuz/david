@@ -24,16 +24,22 @@
         <li>VS Code for working with Vue.js</li>
         <li>Postman when working with api</li>
         <li><a href="https://www.idrive.com/p=dukesnuz" target="blank"><span  class="text-primary">iDrive</span></a> to back up my computer</li>
-        <li><a href="https://m.do.co/c/3ec7cdf44173" target="blank"><span  class="text-primary">Digital Ocean</span></a> for hosting my websites</li>
+        <li><a href="https://m.do.co/c/3ec7cdf44173" target="blank"><span  class="text-primary">Digital Ocean</span></a> for hosting</li>
         <li>Firefox browser mostly used when developing</li>
         <li>Brave browser mostly used when not developing</li>
-        <li>Chrome browser mostly for checking responsiveness on mobile devices</li>
+        <li>Chrome browser also used for development to check page responsiveness on mobile devices</li>
+      </ul>
+
+      <h4 class="font-weight-bold text-uppercase mt-5 mb-2">Frameworks I Use and Enjoy The Most</h4>
+      <ul>
+        <li><a href="https://laravel.com" target="blank"><span  class="text-primary">Laravel</span></a></li>
+        <li><a href="https://vuejs.org" target="blank"><span  class="text-primary">Vue.js</span></a></li>
       </ul>
 
       <h4 class="font-weight-bold text-uppercase mt-5 mb-2">Other Essentials</h4>
       <ul>
         <li><a href="https://amzn.to/2TIe2dh" target="blank"><span  class="text-primary">Ceramic cup</span></a> made in China used for cocoa and tea</li>
-        <li><a href="https://amzn.to/2NK8kDP" target="blank"><span  class="text-primary">Note Pads</span></a> from office depot. USed for scribbling things down.</li>
+        <li><a href="https://amzn.to/2NK8kDP" target="blank"><span  class="text-primary">Note Pads</span></a> from office depot. Used for scribbling things down.</li>
         <li><a href="https://dukecannon.com/?rfsn=3315585.912b22" target="blank"><span  class="text-primary">Duke Cannon</span></a> for toiletries</li>
       </ul>
 

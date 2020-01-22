@@ -51,8 +51,9 @@ Route::get('about', function () {
 Route::get('uses', function () {
     return view('utilities.use')->with([
     'title' => '/uses | Dukesnuz',
-     'description' => "Tools I use to develop and build webpages and websites.",
+     'description' => "Tools I use to develop, code and build webpages and websites.",
      'keywords' => 'website development, builder',
+     'author' => 'David Petringa, Page originally coded January 21, 2020'
    ]);
 });
 
