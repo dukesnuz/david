@@ -1,4 +1,5 @@
 <?php
+use Spatie\Sitemap\SitemapGenerator;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,6 +11,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//manually run sitemap using callback function
+Route::get('sitemap', function () {
+    SitemapGenerator::create("http://".config('constants.base_url').'/blog/home')->writeToFile('sitemap.xml');
+    return "sitemap created";
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,20 +48,20 @@ Route::get('links/search', 'UrlController@search');
 Route::get('about', function () {
     return view('utilities.about')->with([
     'title' => 'About | Dukesnuz',
-     'description' => "A blog about website development and technology.
+    'description' => "A blog about website development and technology.
     Also, Duke's favorite website links with an emphayis on website development and technology.",
-     'keywords' => 'website development, computer technology',
-   ]);
+    'keywords' => 'website development, computer technology',
+  ]);
 });
 
 // Get use blade
 Route::get('uses', function () {
     return view('utilities.use')->with([
     'title' => '/uses | Dukesnuz',
-     'description' => "Tools I use to develop, code and build webpages and websites.",
-     'keywords' => 'website development, builder',
-     'author' => 'David Petringa, Page originally coded January 21, 2020'
-   ]);
+    'description' => "Tools I use to develop, code and build webpages and websites.",
+    'keywords' => 'website development, builder',
+    'author' => 'David Petringa, Page originally coded January 21, 2020'
+  ]);
 });
 
 // Routes for logged in users
