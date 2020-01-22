@@ -40297,86 +40297,63 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "aside-container" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "box-3" },
-      [
-        _c(
-          "amp-ad",
-          {
-            attrs: {
-              width: "100vw",
-              height: "320",
-              type: "adsense",
-              "data-ad-client": "ca-pub-5281604601696923",
-              "data-ad-slot": "3820598772",
-              "data-auto-format": "rspv",
-              "data-full-width": ""
-            }
-          },
-          [_c("div", { attrs: { overflow: "" } })]
-        )
-      ],
-      1
-    )
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "box-1" }, [
-      _c(
-        "a",
-        {
-          attrs: {
-            href: "http://www.anrdoezrs.net/click-4033838-12937984",
-            target: "_blank"
-          }
-        },
-        [
-          _c("img", {
+    return _c("div", { staticClass: "aside-container" }, [
+      _c("div", { staticClass: "box-1" }, [
+        _c(
+          "a",
+          {
             attrs: {
-              src: "http://www.lduhtrp.net/image-4033838-12937984",
-              width: "300",
-              height: "250",
-              alt: "100 PC SUPER SALE! 300x250",
-              border: "0"
+              href: "http://www.anrdoezrs.net/click-4033838-12937984",
+              target: "_blank"
             }
-          })
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "box-2" }, [
-      _c(
-        "a",
-        {
-          attrs: { target: "_blank", href: "https://www.idrive.com/p=dukesnuz" }
-        },
-        [
-          _c("img", {
+          },
+          [
+            _c("img", {
+              attrs: {
+                src: "http://www.lduhtrp.net/image-4033838-12937984",
+                width: "300",
+                height: "250",
+                alt: "100 PC SUPER SALE! 300x250",
+                border: "0"
+              }
+            })
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "box-2" }, [
+        _c(
+          "a",
+          {
             attrs: {
-              src: "https://www.idrive.com/include/images/idrive-300250_25.png",
-              width: "300",
-              height: "250",
-              border: "0",
-              title: "IDrive Remote Backup",
-              alt: "IDrive Remote Backup"
+              target: "_blank",
+              href: "https://www.idrive.com/p=dukesnuz"
             }
-          })
-        ]
-      )
+          },
+          [
+            _c("img", {
+              attrs: {
+                src:
+                  "https://www.idrive.com/include/images/idrive-300250_25.png",
+                width: "300",
+                height: "250",
+                border: "0",
+                title: "IDrive Remote Backup",
+                alt: "IDrive Remote Backup"
+              }
+            })
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "box-3" })
     ])
   }
 ]
