@@ -37,21 +37,20 @@
 
       <hr class="clearfix w-100 d-md-none">
 
-
       <!-- Grid column -->
       <div class="col-md-2 mx-auto">
-        <div class="google-h-200">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- blog-footer-vertical -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-5281604601696923"
-         data-ad-slot="4314023999"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+        <div class="google-ad-square" data-ad-format="rectangle">
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- blog-side-bar-square -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-5281604601696923"
+           data-ad-slot="3820598772"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
   </div>
 </div>
 
