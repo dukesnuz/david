@@ -30,8 +30,8 @@ class GenerateSitemap extends Command
     {
         // modify this to your own needs
         //"http://".config('constants.base_url').'/blog/home'
-        SitemapGenerator::create("http://blog.dukesnuz.com/blog/home")->writeToFile('sitemap.xml');
-        SitemapGenerator::create("https://david.dukesnuz.com/blog/home")->writeToFile('sitemap_david.xml');
-        SitemapGenerator::create("http://dukesnuz.com")->writeToFile('sitemap_main.xml');
+        SitemapGenerator::create("http://blog.dukesnuz.com/blog/home")->writeToFile('public/sitemap.xml');
+        SitemapGenerator::create("https://david.dukesnuz.com/blog/home")->writeToFile('public/sitemap_david.xml');
+        SitemapGenerator::create("http://dukesnuz.com")->writeToFile('public/sitemap_main.xml');
     }
 }

@@ -13,3 +13,6 @@ https://sebastiandedeyne.com/non-breaking-seo-friendly-urls-in-laravel/
 
 Social media buttons when using vuejs
 https://github.com/nicolasbeauvais/vue-social-sharing/blob/master/README.md
+
+Package used to create sitemaps
+https://github.com/spatie/laravel-sitemap
