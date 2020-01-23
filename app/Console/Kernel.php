@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
         //below uncomment to run a cron in the kernel
         //$schedule->command('inspire')->everyTenMinutes(); //daily();
         //https://laravel.com/docs/5.8/scheduling#schedule-frequency-options
-        $schedule->command('sitemap:generate')->everyTenMinutes();
+        $schedule->command('sitemap:generate')->daily(); //everyTenMinutes();
     }
 
     /**
