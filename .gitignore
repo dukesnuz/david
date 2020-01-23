@@ -10,3 +10,6 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+/public/sitemap.xml
+/public/sitemap_david.xml
+/public/sitemap_main.xml
