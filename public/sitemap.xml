@@ -2,235 +2,235 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>http://david.loc</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:25+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/</loc>
-        <lastmod>2020-01-23T00:29:13+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:22+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/about</loc>
-        <lastmod>2020-01-23T00:29:14+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/about/</loc>
-        <lastmod>2020-01-23T00:29:12+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:22+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/blog/home</loc>
-        <lastmod>2020-01-23T00:29:12+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:22+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/blog/home/</loc>
-        <lastmod>2020-01-23T00:29:12+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:22+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/blog/search</loc>
-        <lastmod>2020-01-23T00:29:14+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/blog/search/</loc>
-        <lastmod>2020-01-23T00:29:12+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:22+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/blog/show-blog-posts</loc>
-        <lastmod>2020-01-23T00:29:13+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/blog/show-blog-posts/</loc>
-        <lastmod>2020-01-23T00:29:12+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:22+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/home</loc>
-        <lastmod>2020-01-23T00:29:12+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/category/Laravel</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/category/Music</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/category/Transportation</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/category/Web%20Development</loc>
-        <lastmod>2020-01-23T00:29:14+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:25+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/category/mmm</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:26+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/get-list</loc>
-        <lastmod>2020-01-23T00:29:13+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/get-list/</loc>
-        <lastmod>2020-01-23T00:29:12+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:22+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/search</loc>
-        <lastmod>2020-01-23T00:29:13+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/search/</loc>
-        <lastmod>2020-01-23T00:29:12+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:22+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/subject/1/Laravel</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:25+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/subject/1/laravel</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/subject/2/Shalamar%20-%20Dancing%20In%20The%20Sheets%20(Live%20On%20The%20Dance%20Show)</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:25+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/subject/2/shalamar-dancing-in-the-sheets-live-on-the-dance-show</loc>
-        <lastmod>2020-01-23T00:29:13+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/subject/3/Paletton%20Colors</loc>
-        <lastmod>2020-01-23T00:29:16+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:25+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/subject/3/paletton-colors</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/subject/4/mmm</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:25+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/tag/1980&#039;s</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/tag/css</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/tag/dance%20music</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/tag/framework</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/tag/laravel</loc>
-        <lastmod>2020-01-23T00:29:14+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/tag/mmm</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:25+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/tag/php</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:24+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/links/tag/styling</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:25+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/login</loc>
-        <lastmod>2020-01-23T00:29:14+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/password/reset</loc>
-        <lastmod>2020-01-23T00:29:15+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:25+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/uses</loc>
-        <lastmod>2020-01-23T00:29:14+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://david.loc/uses/</loc>
-        <lastmod>2020-01-23T00:29:12+00:00</lastmod>
+        <lastmod>2020-01-23T00:44:22+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
