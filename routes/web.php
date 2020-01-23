@@ -15,6 +15,7 @@ use Spatie\Sitemap\SitemapGenerator;
 //manually run sitemap using callback function
 Route::get('sitemap', function () {
     SitemapGenerator::create("http://".config('constants.base_url').'/blog/home')->writeToFile('sitemap.xml');
+    SitemapGenerator::create("http://dukesnuz.com")->writeToFile('sitemap_main.xml');
     return "sitemap created";
 });
 
