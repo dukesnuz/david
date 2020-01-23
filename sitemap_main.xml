@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>http://dukesnuz.com/</loc>
+        <lastmod>2020-01-23T01:04:35+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://dukesnuz.com/coding-playground/angular/my-first-angular-app-ll/index.html</loc>
+        <lastmod>2020-01-23T01:04:47+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://dukesnuz.com/coding/playground/coding-menu/dukesnuz/david/petringa/</loc>
+        <lastmod>2020-01-23T01:04:41+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://dukesnuz.com/coding/playground/storing-picture-data-php-mysqli-filemaker/dukesnuz/david/petringa/</loc>
+        <lastmod>2020-01-23T01:04:42+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset>
