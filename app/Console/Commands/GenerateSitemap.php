@@ -29,7 +29,9 @@ class GenerateSitemap extends Command
     public function handle()
     {
         // modify this to your own needs
-        SitemapGenerator::create("http://".config('constants.base_url').'/blog/home')->writeToFile('sitemap.xml');
+        //"http://".config('constants.base_url').'/blog/home'
+        SitemapGenerator::create("http://blog.dukesnuz.com/blog/home")->writeToFile('sitemap.xml');
+        SitemapGenerator::create("https://david.dukesnuz.com/blog/home")->writeToFile('sitemap_david.xml');
         SitemapGenerator::create("http://dukesnuz.com")->writeToFile('sitemap_main.xml');
     }
 }

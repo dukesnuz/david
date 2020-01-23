@@ -16,7 +16,9 @@ use Spatie\Sitemap\SitemapGenerator;
 Route::get('sitemap', function () {
     ini_set('max_execution_time', 3600); //60 minutes
     ini_set('memory_limit', -1);
-    SitemapGenerator::create("http://".config('constants.base_url').'/blog/home')->writeToFile('sitemap.xml');
+    //SitemapGenerator::create("http://".config('constants.base_url').'/blog/home')->writeToFile('sitemap.xml');
+    SitemapGenerator::create("http://blog.dukesnuz.com/blog/home")->writeToFile('sitemap.xml');
+    SitemapGenerator::create("https://david.dukesnuz.com/blog/home")->writeToFile('sitemap_david.xml');
     SitemapGenerator::create("http://dukesnuz.com")->writeToFile('sitemap_main.xml');
     return "sitemap created";
 });

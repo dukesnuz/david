@@ -24,7 +24,8 @@ class Kernel extends ConsoleKernel
     */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('inspire')->daily();
+        //below uncomment to run a cron in the kernel
+        $schedule->command('inspire')->everyTenMinutes(); //daily();
     }
 
     /**
