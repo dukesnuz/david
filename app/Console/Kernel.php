@@ -25,7 +25,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         //below uncomment to run a cron in the kernel
-        $schedule->command('inspire')->everyTenMinutes(); //daily();
+        //$schedule->command('inspire')->everyTenMinutes(); //daily();
+        $schedule->command('sitemap:generate')->everyTenMinutes();
     }
 
     /**
