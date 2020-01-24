@@ -12,8 +12,7 @@ npm-debug.log
 yarn-error.log
 <<<<<<< HEAD
 =======
-public/sitemap.xml
-public/sitemap_david.xml
-public/sitemap_main.xml
-notes-links.txt
+/public/sitemap.xml
+/public/sitemap_david.xml
+/public/sitemap_main.xml
 >>>>>>> 065947e2730ee56e3a58538f1d4ba7b28aa4fb02
