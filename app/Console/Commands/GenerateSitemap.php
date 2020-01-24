@@ -39,8 +39,9 @@ class GenerateSitemap extends Command
 
     public function emailNotification()
     {
-        $body = "sitemap.xml file was updated used cron and GenerateSitemap pacakge.\r\n";
-        $body .=  date('M-d-Y H:i:s');
+        date_default_timezone_set("America/Chicago");
+        $body = "Sitemap.xml file was updated. Cron and GenerateSitemap pacakge ran on Digital Ocean.\r\n";
+        $body .=  date('M-d-Y h:i:s') ." (cst)";
         $data = array(
       'email' => config('constants.email_dukesnuz'),
       'emailFrom' => config('constants.email_dukesnuz'),
