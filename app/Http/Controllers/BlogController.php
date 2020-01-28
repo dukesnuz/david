@@ -389,9 +389,8 @@ class BlogController extends Controller
     // get search results
     public function show($term)
     {
-        $tags = BlogTag::where('name', 'LIKE', '%'.$term.'%')->get();
-        // return links found
-        $urls = Blogpost::with('blogcategory')->with('blogtags')
+        // return found search results
+        $posts = Blogpost::with('blogcategory')->with('blogtags')
         ->where([['subject', 'LIKE', '%'.$term.'%'], ['is_live', '=', '1']])
         ->orWhere([['body', 'LIKE', '%'.$term.'%'], ['is_live', '=', '1']])
         ->orWhere([['url_friendly', 'LIKE', '%'.$term.'%'], ['is_live', '=', '1']])
@@ -409,8 +408,8 @@ class BlogController extends Controller
         $storeSearch->ip = request()->ip();
         $storeSearch->save();
 
-        //return collection of links as a resource
-        return Post::collection($urls);
+        //return collection of posts as a resource
+        return Post::collection($posts);
     }
 
     // get las x number of searches
