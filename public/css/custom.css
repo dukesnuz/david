@@ -125,11 +125,6 @@ a:hover {
     color: blue;
 }
 
-.google-ad-square {
-    height: 300px;
-    display: inline-block;
-}
-
 /***for small screens***/
 @media only screen and (max-width: 415px) {
     header {
