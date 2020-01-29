@@ -63,7 +63,8 @@ Route::get('about', function () {
 Route::get('uses', function () {
     return view('utilities.use')->with([
     'title' => '/uses | Dukesnuz',
-    'description' => "Tools I use to develop, code and build webpages and websites.",
+    'description' => "Tools I use to develop, code and build webpages and websites. I heard about this
+    idea, to make a Uses page, from Syntax.fm podcast. A podcast by Wes Bos and Scott Tilinski.",
     'keywords' => 'website development, builder',
     'author' => 'David Petringa, Page originally coded January 21, 2020'
   ]);
