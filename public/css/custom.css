@@ -125,6 +125,10 @@ a:hover {
     color: blue;
 }
 
+.col-md-2 {
+    display: inline-table;
+}
+
 /***for small screens***/
 @media only screen and (max-width: 415px) {
     header {
