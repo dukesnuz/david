@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>@yield('title')</title>
+        <title>@yield('title', 'Error')</title>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -53,7 +53,7 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title">
-                  <p>Ooopps! So Sorry for this.</p>
+                  <p>Ooopps! Page Error. So Sorry for this.</p>
                 </div>
                 <div class="body">
                   @yield('message')

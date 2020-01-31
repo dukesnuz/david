@@ -94,3 +94,9 @@ Route::group(['middleware' => 'auth'], function () {
 //added route files to app/Providers/RouteServiceProvider.php
 // blog routes added here
 Auth::routes();
+
+
+//Fallback/Catchall Route
+Route::fallback(function () {
+    return view('errors.layout');
+});
