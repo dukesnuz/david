@@ -129,6 +129,12 @@ a:hover {
     display: inline-table;
 }
 
+.errorMessage {
+    background-color: rgb(127, 255, 0);
+    padding-left: 25px;
+    font-weight: bold;
+}
+
 /***for small screens***/
 @media only screen and (max-width: 415px) {
     header {

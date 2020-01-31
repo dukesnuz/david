@@ -2802,7 +2802,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app",
@@ -2814,7 +2813,6 @@ __webpack_require__.r(__webpack_exports__);
       response: {},
       message: "",
       messageComments: "",
-      status: "",
       categories: [],
       tags: [],
       checkedTags: [],
@@ -2937,15 +2935,15 @@ __webpack_require__.r(__webpack_exports__);
             _this5.messageComments = "No comments";
           }
         } else {
-          _this5.status = "OOppss! System error 1. We apologize.";
+          _this5.message = "OOppss! System error 1. We apologize.";
           _this5.data = null;
         }
 
         if (response.data.messageReturned == "error") {
-          _this5.status = "OOppss! System error 2. We apologize.";
+          _this5.message = "OOppss! System error 2. We apologize.";
         }
       })["catch"](function (error) {
-        _this5.status = "OOpps. Error 3."; //error.response;
+        _this5.message = "OOpps. Error 3."; //error.response;
       });
     },
     editComment: function editComment(id, status) {
@@ -41065,10 +41063,6 @@ var render = function() {
       [
         _c("h3", [_vm._v("Edit This Blog Post")]),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.message))]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.status))]),
-        _vm._v(" "),
         _c("editor", {
           attrs: {
             "api-key": "8fvbyqp6y3crcp6loaupiilair2atyyfei80ao20yezogbuv",
@@ -41095,6 +41089,8 @@ var render = function() {
           }
         }),
         _vm._v(" "),
+        _c("p", { staticClass: "errorMessage" }, [_vm._v(_vm._s(_vm.message))]),
+        _vm._v(" "),
         _c(
           "form",
           {
@@ -41107,6 +41103,8 @@ var render = function() {
           },
           [
             _c("ul", [
+              _vm._m(0),
+              _vm._v(" "),
               _c("li", [
                 _c("label", { attrs: { for: "blog-category" } }, [
                   _vm._v("Category")
@@ -41402,16 +41400,12 @@ var render = function() {
                     }
                   }
                 })
-              ]),
-              _vm._v(" "),
-              _vm._m(0)
+              ])
             ])
           ]
         ),
         _vm._v(" "),
         _c("p", [_vm._v(_vm._s(_vm.message))]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.status))]),
         _vm._v(" "),
         _c("ul", [
           _vm.post.is_live

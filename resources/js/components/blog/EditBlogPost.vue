@@ -2,8 +2,6 @@
   <div class="blog-inner-content">
     <div class="edit-post">
       <h3>Edit This Blog Post</h3>
-      <p>{{ message }}</p>
-      <p>{{ status }}</p>
       <editor
         api-key="8fvbyqp6y3crcp6loaupiilair2atyyfei80ao20yezogbuv"
         cloud-channel="5"
@@ -19,8 +17,13 @@
         v-model="post.body"
       ></editor>
 
+      <p class="errorMessage">{{ message }}</p>
+
       <form v-on:submit.prevent="editPost()">
         <ul>
+          <li>
+            <input type="submit" value="Submit" />
+          </li>
           <li>
             <label for="blog-category">Category</label>
             <select v-model="post.blogcategory.categorys" name="category" id="blog-category">
@@ -74,14 +77,10 @@
             <label for="url-friendly">Url Friendly</label>
             <input type="text" name="url_friendly" id="url-friendly" v-model="post.url_friendly" />
           </li>
-          <li>
-            <input type="submit" value="Submit" />
-          </li>
         </ul>
       </form>
 
       <p>{{ message }}</p>
-      <p>{{ status }}</p>
 
       <ul>
         <li v-if="post.is_live " class="live">Post Live</li>
@@ -123,7 +122,6 @@ export default {
       response: {},
       message: "",
       messageComments: "",
-      status: "",
       categories: [],
       tags: [],
       checkedTags: [],
@@ -247,15 +245,15 @@ export default {
               this.messageComments = "No comments";
             }
           } else {
-            this.status = "OOppss! System error 1. We apologize.";
+            this.message = "OOppss! System error 1. We apologize.";
             this.data = null;
           }
           if (response.data.messageReturned == "error") {
-            this.status = "OOppss! System error 2. We apologize.";
+            this.message = "OOppss! System error 2. We apologize.";
           }
         })
         .catch(error => {
-          this.status = "OOpps. Error 3."; //error.response;
+          this.message = "OOpps. Error 3."; //error.response;
         });
     },
     editComment(id, status) {
