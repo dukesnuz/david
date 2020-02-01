@@ -42401,10 +42401,10 @@ var staticRenderFns = [
         _c("li", [
           _c(
             "a",
-            { attrs: { href: "https://amzn.to/2sIeZqJ", target: "blank" } },
+            { attrs: { href: "https://amzn.to/37QGY6S", target: "blank" } },
             [
               _c("span", { staticClass: "text-primary" }, [
-                _vm._v("Acer LED Technology")
+                _vm._v("Acer KA270H WideScreen LCD Monitor")
               ])
             ]
           ),

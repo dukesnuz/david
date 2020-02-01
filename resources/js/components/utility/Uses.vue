@@ -30,8 +30,8 @@
           </a> laptop with 17 inch screen
         </li>
         <li>
-          <a href="https://amzn.to/2sIeZqJ" target="blank">
-            <span class="text-primary">Acer LED Technology</span>
+          <a href="https://amzn.to/37QGY6S" target="blank">
+            <span class="text-primary">Acer KA270H WideScreen LCD Monitor</span>
           </a> for a second monitor
         </li>
         <li>Yealink VOIP Phone with Vonnage for service</li>
