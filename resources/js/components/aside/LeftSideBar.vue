@@ -26,6 +26,16 @@
     </div>
 
     <div class="box-3">
+      <a
+        href="https://area51.stackexchange.com/proposals/123753/laravel?referrer=ZmY4Yzc1ZGVmMjEzZjQ4MDFlNTFiNDI3ZmFjMzkyYzZkZDI4ODdmYTQxMmU3YjM5OTI3NTI1ODFiZDYyY2QxYjqI9f4-k1pDX0PbyR3soMzte3adaTdIAo_xP0-ysmvH0"
+      >
+        <img
+          src="https://area51.stackexchange.com/ads/proposal/123753.png"
+          width="300"
+          height="250"
+          alt="Stack Exchange Q&A site proposal: Laravel"
+        />
+      </a>
     </div>
   </div>
 </template>
