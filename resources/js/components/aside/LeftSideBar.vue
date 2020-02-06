@@ -26,6 +26,11 @@
     </div>
 
     <div class="box-3">
+      <h4>I Use
+      <a href="https://brave.com/dav264" target="blank">Brave Browser</a></h4>
+    </div>
+
+    <div class="box-4">
       <a
         href="https://area51.stackexchange.com/proposals/123753/laravel?referrer=ZmY4Yzc1ZGVmMjEzZjQ4MDFlNTFiNDI3ZmFjMzkyYzZkZDI4ODdmYTQxMmU3YjM5OTI3NTI1ODFiZDYyY2QxYjqI9f4-k1pDX0PbyR3soMzte3adaTdIAo_xP0-ysmvH0"
       >
@@ -49,12 +54,18 @@
 
 .box-1,
 .box-2,
+.box-3,
 .box-3 {
   margin-bottom: 10px;
   height: 250px;
   width: 300px;
 }
-
+.box-3 h4 {
+  padding-top: 25%;
+}
+.box-3 a {
+  color:mediumblue;
+}
 @media only screen and (min-width: 500px) {
   .aside-container {
     margin-top: 0px;

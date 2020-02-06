@@ -3826,6 +3826,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -8316,7 +8320,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.aside-container[data-v-b1152dfa] {\r\n  margin: auto;\r\n  margin-top: 25px;\r\n  width: 300px;\n}\n.box-1[data-v-b1152dfa],\r\n.box-2[data-v-b1152dfa],\r\n.box-3[data-v-b1152dfa] {\r\n  margin-bottom: 10px;\r\n  height: 250px;\r\n  width: 300px;\n}\n@media only screen and (min-width: 500px) {\n.aside-container[data-v-b1152dfa] {\r\n    margin-top: 0px;\r\n    margin-left: 50px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.aside-container[data-v-b1152dfa] {\r\n  margin: auto;\r\n  margin-top: 25px;\r\n  width: 300px;\n}\n.box-1[data-v-b1152dfa],\r\n.box-2[data-v-b1152dfa],\r\n.box-3[data-v-b1152dfa],\r\n.box-3[data-v-b1152dfa] {\r\n  margin-bottom: 10px;\r\n  height: 250px;\r\n  width: 300px;\n}\n.box-3 h4[data-v-b1152dfa] {\r\n  padding-top: 25%;\n}\n.box-3 a[data-v-b1152dfa] {\r\n  color:mediumblue;\n}\n@media only screen and (min-width: 500px) {\n.aside-container[data-v-b1152dfa] {\r\n    margin-top: 0px;\r\n    margin-left: 50px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -40554,6 +40558,17 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "box-3" }, [
+        _c("h4", [
+          _vm._v("I Use\n    "),
+          _c(
+            "a",
+            { attrs: { href: "https://brave.com/dav264", target: "blank" } },
+            [_vm._v("Brave Browser")]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "box-4" }, [
         _c(
           "a",
           {
@@ -42501,7 +42516,14 @@ var staticRenderFns = [
           _vm._v(" podcast.\n      ")
         ]),
         _vm._v(" "),
-        _c("li", [_vm._v("Brave browser mostly used when not developing")]),
+        _c("li", [
+          _c(
+            "a",
+            { attrs: { href: "https://brave.com/dav264", target: "blank" } },
+            [_c("span", { staticClass: "text-primary" }, [_vm._v("Brave")])]
+          ),
+          _vm._v(" browser used mostly when not developing\n      ")
+        ]),
         _vm._v(" "),
         _c("li", [
           _vm._v(

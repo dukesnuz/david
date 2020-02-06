@@ -67,7 +67,11 @@
             <span class="text-primary">Syntax.fm</span>
           </a> podcast.
         </li>
-        <li>Brave browser mostly used when not developing</li>
+        <li>
+          <a href="https://brave.com/dav264" target="blank">
+            <span class="text-primary">Brave</span>
+          </a> browser used mostly when not developing
+        </li>
         <li>Chrome browser only used for development to check page responsiveness on mobile devices</li>
         <li>
           Searching internet for coding answers I use
@@ -158,7 +162,6 @@ ul.uses {
   margin-right: 2%;
 }
 @media only screen and (min-width: 376px) {
-
   .flex-container {
     display: flex;
     flex-direction: row;
