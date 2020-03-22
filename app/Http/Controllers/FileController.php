@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Storage;
 use App\Carbon;
 
 
-
 class FileController extends Controller
 {
 
@@ -38,28 +37,28 @@ class FileController extends Controller
   public function getAFile($id)
   {
     $file = File::find($id);
+    $url = Storage::disk('s3')->$file->path;
+    /*temporaryUrl(
+    $file->path, \carbon\carbon::now()->addMinutes(5)
+  );*/
+  return view('file/file')->with([
+    'url'=> $url,
+    'title' => $file->title,
+    'description' => 'An image using Laravel with aws s3 integration.',
+    'keywords' => 'image',
+    'author' => 'David Petringa, Coded March 2020'
+  ]);
+}
 
-    $url = Storage::disk('s3')->temporaryUrl(
-      $file->path, \carbon\carbon::now()->addMinutes(5)
-    );
-    return view('file/file')->with([
-      'url'=> $url,
-      'title' => $file->title,
-      'description' => 'An image using Laravel with aws s3 integration.',
-      'keywords' => 'image',
-      'author' => 'David Petringa, Coded March 2020'
-    ]);
-  }
-
-  public function postUpload(StoreFile $request)
-  {
-    $path = Storage::disk('s3')->put('files/originals', $request->file);
-    //$path = 'dummy_path';
-    $request->merge([
-      'size' => $request->file->getClientSize(),
-      'path' => $path
-    ]);
-    $this->file->create($request->only('path', 'title', 'size'));
-    return back()->with('success', 'File Successfully Saved');
-  }
+public function postUpload(StoreFile $request)
+{
+  $path = Storage::disk('s3')->put('files/originals', $request->file);
+  //$path = 'dummy_path';
+  $request->merge([
+    'size' => $request->file->getClientSize(),
+    'path' => $path
+  ]);
+  $this->file->create($request->only('path', 'title', 'size'));
+  return back()->with('success', 'File Successfully Saved');
+}
 }
