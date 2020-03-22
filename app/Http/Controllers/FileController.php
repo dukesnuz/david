@@ -53,8 +53,8 @@ class FileController extends Controller
 
   public function postUpload(StoreFile $request)
   {
-    //$path = Storage::disk('s3')->put('files/originals', $request->file);
-    $path = 'dummy_path';
+    $path = Storage::disk('s3')->put('files/originals', $request->file);
+    //$path = 'dummy_path';
     $request->merge([
       'size' => $request->file->getClientSize(),
       'path' => $path
