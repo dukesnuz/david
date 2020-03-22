@@ -96,7 +96,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 // view uploaded files
 Route::get('/file/images',  'FileController@getFiles')->name('images-show');
-Route::get('/image/show/{id}', 'Filecontroller@getAFile')->name('image-show');
+Route::get('/image/show/{id}', 'FileController@getAFile')->name('image-show');
 
 //added route files to app/Providers/RouteServiceProvider.php
 // blog routes added here
