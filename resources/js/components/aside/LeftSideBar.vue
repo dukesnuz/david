@@ -27,18 +27,22 @@
     </div>
 
     <div class="box-3">
-      <h4>
+      <p>
         I Use
         <a href="https://brave.com/dav264" target="blank">Brave Browser</a>
-      </h4>
+      </p>
     </div>
 
     <div class="box-4">
-      <a
-        href="https://www.dpbolvw.net/click-4033838-12361085"
-        target="_top"
-      >Receive free shipping on any order over $100 with coupon code "FREE100".</a>
-      <img src="https://www.tqlkg.com/image-4033838-12361085" width="1" height="1" border="0" />
+      <a href="https://www.dpbolvw.net/click-4033838-13573130" target="_top">
+        <img
+          src="https://www.ftjcfx.com/image-4033838-13573130"
+          width="300"
+          height="250"
+          alt="SuppliesOutlet - Ink & Toner Cartridges"
+          border="0"
+        />
+      </a>
     </div>
   </div>
 </template>
@@ -58,8 +62,14 @@
   height: 250px;
   width: 300px;
 }
-.box-3 h4 {
+.box-3 {
+  text-align: center;
+  background-color: #ff5733;
+}
+.box-3 p {
   padding-top: 25%;
+  font-weight: bold;
+  font-size: 2em;
 }
 .box-3 a {
   color: mediumblue;

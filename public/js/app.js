@@ -8320,7 +8320,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.aside-container[data-v-b1152dfa] {\r\n  margin: auto;\r\n  margin-top: 25px;\r\n  width: 300px;\n}\n.box-1[data-v-b1152dfa],\r\n.box-2[data-v-b1152dfa],\r\n.box-3[data-v-b1152dfa],\r\n.box-3[data-v-b1152dfa] {\r\n  margin-bottom: 10px;\r\n  height: 250px;\r\n  width: 300px;\n}\n.box-3 h4[data-v-b1152dfa] {\r\n  padding-top: 25%;\n}\n.box-3 a[data-v-b1152dfa] {\r\n  color: mediumblue;\n}\n@media only screen and (min-width: 500px) {\n.aside-container[data-v-b1152dfa] {\r\n    margin-top: 0px;\r\n    margin-left: 50px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.aside-container[data-v-b1152dfa] {\r\n  margin: auto;\r\n  margin-top: 25px;\r\n  width: 300px;\n}\n.box-1[data-v-b1152dfa],\r\n.box-2[data-v-b1152dfa],\r\n.box-3[data-v-b1152dfa],\r\n.box-3[data-v-b1152dfa] {\r\n  margin-bottom: 10px;\r\n  height: 250px;\r\n  width: 300px;\n}\n.box-3[data-v-b1152dfa] {\r\n  text-align: center;\r\n  background-color: #ff5733;\n}\n.box-3 p[data-v-b1152dfa] {\r\n  padding-top: 25%;\r\n  font-weight: bold;\r\n  font-size: 2em;\n}\n.box-3 a[data-v-b1152dfa] {\r\n  color: mediumblue;\n}\n@media only screen and (min-width: 500px) {\n.aside-container[data-v-b1152dfa] {\r\n    margin-top: 0px;\r\n    margin-left: 50px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -40551,7 +40551,7 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "box-3" }, [
-        _c("h4", [
+        _c("p", [
           _vm._v("\n      I Use\n      "),
           _c(
             "a",
@@ -40566,25 +40566,22 @@ var staticRenderFns = [
           "a",
           {
             attrs: {
-              href: "https://www.dpbolvw.net/click-4033838-12361085",
+              href: "https://www.dpbolvw.net/click-4033838-13573130",
               target: "_top"
             }
           },
           [
-            _vm._v(
-              'Receive free shipping on any order over $100 with coupon code "FREE100".'
-            )
+            _c("img", {
+              attrs: {
+                src: "https://www.ftjcfx.com/image-4033838-13573130",
+                width: "300",
+                height: "250",
+                alt: "SuppliesOutlet - Ink & Toner Cartridges",
+                border: "0"
+              }
+            })
           ]
-        ),
-        _vm._v(" "),
-        _c("img", {
-          attrs: {
-            src: "https://www.tqlkg.com/image-4033838-12361085",
-            width: "1",
-            height: "1",
-            border: "0"
-          }
-        })
+        )
       ])
     ])
   }
