@@ -1,15 +1,16 @@
 <template>
   <div class="aside-container">
     <div class="box-1">
-      <a href="http://www.anrdoezrs.net/click-4033838-12937984" target="_blank">
-        <img
-          src="http://www.lduhtrp.net/image-4033838-12937984"
-          width="300"
-          height="250"
-          alt="100 PC SUPER SALE! 300x250"
-          border="0"
-        />
-      </a>
+      <iframe
+        src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=12&l=ez&f=ifr&linkID=6392acb2e116d7dbe1a634ed663b1c4c&t=dukesnuz2016-20&tracking_id=dukesnuz2016-20"
+        width="300"
+        height="250"
+        scrolling="no"
+        border="0"
+        marginwidth="0"
+        style="border:none;"
+        frameborder="0"
+      ></iframe>
     </div>
 
     <div class="box-2">
@@ -26,12 +27,18 @@
     </div>
 
     <div class="box-3">
-      <h4>I Use
-      <a href="https://brave.com/dav264" target="blank">Brave Browser</a></h4>
+      <h4>
+        I Use
+        <a href="https://brave.com/dav264" target="blank">Brave Browser</a>
+      </h4>
     </div>
 
     <div class="box-4">
-      <a href="https://www.dpbolvw.net/click-4033838-12361085" target="_top">Receive free shipping on any order over $100 with coupon code "FREE100".</a><img src="https://www.tqlkg.com/image-4033838-12361085" width="1" height="1" border="0"/>
+      <a
+        href="https://www.dpbolvw.net/click-4033838-12361085"
+        target="_top"
+      >Receive free shipping on any order over $100 with coupon code "FREE100".</a>
+      <img src="https://www.tqlkg.com/image-4033838-12361085" width="1" height="1" border="0" />
     </div>
   </div>
 </template>
@@ -55,7 +62,7 @@
   padding-top: 25%;
 }
 .box-3 a {
-  color:mediumblue;
+  color: mediumblue;
 }
 @media only screen and (min-width: 500px) {
   .aside-container {

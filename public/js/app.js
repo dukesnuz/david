@@ -8320,7 +8320,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.aside-container[data-v-b1152dfa] {\r\n  margin: auto;\r\n  margin-top: 25px;\r\n  width: 300px;\n}\n.box-1[data-v-b1152dfa],\r\n.box-2[data-v-b1152dfa],\r\n.box-3[data-v-b1152dfa],\r\n.box-3[data-v-b1152dfa] {\r\n  margin-bottom: 10px;\r\n  height: 250px;\r\n  width: 300px;\n}\n.box-3 h4[data-v-b1152dfa] {\r\n  padding-top: 25%;\n}\n.box-3 a[data-v-b1152dfa] {\r\n  color:mediumblue;\n}\n@media only screen and (min-width: 500px) {\n.aside-container[data-v-b1152dfa] {\r\n    margin-top: 0px;\r\n    margin-left: 50px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.aside-container[data-v-b1152dfa] {\r\n  margin: auto;\r\n  margin-top: 25px;\r\n  width: 300px;\n}\n.box-1[data-v-b1152dfa],\r\n.box-2[data-v-b1152dfa],\r\n.box-3[data-v-b1152dfa],\r\n.box-3[data-v-b1152dfa] {\r\n  margin-bottom: 10px;\r\n  height: 250px;\r\n  width: 300px;\n}\n.box-3 h4[data-v-b1152dfa] {\r\n  padding-top: 25%;\n}\n.box-3 a[data-v-b1152dfa] {\r\n  color: mediumblue;\n}\n@media only screen and (min-width: 500px) {\n.aside-container[data-v-b1152dfa] {\r\n    margin-top: 0px;\r\n    margin-left: 50px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -40510,26 +40510,19 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "aside-container" }, [
       _c("div", { staticClass: "box-1" }, [
-        _c(
-          "a",
-          {
-            attrs: {
-              href: "http://www.anrdoezrs.net/click-4033838-12937984",
-              target: "_blank"
-            }
-          },
-          [
-            _c("img", {
-              attrs: {
-                src: "http://www.lduhtrp.net/image-4033838-12937984",
-                width: "300",
-                height: "250",
-                alt: "100 PC SUPER SALE! 300x250",
-                border: "0"
-              }
-            })
-          ]
-        )
+        _c("iframe", {
+          staticStyle: { border: "none" },
+          attrs: {
+            src:
+              "//rcm-na.amazon-adsystem.com/e/cm?o=1&p=12&l=ez&f=ifr&linkID=6392acb2e116d7dbe1a634ed663b1c4c&t=dukesnuz2016-20&tracking_id=dukesnuz2016-20",
+            width: "300",
+            height: "250",
+            scrolling: "no",
+            border: "0",
+            marginwidth: "0",
+            frameborder: "0"
+          }
+        })
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "box-2" }, [
@@ -40559,7 +40552,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "box-3" }, [
         _c("h4", [
-          _vm._v("I Use\n    "),
+          _vm._v("\n      I Use\n      "),
           _c(
             "a",
             { attrs: { href: "https://brave.com/dav264", target: "blank" } },
@@ -40583,6 +40576,7 @@ var staticRenderFns = [
             )
           ]
         ),
+        _vm._v(" "),
         _c("img", {
           attrs: {
             src: "https://www.tqlkg.com/image-4033838-12361085",
