@@ -9,6 +9,7 @@ ul, li {
 
 body {
     background-color: #ccc;
+    font-size: 1.25em;
 }
 
 .container {
@@ -42,6 +43,7 @@ header h1 {
 
 nav {
     background-color: inherit;
+    font-size: .85em;
 }
 
 .alert {
