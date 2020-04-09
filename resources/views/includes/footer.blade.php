@@ -49,7 +49,7 @@
         <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
-    
+
       </div>
 
       <hr class="clearfix w-100 d-md-none">
@@ -81,13 +81,10 @@
 
           <div class="soap">
             <p>
-              I recently discovered Duke Cannon
-            </p>
-            <p>
-              <a href="https://dukecannon.com/?rfsn=3315585.912b22" target="blank">Check it out!</a>
-            </p>
-            <p>
-              I like the Big Ass Beer Soap
+              <a href="https://dukecannon.com/?rfsn=3315585.912b22" target="blank">
+                <img src="http://dukesnuz.com/images/duke-cannon-soap-04-04-20-06-31-32_FrontierBundle_300x250a.jpg"
+                 alt="duke cannon soap">
+              </a>
             </p>
           </div>
 
