@@ -53,10 +53,10 @@ class BlogController extends Controller
     public function index()
     {
         return view("blog.index")->with([
-              'title' => 'Website Development & Technology Blog | Dukesnuz',
-              'description' => 'A blog about website development and technology at Dukesnuz.
-               Coding tutorials and technolgy topics are the main subjects',
-              'keywords' => 'website development, computer technology',
+              'title' => 'Dukesnuz Blog',
+              'description' => 'A blog about website development, technology, transportation, comedy, politics,
+               history and subjects I find interesting',
+              'keywords' => 'website development, computer technology, comedy, politics, history',
            ]);
         ;
     }

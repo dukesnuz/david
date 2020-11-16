@@ -52,10 +52,10 @@ Route::get('links/search', 'UrlController@search');
 // Get about blade
 Route::get('about', function () {
   return view('utilities.about')->with([
-    'title' => 'About | Dukesnuz',
-    'description' => "A blog about website development and technology.
-    Also, Duke's favorite website links with an emphayis on website development and technology.",
-    'keywords' => 'website development, computer technology',
+    'title' => 'About Blog | Dukesnuz',
+    'description' => 'A blog about website development, technology, comedy, politics,
+     history and subjects I find interesting',
+    'keywords' => 'website development, computer technology, comedy, politics, history',
   ]);
 });
 
@@ -65,8 +65,8 @@ Route::get('uses', function () {
     'title' => '/uses | Dukesnuz',
     'description' => "Tools I use to develop, code and build webpages and websites. I heard about this
     idea, to make a Uses page, from Syntax.fm podcast. A podcast by Wes Bos and Scott Tilinski.",
-    'keywords' => 'website development, builder',
-    'author' => 'David Petringa, Page originally coded January 21, 2020'
+    'keywords' => 'website development, tools, builder',
+    'author' => 'David Petringa, Page originally coded January 21, 2019'
   ]);
 });
 

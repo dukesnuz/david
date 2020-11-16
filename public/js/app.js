@@ -3032,6 +3032,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -41526,7 +41527,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h1", [_vm._v("A Blog About Website Developement and Technology")]),
+    _c("h1", [_vm._v("The Blog At Dukesnuz")]),
     _vm._v("\n\n     " + _vm._s(_vm.message) + "\n  "),
     _vm._m(0),
     _vm._v(" "),
@@ -41576,7 +41577,7 @@ var staticRenderFns = [
       _vm._v("\n    Greetings! "),
       _c("br"),
       _vm._v(
-        "Welcome to my blog. I post topics I enjoy and\n    hope others will also. Most of my posts will be about transportation and web development.\n    If you enjoy this blog feel free to share on social media\n  "
+        "Welcome to my blog. I post topics I enjoy and\n    hope others will also. Most of my posts will be about transportation, website development, technology,\n    history, politcs and comedy.\n    If you enjoy this blog feel free to share on social media\n  "
       )
     ])
   }

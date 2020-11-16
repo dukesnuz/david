@@ -1,11 +1,12 @@
 <template>
   <div>
-      <h1>A Blog About Website Developement and Technology</h1>
+      <h1>The Blog At Dukesnuz</h1>
 
        {{ message }}
     <p class="blog-banner">
       Greetings! </br>Welcome to my blog. I post topics I enjoy and
-      hope others will also. Most of my posts will be about transportation and web development.
+      hope others will also. Most of my posts will be about transportation, website development, technology,
+      history, politcs and comedy.
       If you enjoy this blog feel free to share on social media
     </p>
 

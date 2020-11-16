@@ -2,13 +2,13 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset='utf-8'>
-        <meta name="description" content="Website development and technology blog. Also with a collection of
-        favorite web sites at Dukesnuz. There is a large concentration on website development.">
-        <meta name="keywords" content="website development, computer technology">
+        <meta name="description" content="A blog about website development, technology, comedy, politics,
+         history and subjects I find interesting">
+        <meta name="keywords" content="website development, computer technology, comedy, politics, history">
         <meta name="author" content="David Petringa, Coded November 2019">
         <meta name="viewport" content="width=device-width; initial-scale=1.0">
 
-        <title>Dukesnuz Blog and Favorite Websites</title>
+        <title>Dukesnuz Blog And Favorite Websites</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">

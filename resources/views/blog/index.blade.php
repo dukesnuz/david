@@ -4,7 +4,7 @@
 
 @section('content')
   <div id="app">
-        <blog-home></blog-home>
+      <blog-home></blog-home>
   </div>
 @endsection
 

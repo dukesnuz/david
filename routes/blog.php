@@ -9,19 +9,19 @@ Route::get('blog/home', 'BlogController@index');
 
 Route::get('/blog/show-blog-posts', function () {
     return view('blog.show-posts')->with([
-   'title' => 'Website Development & Technology Latest Blog Posts | Dukesnuz',
-   'description' => 'A blog about website development and technology at Dukesnuz.
-    Coding tutorials and technolgy topics are the main subjects',
-   'keywords' => 'website development, computer technology',
+   'title' => 'Show Blog Posts | Dukesnuz',
+   'description' => 'A blog about website development, technology, transportation, comedy, politics,
+    history and subjects I find interesting',
+   'keywords' => 'website development, computer technology, comedy, politics, history',
  ]);
 });
 
 Route::get('/blog/search', function () {
     return view('blog.search')->with([
-   'title' => 'Search Website Development & Technology Blog | Dukesnuz',
-   'description' => 'A blog about website development and technology at Dukesnuz.
-    Coding tutorials and technolgy topics are the main subjects',
-   'keywords' => 'website development, computer technology',
+   'title' => 'Search Blog Posts | Dukesnuz',
+   'description' => 'A blog about website development, technology, transportation, comedy, politics,
+    history and subjects I find interesting',
+   'keywords' => 'website development, computer technology, comedy, politics, history',
  ]);
 });
 
@@ -29,18 +29,19 @@ Route::get('/blog/search', function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/blog/show-all-blog-posts', function () {
         return view('blog.show-posts')->with([
-          'title' => 'Website Development & Technology Blog | Dukesnuz',
-          'description' => 'A blog about website development and technology at Dukesnuz.
-           Coding tutorials and technolgy topics are the main subjects',
-          'keywords' => 'website development, computer technology',
+          'title' => 'Show All Blog Posts | Dukesnuz',
+          'description' => 'A blog about website development, technology, comedy, politics,
+           history and subjects I find interesting',
+          'keywords' => 'website development, computer technology, comedy, politics, history',
        ]);
     });
 
     Route::get('/blog/create', function () {
         return view('blog.create-post')->with([
       'title' => 'Create Blog Post',
-      'description' => 'Website development and technology blog posts. ',
-      'keywords' => 'website developemnt, technology',
+      'description' => 'A blog about website development, technology, comedy, politics,
+       history and subjects I find interesting',
+      'keywords' => 'website development, computer technology, comedy, politics, history',
        ]);
     });
 
