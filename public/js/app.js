@@ -42217,7 +42217,7 @@ var render = function() {
             _vm._v(" "),
             _c("li", {
               staticClass: "blog-post-body",
-              domProps: { innerHTML: _vm._s(post.body.substring(0, 20)) }
+              domProps: { innerHTML: _vm._s(post.body.substring(0, 50)) }
             }),
             _vm._v(" "),
             post.is_live
@@ -42311,7 +42311,7 @@ var render = function() {
               _vm._v(" "),
               _c("li", {
                 staticClass: "blog-post-body",
-                domProps: { innerHTML: _vm._s(post.body.substring(0, 20)) }
+                domProps: { innerHTML: _vm._s(post.body.substring(0, 50)) }
               }),
               _vm._v(" "),
               _c("li", [

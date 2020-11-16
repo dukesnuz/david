@@ -11,7 +11,7 @@
       <h1>Blog Posts About Website Development and Technology</h1>
       <ul v-for="post in posts" v-bind:key="post.id" class="posts">
         <li class="blog-subject">{{ post.subject }}</li>
-        <li v-html="post.body.substring(0,20)" class="blog-post-body"></li>
+        <li v-html="post.body.substring(0,50)" class="blog-post-body"></li>
         <li>
           <a :href="`${post.id}/cat/slug`">
             <button type="button" class="btn btn-info">Read More</button>

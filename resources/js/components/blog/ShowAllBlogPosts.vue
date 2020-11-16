@@ -4,7 +4,7 @@
       <h1>Blog Posts About Website Development and Technology</h1>
       <ul v-for="post in posts" v-bind:key="post.id" class="posts">
         <li class="blog-subject">{{ post.subject }}</li>
-        <li v-html="post.body.substring(0,20)" class="blog-post-body"></li>
+        <li v-html="post.body.substring(0,50)" class="blog-post-body"></li>
         <li v-if="post.is_live">Live</li>
         <li v-else>Not Live</li>
         <li>
