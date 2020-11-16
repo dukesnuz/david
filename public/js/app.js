@@ -40631,7 +40631,7 @@ var render = function() {
               disabled: false,
               id: "uuid",
               init: {
-                plugins: "link, wordcount, image",
+                plugins: "link, wordcount, image, media",
                 default_link_target: "_blank"
               },
               "initial-value": "",
@@ -41099,7 +41099,7 @@ var render = function() {
             disabled: false,
             id: "uuid",
             init: {
-              plugins: "link, wordcount, image",
+              plugins: "link, wordcount, image, media",
               default_link_target: "_blank"
             },
             "initial-value": "",
