@@ -28,12 +28,6 @@
     <div class="flex-container">
       <h1 class="text-primary"><a href="/">Dukesnuz</a></h1>
       <div class="header-right">
-        <div class="digital-ocean-large">
-          <a href="https://m.do.co/c/3ec7cdf44173" target="_blank"><img src="http://dukesnuz.com/images/DO_Logo_Horizontal_Blue.png" alt="Digial Ocean Cloud Based Website Hosting"></a>
-        </div>
-        <div class="digital-ocean-small">
-          <a href="https://m.do.co/c/3ec7cdf44173" target="_blank"><span class="alert">Digital Ocean</span></a>
-        </div>
       </div>
     </div>
     <nav>

@@ -28,21 +28,15 @@
 
     <div class="box-3">
       <p>
-        I Use
-        <a href="https://brave.com/dav264" target="blank">Brave Browser</a>
+        <a href="https://brave.com/dav264" target="blank">I Use Brave Browser</a>
       </p>
     </div>
 
     <div class="box-4">
-      <a href="https://www.dpbolvw.net/click-4033838-13573130" target="_top">
-        <img
-          src="https://www.ftjcfx.com/image-4033838-13573130"
-          width="300"
-          height="250"
-          alt="SuppliesOutlet - Ink & Toner Cartridges"
-          border="0"
-        />
-      </a>
+        <p>
+          <a href="https://m.do.co/c/3ec7cdf44173" target="_blank">Digital Ocean <br>
+           Cloud based infastruture hosting company for deveoplers</a>
+      </p>
     </div>
   </div>
 </template>
@@ -57,21 +51,31 @@
 .box-1,
 .box-2,
 .box-3,
-.box-3 {
+.box-4 {
   margin-bottom: 10px;
   height: 250px;
   width: 300px;
 }
+.box-4 {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  line-height: 170%;
+}
 .box-3 {
   text-align: center;
+  padding-top: 20%;
   background-color: #ff5733;
 }
-.box-3 p {
-  padding-top: 25%;
+.box-4 {
+  text-align: center;
+  background-color: #fff;
+  padding: 5%;
+}
+.box-3 p, .box-4 p {
   font-weight: bold;
   font-size: 2em;
 }
-.box-3 a {
+.box-3 a, .box-4 a{
   color: mediumblue;
 }
 @media only screen and (min-width: 500px) {
