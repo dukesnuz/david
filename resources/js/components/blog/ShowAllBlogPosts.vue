@@ -1,7 +1,7 @@
 <template>
   <div class="inner-content flex-container">
     <div class="blog-post">
-      <h1>Blog Posts About Website Development and Technology</h1>
+      <h1>Blog About Website Development, Technology, Transportation and Much More</h1>
       <ul v-for="post in posts" v-bind:key="post.id" class="posts">
         <li class="blog-subject">{{ post.subject }}</li>
         <li v-html="post.body.substring(0,50)" class="blog-post-body"></li>

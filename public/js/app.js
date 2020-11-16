@@ -42206,7 +42206,9 @@ var render = function() {
       { staticClass: "blog-post" },
       [
         _c("h1", [
-          _vm._v("Blog Posts About Website Development and Technology")
+          _vm._v(
+            "Blog About Website Development, Technology, Transportation and Much More"
+          )
         ]),
         _vm._v(" "),
         _vm._l(_vm.posts, function(post) {
