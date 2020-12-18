@@ -4,7 +4,7 @@
 
 @section('content')
   <div id="app">
-    <index></index>
+    <Index></Index>
   </div>
 @endsection
 

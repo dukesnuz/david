@@ -60,3 +60,15 @@ Route::get('/get-comments/{id}', 'BlogController@getComments');
 Route::post('edit-comment-status/{id}/{status}', 'BlogController@editCommentStatus');
 // change post status live or not live
 Route::post('edit-post-status/{id}/{status}', 'BlogController@editPostStatus');
+
+/******************************
+*Routes for photo section
+**********/
+//create a new post
+//Route::post('/photo-store', 'AlbumController@store');
+
+
+// add a new category
+Route::post('/album-category-create', 'AlbumController@storeCategory');
+// add a new tag
+Route::post('/album-tag-create', 'AlbumController@storeTag');

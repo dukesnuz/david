@@ -2,13 +2,26 @@
 
 namespace David;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;//////////////////
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Photo extends Model
 {
   use SoftDeletes;
 
+  /* Fillable */
+  protected $fillable = [
+    'title', 'path', 'caption', 'category_id', 'meta_description', 'url_friendly', 'auth_by', 'is_live', 'ip', 'size'
+  ];
+
+  public static function boot()
+  {
+    parent::boot();
+    static::creating(function ($album) {
+      $album->auth_by =  1; // auth()->user()->id;
+    });
+  }
+  
   public function Photocategorys()
   {
       return $this->belongsTo('David\Photocategorys');
@@ -36,5 +49,6 @@ class Photo extends Model
       $category = Photocategory::findOrFail($this->category_id);
       $cat = $category->categorys;
       return action('PhotoController@photo', [$this->id, $cat, $this->slug]);
-  }
+ }
+
 }

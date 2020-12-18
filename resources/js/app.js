@@ -41,7 +41,8 @@ Vue.component('edit-blog-post', require('./components/blog/EditBlogPost.vue').de
 Vue.component('search-blog', require('./components/blog/Search.vue').default);
 Vue.component('searches-blog', require('./components/blog/Searches.vue').default);
 Vue.component('uses', require('./components/utility/Uses.vue').default);
-Vue.component('index', require('./components/album/index.vue').default);
+Vue.component('index', require('./components/album/Index.vue').default);
+Vue.component('photo-create', require('./components/album/PhotoCreate.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
