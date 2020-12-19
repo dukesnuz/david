@@ -45,16 +45,14 @@ class AlbumController extends Controller
   {
     $tagsForCheckboxes = Phototag::getPhotoTagsForCheckboxes();
     $categorys = Photocategory::orderBy('categorys', 'ASC')->get(['id', 'categorys']);
-//dd($categorys);
     return view('album.create')->with([
       'title' => 'Create Picture',
       'description' => 'Upload a picture',
       'keywords' => 'album',
       'author' => 'David Petringa, Coded Decemeber 2020',
-      'categorys' => $categorys,
+      'categorys' => Photocategory::getPhotocategorys(),
       'tags' => $tagsForCheckboxes,
     ]);
-
   }
 
   /**

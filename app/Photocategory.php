@@ -13,4 +13,11 @@ class Photocategory extends Model
   {
     return $this->hasMany('David\Photo');
   }
+
+  // return all categorys
+  public static function getPhotocategorys()
+  {
+    $Photocategorys = Photocategory::orderBy('categorys', 'ASC')->get();
+    return $Photocategorys;
+  }
 }
