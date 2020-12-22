@@ -68,7 +68,7 @@
 
                 <div class="form-group">
                   <label for="url_friendly">Url Friendly</label>
-                  <input name="url_friendly" id="url_friendly" class="form-control" value=""></tinput>
+                  <input name="url_friendly" id="url_friendly" class="form-control" value=""></input>
                   <span class="help-block text-danger">{{$errors->first('url_friendly')}}</span>
                 </div>
 

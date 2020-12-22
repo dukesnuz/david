@@ -21,34 +21,43 @@ class Photo extends Model
       $album->auth_by =  1; // auth()->user()->id;
     });
   }
-  
+
   public function Photocategorys()
   {
-      return $this->belongsTo('David\Photocategorys');
+    return $this->belongsTo('David\Photocategory');
   }
 
   public function phototags()
   {
-      return $this->belongsToMany('David\Phototag')->withTimeStamps();
+    return $this->belongsToMany('David\Phototag')->withTimeStamps();
   }
 
   public function photocomments()
   {
-      return $this->hasMany('David\Photocomments');
+    return $this->hasMany('David\Photocomment');
   }
 
   // get slug
   public function getSlugAttribute(): string
   {
-      return str_slug($this->url_friendly, "-");
+    return str_slug($this->url_friendly, "-");
   }
 
   // create a computed url
   public function getUrlAttribute(): string
   {
-      $category = Photocategory::findOrFail($this->category_id);
-      $cat = $category->categorys;
-      return action('PhotoController@photo', [$this->id, $cat, $this->slug]);
- }
+    $category = Photocategory::findOrFail($this->category_id);
+    $cat = $category->categorys;
+    return action('PhotoController@photo', [$this->id, $cat, $this->slug]);
+  }
+
+  // return category for this photo
+  public static function getCategory($id): string
+  {
+    $cat_id = Photo::findorFail($id);
+    $category = Photocategory::findOrFail($cat_id->category_id);
+    return $category['categorys'];
+  }
+
 
 }

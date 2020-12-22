@@ -43,4 +43,15 @@ class User extends Authenticatable
     return $this->hasMany(File::class, 'auth_by')->latest();
   }
 
+  // for uploading photos
+  public function photos()
+  {
+    return $this->hasMany(Photo::class, 'auth_by')->latest();
+  }
+
+  public function photofavorites()
+  {
+    return $this->hasMany('David\Photofavorite');
+  }
+
 }

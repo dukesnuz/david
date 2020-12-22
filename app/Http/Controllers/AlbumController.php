@@ -43,15 +43,13 @@ class AlbumController extends Controller
   */
   public function create()
   {
-    $tagsForCheckboxes = Phototag::getPhotoTagsForCheckboxes();
-    $categorys = Photocategory::orderBy('categorys', 'ASC')->get(['id', 'categorys']);
     return view('album.create')->with([
       'title' => 'Create Picture',
       'description' => 'Upload a picture',
       'keywords' => 'album',
       'author' => 'David Petringa, Coded Decemeber 2020',
       'categorys' => Photocategory::getPhotocategorys(),
-      'tags' => $tagsForCheckboxes,
+      'tags' => Phototag::getPhotoTagsForCheckboxes(),
     ]);
   }
 
@@ -63,21 +61,21 @@ class AlbumController extends Controller
   */
   public function store(StorePhoto $request)
   {
-//dd($request->meta_description);
-   $path = Storage::disk('local')->put('file/photos', $request->file);
+    //dd($request->toArray());
+    $path = Storage::disk('local')->put('file/photos', $request->file);
 
     $meta_description = ($request->meta_description == null)? $request->title ." ". $request->caption:$request->meta_description;
     $caption = ($request->caption == null)? Null: $request->caption;
 
-   $request->merge([
-     'size' => $request->file->getClientSize(),
-     'path' => $path,
-     'caption' => $caption,
-     'category_id' => $request->category,
-     'meta_description' => $meta_description,
-     'url_friendly' => $request->title,
-     'is_live' => 1,
-     'ip' => request()->ip(),
+    $request->merge([
+      'size' => $request->file->getClientSize(),
+      'path' => $path,
+      'caption' => $caption,
+      'category_id' => $request->category,
+      'meta_description' => $meta_description,
+      'url_friendly' => $request->title,
+      'is_live' => 1,
+      'ip' => request()->ip(),
     ]);
     // add to db
     $this->photo->create($request->only('path', 'title', 'caption', 'category_id', 'meta_description', 'url_friendly', 'is_live', 'ip',
@@ -105,7 +103,26 @@ class AlbumController extends Controller
   */
   public function edit($id)
   {
-    //
+    //dd(Photo::getCategory($id));
+    $photo = Photo::with('Phototags')
+    ->where('id', '=', $id)
+    ->get();
+    //dd($photo[0]['Phototags'][0]->toArray());
+    $newCurrentTags =  array();
+    foreach ($photo[0]['Phototags']->toArray() as $key => $value) {
+      array_push($newCurrentTags, $value['name']);
+    }
+    return view('album.edit')->with([
+      'title' => 'Edit Picture',
+      'description' => 'Edit a picture and data',
+      'keywords' => 'album',
+      'author' => 'David Petringa, Coded Decemeber 2020',
+      'categorys' => Photocategory::getPhotocategorys(),
+      'tags' => Phototag::getPhotoTagsForCheckboxes(),
+      'photo' => $photo[0],
+      'tagsCurrent' => $newCurrentTags, //$photo[0]['Phototags'][0]->toArray(),
+      'categoryCurrent'=> Photo::getCategory($id),
+    ]);
   }
 
   /**
@@ -115,9 +132,40 @@ class AlbumController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function update(Request $request, $id)
+  public function update(StorePhoto $request)
   {
-    //
+    //dd($request->toArray());
+    $meta_description = ($request->meta_description == null)? $request->title ." ". $request->caption:$request->meta_description;
+    $caption = ($request->caption == null)? Null: $request->caption;
+
+    $request->merge([
+      'caption' => $request->caption,
+      'category_id' => $request->category,
+      'meta_description' => $request->meta_description,
+      'url_friendly' => $request->title,
+      'is_live' => $request->is_live,
+      'ip' => request()->ip(),
+    ]);
+    // add to db
+    # If there were tags selected...
+
+    $edit = Photo::find($request->id);
+    $edit->title = $request->title;
+    $edit->category_id = $request->category_id;
+    $edit->caption = $caption;
+    $edit->meta_description = $meta_description;
+    $edit->url_friendly = $request->title;
+    $edit->is_live = $request->is_live;
+    $edit->ip = request()->ip();
+    if($request->tags) {
+      $tags = $request->tags;
+      $edit->Phototags()->sync($tags);
+    } else {
+      $edit->Phototags()->detach();
+    }
+    $edit->save();
+
+    return back()->with('success', 'Photo Data Successfully Saved');
   }
 
   /**

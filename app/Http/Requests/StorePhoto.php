@@ -13,7 +13,7 @@ class StorePhoto extends FormRequest
   */
   public function authorize()
   {
-    return true;
+   return true;
   }
 
   /**
@@ -23,14 +23,16 @@ class StorePhoto extends FormRequest
   */
   public function rules()
   {
-    return [
+  //  return [];
+   return [
       'title' => 'required|max:150',
       'category' => 'required',
       'caption' => 'max:150',
       'url_friendly' => 'max:250',
       'meta_description' => 'max:250',
-      //'file' => 'required|image|max:100000',
-      'file.*' => 'required|mimes:pdf, jpeg, bmp, png, tiff',
+      'is_live' => 'required',
+      'file' => 'required|image|max:100000',
+      //'file.*' => 'required|mimes:pdf, jpeg, bmp, png, tiff',
     ];
   }
 }
