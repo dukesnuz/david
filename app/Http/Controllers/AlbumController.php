@@ -64,8 +64,9 @@ class AlbumController extends Controller
     //dd($request->toArray());
     $path = Storage::disk('local')->put('file/photos', $request->file);
 
-    $meta_description = ($request->meta_description == null)? $request->title ." ". $request->caption:$request->meta_description;
-    $caption = ($request->caption == null)? Null: $request->caption;
+    $meta_description = ($request->meta_description !== null)? $request->meta_description:$request->title ." ". $request->caption;
+    $caption = ($request->caption !== null)? $request->caption:Null;
+    $url_friendly = ($request->url_friendly !== null)? $request->url_friendly : $request->title;
 
     $request->merge([
       'size' => $request->file->getClientSize(),
@@ -73,8 +74,8 @@ class AlbumController extends Controller
       'caption' => $caption,
       'category_id' => $request->category,
       'meta_description' => $meta_description,
-      'url_friendly' => $request->title,
-      'is_live' => 1,
+      'url_friendly' => $url_friendly,
+      'is_live' => \Auth::id(),
       'ip' => request()->ip(),
     ]);
     // add to db
@@ -135,14 +136,15 @@ class AlbumController extends Controller
   public function update(StorePhoto $request)
   {
     //dd($request->toArray());
-    $meta_description = ($request->meta_description == null)? $request->title ." ". $request->caption:$request->meta_description;
-    $caption = ($request->caption == null)? Null: $request->caption;
-
+    $meta_description = ($request->meta_description !== null)? $request->meta_description:$request->title ." ". $request->caption;
+    $caption = ($request->caption !== null)? $request->caption:Null;
+    $url_friendly = ($request->url_friendly !== null)? $request->url_friendly : $request->title;
+    
     $request->merge([
       'caption' => $request->caption,
       'category_id' => $request->category,
       'meta_description' => $request->meta_description,
-      'url_friendly' => $request->title,
+      'url_friendly' => $url_friendly,
       'is_live' => $request->is_live,
       'ip' => request()->ip(),
     ]);

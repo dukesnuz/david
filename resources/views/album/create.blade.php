@@ -78,20 +78,33 @@
                   <span class="help-block text-danger">{{$errors->first('meta_description')}}</span>
                 </div>
 
-                <button class="btn btn-primary">Upload</button>
-              </form>
+                <div class="form-group">
+                  <div class="radio-inline">
+                    <label for="true">
+                      <input type="radio" id="true" name="is_live" value="1" CHECKED >Make Live</label>
+                    </div>
+
+                    <div class="radio-inline">
+                      <label for="false">
+                        <input type="radio" id="false" name="is_live" value="0">Make Not Live</label>
+                      </div>
+                      <span class="help-block text-danger">{{$errors->first('is_live')}}</span>
+                    </div>
+
+                    <button class="btn btn-primary">Upload</button>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div id="app">
-      <photo-create/>
-    </div>
-    <div class="clearFix"></div>
-    @endsection
+        <div id="app">
+          <photo-create/>
+        </div>
+        <div class="clearFix"></div>
+        @endsection
 
-    @section('appjs')
-    <script src="{{ asset('js/app.js')}}"></script>
-    @endsection
+        @section('appjs')
+        <script src="{{ asset('js/app.js')}}"></script>
+        @endsection
