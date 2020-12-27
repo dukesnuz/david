@@ -72,3 +72,6 @@ Route::post('edit-post-status/{id}/{status}', 'BlogController@editPostStatus');
 Route::post('/album-category-create', 'AlbumController@storeCategory');
 // add a new tag
 Route::post('/album-tag-create', 'AlbumController@storeTag');
+
+// get all photos, first checks if user has favorites
+Route::get('/album-show-all-photos/{id}', 'AlbumController@showAllPhotos');

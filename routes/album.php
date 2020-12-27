@@ -2,7 +2,10 @@
 /****************************
 * These routes are for the photo album
 *********************/
+Auth::routes();
 
+// Routes for logged in users
+Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/photoalbum', 'AlbumController@index');
 
@@ -18,4 +21,4 @@ Route::post('/photoalbum/store', 'AlbumController@store')->name('upload-picture'
 //edit picture data
 Route::post('/photoalbum/update', 'AlbumController@update')->name('update-picture');
 
-Auth::routes();
+});

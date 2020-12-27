@@ -5,15 +5,16 @@ namespace David\Http\Controllers;
 use Illuminate\Http\Request;
 use David\Http\Requests\StorePhoto;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use David\Photocategory;
 use David\Phototag;
 use David\Carbon;
 use David\Photo;
 use David\Album;
+use David\Photofavorite;
 
 class AlbumController extends Controller
 {
-
 
   private $photo;
   public function __construct(Photo $photo)
@@ -28,11 +29,18 @@ class AlbumController extends Controller
   */
   public function index()
   {
+    $id = 0;
+    //there is a user logged in, now to get the id
+    if (Auth::check()) {
+     $id = auth()->user()->id;
+  }
+
     return view('album.index')->with([
       'title' => 'Photo Album',
       'description' => 'A photo album of pictures of family and friends',
       'keywords' => 'pictures, family, friends',
-      'author' => 'David Petringa, Coded December 2020'
+      'author' => 'David Petringa, Coded December 2020',
+      'id' => $id,
     ]);
   }
 
@@ -62,14 +70,19 @@ class AlbumController extends Controller
   public function store(StorePhoto $request)
   {
     //dd($request->toArray());
-    $path = Storage::disk('local')->put('file/photos', $request->file);
+    if($request->file->getSize() > 999999) {
+        return back()->with('success', 'Photo is too large');
+    }
+
+    $path = Storage::disk('public')->put('images', $request->file);
 
     $meta_description = ($request->meta_description !== null)? $request->meta_description:$request->title ." ". $request->caption;
     $caption = ($request->caption !== null)? $request->caption:Null;
     $url_friendly = ($request->url_friendly !== null)? $request->url_friendly : $request->title;
 
     $request->merge([
-      'size' => $request->file->getClientSize(),
+      //'size' => $request->file->getClientSize(),
+      'size' => $request->file->getSize(),
       'path' => $path,
       'caption' => $caption,
       'category_id' => $request->category,
@@ -139,7 +152,7 @@ class AlbumController extends Controller
     $meta_description = ($request->meta_description !== null)? $request->meta_description:$request->title ." ". $request->caption;
     $caption = ($request->caption !== null)? $request->caption:Null;
     $url_friendly = ($request->url_friendly !== null)? $request->url_friendly : $request->title;
-    
+
     $request->merge([
       'caption' => $request->caption,
       'category_id' => $request->category,
@@ -203,5 +216,21 @@ class AlbumController extends Controller
     $store->name = ucfirst(strtolower($request->input('name')));
     $store->save();
     return response()->JSON(array('messageReturned' => 'ok'));
+  }
+
+  // get all photos, first check if user has favorites
+  public function showAllPhotos($id)
+  {
+  $favorites = Photofavorite::showUserFavorites($id);
+    // check if user has favorites
+    if(empty($favorites)) {
+    $photos = Photo::where('is_live', '=', 1)->get();
+    foreach ($photos as $key => $v) {
+       $v['path'] = 'storage/'.$v['path'];
+    }
+      return response()->JSON(array('messageReturned' => 'ok', 'photos' => $photos->toArray()));
+    } else {
+     return response()->JSON(array('messageReturned' => 'ok', 'photos' => $favorites));
+   }
   }
 }

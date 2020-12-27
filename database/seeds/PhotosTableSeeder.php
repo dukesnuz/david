@@ -36,7 +36,7 @@ class PhotosTableSeeder extends Seeder
       'size' => 2,
       'meta_description' => 'meta description 2',
       'url_friendly' => 'url friendly 1',
-      'is_live' => 2,
+      'is_live' => 0,
       'auth_by' => 2,
       'ip' => '222.56.789',
     ]);
@@ -51,8 +51,8 @@ class PhotosTableSeeder extends Seeder
       'size' => 3,
       'meta_description' => 'meta description 3',
       'url_friendly' => 'url friendly 3',
-      'is_live' => 3,
-      'auth_by' => 3,
+      'is_live' => 1,
+      'auth_by' => 1,
       'ip' => '333.56.789',
     ]);
   }
