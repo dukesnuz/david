@@ -18,7 +18,7 @@ class PhotocommentsTableSeeder extends Seeder
       'created_at' => Carbon\Carbon::now()->toDateTimeString(),
       'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
       'comment' => 'Comment one',
-      'email_id' => 1,
+      'user_id' => 1,
       'photo_id' => $photo_id,
       'ip' => '123.45.789',
     ]);
@@ -29,7 +29,7 @@ $photo_id = Photo::where('title','=','title 2')->pluck('id')->first();
       'created_at' => Carbon\Carbon::now()->toDateTimeString(),
       'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
       'comment' => 'Comment three',
-      'email_id' => 2,
+      'user_id' => 2,
       'photo_id' => $photo_id,
       'ip' => '222.45.789',
     ]);
@@ -40,7 +40,7 @@ $photo_id = Photo::where('title','=','title 3')->pluck('id')->first();
       'created_at' => Carbon\Carbon::now()->toDateTimeString(),
       'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
       'comment' => 'Comment three',
-      'email_id' => 3,
+      'user_id' => 3,
       'photo_id' => $photo_id,
       'ip' => '333.45.789',
     ]);

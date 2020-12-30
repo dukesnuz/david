@@ -20,7 +20,7 @@ class CreatePhotocommentsTable extends Migration
         $table->string('comment', 255);
         $table->tinyInteger('is_live')->default(0);
         $table->integer('photo_id')->unsigned();
-        $table->integer('email_id')->unsigned();
+        $table->integer('user_id')->unsigned();
         $table->ipAddress('ip');
         $table->softDeletes();
       });

@@ -1,4 +1,4 @@
-<template>
+<!--<template>
   <div class="blog-inner-content flex-container">
     <div class="add-c-t">
       <p class="alert alert-success sm">{{ message }}</p>

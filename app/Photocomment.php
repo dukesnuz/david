@@ -4,6 +4,7 @@ namespace David;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use David\User;
 
 class Photocomment extends Model
 {
@@ -13,9 +14,5 @@ class Photocomment extends Model
   {
     return $this->belongsTo('David\Photo');
   }
-
-  public function email()
-  {
-    return $this->belongsTo('David\Email');
-  }
+  
 }

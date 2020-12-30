@@ -24,7 +24,7 @@ class CreatePhotosTable extends Migration
       $table->string('meta_description', 250);
       $table->string('url_friendly', 250);
       $table->tinyInteger('is_live')->default(0);
-      $table->unsignedInteger('auth_by')->unsigned();;
+      $table->unsignedInteger('auth_by')->unsigned();
       $table->ipAddress('ip');
       $table->softDeletes();
     });

@@ -59,5 +59,4 @@ class Photo extends Model
     return $category['categorys'];
   }
 
-
 }

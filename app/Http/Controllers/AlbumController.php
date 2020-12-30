@@ -12,6 +12,7 @@ use David\Carbon;
 use David\Photo;
 use David\Album;
 use David\Photofavorite;
+use David\Photocomment;
 
 class AlbumController extends Controller
 {
@@ -32,8 +33,8 @@ class AlbumController extends Controller
     $id = 0;
     //there is a user logged in, now to get the id
     if (Auth::check()) {
-     $id = auth()->user()->id;
-  }
+       $id = auth()->user()->id;
+    }
 
     return view('album.index')->with([
       'title' => 'Photo Album',
@@ -71,7 +72,7 @@ class AlbumController extends Controller
   {
     //dd($request->toArray());
     if($request->file->getSize() > 999999) {
-        return back()->with('success', 'Photo is too large');
+      return back()->with('success', 'Photo is too large');
     }
 
     $path = Storage::disk('public')->put('images', $request->file);
@@ -106,7 +107,33 @@ class AlbumController extends Controller
   */
   public function show($id)
   {
-    //
+    //dd(Photo::getCategory($id));
+    $photo = Photo::with('Phototags')
+    ->where('id', '=', $id)
+    ->first();
+    //$user = auth()->user();
+    //dd(auth()->user()->id);
+    //dd($photo[0]['Phototags'][0]->toArray());
+    $newCurrentTags =  array();
+    foreach ($photo['Phototags']->toArray() as $key => $value) {
+      array_push($newCurrentTags, $value['name']);
+    }
+    $photo->path = "storage/".$photo->path;
+    //dd($photo);
+    return view('album.show-photo')->with([
+      'id' => $id,
+      'title' => 'Show Picture',
+      'description' => 'Show a picture and data',
+      'keywords' => 'album',
+      'author' => 'David Petringa, Coded Decemeber 2020',
+      //'categorys' => Photocategory::getPhotocategorys(),
+      //  'tags' => Phototag::getPhotoTagsForCheckboxes(),
+      'photo' => $photo,
+      'tagsCurrent' => $newCurrentTags, //$photo[0]['Phototags'][0]->toArray(),
+      'categoryCurrent'=> Photo::getCategory($id),
+      'userName' => auth()->user()->name,
+      'userId' => auth()->user()->id,
+    ]);
   }
 
   /**
@@ -221,16 +248,65 @@ class AlbumController extends Controller
   // get all photos, first check if user has favorites
   public function showAllPhotos($id)
   {
-  $favorites = Photofavorite::showUserFavorites($id);
+    $favorites = Photofavorite::showUserFavorites($id);
     // check if user has favorites
     if(empty($favorites)) {
-    $photos = Photo::where('is_live', '=', 1)->get();
-    foreach ($photos as $key => $v) {
-       $v['path'] = 'storage/'.$v['path'];
-    }
+      $photos = Photo::where('is_live', '=', 1)->get();
+      foreach ($photos as $key => $v) {
+        $v['path'] = 'storage/'.$v['path'];
+      }
       return response()->JSON(array('messageReturned' => 'ok', 'photos' => $photos->toArray()));
     } else {
-     return response()->JSON(array('messageReturned' => 'ok', 'photos' => $favorites));
-   }
+      return response()->JSON(array('messageReturned' => 'ok', 'photos' => $favorites));
+    }
   }
+
+  // store a comment for a photo
+  public function storeComment(Request $request)
+  {
+    //dd($request->toArray());
+    // Store new category in db
+    $store = new Photocomment();
+    $store->comment = $request->input('comment');
+    $store->user_id = $request->input('userId');
+    $store->photo_id = $request->input('photoId');
+    $store->is_live = 1;
+    $store->ip = request()->ip();
+    $store->save();
+
+    if($store !== "" || $store !== null) {
+      return response()->JSON(array('messageReturned' => 'ok'));
+    } else {
+      return response()->JSON(array('messageReturned' => 'error'));
+    }
+  }
+
+  // show comments for a photo
+  /**
+  * Display the specified resource.
+  *
+  * @param  int  $id
+  * @return \Illuminate\Http\Response
+  */
+  public function showComments($id)
+  {
+      $comments = \DB::select( \DB::raw("
+      SELECT Photocomments.comment, DATE_FORMAT(Photocomments.created_at, '%M %D %Y') AS Date, Users.name
+      FROM Photocomments
+      INNER JOIN Users ON Users.id = Photocomments.user_id
+      WHERE
+      Photocomments.is_live = 1
+      And
+      Photo_id = '$id'
+      ORDER BY Photocomments.created_at DESC
+      ") );
+    //dd($comments);
+    if(!empty($comments)){
+      return response()->JSON(array('messageReturned' => 'ok', 'comments' => $comments));
+    } else {
+      return response()->JSON(array('messageReturned' => 'no_comments', 'comments' => ""));
+    }
+
+  }
+
 }

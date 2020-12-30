@@ -75,3 +75,9 @@ Route::post('/album-tag-create', 'AlbumController@storeTag');
 
 // get all photos, first checks if user has favorites
 Route::get('/album-show-all-photos/{id}', 'AlbumController@showAllPhotos');
+
+// get all comments for a photo
+Route::get('/album-show-all-comments/{id}', 'AlbumController@showComments');
+
+// create a photo comment
+Route::post('/photo-comment-create', 'AlbumController@storeComment');

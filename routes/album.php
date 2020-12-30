@@ -21,4 +21,8 @@ Route::post('/photoalbum/store', 'AlbumController@store')->name('upload-picture'
 //edit picture data
 Route::post('/photoalbum/update', 'AlbumController@update')->name('update-picture');
 
+//return blade to display one photo
+Route::get('/photoalbum/photo/{id}/cat/slug', 'AlbumController@show');
+
+
 });
